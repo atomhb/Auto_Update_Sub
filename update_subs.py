@@ -10,53 +10,30 @@ import subprocess
 from datetime import datetime
 from urllib.parse import unquote, urlparse, parse_qs
 
-# --- 配置 ---
-# 订阅链接文件路径
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
-# 输出的 Clash 订阅文件路径
-OUTPUT_CLASH_FILE = 'update_subs.yaml'
-# 输出的更新时间记录文件路径
+OUTPUT_CLASH_FILE = 'clash_subscription.yaml'
 UPDATE_TIME_FILE = 'update_time.txt'
 MAX_LATENCY_MS = 500
-# 真实延迟测试相关配置
 REAL_TEST_URL = 'https://www.gstatic.com/generate_204'
-REAL_TEST_TIMEOUT = 5  # 秒
-XRAY_PATH = './xray'  # Xray-core 可执行文件路径
+REAL_TEST_TIMEOUT = 5
+XRAY_PATH = './xray'
 XRAY_CONFIG_FILE = 'xray_config.json'
-LOCAL_SOCKS_PORT = 10808 # Xray 监听的本地 SOCKS 端口
+LOCAL_SOCKS_PORT = 10808
+
 
 def get_subscription_content(url):
-    """通过 URL 获取订阅内容。"""
     headers = {'User-Agent': 'Clash/1.11.0'}
     try:
         print(f"正在获取订阅: {url}")
         response = requests.get(url, timeout=15, headers=headers)
-        response.raise_for_status()
-        # 统一使用 utf-8 编码读取
-        response.encoding = 'utf-8'
+        response.raise_for_status(); response.encoding = 'utf-8'
         return response.text
-    except requests.RequestException as e:
-        print(f"获取订阅失败: {url}, 错误: {e}")
-        return None
-
+    except requests.RequestException as e: print(f"获取订阅失败: {url}, 错误: {e}"); return None
 def decode_base64_content(content):
-    """
-    解码 Base64 编码的订阅内容。
-    增加错误捕获，防止因非 Base64 字符导致程序崩溃。
-    """
     try:
-        missing_padding = len(content) % 4
-        if missing_padding:
-            content += '=' * (4 - missing_padding)
-        # 先将字符串编码为 ascii，再进行 base64 解码
-        decoded_bytes = base64.b64decode(content.encode('ascii'))
-        return decoded_bytes.decode('utf-8')
-    except (binascii.Error, UnicodeDecodeError, ValueError) as e:
-        print(f"Base64 解码失败: {e}")
-        return None
-
-# <--- 此处省略了所有 parse_..._link 函数，它们与上一版本相同 --->
-# <--- 请确保您的文件中保留了这些解析函数 --->
+        if len(content) % 4 != 0: content += '=' * (4 - len(content) % 4)
+        return base64.b64decode(content.encode('ascii')).decode('utf-8')
+    except (Exception) as e: print(f"Base64 解码失败: {e}"); return None
 def parse_node(link):
     link = link.strip()
     if link.startswith('ss://'): return parse_ss_link(link)
@@ -76,8 +53,8 @@ def parse_ss_link(ss_link):
     except Exception as e: print(f"解析 SS 链接失败: {ss_link}, 错误: {e}"); return None
 def parse_vmess_link(vmess_link):
     try:
-        if len(vmess_link[8:]) % 4 != 0: vmess_link += '=' * (4 - len(vmess_link[8:]) % 4)
-        decoded_link = base64.b64decode(vmess_link[8:]).decode('utf-8'); vmess_data = json.loads(decoded_link)
+        b64_str = vmess_link[8:]; b64_str += '=' * (-len(b64_str) % 4)
+        vmess_data = json.loads(base64.b64decode(b64_str).decode('utf-8'))
         node = {'name': vmess_data.get('ps', vmess_data.get('add')), 'type': 'vmess', 'server': vmess_data.get('add'), 'port': int(vmess_data.get('port')), 'uuid': vmess_data.get('id'), 'alterId': int(vmess_data.get('aid')), 'cipher': vmess_data.get('scy', 'auto'), 'udp': True, 'tls': vmess_data.get('tls') == 'tls', 'network': vmess_data.get('net')}
         if node['tls']: node['servername'] = vmess_data.get('sni', vmess_data.get('host', ''))
         if node['network'] == 'ws': node['ws-opts'] = {'path': vmess_data.get('path', '/'), 'headers': {'Host': vmess_data.get('host')} if vmess_data.get('host') else {}}
@@ -112,142 +89,135 @@ def parse_hysteria2_link(hy2_link):
 
 
 def generate_xray_config(node):
-    # ... 此函数与上一版本相同 ...
-    if node['type'] not in ['vmess', 'vless', 'trojan', 'ss']: raise ValueError(f"不支持的节点类型: {node['type']}")
-    outbound_settings = {"vnext": [{"address": node['server'], "port": node['port'], "users": []}]}
-    if node['type'] == 'vmess': outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "alterId": node.get('alterId', 0), "security": node.get('cipher', 'auto')})
-    elif node['type'] == 'vless': outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "flow": node.get('flow', ''), "encryption": "none"})
-    elif node['type'] == 'trojan': outbound_settings['vnext'][0]['users'].append({"password": node['password']})
-    elif node['type'] == 'ss': outbound_settings['vnext'][0]['users'].append({"method": node['cipher'], "password": node['password']})
+    """
+    根据节点信息动态生成 Xray 配置文件字典。
+    已修复所有已知问题。
+    """
+    protocol_map = {'ss': 'shadowsocks', 'vmess': 'vmess', 'vless': 'vless', 'trojan': 'trojan'}
+    xray_protocol = protocol_map.get(node['type'])
+    if not xray_protocol:
+        raise ValueError(f"不支持的节点类型: {node['type']}")
+
+    if node['type'] == 'trojan':
+        # Trojan 使用 "servers" 结构
+        outbound_settings = {
+            "servers": [{
+                "address": node['server'],
+                "port": node['port'],
+                "password": node['password']
+            }]
+        }
+    else:
+        # 其他协议 (VMess, VLESS, SS) 使用 "vnext" 结构
+        outbound_settings = {"vnext": [{"address": node['server'], "port": node['port'], "users": []}]}
+        if node['type'] == 'vmess':
+            outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "alterId": node.get('alterId', 0), "security": node.get('cipher', 'auto')})
+        elif node['type'] == 'vless':
+            outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "flow": node.get('flow', ''), "encryption": "none"})
+        elif node['type'] == 'ss':
+            outbound_settings['vnext'][0]['users'].append({"method": node['cipher'], "password": node['password']})
+
     stream_settings = {"network": node.get('network', 'tcp')}
-    if node.get('tls', False): stream_settings['security'] = 'tls'; stream_settings['tlsSettings'] = {"serverName": node.get('servername', node.get('sni', node['server']))}
-    if node.get('network') == 'ws': stream_settings['wsSettings'] = {"path": node.get('ws-opts', {}).get('path', '/'), "headers": node.get('ws-opts', {}).get('headers', {})}
-    return {"inbounds": [{"port": LOCAL_SOCKS_PORT, "listen": "127.0.0.1", "protocol": "socks", "settings": {"auth": "noauth", "udp": True}}], "outbounds": [{"protocol": node['type'], "settings": outbound_settings, "streamSettings": stream_settings}]}
+    if node.get('tls', False):
+        stream_settings['security'] = 'tls'
+        stream_settings['tlsSettings'] = {"serverName": node.get('servername', node.get('sni', node['server']))}
+    
+    if node.get('network') == 'ws':
+        ws_opts, ws_headers = node.get('ws-opts', {}), node.get('ws-opts', {}).get('headers', {})
+        host = ws_headers.get('Host')
+        stream_settings['wsSettings'] = {"path": ws_opts.get('path', '/')}
+        if host: stream_settings['wsSettings']['host'] = host
+    
+    config = {
+        "inbounds": [{"port": LOCAL_SOCKS_PORT, "listen": "127.0.0.1", "protocol": "socks", "settings": {"auth": "noauth", "udp": True}}],
+        "outbounds": [{"protocol": xray_protocol, "settings": outbound_settings, "streamSettings": stream_settings}]
+    }
+    return config
 
 def test_node_real_latency(node):
-    # ... 此函数与上一版本相同 ...
     if node['type'] in ['hysteria', 'hysteria2']:
         try:
             addr = (node['server'], int(node['port'])); start_time = time.time()
-            with socket.create_connection(addr, timeout=REAL_TEST_TIMEOUT / 2): end_time = time.time()
+            with socket.create_connection(addr, timeout=2.5): end_time = time.time()
             return int((end_time - start_time) * 1000)
-        except (socket.timeout, ConnectionRefusedError, OSError): return -1
+        except: return -1
+
     try:
         config = generate_xray_config(node)
         with open(XRAY_CONFIG_FILE, 'w') as f: json.dump(config, f)
-    except Exception as e: print(f"生成配置失败: {e}", end=""); return -1
+    except Exception as e:
+        print(f"生成配置失败: {e}", end=""); return -1
+
     process = None
     try:
-        process = subprocess.Popen([XRAY_PATH, 'run', '-c', XRAY_CONFIG_FILE])
+        process = subprocess.Popen([XRAY_PATH, 'run', '-c', XRAY_CONFIG_FILE], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         time.sleep(1.5)
+        if process.poll() is not None:
+            print("Xray 进程启动失败", end=""); return -1
         proxies = {'http': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}', 'https': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}'}
         start_time = time.time(); response = requests.get(REAL_TEST_URL, proxies=proxies, timeout=REAL_TEST_TIMEOUT); end_time = time.time()
         if response.status_code == 204: return int((end_time - start_time) * 1000)
         else: return -1
-    except requests.exceptions.RequestException: return -1
+    except: return -1
     finally:
         if process: process.terminate(); process.wait()
         if os.path.exists(XRAY_CONFIG_FILE): os.remove(XRAY_CONFIG_FILE)
 
 def main():
-    """主函数"""
-    if not os.path.exists(XRAY_PATH):
-        print("错误: Xray-core 可执行文件未找到。")
-        return
-
+    if not os.path.exists(XRAY_PATH): print("错误: Xray-core 未找到。"); return
     with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:
         subscription_urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
-
     print(f"找到 {len(subscription_urls)} 个订阅链接。")
-    
-    all_nodes = []
-    unique_nodes = set()
-
+    all_nodes = []; unique_nodes = set()
     for url in subscription_urls:
         content = get_subscription_content(url)
-        if not content:
-            continue
-
-        nodes_from_url = []
-        
-        # --- 核心修复逻辑 ---
-        # 1. 尝试将内容作为 Clash YAML 配置解析
+        if not content: continue
         try:
             data = yaml.safe_load(content)
             if isinstance(data, dict) and 'proxies' in data and isinstance(data['proxies'], list):
-                print(f"内容识别为 YAML/Clash 配置，找到 {len(data['proxies'])} 个代理。")
+                print(f"内容识别为 YAML，找到 {len(data['proxies'])} 个代理。")
                 for proxy in data['proxies']:
                     if all(k in proxy for k in ['name', 'server', 'port', 'type']):
-                        nodes_from_url.append(proxy)
-                
-                for node in nodes_from_url:
-                    node_id = (node['server'], node['port'], node['type'])
-                    if node_id not in unique_nodes:
-                        all_nodes.append(node)
-                        unique_nodes.add(node_id)
-                continue # 已成功解析 YAML，处理下一个 URL
-        except (yaml.YAMLError, AttributeError):
-            # 不是有效的 YAML，继续尝试其他方法
-            pass
-        # --- 修复逻辑结束 ---
-
-        # 2. 如果不是YAML，检查是否为明文链接列表
+                        # --- FIX 3: 强制将端口转换为整数 ---
+                        try:
+                            proxy['port'] = int(proxy['port'])
+                        except (ValueError, TypeError):
+                            print(f"跳过无效端口的节点: {proxy.get('name')}")
+                            continue
+                        
+                        node_id = (proxy['server'], proxy['port'], proxy['type'])
+                        if node_id not in unique_nodes: all_nodes.append(proxy); unique_nodes.add(node_id)
+                continue
+        except: pass
         links_content = None
-        if any(proto in content for proto in ["ss://", "vmess://", "trojan://", "vless://", "hysteria://", "hysteria2://"]):
-            print("内容识别为明文链接列表。")
-            links_content = content
-        # 3. 否则，最后尝试作为 Base64 解码
+        if any(p in content for p in ["ss://", "vmess://", "trojan://", "vless://", "hysteria://", "hysteria2://"]):
+            print("内容识别为明文链接。"); links_content = content
         else:
-            print("内容识别为潜在的 Base64 编码，尝试解码。")
-            links_content = decode_base64_content(content)
-
-        if not links_content:
-            print("无法从此 URL 解析任何链接。\n")
-            continue
-
-        # 解析链接内容
-        links = links_content.splitlines()
-        for link in links:
+            print("内容识别为潜在的 Base64，尝试解码。"); links_content = decode_base64_content(content)
+        if not links_content: print("无法从此 URL 解析。\n"); continue
+        for link in links_content.splitlines():
             node = parse_node(link)
             if node:
                 node_id = (node['server'], node['port'], node['type'])
-                if node_id not in unique_nodes:
-                    all_nodes.append(node)
-                    unique_nodes.add(node_id)
-        print("") # 换行
-
+                if node_id not in unique_nodes: all_nodes.append(node); unique_nodes.add(node_id)
+        print("")
     print(f"去重后共解析出 {len(all_nodes)} 个节点。")
-
     fast_nodes = []
     print("\n--- 开始节点真实延迟测试 ---")
     for i, node in enumerate(all_nodes):
         latency = test_node_real_latency(node)
         print(f"({i+1}/{len(all_nodes)}) 测试节点: {node['name']:<40} ... ", end="")
-        if 0 < latency < MAX_LATENCY_MS:
-            print(f"延迟: {latency}ms [通过]")
-            fast_nodes.append(node)
-        else:
-            print(f"延迟: {latency if latency > 0 else '超时或失败'} [丢弃]")
+        if 0 < latency < MAX_LATENCY_MS: print(f"延迟: {latency}ms [通过]"); fast_nodes.append(node)
+        else: print(f"延迟: {latency if latency > 0 else '超时或失败'} [丢弃]")
     print("--- 延迟测试结束 ---\n")
-            
     print(f"筛选出 {len(fast_nodes)} 个可用节点。")
-
     clash_config = {'proxies': fast_nodes}
-    try:
-        with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f:
-            yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
-        print(f"成功生成 Clash 订阅文件: {OUTPUT_CLASH_FILE}")
-    except IOError as e:
-        print(f"写入 Clash 配置文件失败: {e}")
-
-    try:
-        with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
-            update_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
-            f.write(f"最后更新时间: {update_time}\n")
-            f.write(f"可用节点数量: {len(fast_nodes)}\n")
-        print(f"成功记录更新时间: {UPDATE_TIME_FILE}")
-    except IOError as e:
-        print(f"写入更新时间文件失败: {e}")
+    with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f: yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
+    print(f"成功生成 Clash 订阅文件: {OUTPUT_CLASH_FILE}")
+    with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
+        update_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
+        f.write(f"最后更新时间: {update_time}\n"); f.write(f"可用节点数量: {len(fast_nodes)}\n")
+    print(f"成功记录更新时间: {UPDATE_TIME_FILE}")
 
 if __name__ == '__main__':
     main()

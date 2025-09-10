@@ -11,9 +11,9 @@ from urllib.parse import unquote, urlparse, parse_qs
 
 # --- 配置 ---
 # 订阅链接文件路径
-SUBSCRIPTION_URLS_FILE = 'subscription_urls.txt'
+SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 # 输出的 Clash 订阅文件路径
-OUTPUT_CLASH_FILE = 'clash_subscription.yaml'
+OUTPUT_CLASH_FILE = 'update_subs.yaml'
 # 输出的更新时间记录文件路径
 UPDATE_TIME_FILE = 'update_time.txt'
 # 延迟测试超时时间（秒）

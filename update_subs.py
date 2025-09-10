@@ -6,6 +6,7 @@ import socket
 import time
 import yaml
 import binascii
+import subprocess
 from datetime import datetime
 from urllib.parse import unquote, urlparse, parse_qs
 
@@ -20,6 +21,13 @@ UPDATE_TIME_FILE = 'update_time.txt'
 LATENCY_TEST_TIMEOUT = 2
 # 可接受的最大延迟（毫秒）
 MAX_LATENCY_MS = 500
+
+REAL_TEST_URL = 'https://www.gstatic.com/generate_204'
+REAL_TEST_TIMEOUT = 5  # 秒
+XRAY_PATH = './xray'  # Xray-core 可执行文件路径
+XRAY_CONFIG_FILE = 'xray_config.json'
+LOCAL_SOCKS_PORT = 10808 # Xray 监听的本地 SOCKS 端口
+
 
 def get_subscription_content(url):
     """通过 URL 获取订阅内容。"""
@@ -179,22 +187,126 @@ def parse_hysteria2_link(hy2_link):
         print(f"解析 Hysteria2 链接失败: {hy2_link}, 错误: {e}")
         return None
 
-def test_node_latency(server, port):
-    """测试节点的 TCP 延迟，返回毫秒或 -1 (失败)。"""
+def generate_xray_config(node):
+    """根据节点信息动态生成 Xray 配置文件字典。"""
+    if node['type'] not in ['vmess', 'vless', 'trojan', 'ss']:
+        raise ValueError(f"不支持的节点类型: {node['type']}")
+
+    outbound_settings = {
+        "vnext": [{
+            "address": node['server'],
+            "port": node['port'],
+            "users": []
+        }]
+    }
+
+    if node['type'] == 'vmess':
+        outbound_settings['vnext'][0]['users'].append({
+            "id": node['uuid'],
+            "alterId": node.get('alterId', 0),
+            "security": node.get('cipher', 'auto')
+        })
+    elif node['type'] == 'vless':
+        outbound_settings['vnext'][0]['users'].append({
+            "id": node['uuid'],
+            "flow": node.get('flow', ''),
+            "encryption": "none"
+        })
+    elif node['type'] == 'trojan':
+        outbound_settings['vnext'][0]['users'].append({"password": node['password']})
+    elif node['type'] == 'ss':
+        outbound_settings['vnext'][0]['users'].append({
+            "method": node['cipher'],
+            "password": node['password']
+        })
+
+    stream_settings = {"network": node.get('network', 'tcp')}
+    if node.get('tls', False):
+        stream_settings['security'] = 'tls'
+        stream_settings['tlsSettings'] = {"serverName": node.get('servername', node.get('sni', node['server']))}
+    
+    if node.get('network') == 'ws':
+        stream_settings['wsSettings'] = {
+            "path": node.get('ws-opts', {}).get('path', '/'),
+            "headers": node.get('ws-opts', {}).get('headers', {})
+        }
+    
+    config = {
+        "inbounds": [{
+            "port": LOCAL_SOCKS_PORT,
+            "listen": "127.0.0.1",
+            "protocol": "socks",
+            "settings": {"auth": "noauth", "udp": True}
+        }],
+        "outbounds": [{
+            "protocol": node['type'],
+            "settings": outbound_settings,
+            "streamSettings": stream_settings
+        }]
+    }
+    return config
+
+def test_node_real_latency(node):
+    """
+    使用 Xray-core 对节点进行真实网络延迟测试。
+    对于不支持的协议，回退到 TCP Ping 测试。
+    """
+    # 对于 Hysteria 系列，Xray-core 不支持，我们回退到简单的 TCP Ping
+    if node['type'] in ['hysteria', 'hysteria2']:
+        try:
+            addr = (node['server'], int(node['port']))
+            start_time = time.time()
+            with socket.create_connection(addr, timeout=REAL_TEST_TIMEOUT / 2) as sock:
+                end_time = time.time()
+            return int((end_time - start_time) * 1000)
+        except (socket.timeout, ConnectionRefusedError, OSError):
+            return -1
+
     try:
-        addr = (server, int(port))
-        start_time = time.time()
-        with socket.create_connection(addr, timeout=LATENCY_TEST_TIMEOUT) as sock:
-            end_time = time.time()
-        latency = (end_time - start_time) * 1000
-        return int(latency)
-    except (socket.timeout, ConnectionRefusedError, OSError):
+        config = generate_xray_config(node)
+        with open(XRAY_CONFIG_FILE, 'w') as f:
+            json.dump(config, f)
+    except Exception as e:
+        print(f"生成配置失败: {e}", end="")
         return -1
+
+    process = None
+    try:
+        process = subprocess.Popen([XRAY_PATH, 'run', '-c', XRAY_CONFIG_FILE])
+        time.sleep(1.5) # 等待 Xray 启动
+
+        proxies = {
+            'http': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}',
+            'https': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}'
+        }
+        
+        start_time = time.time()
+        response = requests.get(REAL_TEST_URL, proxies=proxies, timeout=REAL_TEST_TIMEOUT)
+        end_time = time.time()
+
+        if response.status_code == 204:
+            return int((end_time - start_time) * 1000)
+        else:
+            return -1
+            
+    except requests.exceptions.RequestException:
+        return -1
+    finally:
+        if process:
+            process.terminate()
+            process.wait()
+        if os.path.exists(XRAY_CONFIG_FILE):
+            os.remove(XRAY_CONFIG_FILE)
+
 
 def main():
     """主函数"""
     if not os.path.exists(SUBSCRIPTION_URLS_FILE):
         print(f"错误: 订阅文件 '{SUBSCRIPTION_URLS_FILE}' 未找到。")
+        return
+
+    if not os.path.exists(XRAY_PATH):
+        print("错误: Xray-core 可执行文件未找到, 请确保 'update_subscription.yml' 中已正确配置下载步骤。")
         return
 
     with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:
@@ -232,8 +344,7 @@ def main():
     fast_nodes = []
     print("\n--- 开始节点延迟测试 ---")
     for i, node in enumerate(all_nodes):
-        latency = test_node_latency(node['server'], node['port'])
-        # 使用 {:<40} 来保证对齐，适应更长的节点名
+        latency = test_node_real_latency(node)
         print(f"({i+1}/{len(all_nodes)}) 测试节点: {node['name']:<40} ... ", end="")
         if 0 < latency < MAX_LATENCY_MS:
             print(f"延迟: {latency}ms [通过]")
@@ -246,9 +357,7 @@ def main():
 
     if not fast_nodes:
         print("没有找到任何可用节点，已停止生成订阅文件。")
-        # 即使没有节点，也更新时间戳文件，表示程序已运行
-    
-    # 始终写入文件，即使为空，以确保旧的订阅被覆盖
+
     clash_config = {'proxies': fast_nodes}
     try:
         with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f:

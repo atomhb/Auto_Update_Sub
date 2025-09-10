@@ -19,24 +19,35 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests pyyaml
 
+      # 实现真实延迟测试
+      - name: Download and setup Xray-core
+        run: |
+          # 从 GitHub Releases 下载最新的 Xray-core for Linux 64-bit
+          wget -O xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
+          # 解压出 xray 可执行文件
+          unzip xray.zip xray
+          # 赋予可执行权限
+          chmod +x xray
+          # 清理压缩包
+          rm xray.zip
+
+      # 执行 Python 脚本来更新订阅
+      # 脚本会自动调用同目录下的 xray 程序
       - name: Run subscription update script
         run: python update_subscription.py
 
+      # 提交并推送更改
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # 使用 git add -A 来暂存所有变动（包括新建和修改的文件）
           git add -A
-          # 检查工作区是否有变动，如果有，则创建 commit
-          # [skip ci] 是为了防止这个 commit 再次触发工作流程，避免无限循环
           git diff-index --quiet HEAD || git commit -m "feat: 自动更新订阅文件" -m "更新时间: $(date -u)" -m "[skip ci]"
-          # 将变动推送到远程仓库
           git push

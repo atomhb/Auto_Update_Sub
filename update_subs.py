@@ -95,73 +95,88 @@ def parse_hysteria2_link(hy2_link):
         return {'name': remarks, 'type': 'hysteria2', 'server': server, 'port': int(port), 'password': password, 'sni': params.get('sni', server), 'skip-cert-verify': params.get('insecure', '0') == '1'}
     except: return None
 
-# --- Xray 配置与测试 ---
+# # Xray
+# def generate_xray_config(node):
+#     protocol_map = {'ss': 'shadowsocks', 'vmess': 'vmess', 'vless': 'vless', 'trojan': 'trojan'}
+#     xray_protocol = protocol_map.get(node['type'])
+#     if not xray_protocol: raise ValueError(f"不支持的节点类型: {node['type']}")
+#     if node['type'] == 'trojan': outbound_settings = {"servers": [{"address": node['server'], "port": node['port'], "password": node['password']}]}
+#     else:
+#         outbound_settings = {"vnext": [{"address": node['server'], "port": node['port'], "users": []}]}
+#         if node['type'] == 'vmess': outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "alterId": node.get('alterId', 0), "security": node.get('cipher', 'auto')})
+#         elif node['type'] == 'vless': outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "flow": node.get('flow', ''), "encryption": "none"})
+#         elif node['type'] == 'ss': outbound_settings['vnext'][0]['users'].append({"method": node['cipher'], "password": node['password']})
+#     stream_settings = {"network": node.get('network', 'tcp')}
+#     if node.get('tls', False): stream_settings['security'] = 'tls'; stream_settings['tlsSettings'] = {"serverName": node.get('servername', node.get('sni', node['server']))}
+#     if node.get('network') == 'ws':
+#         ws_opts = node.get('ws-opts', {}); ws_headers = ws_opts.get('headers', {}); host = ws_headers.get('Host')
+#         stream_settings['wsSettings'] = {"path": ws_opts.get('path', '/')}
+#         if host: stream_settings['wsSettings']['host'] = host
+#     return {"inbounds": [{"port": LOCAL_SOCKS_PORT, "listen": "127.0.0.1", "protocol": "socks", "settings": {"auth": "noauth", "udp": True}}], "outbounds": [{"protocol": xray_protocol, "settings": outbound_settings, "streamSettings": stream_settings}]}
 
-def generate_xray_config(node):
-    protocol_map = {'ss': 'shadowsocks', 'vmess': 'vmess', 'vless': 'vless', 'trojan': 'trojan'}
-    xray_protocol = protocol_map.get(node['type'])
-    if not xray_protocol: raise ValueError(f"不支持的节点类型: {node['type']}")
-    if node['type'] == 'trojan': outbound_settings = {"servers": [{"address": node['server'], "port": node['port'], "password": node['password']}]}
-    else:
-        outbound_settings = {"vnext": [{"address": node['server'], "port": node['port'], "users": []}]}
-        if node['type'] == 'vmess': outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "alterId": node.get('alterId', 0), "security": node.get('cipher', 'auto')})
-        elif node['type'] == 'vless': outbound_settings['vnext'][0]['users'].append({"id": node['uuid'], "flow": node.get('flow', ''), "encryption": "none"})
-        elif node['type'] == 'ss': outbound_settings['vnext'][0]['users'].append({"method": node['cipher'], "password": node['password']})
-    stream_settings = {"network": node.get('network', 'tcp')}
-    if node.get('tls', False): stream_settings['security'] = 'tls'; stream_settings['tlsSettings'] = {"serverName": node.get('servername', node.get('sni', node['server']))}
-    if node.get('network') == 'ws':
-        ws_opts = node.get('ws-opts', {}); ws_headers = ws_opts.get('headers', {}); host = ws_headers.get('Host')
-        stream_settings['wsSettings'] = {"path": ws_opts.get('path', '/')}
-        if host: stream_settings['wsSettings']['host'] = host
-    return {"inbounds": [{"port": LOCAL_SOCKS_PORT, "listen": "127.0.0.1", "protocol": "socks", "settings": {"auth": "noauth", "udp": True}}], "outbounds": [{"protocol": xray_protocol, "settings": outbound_settings, "streamSettings": stream_settings}]}
 
-# --- 核心诊断区域 ---
+# def test_node_latency(node):
+#     try:
+#         addr = (node['server'], int(node['port'])); start_time = time.time()
+#         with socket.create_connection(addr, timeout=TCP_PING_TIMEOUT):
+#             tcp_latency = int((time.time() - start_time) * 1000)
+#             print(f"TCP Ping 通 ({tcp_latency}ms)，进行深度测试...", end="")
+#     except (socket.timeout, ConnectionRefusedError, OSError):
+#         print("TCP Ping 失败", end=""); return -1
+
+#     if node['type'] in ['hysteria', 'hysteria2']: return tcp_latency
+
+#     try:
+#         config = generate_xray_config(node)
+#         with open(XRAY_CONFIG_FILE, 'w') as f: json.dump(config, f)
+#     except Exception as e:
+#         print(f"生成配置失败: {e}", end=""); return -1
+
+#     process = None
+#     try:
+#         # --- 诊断改动：捕获 stderr ---
+#         process = subprocess.Popen(
+#             [XRAY_PATH, 'run', '-c', XRAY_CONFIG_FILE],
+#             stdout=subprocess.DEVNULL,
+#             stderr=subprocess.PIPE, # 将错误输出重定向到管道
+#             text=True # 让 stderr.read() 返回字符串
+#         )
+#         time.sleep(1.5)
+
+#         # 检查 Xray 进程是否已退出
+#         if process.poll() is not None:
+#             # --- 诊断改动：读取并打印错误日志 ---
+#             error_log = process.stderr.read()
+#             print(f"Xray 进程启动失败，错误日志:\n---\n{error_log.strip()}\n---", end="")
+#             return -1
+        
+#         proxies = {'http': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}', 'https': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}'}
+#         start_time = time.time()
+#         response = requests.get(REAL_TEST_URL, proxies=proxies, timeout=REAL_TEST_TIMEOUT)
+#         end_time = time.time()
+        
+#         if response.status_code == 200: return int((end_time - start_time) * 1000)
+#         else: return -1
+#     except requests.exceptions.RequestException: return -1
+#     finally:
+#         if process: process.terminate(); process.wait()
+#         if os.path.exists(XRAY_CONFIG_FILE): os.remove(XRAY_CONFIG_FILE)
+
 def test_node_latency(node):
+    """
+    仅通过 TCP Ping 测试节点的延迟。
+    返回毫秒延迟或 -1 (失败)。
+    """
     try:
-        addr = (node['server'], int(node['port'])); start_time = time.time()
-        with socket.create_connection(addr, timeout=TCP_PING_TIMEOUT):
-            tcp_latency = int((time.time() - start_time) * 1000)
-            print(f"TCP Ping 通 ({tcp_latency}ms)，进行深度测试...", end="")
-    except (socket.timeout, ConnectionRefusedError, OSError):
-        print("TCP Ping 失败", end=""); return -1
-
-    if node['type'] in ['hysteria', 'hysteria2']: return tcp_latency
-
-    try:
-        config = generate_xray_config(node)
-        with open(XRAY_CONFIG_FILE, 'w') as f: json.dump(config, f)
-    except Exception as e:
-        print(f"生成配置失败: {e}", end=""); return -1
-
-    process = None
-    try:
-        # --- 诊断改动：捕获 stderr ---
-        process = subprocess.Popen(
-            [XRAY_PATH, 'run', '-c', XRAY_CONFIG_FILE],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.PIPE, # 将错误输出重定向到管道
-            text=True # 让 stderr.read() 返回字符串
-        )
-        time.sleep(1.5)
-
-        # 检查 Xray 进程是否已退出
-        if process.poll() is not None:
-            # --- 诊断改动：读取并打印错误日志 ---
-            error_log = process.stderr.read()
-            print(f"Xray 进程启动失败，错误日志:\n---\n{error_log.strip()}\n---", end="")
-            return -1
-        
-        proxies = {'http': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}', 'https': f'socks5h://127.0.0.1:{LOCAL_SOCKS_PORT}'}
+        addr = (node['server'], int(node['port']))
         start_time = time.time()
-        response = requests.get(REAL_TEST_URL, proxies=proxies, timeout=REAL_TEST_TIMEOUT)
-        end_time = time.time()
-        
-        if response.status_code == 200: return int((end_time - start_time) * 1000)
-        else: return -1
-    except requests.exceptions.RequestException: return -1
-    finally:
-        if process: process.terminate(); process.wait()
-        if os.path.exists(XRAY_CONFIG_FILE): os.remove(XRAY_CONFIG_FILE)
+        with socket.create_connection(addr, timeout=TEST_TIMEOUT):
+            end_time = time.time()
+        latency = int((end_time - start_time) * 1000)
+        return latency
+    except (socket.timeout, ConnectionRefusedError, OSError):
+        return -1
+
 
 # --- 主逻辑 (无改动) ---
 def main():

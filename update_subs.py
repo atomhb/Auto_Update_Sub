@@ -22,7 +22,7 @@ XRAY_PATH = './xray'
 XRAY_CONFIG_FILE = 'xray_config.json'
 LOCAL_SOCKS_PORT = 10808
 
-TCP_PING_TIMEOUT = 3
+TCP_PING_TIMEOUT = 5
 
 def get_subscription_content(url):
     headers = {'User-Agent': 'Clash/1.11.0'}
@@ -170,7 +170,7 @@ def test_node_latency(node):
     try:
         addr = (node['server'], int(node['port']))
         start_time = time.time()
-        with socket.create_connection(addr, timeout=TEST_TIMEOUT):
+        with socket.create_connection(addr, timeout=TCP_PING_TIMEOUT):
             end_time = time.time()
         latency = int((end_time - start_time) * 1000)
         return latency

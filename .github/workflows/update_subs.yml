@@ -30,16 +30,16 @@ jobs:
           pip install requests pyyaml
 
       # 实现真实延迟测试
-      - name: Download and setup Xray-core
-        run: |
-          # 从 GitHub Releases 下载最新的 Xray-core for Linux 64-bit
-          wget -O xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
-          # 解压出 xray 可执行文件
-          unzip -o xray.zip xray
-          # 赋予可执行权限
-          chmod +x xray
-          # 清理压缩包
-          rm xray.zip
+      # - name: Download and setup Xray-core
+      #   run: |
+      #     # 从 GitHub Releases 下载最新的 Xray-core for Linux 64-bit
+      #     wget -O xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
+      #     # 解压出 xray 可执行文件
+      #     unzip -o xray.zip xray
+      #     # 赋予可执行权限
+      #     chmod +x xray
+      #     # 清理压缩包
+      #     rm xray.zip
 
       # 执行 Python 脚本来更新订阅
       # 脚本会自动调用同目录下的 xray 程序

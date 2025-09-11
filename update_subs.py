@@ -10,7 +10,8 @@ from datetime import datetime
 from urllib.parse import unquote, urlparse, parse_qs
 import platform
 import re
-
+import concurrent.futures
+from tqdm import tqdm # For a user-friendly progress bar
 
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 OUTPUT_CLASH_FILE = 'clash_subscription.yaml'
@@ -92,7 +93,6 @@ def parse_hysteria2_link(hy2_link):
         return {'name': remarks, 'type': 'hysteria2', 'server': server, 'port': int(port), 'password': password, 'sni': params.get('sni', server), 'skip-cert-verify': params.get('insecure', '0') == '1'}
     except: return None
 
-
 def test_node_latency(node):
     """
     Tests node latency using the system's ping command.
@@ -102,56 +102,39 @@ def test_node_latency(node):
     if not host:
         return -1
 
-    # Determine the appropriate ping command based on the operating system
     system = platform.system()
     if system == "Windows":
-        # -n 1: Send 1 ICMP echo request.
-        # -w 1000: Wait 1000 milliseconds (1 second) for a reply.
         command = ["ping", "-n", "1", "-w", "1000", host]
-    else: # For Linux, macOS, and other UNIX-like systems
-        # -c 1: Send 1 ICMP echo request.
-        # -W 1: Wait 1 second for a reply.
+    else:
         command = ["ping", "-c", "1", "-W", "1", host]
 
     try:
-        # Execute the ping command
         result = subprocess.run(
             command,
             capture_output=True,
             text=True,
-            timeout=5  # A safety timeout for the subprocess itself
+            timeout=5
         )
-
-        # Check if the ping command was successful
         if result.returncode != 0:
             return -1
 
-        # Use regular expressions to parse the latency from the command's output
         output = result.stdout
-        # This regex is designed to be compatible with both Windows and Linux/macOS output
         match = re.search(r"time(?:[=<])([\d.]+)\s*ms", output)
         
-        # For some Windows locales, the average time is the most reliable metric
         if system == "Windows" and not match:
             match = re.search(r"Average = ([\d.]+)\s*ms", output)
 
         if match:
-            latency = float(match.group(1))
-            return int(latency)
+            return int(float(match.group(1)))
         else:
             return -1
-
     except (subprocess.TimeoutExpired, FileNotFoundError, Exception):
         return -1
 
-
 def main():
-    # This assumes XRAY_PATH is defined elsewhere if other functions need it.
-    # Since we replaced the latency test, it might not be necessary for this script anymore.
-    # if not os.path.exists(XRAY_PATH): print("错误: Xray-core 可执行文件未找到。"); return
-    
     with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:
         subscription_urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
+    
     print(f"找到 {len(subscription_urls)} 个订阅链接。")
     all_nodes, unique_nodes = [], set()
     for url in subscription_urls:
@@ -172,7 +155,8 @@ def main():
         links_content = None
         if any(p in content for p in ["ss://", "vmess://", "trojan://", "vless://", "hysteria://", "hysteria2://"]):
             print("内容识别为明文链接。"); links_content = content
-        else: print("内容识别为潜在的 Base64，尝试解码。"); links_content = decode_base64_content(content)
+        else:
+            print("内容识别为潜在的 Base64，尝试解码。"); links_content = decode_base64_content(content)
         if not links_content: print("无法从此 URL 解析。\n"); continue
         for link in links_content.splitlines():
             node = parse_node(link)
@@ -180,19 +164,41 @@ def main():
                 node_id = (node['server'], node['port'], node['type'])
                 if node_id not in unique_nodes: all_nodes.append(node); unique_nodes.add(node_id)
         print("")
-    print(f"去重后共解析出 {len(all_nodes)} 个节点。")
-    fast_nodes = []
-    print("\n--- 开始节点延迟测试 ---")
-    for i, node in enumerate(all_nodes):
-        print(f"({i+1}/{len(all_nodes)}) 测试节点: {node['name']:<40} ... ", end="")
-        latency = test_node_latency(node)
-        if 0 < latency < MAX_LATENCY_MS: print(f"延迟: {latency}ms [通过]"); fast_nodes.append(node)
-        else: print(f"延迟: {latency if latency > 0 else '失败'} [丢弃]")
-    print("--- 延迟测试结束 ---\n")
-    print(f"筛选出 {len(fast_nodes)} 个可用节点。")
-
     
-    # clash_config = {'proxies': fast_nodes}
+    print(f"去重后共解析出 {len(all_nodes)} 个节点。")
+    
+    # --- New Concurrent Testing Section ---
+    print("\n--- 开始节点延迟测试 (并发) ---")
+    node_latency_pairs = []
+    # Adjust max_workers based on your system's capability and network conditions
+    max_workers = min(64, len(all_nodes) if all_nodes else 1)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_node = {executor.submit(test_node_latency, node): node for node in all_nodes}
+        
+        for future in tqdm(concurrent.futures.as_completed(future_to_node), total=len(all_nodes), desc="测试延迟"):
+            node = future_to_node[future]
+            try:
+                latency = future.result()
+                if 0 < latency < MAX_LATENCY_MS:
+                    node_latency_pairs.append((node, latency))
+            except Exception:
+                # Ignore nodes that fail during testing
+                pass
+
+    # Sort the successful nodes by their latency
+    node_latency_pairs.sort(key=lambda x: x[1])
+    
+    # Extract the sorted nodes into the final list
+    fast_nodes = [item[0] for item in node_latency_pairs]
+    
+    print("--- 延迟测试结束 ---\n")
+    print(f"筛选并排序后得到 {len(fast_nodes)} 个可用节点。")
+    # --- End of New Section ---
+
+    if not fast_nodes:
+        print("没有找到可用的节点，已中止。")
+        return
 
     clash_config = {
         'port': 7890,
@@ -206,23 +212,18 @@ def main():
             'nameserver': [
                 'https://doh.pub/dns-query',
                 'https://223.5.5.5/dns-query',
-                'https://doh.360.cn/dns-query',
-                'https://dns.alidns.com/dns-query',
                 '119.29.29.29'
             ],
             'fallback': [
                 '8.8.8.8',
-                '8.8.4.4',
                 'tls://1.0.0.1:853',
                 'tls://dns.google:853'
             ]
         }
     }
 
-    # 2. Add the tested proxies
     clash_config['proxies'] = fast_nodes
     
-    # 3. Dynamically create proxy groups
     proxy_names = [node['name'] for node in fast_nodes]
     
     clash_config['proxy-groups'] = [
@@ -240,8 +241,6 @@ def main():
         }
     ]
 
-    # 4. Add the rules
-    # (Note: This is a very long list, taken directly from your example)
     clash_config['rules'] = [
         'DOMAIN,safebrowsing.urlsec.qq.com,DIRECT', 'DOMAIN,safebrowsing.googleapis.com,DIRECT', 'DOMAIN,developer.apple.com,⭕ proxinode',
         'DOMAIN-SUFFIX,digicert.com,⭕ proxinode', 'DOMAIN,ocsp.apple.com,⭕ proxinode', 'DOMAIN,ocsp.comodoca.com,⭕ proxinode', 'DOMAIN,ocsp.usertrust.com,⭕ proxinode',
@@ -359,17 +358,17 @@ def main():
         'IP-CIDR6,2001:67c:4e8::/48,⭕ proxinode', 'IP-CIDR6,2001:b28:f23d::/48,⭕ proxinode', 'IP-CIDR6,2001:b28:f23f::/48,⭕ proxinode', 'DOMAIN,injections.adguard.org,DIRECT',
         'DOMAIN,local.adguard.org,DIRECT', 'DOMAIN-SUFFIX,local,DIRECT', 'IP-CIDR,127.0.0.0/8,DIRECT', 'IP-CIDR,172.16.0.0/12,DIRECT', 'IP-CIDR,192.168.0.0/16,DIRECT',
         'IP-CIDR,10.0.0.0/8,DIRECT', 'IP-CIDR,17.0.0.0/8,DIRECT', 'IP-CIDR,100.64.0.0/10,DIRECT', 'IP-CIDR,224.0.0.0/4,DIRECT', 'IP-CIDR6,fe80::/10,DIRECT',
-        'IP-CIDR,2002::/16,DIRECT', 'IP-CIDR,2001:db8::/32,DIRECT', 'IP-CIDR,2001::/32,DIRECT', 'IP-CIDR,2001:20::/28,DIRECT', 'GEOIP,CN,DIRECT', 'MATCH,⭕ proxinode'
+        'GEOIP,CN,DIRECT', 'MATCH,⭕ proxinode'
     ]
-
-
-
     
-    with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f: yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
+    with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f:
+        yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
     print(f"成功生成 Clash 订阅文件: {OUTPUT_CLASH_FILE}")
+
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
         update_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
-        f.write(f"最后更新时间: {update_time}\n"); f.write(f"可用节点数量: {len(fast_nodes)}\n")
+        f.write(f"最后更新时间: {update_time}\n")
+        f.write(f"可用节点数量: {len(fast_nodes)}\n")
     print(f"成功记录时间: {UPDATE_TIME_FILE}")
 
 if __name__ == '__main__':

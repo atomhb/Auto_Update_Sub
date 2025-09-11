@@ -8,6 +8,8 @@ import yaml
 import subprocess
 from datetime import datetime
 from urllib.parse import unquote, urlparse, parse_qs
+import platform
+import re
 
 
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
@@ -16,8 +18,8 @@ UPDATE_TIME_FILE = 'update_time.txt'
 MAX_LATENCY_MS = 500
 
 REAL_TEST_URL = 'http://cp.cloudflare.com/'
-# Timeout for the real latency test request
-REQUEST_TIMEOUT = 10
+
+TCP_PING_TIMEOUT = 5
 
 def get_subscription_content(url):
     headers = {'User-Agent': 'Clash/1.11.0'}
@@ -91,137 +93,106 @@ def parse_hysteria2_link(hy2_link):
     except: return None
 
 
-# --- NEW LATENCY TEST FUNCTION ---
 def test_node_latency(node):
     """
-    Tests node latency by making a real HTTP request to REAL_TEST_URL through it.
-
-    This method uses the `requests` library to measure latency. It attempts to treat
-    the node as a standard HTTP or SOCKS proxy.
-
-    *** IMPORTANT LIMITATION ***
-    Protocols like Vmess, VLESS, Trojan, and Shadowsocks are NOT standard proxies
-    that the `requests` library can use directly. For this function to work, you
-    need a client program that understands the specific protocol and provides a
-    standard proxy interface (e.g., a local SOCKS5 port).
-
-    This function is provided to demonstrate the requested logic but will likely
-    fail for most node types, returning -1. The most reliable test method without
-    a full Python client library is a simple TCP ping to check port reachability.
+    Tests node latency using the system's ping command.
+    Returns latency in milliseconds, or -1 on failure.
     """
-    server = node.get('server')
-    port = node.get('port')
-
-    if not server or not port:
+    host = node.get('server')
+    if not host:
         return -1
 
-    # We formulate a proxy URL. This is a significant simplification.
-    # It assumes the remote server is a standard SOCKS5 proxy, which is unlikely.
-    # Note: Using SOCKS proxies requires installing the `PySocks` library:
-    # `pip install "requests[socks]"`
-    proxy_url = f"socks5h://{server}:{port}"
-
-    proxies = {
-        'http': proxy_url,
-        'https': proxy_url
-    }
+    # Determine the appropriate ping command based on the operating system
+    system = platform.system()
+    if system == "Windows":
+        # -n 1: Send 1 ICMP echo request.
+        # -w 1000: Wait 1000 milliseconds (1 second) for a reply.
+        command = ["ping", "-n", "1", "-w", "1000", host]
+    else: # For Linux, macOS, and other UNIX-like systems
+        # -c 1: Send 1 ICMP echo request.
+        # -W 1: Wait 1 second for a reply.
+        command = ["ping", "-c", "1", "-W", "1", host]
 
     try:
-        start_time = time.time()
-        
-        # Make the request through the specified proxy
-        response = requests.get(REAL_TEST_URL, proxies=proxies, timeout=REQUEST_TIMEOUT)
-        
-        end_time = time.time()
+        # Execute the ping command
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=5  # A safety timeout for the subprocess itself
+        )
 
-        # Check for a successful response (status code 2xx)
-        response.raise_for_status()
-        
-        latency_ms = int((end_time - start_time) * 1000)
-        return latency_ms
+        # Check if the ping command was successful
+        if result.returncode != 0:
+            return -1
 
-    except (requests.exceptions.ProxyError,
-            requests.exceptions.ConnectTimeout,
-            requests.exceptions.ReadTimeout,
-            requests.exceptions.RequestException):
-        # This block catches most errors related to failed proxy connections,
-        # which is the expected outcome for unsupported custom protocols.
-        return -1
-    except Exception:
-        # Catch any other unexpected errors
+        # Use regular expressions to parse the latency from the command's output
+        output = result.stdout
+        # This regex is designed to be compatible with both Windows and Linux/macOS output
+        match = re.search(r"time(?:[=<])([\d.]+)\s*ms", output)
+        
+        # For some Windows locales, the average time is the most reliable metric
+        if system == "Windows" and not match:
+            match = re.search(r"Average = ([\d.]+)\s*ms", output)
+
+        if match:
+            latency = float(match.group(1))
+            return int(latency)
+        else:
+            return -1
+
+    except (subprocess.TimeoutExpired, FileNotFoundError, Exception):
         return -1
 
 
 def main():
-    # The XRAY_PATH check is no longer needed with the new test function
+    # This assumes XRAY_PATH is defined elsewhere if other functions need it.
+    # Since we replaced the latency test, it might not be necessary for this script anymore.
     # if not os.path.exists(XRAY_PATH): print("错误: Xray-core 可执行文件未找到。"); return
     
     with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:
         subscription_urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
-    
     print(f"找到 {len(subscription_urls)} 个订阅链接。")
     all_nodes, unique_nodes = [], set()
-    
     for url in subscription_urls:
         content = get_subscription_content(url)
         if not content: continue
-        
-        # Try parsing as YAML (Clash format)
         try:
             data = yaml.safe_load(content)
             if isinstance(data, dict) and 'proxies' in data and isinstance(data['proxies'], list):
                 print(f"内容识别为 YAML，找到 {len(data['proxies'])} 个代理。")
                 for proxy in data['proxies']:
                     if all(k in proxy for k in ['name', 'server', 'port', 'type']):
-                        try:
-                            proxy['port'] = int(proxy['port'])
-                        except (ValueError, TypeError):
-                            continue
+                        try: proxy['port'] = int(proxy['port'])
+                        except (ValueError, TypeError): continue
                         node_id = (proxy['server'], proxy['port'], proxy['type'])
-                        if node_id not in unique_nodes:
-                            all_nodes.append(proxy)
-                            unique_nodes.add(node_id)
+                        if node_id not in unique_nodes: all_nodes.append(proxy); unique_nodes.add(node_id)
                 continue
-        except:
-            pass
-        
-        # Try parsing as plain text or Base64 encoded links
+        except: pass
         links_content = None
         if any(p in content for p in ["ss://", "vmess://", "trojan://", "vless://", "hysteria://", "hysteria2://"]):
-            print("内容识别为明文链接。")
-            links_content = content
-        else:
-            print("内容识别为潜在的 Base64，尝试解码。")
-            links_content = decode_base64_content(content)
-        
-        if not links_content:
-            print("无法从此 URL 解析。\n")
-            continue
-            
+            print("内容识别为明文链接。"); links_content = content
+        else: print("内容识别为潜在的 Base64，尝试解码。"); links_content = decode_base64_content(content)
+        if not links_content: print("无法从此 URL 解析。\n"); continue
         for link in links_content.splitlines():
             node = parse_node(link)
             if node:
                 node_id = (node['server'], node['port'], node['type'])
-                if node_id not in unique_nodes:
-                    all_nodes.append(node)
-                    unique_nodes.add(node_id)
+                if node_id not in unique_nodes: all_nodes.append(node); unique_nodes.add(node_id)
         print("")
-        
     print(f"去重后共解析出 {len(all_nodes)} 个节点。")
     fast_nodes = []
-    
     print("\n--- 开始节点延迟测试 ---")
     for i, node in enumerate(all_nodes):
         print(f"({i+1}/{len(all_nodes)}) 测试节点: {node['name']:<40} ... ", end="")
         latency = test_node_latency(node)
-        if 0 < latency < MAX_LATENCY_MS:
-            print(f"延迟: {latency}ms [通过]")
-            fast_nodes.append(node)
-        else:
-            print(f"延迟: {latency if latency > 0 else '失败'} [丢弃]")
+        if 0 < latency < MAX_LATENCY_MS: print(f"延迟: {latency}ms [通过]"); fast_nodes.append(node)
+        else: print(f"延迟: {latency if latency > 0 else '失败'} [丢弃]")
     print("--- 延迟测试结束 ---\n")
-    
     print(f"筛选出 {len(fast_nodes)} 个可用节点。")
+
+    
+    # clash_config = {'proxies': fast_nodes}
 
     clash_config = {
         'port': 7890,
@@ -248,8 +219,10 @@ def main():
         }
     }
 
+    # 2. Add the tested proxies
     clash_config['proxies'] = fast_nodes
     
+    # 3. Dynamically create proxy groups
     proxy_names = [node['name'] for node in fast_nodes]
     
     clash_config['proxy-groups'] = [
@@ -267,6 +240,8 @@ def main():
         }
     ]
 
+    # 4. Add the rules
+    # (Note: This is a very long list, taken directly from your example)
     clash_config['rules'] = [
         'DOMAIN,safebrowsing.urlsec.qq.com,DIRECT', 'DOMAIN,safebrowsing.googleapis.com,DIRECT', 'DOMAIN,developer.apple.com,⭕ proxinode',
         'DOMAIN-SUFFIX,digicert.com,⭕ proxinode', 'DOMAIN,ocsp.apple.com,⭕ proxinode', 'DOMAIN,ocsp.comodoca.com,⭕ proxinode', 'DOMAIN,ocsp.usertrust.com,⭕ proxinode',
@@ -386,15 +361,15 @@ def main():
         'IP-CIDR,10.0.0.0/8,DIRECT', 'IP-CIDR,17.0.0.0/8,DIRECT', 'IP-CIDR,100.64.0.0/10,DIRECT', 'IP-CIDR,224.0.0.0/4,DIRECT', 'IP-CIDR6,fe80::/10,DIRECT',
         'IP-CIDR,2002::/16,DIRECT', 'IP-CIDR,2001:db8::/32,DIRECT', 'IP-CIDR,2001::/32,DIRECT', 'IP-CIDR,2001:20::/28,DIRECT', 'GEOIP,CN,DIRECT', 'MATCH,⭕ proxinode'
     ]
-    
-    with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f:
-        yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
-    print(f"成功生成 Clash 订阅文件: {OUTPUT_CLASH_FILE}")
 
+
+
+    
+    with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f: yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
+    print(f"成功生成 Clash 订阅文件: {OUTPUT_CLASH_FILE}")
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
         update_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
-        f.write(f"最后更新时间: {update_time}\n")
-        f.write(f"可用节点数量: {len(fast_nodes)}\n")
+        f.write(f"最后更新时间: {update_time}\n"); f.write(f"可用节点数量: {len(fast_nodes)}\n")
     print(f"成功记录时间: {UPDATE_TIME_FILE}")
 
 if __name__ == '__main__':

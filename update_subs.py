@@ -14,13 +14,15 @@ import concurrent.futures
 from tqdm import tqdm # For a user-friendly progress bar
 
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
-OUTPUT_CLASH_FILE = 'clash_subscription.yaml'
+
+OUTPUT_CLASH_ICMP_FILE = 'sub_icmp.yaml'
+OUTPUT_CLASH_TCP_FILE = 'sub_tcp.yaml'
+
 UPDATE_TIME_FILE = 'update_time.txt'
 MAX_LATENCY_MS = 500
 
 REAL_TEST_URL = 'http://cp.cloudflare.com/'
-
-TCP_PING_TIMEOUT = 5
+TCP_TIMEOUT_SECONDS = 5
 
 def get_subscription_content(url):
     headers = {'User-Agent': 'Clash/1.11.0'}

@@ -43,7 +43,6 @@ def decode_base64_content(content):
         print(f"Base64 解码失败: {e}")
         return None
 
-# --- 节点解析函数 (无改动) ---
 def parse_node(link):
     link = link.strip()
     if link.startswith('ss://'): return parse_ss_link(link)
@@ -93,154 +92,58 @@ def parse_hysteria2_link(hy2_link):
         return {'name': remarks, 'type': 'hysteria2', 'server': server, 'port': int(port), 'password': password, 'sni': params.get('sni', server), 'skip-cert-verify': params.get('insecure', '0') == '1'}
     except: return None
 
-def test_node_latency(node):
-    """
-    Tests node latency using the system's ping command.
-    Returns latency in milliseconds, or -1 on failure.
-    """
+def test_icmp_latency(node):
     host = node.get('server')
-    if not host:
-        return -1
-
+    if not host: return -1
     system = platform.system()
-    if system == "Windows":
-        command = ["ping", "-n", "1", "-w", "1000", host]
-    else:
-        command = ["ping", "-c", "1", "-W", "1", host]
-
+    command = ["ping", "-n", "1", "-w", "1000", host] if system == "Windows" else ["ping", "-c", "1", "-W", "1", host]
     try:
-        result = subprocess.run(
-            command,
-            capture_output=True,
-            text=True,
-            timeout=5
-        )
-        if result.returncode != 0:
-            return -1
-
-        output = result.stdout
-        match = re.search(r"time(?:[=<])([\d.]+)\s*ms", output)
-        
-        if system == "Windows" and not match:
-            match = re.search(r"Average = ([\d.]+)\s*ms", output)
-
-        if match:
-            return int(float(match.group(1)))
-        else:
-            return -1
+        result = subprocess.run(command, capture_output=True, text=True, timeout=5)
+        if result.returncode != 0: return -1
+        match = re.search(r"time(?:[=<])([\d.]+)\s*ms", result.stdout)
+        if system == "Windows" and not match: match = re.search(r"Average = ([\d.]+)\s*ms", result.stdout)
+        return int(float(match.group(1))) if match else -1
     except (subprocess.TimeoutExpired, FileNotFoundError, Exception):
         return -1
 
-def main():
-    with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:
-        subscription_urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
-    
-    print(f"找到 {len(subscription_urls)} 个订阅链接。")
-    all_nodes, unique_nodes = [], set()
-    for url in subscription_urls:
-        content = get_subscription_content(url)
-        if not content: continue
-        try:
-            data = yaml.safe_load(content)
-            if isinstance(data, dict) and 'proxies' in data and isinstance(data['proxies'], list):
-                print(f"内容识别为 YAML，找到 {len(data['proxies'])} 个代理。")
-                for proxy in data['proxies']:
-                    if all(k in proxy for k in ['name', 'server', 'port', 'type']):
-                        try: proxy['port'] = int(proxy['port'])
-                        except (ValueError, TypeError): continue
-                        node_id = (proxy['server'], proxy['port'], proxy['type'])
-                        if node_id not in unique_nodes: all_nodes.append(proxy); unique_nodes.add(node_id)
-                continue
-        except: pass
-        links_content = None
-        if any(p in content for p in ["ss://", "vmess://", "trojan://", "vless://", "hysteria://", "hysteria2://"]):
-            print("内容识别为明文链接。"); links_content = content
-        else:
-            print("内容识别为潜在的 Base64，尝试解码。"); links_content = decode_base64_content(content)
-        if not links_content: print("无法从此 URL 解析。\n"); continue
-        for link in links_content.splitlines():
-            node = parse_node(link)
-            if node:
-                node_id = (node['server'], node['port'], node['type'])
-                if node_id not in unique_nodes: all_nodes.append(node); unique_nodes.add(node_id)
-        print("")
-    
-    print(f"去重后共解析出 {len(all_nodes)} 个节点。")
-    
-    # --- New Concurrent Testing Section ---
-    print("\n--- 开始节点延迟测试 (并发) ---")
-    node_latency_pairs = []
-    # Adjust max_workers based on your system's capability and network conditions
-    max_workers = min(64, len(all_nodes) if all_nodes else 1)
+def test_tcp_latency(node):
+    try:
+        host = node.get('server')
+        port = int(node.get('port'))
+        if not host or not port: return -1
+        addr = (host, port)
+        start_time = time.time()
+        with socket.create_connection(addr, timeout=TCP_TIMEOUT_SECONDS):
+            return int((time.time() - start_time) * 1000)
+    except (socket.timeout, ConnectionRefusedError, OSError, TypeError, Exception):
+        return -1
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_node = {executor.submit(test_node_latency, node): node for node in all_nodes}
-        
-        for future in tqdm(concurrent.futures.as_completed(future_to_node), total=len(all_nodes), desc="测试延迟"):
-            node = future_to_node[future]
-            try:
-                latency = future.result()
-                if 0 < latency < MAX_LATENCY_MS:
-                    node_latency_pairs.append((node, latency))
-            except Exception:
-                # Ignore nodes that fail during testing
-                pass
+def test_node_connectivity(node):
+    """Tests both ICMP and TCP connectivity, returns a tuple of latencies."""
+    icmp_latency = test_icmp_latency(node)
+    tcp_latency = test_tcp_latency(node)
+    return icmp_latency, tcp_latency
 
-    # Sort the successful nodes by their latency
-    node_latency_pairs.sort(key=lambda x: x[1])
-    
-    # Extract the sorted nodes into the final list
-    fast_nodes = [item[0] for item in node_latency_pairs]
-    
-    print("--- 延迟测试结束 ---\n")
-    print(f"筛选并排序后得到 {len(fast_nodes)} 个可用节点。")
-    # --- End of New Section ---
-
+def generate_clash_config(fast_nodes, output_filename):
     if not fast_nodes:
-        print("没有找到可用的节点，已中止。")
+        print(f"没有可用的节点，无法生成 {output_filename}")
         return
-
+        
+    print(f"正在为 {len(fast_nodes)} 个节点生成 {output_filename}...")
+    
     clash_config = {
-        'port': 7890,
-        'allow-lan': False,
-        'mode': 'rule',
-        'external-controller': '127.0.0.1:9090',
-        'dns': {
-            'enabled': True,
-            'enhanced-mode': 'fake-ip',
-            'fake-ip-range': '198.18.0.1/16',
-            'nameserver': [
-                'https://doh.pub/dns-query',
-                'https://223.5.5.5/dns-query',
-                '119.29.29.29'
-            ],
-            'fallback': [
-                '8.8.8.8',
-                'tls://1.0.0.1:853',
-                'tls://dns.google:853'
-            ]
-        }
+        'port': 7890, 'allow-lan': False, 'mode': 'rule', 'external-controller': '127.0.0.1:9090',
+        'dns': {'enabled': True, 'enhanced-mode': 'fake-ip', 'fake-ip-range': '198.18.0.1/16',
+                'nameserver': ['https://doh.pub/dns-query', 'https://223.5.5.5/dns-query', '119.29.29.29'],
+                'fallback': ['8.8.8.8', 'tls://1.0.0.1:853', 'tls://dns.google:853']}
     }
-
     clash_config['proxies'] = fast_nodes
-    
     proxy_names = [node['name'] for node in fast_nodes]
-    
     clash_config['proxy-groups'] = [
-        {
-            'name': '⭕ proxinode',
-            'type': 'select',
-            'proxies': ['♻️ automatic'] + proxy_names
-        },
-        {
-            'name': '♻️ automatic',
-            'type': 'url-test',
-            'proxies': proxy_names,
-            'url': 'https://www.google.com/favicon.ico',
-            'interval': 300
-        }
+        {'name': '⭕ proxinode', 'type': 'select', 'proxies': ['♻️ automatic'] + proxy_names},
+        {'name': '♻️ automatic', 'type': 'url-test', 'proxies': proxy_names,
+         'url': 'https://www.google.com/favicon.ico', 'interval': 300}
     ]
-
     clash_config['rules'] = [
         'DOMAIN,safebrowsing.urlsec.qq.com,DIRECT', 'DOMAIN,safebrowsing.googleapis.com,DIRECT', 'DOMAIN,developer.apple.com,⭕ proxinode',
         'DOMAIN-SUFFIX,digicert.com,⭕ proxinode', 'DOMAIN,ocsp.apple.com,⭕ proxinode', 'DOMAIN,ocsp.comodoca.com,⭕ proxinode', 'DOMAIN,ocsp.usertrust.com,⭕ proxinode',
@@ -361,14 +264,84 @@ def main():
         'GEOIP,CN,DIRECT', 'MATCH,⭕ proxinode'
     ]
     
-    with open(OUTPUT_CLASH_FILE, 'w', encoding='utf-8') as f:
+    with open(output_filename, 'w', encoding='utf-8') as f:
         yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
-    print(f"成功生成 Clash 订阅文件: {OUTPUT_CLASH_FILE}")
+    print(f"成功生成 Clash 订阅文件: {output_filename}")
 
+
+def main():
+    with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:
+        subscription_urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
+    
+    print(f"找到 {len(subscription_urls)} 个订阅链接。")
+    all_nodes, unique_nodes = [], set()
+    # (The node parsing logic remains the same as your provided code)
+    for url in subscription_urls:
+        content = get_subscription_content(url)
+        if not content: continue
+        try:
+            data = yaml.safe_load(content)
+            if isinstance(data, dict) and 'proxies' in data and isinstance(data['proxies'], list):
+                print(f"内容识别为 YAML，找到 {len(data['proxies'])} 个代理。")
+                for proxy in data['proxies']:
+                    if all(k in proxy for k in ['name', 'server', 'port', 'type']):
+                        try: proxy['port'] = int(proxy['port'])
+                        except (ValueError, TypeError): continue
+                        node_id = (proxy['server'], proxy['port'], proxy['type'])
+                        if node_id not in unique_nodes: all_nodes.append(proxy); unique_nodes.add(node_id)
+                continue
+        except: pass
+        links_content = None
+        if any(p in content for p in ["ss://", "vmess://", "trojan://", "vless://", "hysteria://", "hysteria2://"]):
+            links_content = content
+        else:
+            links_content = decode_base64_content(content)
+        if not links_content: print("无法从此 URL 解析。\n"); continue
+        for link in links_content.splitlines():
+            node = parse_node(link)
+            if node:
+                node_id = (node['server'], node['port'], node['type'])
+                if node_id not in unique_nodes: all_nodes.append(node); unique_nodes.add(node_id)
+
+    print(f"去重后共解析出 {len(all_nodes)} 个节点。")
+    
+    print("\n--- 开始节点延迟测试 (并发) ---")
+    node_results = []
+    max_workers = min(64, len(all_nodes) if all_nodes else 1)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_node = {executor.submit(test_node_connectivity, node): node for node in all_nodes}
+        for future in tqdm(concurrent.futures.as_completed(future_to_node), total=len(all_nodes), desc="测试延迟"):
+            node = future_to_node[future]
+            try:
+                icmp_latency, tcp_latency = future.result()
+                node_results.append({'node': node, 'icmp': icmp_latency, 'tcp': tcp_latency})
+            except Exception as e:
+                print(f"测试节点时出错 {node.get('name')}: {e}")
+
+    # --- Filter and Sort ICMP Results ---
+    passed_icmp = [res for res in node_results if 0 < res['icmp'] < MAX_LATENCY_MS]
+    passed_icmp.sort(key=lambda x: x['icmp'])
+    fast_nodes_icmp = [item['node'] for item in passed_icmp]
+
+    # --- Filter and Sort TCP Results ---
+    passed_tcp = [res for res in node_results if 0 < res['tcp'] < MAX_LATENCY_MS]
+    passed_tcp.sort(key=lambda x: x['tcp'])
+    fast_nodes_tcp = [item['node'] for item in passed_tcp]
+
+    print("--- 延迟测试结束 ---\n")
+    print(f"筛选并排序后得到 {len(fast_nodes_icmp)} 个 ICMP 可用节点。")
+    print(f"筛选并排序后得到 {len(fast_nodes_tcp)} 个 TCP 可用节点。")
+
+    # --- Generate Config Files ---
+    generate_clash_config(fast_nodes_icmp, OUTPUT_CLASH_ICMP_FILE)
+    generate_clash_config(fast_nodes_tcp, OUTPUT_CLASH_TCP_FILE)
+
+    # --- Update Status File ---
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
         update_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
         f.write(f"最后更新时间: {update_time}\n")
-        f.write(f"可用节点数量: {len(fast_nodes)}\n")
+        f.write(f"ICMP 可用节点数量: {len(fast_nodes_icmp)}\n")
+        f.write(f"TCP 可用节点数量: {len(fast_nodes_tcp)}\n")
     print(f"成功记录时间: {UPDATE_TIME_FILE}")
 
 if __name__ == '__main__':

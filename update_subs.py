@@ -162,23 +162,72 @@ def parse_hysteria2_link(hy2_link):
 #         if process: process.terminate(); process.wait()
 #         if os.path.exists(XRAY_CONFIG_FILE): os.remove(XRAY_CONFIG_FILE)
 
+# def test_node_latency(node):
+#     """
+#     仅通过 TCP Ping 测试节点的延迟。
+#     返回毫秒延迟或 -1 (失败)。
+#     """
+#     try:
+#         addr = (node['server'], int(node['port']))
+#         start_time = time.time()
+#         with socket.create_connection(addr, timeout=TCP_PING_TIMEOUT):
+#             end_time = time.time()
+#         latency = int((end_time - start_time) * 1000)
+#         return latency
+#     except (socket.timeout, ConnectionRefusedError, OSError):
+#         return -1
 def test_node_latency(node):
     """
-    仅通过 TCP Ping 测试节点的延迟。
-    返回毫秒延迟或 -1 (失败)。
+    Tests node latency using the system's ping command.
+    Returns latency in milliseconds, or -1 on failure.
     """
+    host = node.get('server')
+    if not host:
+        return -1
+
+    # Determine the appropriate ping command based on the operating system
+    system = platform.system()
+    if system == "Windows":
+        # -n 1: Send 1 ICMP echo request.
+        # -w 3000: Wait 3000 milliseconds (3 seconds) for a reply.
+        command = ["ping", "-n", "1", "-w", "1000", host]
+    else: # For Linux, macOS, and other UNIX-like systems
+        # -c 1: Send 1 ICMP echo request.
+        # -W 3: Wait 3 seconds for a reply.
+        command = ["ping", "-c", "1", "-W", "1", host]
+
     try:
-        addr = (node['server'], int(node['port']))
-        start_time = time.time()
-        with socket.create_connection(addr, timeout=TCP_PING_TIMEOUT):
-            end_time = time.time()
-        latency = int((end_time - start_time) * 1000)
-        return latency
-    except (socket.timeout, ConnectionRefusedError, OSError):
+        # Execute the ping command
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=5  # A safety timeout for the subprocess itself
+        )
+
+        # Check if the ping command was successful
+        if result.returncode != 0:
+            return -1
+
+        # Use regular expressions to parse the latency from the command's output
+        output = result.stdout
+        # This regex is designed to be compatible with both Windows and Linux/macOS output
+        match = re.search(r"time(?:[=<])([\d.]+)\s*ms", output)
+        
+        # For some Windows locales, the average time is the most reliable metric
+        if system == "Windows" and not match:
+            match = re.search(r"Average = ([\d.]+)\s*ms", output)
+
+        if match:
+            latency = float(match.group(1))
+            return int(latency)
+        else:
+            return -1
+
+    except (subprocess.TimeoutExpired, FileNotFoundError, Exception):
         return -1
 
 
-# --- 主逻辑 (无改动) ---
 def main():
     if not os.path.exists(XRAY_PATH): print("错误: Xray-core 可执行文件未找到。"); return
     with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:

@@ -20,6 +20,7 @@ OUTPUT_CLASH_TCP_FILE = 'sub_tcp.yaml'
 
 UPDATE_TIME_FILE = 'update_time.txt'
 MAX_LATENCY_MS = 500
+MAX_NODES_LIMIT = 200
 
 REAL_TEST_URL = 'http://cp.cloudflare.com/'
 TCP_TIMEOUT_SECONDS = 5
@@ -320,25 +321,24 @@ def main():
             except Exception as e:
                 print(f"测试节点时出错 {node.get('name')}: {e}")
 
-    # --- Filter and Sort ICMP Results ---
     passed_icmp = [res for res in node_results if 0 < res['icmp'] < MAX_LATENCY_MS]
     passed_icmp.sort(key=lambda x: x['icmp'])
-    fast_nodes_icmp = [item['node'] for item in passed_icmp]
+    fast_nodes_icmp = [item['node'] for item in passed_icmp][:MAX_NODES_LIMIT]
+    fast_nodes_icmp = ensure_unique_proxy_names(fast_nodes_icmp)
 
-    # --- Filter and Sort TCP Results ---
     passed_tcp = [res for res in node_results if 0 < res['tcp'] < MAX_LATENCY_MS]
     passed_tcp.sort(key=lambda x: x['tcp'])
-    fast_nodes_tcp = [item['node'] for item in passed_tcp]
+    fast_nodes_tcp = [item['node'] for item in passed_tcp][:MAX_NODES_LIMIT]
+    fast_nodes_tcp = ensure_unique_proxy_names(fast_nodes_tcp)
 
     print("--- 延迟测试结束 ---\n")
-    print(f"筛选并排序后得到 {len(fast_nodes_icmp)} 个 ICMP 可用节点。")
-    print(f"筛选并排序后得到 {len(fast_nodes_tcp)} 个 TCP 可用节点。")
+    print(f"筛选并排序后得到 {len(fast_nodes_icmp)} 个 ICMP 可用节点 (上限 {MAX_NODES_LIMIT})。")
+    print(f"筛选并排序后得到 {len(fast_nodes_tcp)} 个 TCP 可用节点 (上限 {MAX_NODES_LIMIT})。")
 
     # --- Generate Config Files ---
     generate_clash_config(fast_nodes_icmp, OUTPUT_CLASH_ICMP_FILE)
     generate_clash_config(fast_nodes_tcp, OUTPUT_CLASH_TCP_FILE)
 
-    # --- Update Status File ---
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
         update_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
         f.write(f"最后更新时间: {update_time}\n")

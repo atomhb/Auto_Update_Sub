@@ -127,6 +127,17 @@ def test_node_connectivity(node):
     tcp_latency = test_tcp_latency(node)
     return icmp_latency, tcp_latency
 
+def ensure_unique_proxy_names(nodes):
+    name_counts = {}
+    for node in nodes:
+        name = node['name']
+        if name in name_counts:
+            name_counts[name] += 1
+            node['name'] = f"{name}_{name_counts[name]}"
+        else:
+            name_counts[name] = 0 # Mark as seen
+    return nodes
+
 def generate_clash_config(fast_nodes, output_filename):
     if not fast_nodes:
         print(f"没有可用的节点，无法生成 {output_filename}")

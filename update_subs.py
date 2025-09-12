@@ -15,7 +15,7 @@ from tqdm import tqdm # For a user-friendly progress bar
 
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 
-OUTPUT_CLASH_ICMP_FILE = 'sub_icmp.yaml'
+OUTPUT_CLASH_ICMP_FILE = 'sub_useful.yaml'
 OUTPUT_CLASH_TCP_FILE = 'sub_tcp.yaml'
 
 UPDATE_TIME_FILE = 'update_time.txt'

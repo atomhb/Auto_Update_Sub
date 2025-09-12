@@ -11,19 +11,18 @@ from urllib.parse import unquote, urlparse, parse_qs
 import platform
 import re
 import concurrent.futures
-from tqdm import tqdm # For a user-friendly progress bar
+from tqdm import tqdm 
+import socks
 
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 
 OUTPUT_CLASH_ICMP_FILE = 'sub_useful.yaml'
 OUTPUT_CLASH_TCP_FILE = 'sub_tcp.yaml'
 
-UPDATE_TIME_FILE = 'update_time.txt'
-MAX_LATENCY_MS = 500
-MAX_NODES_LIMIT = 200
-
-REAL_TEST_URL = 'https://www.google.com'
-TCP_TIMEOUT_SECONDS = 5
+MAX_LATENCY_MS = 2500 
+MAX_NODES_LIMIT = 300 
+REAL_TEST_URL = 'https://www.google.com/generate_204' 
+HTTP_TIMEOUT_SECONDS = 8 
 
 def get_subscription_content(url):
     headers = {'User-Agent': 'Clash/1.11.0'}
@@ -95,18 +94,50 @@ def parse_hysteria2_link(hy2_link):
         return {'name': remarks, 'type': 'hysteria2', 'server': server, 'port': int(port), 'password': password, 'sni': params.get('sni', server), 'skip-cert-verify': params.get('insecure', '0') == '1'}
     except: return None
 
-def test_icmp_latency(node):
-    host = node.get('server')
-    if not host: return -1
-    system = platform.system()
-    command = ["ping", "-n", "1", "-w", "1000", host] if system == "Windows" else ["ping", "-c", "1", "-W", "1", host]
+def test_node_http_latency(node):
+    """
+    通过代理进行真实的HTTP请求，测试网站访问延迟。
+    主要对 'ss' 类型的节点有效，因为 requests 结合 PySocks 可以原生支持 SOCKS5。
+    对于 vmess, trojan 等，此方法无法直接工作，会测试失败。
+    """
+    node_type = node.get('type')
+    server = node.get('server')
+    port = node.get('port')
+
+    if not server or not port:
+        return -1
+
+    # 我们只尝试测试 'ss' 节点，因为它们通常作为 SOCKS5 代理工作
+    if node_type != 'ss':
+        return -1
+
+    proxies = {
+        'http': f'socks5://{server}:{port}',
+        'https': f'socks5://{server}:{port}'
+    }
+    
+    start_time = time.perf_counter()
     try:
-        result = subprocess.run(command, capture_output=True, text=True, timeout=5)
-        if result.returncode != 0: return -1
-        match = re.search(r"time(?:[=<])([\d.]+)\s*ms", result.stdout)
-        if system == "Windows" and not match: match = re.search(r"Average = ([\d.]+)\s*ms", result.stdout)
-        return int(float(match.group(1))) if match else -1
-    except (subprocess.TimeoutExpired, FileNotFoundError, Exception):
+        # 使用 stream=True 可以避免下载整个响应体，我们只关心响应头和延迟
+        # allow_redirects=False 避免重定向增加不必要的延迟
+        response = requests.get(
+            REAL_TEST_URL,
+            proxies=proxies,
+            timeout=HTTP_TIMEOUT_SECONDS,
+            stream=True,
+            allow_redirects=False
+        )
+        # 只要能收到响应头，就认为连接成功
+        if response.status_code < 400:
+            latency_ms = int((time.perf_counter() - start_time) * 1000)
+            return latency_ms
+        else:
+            return -1
+    except (requests.exceptions.ProxyError, requests.exceptions.Timeout, requests.exceptions.RequestException,
+            socks.ProxyConnectionError, socks.GeneralProxyError) as e:
+        # 捕捉所有可能的代理和请求错误
+        return -1
+    except Exception:
         return -1
 
 def test_tcp_latency(node):
@@ -123,7 +154,7 @@ def test_tcp_latency(node):
 
 def test_node_connectivity(node):
     """Tests both ICMP and TCP connectivity, returns a tuple of latencies."""
-    icmp_latency = test_icmp_latency(node)
+    icmp_latency = test_node_http_latency(node)
     tcp_latency = test_tcp_latency(node)
     return icmp_latency, tcp_latency
 

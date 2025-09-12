@@ -40,9 +40,36 @@ jobs:
       #     chmod +x xray
       #     # 清理压缩包
       #     rm xray.zip
+      - name: 下载 mihomo (Clash.Meta) 核心
+        run: |
+          # 1. 自动获取最新的版本号
+          LATEST_TAG=$(curl -sL "https://api.github.com/repos/MetaCubeX/mihomo/releases/latest" | jq -r ".tag_name")
+          
+          if [ -z "$LATEST_TAG" ]; then
+            echo "错误：无法获取最新的 mihomo 版本号！"
+            exit 1
+          fi
+          
+          echo "最新的 mihomo 版本是: $LATEST_TAG"
+          
+          # 2. 构建下载链接 (GitHub Actions 使用 linux-amd64 架构)
+          DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_TAG}/mihomo-linux-amd64-${LATEST_TAG}.gz"
+          
+          echo "正在从 ${DOWNLOAD_URL} 下载 mihomo 核心..."
+          wget -q -O mihomo.gz "${DOWNLOAD_URL}"
+          
+          # 3. 解压核心文件
+          echo "解压核心文件..."
+          gzip -d mihomo.gz
+          
+          # 4. 将解压出的核心文件重命名为 'clash'，并赋予执行权限
+          # Python 脚本将通过 './clash' 调用它
+          mv mihomo-linux-amd64* clash
+          chmod +x clash
+          
+          echo "mihomo 核心准备就绪:"
+          ./clash -v
 
-      # 执行 Python 脚本来更新订阅
-      # 脚本会自动调用同目录下的 xray 程序
       - name: Run subscription update script
         run: python update_subs.py
 

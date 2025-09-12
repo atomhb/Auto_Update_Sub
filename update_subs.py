@@ -18,6 +18,7 @@ SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 
 OUTPUT_CLASH_ICMP_FILE = 'sub_useful.yaml'
 OUTPUT_CLASH_TCP_FILE = 'sub_tcp.yaml'
+UPDATE_TIME_FILE = 'update_time.txt'
 
 MAX_LATENCY_MS = 2500 
 MAX_NODES_LIMIT = 300 

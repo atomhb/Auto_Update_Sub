@@ -25,11 +25,8 @@ MAX_NODES_LIMIT = 100
 REAL_TEST_URL = 'http://www.gstatic.com/generate_204' # Clash API 默认使用 HTTP
 API_TEST_TIMEOUT_SECONDS = 5 # API 调用本身的超时
 
-# 根据 GitHub Actions 环境确定 Clash 核心路径
-# 在 action.yml 中，我们会将下载的核心文件命名为 'clash'
 CLASH_BINARY_PATH = './clash'
 
-# 用于为临时文件和API端口生成随机名称/数字
 def random_string(length=8):
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
 
@@ -39,7 +36,6 @@ def get_free_port():
         s.bind(('127.0.0.1', 0))
         return s.getsockname()[1]
 
-# --- 订阅获取和节点解析函数 (与之前版本相同) ---
 def get_subscription_content(url):
     headers = {'User-Agent': 'Clash/1.11.0'}
     try:

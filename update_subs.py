@@ -344,7 +344,7 @@ def main():
     
     print("\n--- 开始使用 Clash Core 进行真实延迟测试 (批量) ---")
     # 一次性批量测速
-    latency_results = test_nodes_latency_batch(all_nodes)  
+    latency_results = test_node_latency_with_clash_batch(all_nodes)  
     # 过滤可用节点
     node_results = []
     for node in all_nodes:

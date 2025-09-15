@@ -25,7 +25,7 @@ UPDATE_TIME_FILE = 'update_time.txt'
 MAX_LATENCY_MS = 800
 MAX_NODES_LIMIT = 100
 REAL_TEST_URL = 'http://www.gstatic.com/generate_204' # Clash API 默认使用 HTTP
-API_TEST_TIMEOUT_SECONDS = 3 # API 调用本身的超时
+API_TEST_TIMEOUT_SECONDS = 1 # API 调用本身的超时
 
 CLASH_BINARY_PATH = './clash'
 
@@ -108,40 +108,6 @@ def parse_hysteria2_link(hy2_link):
     except: return None
 # --- 节点解析函数结束 ---
 
-# def test_node_latency_with_clash_core(node):
-#     rand_id = random_string()
-#     temp_config_path = f'temp_config_{rand_id}.yaml'
-#     api_port = get_free_port()
-#     api_address = f'127.0.0.1:{api_port}'
-#     proxy_name_for_api = node['name'].replace(' ', '_').encode('utf-8', 'ignore').decode('utf-8')
-    
-#     config = {
-#         'proxies': [node], 'proxy-groups': [{'name': 'test-group', 'type': 'select', 'proxies': [proxy_name_for_api]}],
-#         'external-controller': api_address, 'log-level': 'silent', 'port': get_free_port(), 'socks-port': get_free_port()
-#     }
-#     with open(temp_config_path, 'w', encoding='utf-8') as f: yaml.dump(config, f)
-
-#     process = None
-#     try:
-#         command = [CLASH_BINARY_PATH, '-f', temp_config_path]
-#         process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-#         time.sleep(1.5)
-#         if process.poll() is not None: return -1
-
-#         api_url = f'http://{api_address}/proxies/{proxy_name_for_api}/delay'
-#         params = {'url': REAL_TEST_URL, 'timeout': int(API_TEST_TIMEOUT_SECONDS * 1000)}
-#         response = requests.get(api_url, params=params, timeout=API_TEST_TIMEOUT_SECONDS + 1)
-#         response.raise_for_status()
-#         delay_data = response.json()
-#         return delay_data.get('delay', -1)
-#     except Exception:
-#         return -1
-#     finally:
-#         if process:
-#             process.terminate()
-#             process.wait()
-#         if os.path.exists(temp_config_path):
-#             os.remove(temp_config_path)
 def tcp_latency(host, port, timeout=2):
     """TCP 握手延迟（毫秒）"""
     start = time.time()
@@ -160,74 +126,40 @@ def icmp_latency(host, timeout=2):
     except:
         return -1
 
-def test_node_latency_with_clash_batch(nodes):
-    """一次性启动 Clash 测多个节点延迟，返回 {节点名: (真实RTT, 代理延迟)}"""
+def test_node_latency_with_clash_core(node):
     rand_id = random_string()
     temp_config_path = f'temp_config_{rand_id}.yaml'
     api_port = get_free_port()
     api_address = f'127.0.0.1:{api_port}'
-
-    # 确保节点名唯一
-    nodes = ensure_unique_proxy_names(nodes)
-
-    # 生成 Clash 配置
+    proxy_name_for_api = node['name'].replace(' ', '_').encode('utf-8', 'ignore').decode('utf-8')
+    
     config = {
-        'proxies': nodes,
-        'proxy-groups': [
-            {
-                'name': 'test-group',
-                'type': 'select',
-                'proxies': [n['name'] for n in nodes]
-            }
-        ],
-        'external-controller': api_address,
-        'log-level': 'silent',
-        'port': get_free_port(),
-        'socks-port': get_free_port()
+        'proxies': [node], 'proxy-groups': [{'name': 'test-group', 'type': 'global', 'proxies': [proxy_name_for_api]}],
+        'external-controller': api_address, 'log-level': 'silent', 'port': get_free_port(), 'socks-port': get_free_port()
     }
-
-    with open(temp_config_path, 'w', encoding='utf-8') as f:
-        yaml.dump(config, f)
+    with open(temp_config_path, 'w', encoding='utf-8') as f: yaml.dump(config, f)
 
     process = None
-    results = {}
     try:
-        # 启动 Clash Core
         command = [CLASH_BINARY_PATH, '-f', temp_config_path]
         process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         time.sleep(1.5)
-        if process.poll() is not None:
-            return {n['name']: (-1, -1) for n in nodes}
+        if process.poll() is not None: return -1
 
-        # 并发测延迟
-        def measure(node):
-            # 真实 RTT（这里用 TCP，你也可以换成 icmp_latency）
-            real_rtt = tcp_latency(node['server'], node['port'])
-            # Clash API 延迟
-            api_url = f'http://{api_address}/proxies/{node["name"]}/delay'
-            params = {'url': REAL_TEST_URL, 'timeout': int(API_TEST_TIMEOUT_SECONDS * 1000)}
-            try:
-                r = requests.get(api_url, params=params, timeout=API_TEST_TIMEOUT_SECONDS + 1)
-                r.raise_for_status()
-                proxy_delay = r.json().get('delay', -1)
-            except:
-                proxy_delay = -1
-            return node['name'], (real_rtt, proxy_delay)
-
-        with ThreadPoolExecutor(max_workers=10) as executor:
-            futures = [executor.submit(measure, node) for node in nodes]
-            for future in as_completed(futures):
-                name, delays = future.result()
-                results[name] = delays
-
+        api_url = f'http://{api_address}/proxies/{proxy_name_for_api}/delay'
+        params = {'url': REAL_TEST_URL, 'timeout': int(API_TEST_TIMEOUT_SECONDS * 1000)}
+        response = requests.get(api_url, params=params, timeout=API_TEST_TIMEOUT_SECONDS + 1)
+        response.raise_for_status()
+        delay_data = response.json()
+        return delay_data.get('delay', -1)
+    except Exception:
+        return -1
     finally:
         if process:
             process.terminate()
             process.wait()
         if os.path.exists(temp_config_path):
             os.remove(temp_config_path)
-
-    return results
 
 def ensure_unique_proxy_names(nodes):
     name_counts = {}
@@ -260,7 +192,7 @@ def generate_clash_config(fast_nodes, output_filename):
     clash_config['proxy-groups'] = [
         {'name': 'PROXY', 'type': 'select', 'proxies': ['AUTO-URL', 'DIRECT'] + proxy_names},
         {'name': 'AUTO-URL', 'type': 'url-test', 'proxies': proxy_names,
-         'url': 'http://www.gstatic.com/generate_204', 'interval': 300}
+         'url': 'http://www.gstatic.com/generate_204', 'interval': 200}
     ]
     clash_config['rules'] = ['GEOIP,CN,DIRECT', 'MATCH,PROXY'] # 你可以替换成自己的复杂规则列表
     
@@ -310,73 +242,37 @@ def main():
     print(f"去重后共解析出 {len(all_nodes)} 个节点。")
     if not all_nodes: return
 
-    # print("\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
-    # node_results = []
-    # max_workers = min(16, len(all_nodes))
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-    #     future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in all_nodes}
-    #     for future in tqdm(concurrent.futures.as_completed(future_to_node), total=len(all_nodes), desc="测试节点"):
-    #         node = future_to_node[future]
-    #         try:
-    #             latency = future.result()
-    #             if 0 < latency < MAX_LATENCY_MS:
-    #                 node_results.append({'node': node, 'latency': latency})
-    #         except Exception: pass
-
-    # node_results.sort(key=lambda x: x['latency'])
-    # fast_nodes = []
-    # for item in node_results:
-    #     node = item['node']
-    #     latency = item['latency']
-    #     node['name'] = f"{node['name']} | {latency}ms" # 将延迟附加到节点名称
-    #     fast_nodes.append(node)
-        
-    # fast_nodes = fast_nodes[:MAX_NODES_LIMIT]
-    # fast_nodes = ensure_unique_proxy_names(fast_nodes)
-
-    # print(f"\n--- 测试结束 ---\n筛选出 {len(fast_nodes)} 个可用节点。")
-    # generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
-
-    # with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
-    #     update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    #     f.write(f"最后更新时间: {update_time}\n可用节点数量: {len(fast_nodes)}\n")
-    # print(f"成功记录更新时间: {UPDATE_TIME_FILE}")
-    
-    print("\n--- 开始使用 Clash Core 进行真实延迟测试 (批量) ---")
-    # 一次性批量测速
-    latency_results = test_node_latency_with_clash_batch(all_nodes)  
-    # 过滤可用节点
+    print("\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
     node_results = []
-    for node in all_nodes:
-        rtt, proxy_delay = latency_results.get(node['name'], (-1, -1))
-        # 这里你可以选择用 proxy_delay 或 rtt 来筛选
-        if 0 < proxy_delay < MAX_LATENCY_MS:
-            node_results.append({
-                'node': node,
-                'latency': proxy_delay,
-                'rtt': rtt
-            })  
-    # 按代理延迟排序
+    max_workers = min(16, len(all_nodes))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in all_nodes}
+        for future in tqdm(concurrent.futures.as_completed(future_to_node), total=len(all_nodes), desc="测试节点"):
+            node = future_to_node[future]
+            try:
+                latency = future.result()
+                if 0 < latency < MAX_LATENCY_MS:
+                    node_results.append({'node': node, 'latency': latency})
+            except Exception: pass
+
     node_results.sort(key=lambda x: x['latency'])
-    # 输出结果
+    fast_nodes = []
     for item in node_results:
         node = item['node']
         latency = item['latency']
-        rtt = item['rtt']
-        node['name'] = f"{node['name']} | RTT:{rtt}ms | 代理:{latency}ms"
-        print(f"{node['name']}")
-    # 截取前 N 个节点
-    fast_nodes = [item['node'] for item in node_results[:MAX_NODES_LIMIT]]
+        node['name'] = f"{node['name']} | {latency}ms" # 将延迟附加到节点名称
+        fast_nodes.append(node)
+        
+    fast_nodes = fast_nodes[:MAX_NODES_LIMIT]
     fast_nodes = ensure_unique_proxy_names(fast_nodes)
-    
+
     print(f"\n--- 测试结束 ---\n筛选出 {len(fast_nodes)} 个可用节点。")
     generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
-    
+
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
         update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         f.write(f"最后更新时间: {update_time}\n可用节点数量: {len(fast_nodes)}\n")
     print(f"成功记录更新时间: {UPDATE_TIME_FILE}")
-
 
 if __name__ == '__main__':
     main()

@@ -1,2 +1,2 @@
 # Auto_Update_Sub
-Auto update clash subscription
+Auto update public subscription

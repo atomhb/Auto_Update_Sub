@@ -22,10 +22,10 @@ SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 OUTPUT_CLASH_FILE = 'sub_tested.yaml'
 UPDATE_TIME_FILE = 'update_time.txt'
 
-MAX_LATENCY_MS = 800
+MAX_LATENCY_MS = 500
 MAX_NODES_LIMIT = 100
 REAL_TEST_URL = 'http://www.gstatic.com/generate_204' # Clash API 默认使用 HTTP
-API_TEST_TIMEOUT_SECONDS = 1 # API 调用本身的超时
+API_TEST_TIMEOUT_SECONDS = 3 # API 调用本身的超时
 
 CLASH_BINARY_PATH = './clash'
 

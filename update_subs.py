@@ -19,13 +19,13 @@ from ping3 import ping  # pip install ping3
 
 # --- 全局配置 ---
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
-OUTPUT_CLASH_FILE = 'sub_tested.yaml'
+OUTPUT_CLASH_FILE = 'sub.yaml'
 UPDATE_TIME_FILE = 'update_time.txt'
 
 MAX_LATENCY_MS = 500
 MAX_NODES_LIMIT = 100
 REAL_TEST_URL = 'http://www.gstatic.com/generate_204' # Clash API 默认使用 HTTP
-API_TEST_TIMEOUT_SECONDS = 3 # API 调用本身的超时
+API_TEST_TIMEOUT_SECONDS = 5 # API 调用本身的超时
 
 CLASH_BINARY_PATH = './clash'
 
@@ -37,6 +37,23 @@ def get_free_port():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind(('127.0.0.1', 0))
         return s.getsockname()[1]
+
+def wait_for_clash_api(api_address, timeout=10):
+    """循环检查 Clash API 是否已启动"""
+    api_base = f'http://{api_address}'
+    start_time = time.time()
+    while time.time() - start_time < timeout:
+        try:
+            # 尝试访问轻量级的 /version 或 /traffic 接口
+            response = requests.get(f'{api_base}/version', timeout=1) 
+            if response.status_code == 200:
+                return True # API 成功响应
+        except requests.exceptions.ConnectionError:
+            pass # 连接错误，继续等待
+        except Exception:
+            pass # 其他错误，继续等待
+        time.sleep(0.2) # 每次重试间隔 200 毫秒
+    return False
 
 def get_subscription_content(url):
     headers = {'User-Agent': 'Clash/1.11.0'}
@@ -131,36 +148,45 @@ def test_node_latency_with_clash_core(node):
     temp_config_path = f'temp_config_{rand_id}.yaml'
     api_port = get_free_port()
     api_address = f'127.0.0.1:{api_port}'
-    proxy_name_for_api = node['name'].replace(' ', '_').encode('utf-8', 'ignore').decode('utf-8')
+    proxy_name_for_api = requests.utils.quote(node['name']) 
     
     config = {
-        'proxies': [node], 'proxy-groups': [{'name': 'test-group', 'type': 'global', 'proxies': [proxy_name_for_api]}],
+        'proxies': [node], 'proxy-groups': [{'name': 'test-group', 'type': 'select', 'proxies': [node['name']]}],
         'external-controller': api_address, 'log-level': 'silent', 'port': get_free_port(), 'socks-port': get_free_port()
     }
     with open(temp_config_path, 'w', encoding='utf-8') as f: yaml.dump(config, f)
 
     process = None
     try:
-        command = [CLASH_BINARY_PATH, '-f', temp_config_path]
+        command = [CLASH_BINARY_PATH, '-f', temp_config_path, '-d', '.']
         process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        time.sleep(1.5)
+        if not wait_for_clash_api(api_address, timeout=5):
+            print(f"Clash API 启动失败或超时: {node['name']}") # Debug 用
+            return -1
         if process.poll() is not None: return -1
 
         api_url = f'http://{api_address}/proxies/{proxy_name_for_api}/delay'
         params = {'url': REAL_TEST_URL, 'timeout': int(API_TEST_TIMEOUT_SECONDS * 1000)}
-        response = requests.get(api_url, params=params, timeout=API_TEST_TIMEOUT_SECONDS + 1)
+        response = requests.get(api_url, params=params, timeout=API_TEST_TIMEOUT_SECONDS + 2)
         response.raise_for_status()
         delay_data = response.json()
         return delay_data.get('delay', -1)
-    except Exception:
+    except requests.exceptions.Timeout:
+        # print(f"节点测试超时: {node['name']}") # Debug 用
+        return -1
+    except Exception as e:
+        # print(f"节点测试发生错误 {node['name']}: {e}") # Debug 用
         return -1
     finally:
         if process:
-            process.terminate()
-            process.wait()
+            try:
+                process.terminate()
+                process.wait(timeout=3)
+            except:
+                pass
         if os.path.exists(temp_config_path):
             os.remove(temp_config_path)
-
+            
 def ensure_unique_proxy_names(nodes):
     name_counts = {}
     for node in nodes:

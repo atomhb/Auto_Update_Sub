@@ -29,17 +29,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests pyyaml tqdm PySocks ping3
 
-      # 实现真实延迟测试
-      # - name: Download and setup Xray-core
-      #   run: |
-      #     # 从 GitHub Releases 下载最新的 Xray-core for Linux 64-bit
-      #     wget -O xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
-      #     # 解压出 xray 可执行文件
-      #     unzip -o xray.zip xray
-      #     # 赋予可执行权限
-      #     chmod +x xray
-      #     # 清理压缩包
-      #     rm xray.zip
       - name: 下载 mihomo (Clash.Meta) 核心
         run: |
           # 1. 自动获取最新的版本号
@@ -65,7 +54,7 @@ jobs:
           # 4. 将解压出的核心文件重命名为 'clash'，并赋予执行权限
           # Python 脚本将通过 './clash' 调用它
           mv mihomo clash
-          chmod +x clash
+          chmod +x ./clash
           
           echo "mihomo 核心准备就绪:"
           ./clash -v

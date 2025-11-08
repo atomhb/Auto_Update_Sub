@@ -16,14 +16,7 @@ dns:
   - 1.1.1.1
   - tls://dns.google:853
 proxies:
-- name: 🇺🇸 ShatakVPN 340099 | 9ms
-  type: ss
-  server: 66.23.207.82
-  port: 990
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  udp: true
-- name: AutoAiVPN4001696 | 16ms
+- name: AutoAiVPN4001696 | 15ms
   type: trojan
   server: 190.93.247.7
   port: 443
@@ -31,7 +24,45 @@ proxies:
   udp: true
   sni: 190.93.247.7
   skip-cert-verify: true
-- name: AutoAiVPN7730113 | 24ms
+- name: 美国_110813170 | 20ms
+  type: vless
+  server: usvless.yydzx.xyz
+  port: 17597
+  uuid: 4741863d-e3ac-4b9d-8185-466f437b3fa8
+  udp: true
+  tls: true
+  network: tcp
+  servername: usvless.yydzx.xyz
+  flow: xtls-rprx-vision
+- name: '@meli_proxyy | 20ms'
+  type: ss
+  server: 104.192.226.106
+  port: 990
+  cipher: chacha20-ietf-poly1305
+  password: f8f7aCzcPKbsF8p3
+  udp: true
+- name: '@awlix_ir | 20ms'
+  type: ss
+  server: 104.192.226.106
+  port: 989
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  udp: true
+- name: CF中转_1108136397 | 27ms
+  type: vless
+  server: 172.67.209.105
+  port: 2082
+  uuid: 1953c1e6-af68-4c60-a6f8-f8194de580f6
+  udp: true
+  tls: false
+  network: ws
+  servername: 172.67.209.105
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
+- name: AutoAiVPN7730113 | 27ms
   type: vless
   server: 104.26.4.60
   port: 8080
@@ -45,71 +76,32 @@ proxies:
     path: /
     headers:
       Host: v2raynselling.kir-rasol-kir.workers.dev
-- name: CF中转_110804288 | 29ms
-  type: vless
-  server: 104.21.47.6
+- alterId: 0
+  cipher: auto
+  name: us|6706|puddincat07@Telegram | 28ms
+  network: tcp
   port: 443
-  uuid: 161fa2ac-9618-4a3c-bc9b-5420ecc1826e
+  server: 165.140.216.141
+  skip-cert-verify: true
+  tfo: true
+  type: vmess
   udp: true
-  tls: true
-  network: ws
-  servername: v2ray-vmess-free.irnoen.workers.dev
-  flow: ''
-  ws-opts:
-    path: /?@VPN_ROOM------@VPN_ROOM
-    headers:
-      Host: v2ray-vmess-free.irnoen.workers.dev
-- name: '%2525F0%25259F%252587%2525B9%2525F0%25259F%252587%2525B7telegram%252520%2525E2%25259E%2525A0%252520%252540v2rayNG_Matsuri%252520%25253E%25253E%252540v2rayNG_Matsuri%253A%253ACA%3A%3ACA::CA
-    | 31ms'
-  type: ss
-  server: 79.127.200.162
-  port: 990
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  udp: true
-- name: 美国_1108041687 | 32ms
+  uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
+- name: AutoAiVPN211508 | 28ms
   type: vless
-  server: 50.62.174.253
-  port: 2096
-  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-  udp: true
-  tls: true
-  network: ws
-  servername: vless.muzheng.top
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: vless.muzheng.top
-- name: '[OpenRay] 🇨🇦 CA-2097 | 35ms'
-  type: vless
-  server: 172.64.154.211
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  server: 104.18.10.128
+  port: 2086
+  uuid: d345d11e-c424-4583-b36e-527ab1f0afa4
   udp: true
   tls: false
   network: ws
-  servername: 172.64.154.211
+  servername: v2raynselling.kir-rasol-kir.workers.dev
   flow: ''
   ws-opts:
     path: /
     headers:
-      Host: fangbinxingnmsl.pusytroller.cf
-- name: CF中转_1108044708 | 36ms
-  type: vless
-  server: 188.114.96.7
-  port: 443
-  uuid: 5050e255-4919-4d7f-96c8-30b13d06fdf6
-  udp: true
-  tls: true
-  network: ws
-  servername: 1mCijea74uYkCcQ2mZrX-MNGHduCyF0B.DAMav48375.wORKErs.DeV
-  flow: ''
-  ws-opts:
-    path: /nXWz3i2XoxHvOGI4?ed
-    headers:
-      Host: 1mCijea74uYkCcQ2mZrX-MNGHduCyF0B.DAMav48375.wORKErs.DeV
-- name: 荷兰_110804034 | 37ms
+      Host: v2raynselling.kir-rasol-kir.workers.dev
+- name: 荷兰_110813035 | 29ms
   type: vless
   server: 185.18.184.253
   port: 2096
@@ -123,587 +115,35 @@ proxies:
     path: /Telegram🇨🇳@WangCai2/?ed=2560
     headers:
       Host: vless.muzheng.top
-- name: CF中转_1108044555 | 38ms
+- name: '[OpenRay] 🇨🇦 CA-2097 | 29ms'
   type: vless
-  server: 104.21.15.212
-  port: 8080
-  uuid: 4c9541c7-5fa1-403c-84af-175e3b25a27f
-  udp: true
-  tls: false
-  network: ws
-  servername: 201.58vtg99l.workers.dev
-  flow: ''
-  ws-opts:
-    path: /
-    headers:
-      Host: 201.58vtg99l.workers.dev
-- name: 未知_1108043510 | 39ms
-  type: vless
-  server: developers.cloudflare.com
+  server: 172.64.154.211
   port: 2095
   uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
   udp: true
   tls: false
   network: ws
-  servername: developers.cloudflare.com
+  servername: 172.64.154.211
   flow: ''
   ws-opts:
     path: /
     headers:
       Host: fangbinxingnmsl.pusytroller.cf
-- name: 美国_110804210 | 39ms
+- name: CF中转_1108135911 | 30ms
   type: vless
-  server: 167.68.4.253
-  port: 2096
-  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-  udp: true
-  tls: true
-  network: ws
-  servername: vless.muzheng.top
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳+@WangCai2+/?ed=2560
-    headers:
-      Host: vless.muzheng.top
-- name: 美国_110804212 | 39ms
-  type: vless
-  server: 50.62.194.253
-  port: 2096
-  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-  udp: true
-  tls: true
-  network: ws
-  servername: vless.muzheng.top
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: vless.muzheng.top
-- name: 荷兰_110804035 | 39ms
-  type: vless
-  server: 194.152.44.253
-  port: 2096
-  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-  udp: true
-  tls: true
-  network: ws
-  servername: vless.muzheng.top
-  flow: ''
-  ws-opts:
-    path: /Telegram @ /?ed=2560
-    headers:
-      Host: vless.muzheng.top
-- name: CF中转_110804711 | 40ms
-  type: vless
-  server: 172.67.163.76
-  port: 443
-  uuid: b74bbaca-8bbe-41e1-9af9-18d467836282
-  udp: true
-  tls: true
-  network: ws
-  servername: 017.electrocellco-cf-017.workers.dev
-  flow: ''
-  ws-opts:
-    path: /eyJqdW5rIjoibnhUbllUVXY1OWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
-    headers:
-      Host: 017.electrocellco-cf-017.workers.dev
-- name: 未知_1108041668 | 40ms
-  type: vless
-  server: 014.electrocellco-cf-014.workers.dev
-  port: 443
-  uuid: 203e82ed-a6b7-416a-b04e-ba8a20d8a0c4
-  udp: true
-  tls: true
-  network: ws
-  servername: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
-  flow: ''
-  ws-opts:
-    path: /eyJqdW5rIjoiQkdrUldRNHQzR2MzVHkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
-    headers:
-      Host: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
-- name: CF中转_110804684 | 41ms
-  type: vless
-  server: 188.114.97.7
-  port: 443
-  uuid: ae658497-2809-4ecb-86d5-db73867bfa38
-  udp: true
-  tls: true
-  network: ws
-  servername: 9oPprODUcTINCHELloauS9678.rIDic35214.wORkERS.DEv
-  flow: ''
-  ws-opts:
-    path: /WxedDvrJwCt8Kd1r?ed=2560
-    headers:
-      Host: 9oPprODUcTINCHELloauS9678.rIDic35214.wORkERS.DEv
-- name: 🇺🇸 US | 🔓 VMESS | @v2ray_youtube [8] >>@ShadowsocksM::US | 41ms
-  type: vmess
-  server: 209.126.84.189
-  port: 443
-  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  network: ws
-  ws-opts:
-    path: /vmessws
-    headers:
-      Host: 209.126.84.189
-- name: CF中转_1108043034 | 42ms
-  type: vless
-  server: 104.24.87.230
+  server: 104.21.80.1
   port: 80
-  uuid: 590dfbde-f8c8-429b-b947-39bb767ddd9c
+  uuid: 81caa837-c213-4731-a02e-662380ad1e2f
   udp: true
   tls: false
   network: ws
-  servername: 104.24.87.230
+  servername: cxrolvpn.freev2-edb.workers.dev
   flow: ''
   ws-opts:
-    path: /?ed=2560
+    path: /BJMz0Rpb9gejBzKP?ed=2560
     headers:
-      Host: square-moon-bc81-ppal03.tivere6418.workers.dev
-- name: CF中转_1108046167 | 42ms
-  type: vless
-  server: 172.67.209.105
-  port: 8080
-  uuid: 1953c1e6-af68-4c60-a6f8-f8194de580f6
-  udp: true
-  tls: false
-  network: ws
-  servername: 172.67.209.105
-  flow: ''
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
-- name: 立陶宛_110804029 | 42ms
-  type: vless
-  server: 86.38.214.253
-  port: 2096
-  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-  udp: true
-  tls: true
-  network: ws
-  servername: vless.muzheng.top
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-    headers:
-      Host: vless.muzheng.top
-- name: CF中转_1108042342 | 43ms
-  type: vless
-  server: 172.67.161.104
-  port: 80
-  uuid: 8169cd18-e824-47a4-a4d4-96433b1a519d
-  udp: true
-  tls: false
-  network: ws
-  servername: 172.67.161.104
-  flow: ''
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: testdvpnhub69.95f425b718.workers.dev
-- name: 美国_1108041585 | 43ms
-  type: vless
-  server: 159.112.235.174
-  port: 2082
-  uuid: 47e9a0db-50c6-4522-8819-502c55b06dde
-  udp: true
-  tls: false
-  network: ws
-  servername: 159.112.235.174
-  flow: ''
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: workerr.schodog1.workers.dev
-- name: 卢森堡_110804008 | 44ms
-  type: vless
-  server: 188.42.145.253
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  udp: true
-  tls: true
-  network: ws
-  servername: gaosir.unfeeling.sbs
-  flow: ''
-  ws-opts:
-    path: /XU0001F1E8U0001F1F3@ShadowProxy66/?ed=2560fp=chrome
-    headers:
-      Host: gaosir.unfeeling.sbs
-- name: 塞舌尔_110804003 | 44ms
-  type: vless
-  server: 45.130.125.253
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  udp: true
-  tls: true
-  network: ws
-  servername: gaosir.unfeeling.sbs
-  flow: ''
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-- name: AutoAiVPN8967587 | 44ms
-  type: vless
-  server: 172.67.209.105
-  port: 2052
-  uuid: 1953c1e6-af68-4c60-a6f8-f8194de580f6
-  udp: true
-  tls: false
-  network: ws
-  servername: 172.67.209.105
-  flow: ''
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
-- name: CF中转_1108041628 | 45ms
-  type: vless
-  server: 104.19.50.238
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  udp: true
-  tls: true
-  network: ws
-  servername: gaosir.unfeeling.sbs
-  flow: ''
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-- name: CF中转_1108046385 | 45ms
-  type: vless
-  server: 172.67.209.105
-  port: 2082
-  uuid: 1953c1e6-af68-4c60-a6f8-f8194de580f6
-  udp: true
-  tls: false
-  network: ws
-  servername: 172.67.209.105
-  flow: ''
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
-- name: 未知_1108043109 | 45ms
-  type: vless
-  server: www.gov.ua
-  port: 8080
-  uuid: 046da250-d5ef-4867-9095-302477d54d20
-  udp: true
-  tls: false
-  network: ws
-  servername: www.gov.ua
-  flow: ''
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: feng.ipy29c99.workers.dev
-- name: '[OpenRay] 🇨🇦 CA-2095 | 45ms'
-  type: vless
-  server: 172.66.166.61
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  udp: true
-  tls: false
-  network: ws
-  servername: 172.66.166.61
-  flow: ''
-  ws-opts:
-    path: /
-    headers:
-      Host: fangbinxingnmsl.pusytroller.cf
-- name: 香港_110804038 | 46ms
-  type: vless
-  server: 45.192.224.253
-  port: 2096
-  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-  udp: true
-  tls: true
-  network: ws
-  servername: vless.muzheng.top
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: vless.muzheng.top
-- name: '[OpenRay] 🇺🇸 US-2737 | 46ms'
-  type: vless
-  server: 104.20.16.234
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  udp: true
-  tls: false
-  network: ws
-  servername: 104.20.16.234
-  flow: ''
-  ws-opts:
-    path: /
-    headers:
-      Host: fangbinxingnmsl.pusytroller.cf
-- name: 未知_110804136 | 47ms
-  type: vless
-  server: npmjs.com
-  port: 80
-  uuid: 0c07016f-6238-4a17-a414-ab0ecd8a8b5e
-  udp: true
-  tls: false
-  network: ws
-  servername: npmjs.com
-  flow: ''
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: soft-wave-5d2a.kyng-ayaan.workers.dev
-- name: 🇺🇸 US-2 | SHFX | 48ms
-  type: ss
-  server: 156.146.38.170
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
-- name: CF中转_1108047177 | 48ms
-  type: vless
-  server: 172.64.146.66
-  port: 2095
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: false
-  network: ws
-  servername: xijinpingnmsl.s4ar.workers.dev
-  flow: ''
-  ws-opts:
-    path: /ğŸ”’
-    headers:
-      Host: xijinpingnmsl.s4ar.workers.dev
-- name: '[OpenRay] 🇺🇸 US-2327 | 48ms'
-  type: vless
-  server: 104.17.135.117
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  udp: true
-  tls: false
-  network: ws
-  servername: 104.17.135.117
-  flow: ''
-  ws-opts:
-    path: /
-    headers:
-      Host: snippets.pusytroller.cf
-- name: CF中转_1108047170 | 49ms
-  type: vless
-  server: 188.114.96.11
-  port: 2087
-  uuid: b9b8cf4c-29a3-4288-9c6c-8811dc37beec
-  udp: true
-  tls: true
-  network: ws
-  servername: xLZ767v2Ray.PAgEs.dev
-  flow: ''
-  ws-opts:
-    path: /5z5wdmesbon0p3kk?ed=2560
-    headers:
-      Host: xLZ767v2Ray.PAgEs.dev
-- name: CF中转_1108047197 | 49ms
-  type: vless
-  server: 104.19.250.98
-  port: 2083
-  uuid: ce035748-9913-40c9-9fb6-c8389f7cdcf3
-  udp: true
-  tls: true
-  network: ws
-  servername: yousef.varzesh.dpdns.org
-  flow: ''
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: yousef.varzesh.dpdns.org
-- name: 俄罗斯联邦_110804077 | 49ms
-  type: vless
-  server: 45.135.235.253
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  udp: true
-  tls: true
-  network: ws
-  servername: gaosir.unfeeling.sbs
-  flow: ''
-  ws-opts:
-    path: /Telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-- name: 🇺🇸 ShatakVPN 301166 | 49ms
-  type: vless
-  server: 172.67.67.178
-  port: 443
-  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
-  udp: true
-  tls: true
-  network: ws
-  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
-  flow: ''
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: rAyAn-007.nAsTaRaN.DpDnS.OrG
-- name: 🇺🇸 ShatakVPN 228185 | 49ms
-  type: ss
-  server: 37.19.198.236
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: CF中转_1108044567 | 50ms
-  type: vless
-  server: 172.67.207.26
-  port: 8080
-  uuid: 4c9541c7-5fa1-403c-84af-175e3b25a27f
-  udp: true
-  tls: false
-  network: ws
-  servername: 201.58vtg99l.workers.dev
-  flow: ''
-  ws-opts:
-    path: /
-    headers:
-      Host: 201.58vtg99l.workers.dev
-- name: 德国_110804088 | 50ms
-  type: vless
-  server: 5.10.214.253
-  port: 2096
-  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
-  udp: true
-  tls: true
-  network: ws
-  servername: vless.muzheng.top
-  flow: ''
-  ws-opts:
-    path: /Telegram @freecodes /?ed=2560security=tls
-    headers:
-      Host: vless.muzheng.top
-- name: 🇺🇸US-156.146.38.169-0186 | 50ms
-  type: ss
-  server: 156.146.38.169
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: AutoAiVPN3974495 | 50ms
-  type: vless
-  server: 104.24.172.153
-  port: 80
-  uuid: 818a98bf-e7d0-45d5-800b-24d4058234c6
-  udp: true
-  tls: false
-  network: ws
-  servername: 104.24.172.153
-  flow: ''
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: still-smoke-881e-ppal03.cabit21569.workers.dev
-- name: CF中转_110804315 | 51ms
-  type: vless
-  server: 172.67.208.109
-  port: 443
-  uuid: 203e82ed-a6b7-416a-b04e-ba8a20d8a0c4
-  udp: true
-  tls: true
-  network: ws
-  servername: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
-  flow: ''
-  ws-opts:
-    path: /eyJqdW5rIjoiQkdrUldRNHQzR2MzVHkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
-    headers:
-      Host: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
-- name: 未知_110804161 | 51ms
-  type: vless
-  server: japan.com
-  port: 2096
-  uuid: 1b6c1745-992e-4aac-8685-266c090e50ea
-  udp: true
-  tls: true
-  network: ws
-  servername: cf-worker-ws-dev.kingo1923.workers.dev
-  flow: ''
-  ws-opts:
-    path: /?ed=2048@V2Gatee--V2Gatee--V2Gatee--V2Gatee-V2Gatee--V2Gatee--V2Gatee--V2Gatee--V2Gatee--V2Gatee--V2Gatee--V2Gatee
-    headers:
-      Host: cf-worker-ws-dev.kingo1923.workers.dev
-- name: IR-@V2ray_Alpha--2 | 51ms
-  type: ss
-  server: 37.19.198.243
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇺🇸US-156.146.38.168-0187 | 51ms
-  type: ss
-  server: 156.146.38.168
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: ❔ XX | 🔒 SS | @godv2rang [1] | 51ms
-  type: ss
-  server: 37.19.198.244
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: '[OpenRay] 🇺🇸 US-208 | 51ms'
-  type: vless
-  server: 104.16.250.22
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  udp: true
-  tls: true
-  network: ws
-  servername: gaosir.unfeeling.sbs
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-- name: CF中转_1108044652 | 52ms
-  type: vless
-  server: 104.18.109.147
-  port: 80
-  uuid: c29d39bd-92a4-45db-bb61-56013998617c
-  udp: true
-  tls: false
-  network: ws
-  servername: www.speedtest.net.www.1google.com.bing.com.visa.com.tls.xv98.ip-ddns.com
-  flow: ''
-  ws-opts:
-    path: /Telegram-XV2ry2?ed=2048
-    headers:
-      Host: www.speedtest.net.www.1google.com.bing.com.visa.com.tls.xv98.ip-ddns.com
-- name: IR-@V2ray_Alpha--1 | 52ms
-  type: ss
-  server: 37.19.198.160
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: CF中转_1108044239 | 53ms
-  type: vless
-  server: 162.159.153.2
-  port: 2095
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: false
-  network: ws
-  servername: 162.159.153.2
-  flow: ''
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: xijinpingnmsl.s4ar.workers.dev
-- name: 美国_110804358 | 53ms
+      Host: cxrolvpn.freev2-edb.workers.dev
+- name: 美国_110813355 | 30ms
   type: vless
   server: 159.246.55.253
   port: 2096
@@ -717,31 +157,85 @@ proxies:
     path: /Telegram🇨🇳 @WangCai2 /?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-- name: AutoAiVPN8735216 | 53ms
-  type: vmess
-  server: 193.124.24.247
-  port: 6506
-  uuid: c53d41d1-7d56-43ce-9994-408780c6476a
-  alterId: 0
-  cipher: auto
+- name: '%252525252525253E%252525252525253E%2525252525252540configV2rayNG%252525252525253A%252525252525253AXX%2525252525253A%2525252525253AXX%25252525253A%25252525253AXX%252525253A%252525253AXX%2525253A%2525253AXX%25253A%25253AXX%253A%253AXX%3A%3AXX::XX
+    | 31ms'
+  type: hysteria2
+  server: 208.87.243.187
+  port: 22222
+  password: dongtaiwang.com
+  sni: www.bing.com
+  skip-cert-verify: true
+- name: '[OpenRay] 🇺🇸 US-2416 | 31ms'
+  type: vless
+  server: 104.21.0.135
+  port: 2095
+  uuid: 7890ce31-9a25-4fd4-90e7-80e5823ff510
   udp: true
   tls: false
-  network: tcp
-- name: 俄罗斯联邦_110804057 | 54ms
-  type: vless
-  server: 5.182.85.253
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  udp: true
-  tls: true
   network: ws
-  servername: gaosir.unfeeling.sbs
+  servername: 104.21.0.135
   flow: ''
   ws-opts:
-    path: /telegram馃嚚馃嚦@wangcai2/
+    path: /?ed=2560
     headers:
-      Host: gaosir.unfeeling.sbs
-- name: 巴西_110804008 | 54ms
+      Host: iioo.iioou.workers.dev
+- name: CF中转_1108133957 | 32ms
+  type: vless
+  server: 104.18.14.19
+  port: 2095
+  uuid: 13ed4a8b-6049-4f26-8cb3-9870df4fda4c
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.18.14.19
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: 0107.cxypogon.workers.dev
+- name: CF中转_1108134577 | 32ms
+  type: vless
+  server: 172.67.207.26
+  port: 8080
+  uuid: 4c9541c7-5fa1-403c-84af-175e3b25a27f
+  udp: true
+  tls: false
+  network: ws
+  servername: 201.58vtg99l.workers.dev
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: 201.58vtg99l.workers.dev
+- name: CF中转_1108137115 | 32ms
+  type: vless
+  server: 104.18.41.190
+  port: 2095
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.18.41.190
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: xijinpingnmsl.s4ar.workers.dev
+- name: AutoAiVPN8912835 | 34ms
+  type: vless
+  server: 45.131.5.111
+  port: 80
+  uuid: d6ff33a6-03bf-4338-8a63-62ab284a9466
+  udp: true
+  tls: false
+  network: ws
+  servername: 45.131.5.111
+  flow: ''
+  ws-opts:
+    path: telegram@wangcai2/?ed=2048
+    headers:
+      Host: feng4.l1ut8bi9.workers.dev
+- name: 巴西_110813008 | 35ms
   type: vless
   server: 185.133.35.253
   port: 2096
@@ -755,7 +249,483 @@ proxies:
     path: /Telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-- name: 未知_1108042160 | 54ms
+- name: 荷兰_110813614 | 35ms
+  type: vless
+  server: 45.131.4.253
+  port: 2096
+  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
+  udp: true
+  tls: true
+  network: ws
+  servername: vless.muzheng.top
+  flow: ''
+  ws-opts:
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+    headers:
+      Host: vless.muzheng.top
+- name: '[OpenRay] 🇺🇸 US-2737 | 35ms'
+  type: vless
+  server: 104.20.16.234
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.20.16.234
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.cf
+- name: 🇺🇸 ShatakVPN 298139 | 36ms
+  type: vless
+  server: 104.17.134.117
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.17.134.117
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: snippets.pusytroller.cf
+- name: 🇺🇸 ShatakVPN 512195 | 36ms
+  type: ss
+  server: 173.244.56.9
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: CF中转_1108132276 | 37ms
+  type: vless
+  server: 172.67.209.105
+  port: 2087
+  uuid: 1953c1e6-af68-4c60-a6f8-f8194de580f6
+  udp: true
+  tls: true
+  network: ws
+  servername: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
+- name: AutoAiVPN3248949 | 37ms
+  type: ss
+  server: 173.244.56.6
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: 未知_1108131749 | 38ms
+  type: vless
+  server: whatismyipaddress.com
+  port: 443
+  uuid: 18ff277a-3b9a-46a0-842e-290f2b0661d2
+  udp: true
+  tls: true
+  network: ws
+  servername: hidden-base-217b.powas74490.workers.dev
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: hidden-base-217b.powas74490.workers.dev
+- name: AutoAiVPN7339055 | 38ms
+  type: vless
+  server: 172.64.92.243
+  port: 80
+  uuid: 590dfbde-f8c8-429b-b947-39bb767ddd9c
+  udp: true
+  tls: false
+  network: ws
+  servername: 172.64.92.243
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: square-moon-bc81-ppal03.tivere6418.workers.dev
+- name: CF中转_1108136179 | 39ms
+  type: vless
+  server: 172.67.209.105
+  port: 8080
+  uuid: 1953c1e6-af68-4c60-a6f8-f8194de580f6
+  udp: true
+  tls: false
+  network: ws
+  servername: 172.67.209.105
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
+- name: 美国_110813606 | 39ms
+  type: vless
+  server: 50.62.174.253
+  port: 2096
+  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
+  udp: true
+  tls: true
+  network: ws
+  servername: vless.muzheng.top
+  flow: ''
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: vless.muzheng.top
+- name: AutoAiVPN11140487 | 39ms
+  type: vless
+  server: www.shopify.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: www.shopify.com
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: snippets.pusytroller.cf
+- name: AutoAiVPN3840096 | 39ms
+  type: vless
+  server: 104.24.204.237
+  port: 80
+  uuid: 3f5eba46-f9c9-4d49-985c-2a4345da4f5a
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.24.204.237
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: billowing-recipe-c066-ppal03.kerocel835.workers.dev
+- name: CF中转_1108132196 | 40ms
+  type: vless
+  server: 104.16.52.146
+  port: 80
+  uuid: 3f5eba46-f9c9-4d49-985c-2a4345da4f5a
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.16.52.146
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: billowing-recipe-c066-ppal03.kerocel835.workers.dev
+- name: 塞舌尔_110813003 | 40ms
+  type: vless
+  server: 45.130.125.253
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  udp: true
+  tls: true
+  network: ws
+  servername: gaosir.unfeeling.sbs
+  flow: ''
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+- name: '[OpenRay] 🇺🇸 US-2744 | 40ms'
+  type: vless
+  server: 104.18.33.45
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.18.33.45
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.cf
+- name: CF中转_110813310 | 41ms
+  type: vless
+  server: 104.21.23.22
+  port: 443
+  uuid: 203e82ed-a6b7-416a-b04e-ba8a20d8a0c4
+  udp: true
+  tls: true
+  network: ws
+  servername: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
+  flow: ''
+  ws-opts:
+    path: /eyJqdW5rIjoiQkdrUldRNHQzR2MzVHkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
+- name: 俄罗斯联邦_110813056 | 41ms
+  type: vless
+  server: 45.135.235.253
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  udp: true
+  tls: true
+  network: ws
+  servername: gaosir.unfeeling.sbs
+  flow: ''
+  ws-opts:
+    path: /Telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+- name: CF中转_1108134184 | 42ms
+  type: vless
+  server: 188.114.96.11
+  port: 443
+  uuid: b9b8cf4c-29a3-4288-9c6c-8811dc37beec
+  udp: true
+  tls: true
+  network: ws
+  servername: XLz767V2RAY.Pages.deV
+  flow: ''
+  ws-opts:
+    path: /ixjnwid2al1nz6mt?ed=2560
+    headers:
+      Host: XLz767V2RAY.Pages.deV
+- name: AutoAiVPN6058070 | 42ms
+  type: vless
+  server: 172.67.205.138
+  port: 443
+  uuid: 62a49d41-e231-4a6b-af26-cec86ef64001
+  udp: true
+  tls: true
+  network: ws
+  servername: 1403.stopt7307.workers.dev
+  flow: ''
+  ws-opts:
+    path: /Telegram@V2ray_Alpha/?ed=2048
+    headers:
+      Host: 1403.stopt7307.workers.dev
+- name: AutoAiVPN3974495 | 42ms
+  type: vless
+  server: 104.24.172.153
+  port: 80
+  uuid: 818a98bf-e7d0-45d5-800b-24d4058234c6
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.24.172.153
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: still-smoke-881e-ppal03.cabit21569.workers.dev
+- name: '[OpenRay] 🇺🇸 US-207 | 42ms'
+  type: vless
+  server: 104.18.185.26
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  udp: true
+  tls: true
+  network: ws
+  servername: gaosir.unfeeling.sbs
+  flow: ''
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+- name: '[OpenRay] 🇺🇸 US-2327 | 43ms'
+  type: vless
+  server: 104.17.135.117
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.17.135.117
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: snippets.pusytroller.cf
+- name: CF中转_110813311 | 44ms
+  type: vless
+  server: 172.67.208.109
+  port: 443
+  uuid: 203e82ed-a6b7-416a-b04e-ba8a20d8a0c4
+  udp: true
+  tls: true
+  network: ws
+  servername: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
+  flow: ''
+  ws-opts:
+    path: /eyJqdW5rIjoiQkdrUldRNHQzR2MzVHkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
+- name: CF中转_1108134249 | 44ms
+  type: vless
+  server: 162.159.153.2
+  port: 2095
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: false
+  network: ws
+  servername: 162.159.153.2
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: xijinpingnmsl.s4ar.workers.dev
+- name: CF中转_1108131585 | 45ms
+  type: vless
+  server: 104.19.46.102
+  port: 443
+  uuid: cc913f3d-0635-47f1-9999-493385ad0fd2
+  udp: true
+  tls: true
+  network: ws
+  servername: ong.wush1024.ggff.net
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: ong.wush1024.ggff.net
+- name: CF中转_1108137183 | 45ms
+  type: vless
+  server: 188.114.96.11
+  port: 2087
+  uuid: b9b8cf4c-29a3-4288-9c6c-8811dc37beec
+  udp: true
+  tls: true
+  network: ws
+  servername: xLZ767v2Ray.PAgEs.dev
+  flow: ''
+  ws-opts:
+    path: /5z5wdmesbon0p3kk?ed=2560
+    headers:
+      Host: xLZ767v2Ray.PAgEs.dev
+- name: 俄罗斯联邦_110813036 | 45ms
+  type: vless
+  server: 5.182.85.253
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  udp: true
+  tls: true
+  network: ws
+  servername: gaosir.unfeeling.sbs
+  flow: ''
+  ws-opts:
+    path: /telegram馃嚚馃嚦@wangcai2/
+    headers:
+      Host: gaosir.unfeeling.sbs
+- name: 未知_1108132904 | 45ms
+  type: vless
+  server: www.gov.ua
+  port: 8080
+  uuid: 046da250-d5ef-4867-9095-302477d54d20
+  udp: true
+  tls: false
+  network: ws
+  servername: www.gov.ua
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: feng.ipy29c99.workers.dev
+- name: 未知_1108133679 | 45ms
+  type: vless
+  server: www.wto.org
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: www.wto.org
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fuckingfangbinxing.pusytroller.cf
+- name: 美国_110813504 | 45ms
+  type: vless
+  server: 159.112.235.174
+  port: 2082
+  uuid: 47e9a0db-50c6-4522-8819-502c55b06dde
+  udp: true
+  tls: false
+  network: ws
+  servername: 159.112.235.174
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: workerr.schodog1.workers.dev
+- name: CF中转_1108133706 | 46ms
+  type: vless
+  server: 104.16.19.242
+  port: 80
+  uuid: 1853d1d2-1ccf-48e6-ae05-0c0bb285a8c4
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.16.19.242
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: winter-bush-f08c-ppal03.himigaw787.workers.dev
+- name: CF中转_1108134565 | 46ms
+  type: vless
+  server: 104.21.15.212
+  port: 8080
+  uuid: 4c9541c7-5fa1-403c-84af-175e3b25a27f
+  udp: true
+  tls: false
+  network: ws
+  servername: 201.58vtg99l.workers.dev
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: 201.58vtg99l.workers.dev
+- name: 🇺🇸 ShatakVPN 801542 | 47ms
+  type: vless
+  server: 172.67.67.178
+  port: 443
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  udp: true
+  tls: true
+  network: ws
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rAyAn-007.nAsTaRaN.DpDnS.OrG
+- name: AutoAiVPN8967587 | 47ms
+  type: vless
+  server: 172.67.209.105
+  port: 2052
+  uuid: 1953c1e6-af68-4c60-a6f8-f8194de580f6
+  udp: true
+  tls: false
+  network: ws
+  servername: 172.67.209.105
+  flow: ''
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
+- name: CF中转_1108137210 | 48ms
+  type: vless
+  server: 104.19.250.98
+  port: 2083
+  uuid: ce035748-9913-40c9-9fb6-c8389f7cdcf3
+  udp: true
+  tls: true
+  network: ws
+  servername: yousef.varzesh.dpdns.org
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: yousef.varzesh.dpdns.org
+- name: 未知_1108131956 | 48ms
   type: vless
   server: cf.090227.xyz
   port: 2095
@@ -769,23 +739,45 @@ proxies:
     path: /
     headers:
       Host: fangbinxingnmsl.pusytroller.cf
-- name: 未知_1108043072 | 54ms
+- name: 未知_1108133305 | 48ms
   type: vless
-  server: whatismyipaddress.com
-  port: 80
-  uuid: 18ff277a-3b9a-46a0-842e-290f2b0661d2
+  server: developers.cloudflare.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
   udp: true
   tls: false
   network: ws
-  servername: hidden-base-217b.powas74490.workers.dev
+  servername: developers.cloudflare.com
   flow: ''
   ws-opts:
     path: /
     headers:
-      Host: hidden-base-217b.powas74490.workers.dev
-- name: 美国_1108042467 | 54ms
+      Host: fangbinxingnmsl.pusytroller.cf
+- name: CF中转_110813703 | 49ms
   type: vless
-  server: 139.64.235.253
+  server: 172.67.163.76
+  port: 443
+  uuid: b74bbaca-8bbe-41e1-9af9-18d467836282
+  udp: true
+  tls: true
+  network: ws
+  servername: 017.electrocellco-cf-017.workers.dev
+  flow: ''
+  ws-opts:
+    path: /eyJqdW5rIjoibnhUbllUVXY1OWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: 017.electrocellco-cf-017.workers.dev
+- name: AutoAiVPN6721105 | 49ms
+  type: trojan
+  server: 103.224.182.210
+  port: 443
+  password: b3d27d09-77fe-431d-9829-6eba7dce20b0
+  udp: true
+  sni: 14.earths.team
+  skip-cert-verify: true
+- name: '[OpenRay] 🇺🇸 US-208 | 49ms'
+  type: vless
+  server: 104.16.250.22
   port: 2096
   uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
   udp: true
@@ -794,52 +786,122 @@ proxies:
   servername: gaosir.unfeeling.sbs
   flow: ''
   ws-opts:
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-- name: 荷兰_110804040 | 54ms
+- name: 香港_110813039 | 50ms
   type: vless
-  server: 185.18.184.66
-  port: 80
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: false
-  network: ws
-  servername: hello.96xckkzx.workers.dev
-  flow: ''
-  ws-opts:
-    path: /?ed=2048@v2ray_configs_pools--@v2ray_configs_pools
-    headers:
-      Host: hello.96xckkzx.workers.dev
-- name: 🇺🇸US-156.146.38.167-0185 | 55ms
-  type: ss
-  server: 156.146.38.167
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-- name: 🇺🇸 ShatakVPN 194334 | 55ms
-  type: vless
-  server: 104.24.30.89
-  port: 443
-  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  server: 45.192.224.253
+  port: 2096
+  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
   udp: true
   tls: true
   network: ws
-  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  servername: vless.muzheng.top
+  flow: ''
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: vless.muzheng.top
+- name: 🇺🇸 US-6 | SHFX | 51ms
+  type: vless
+  server: openai.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  skip-cert-verify: true
+  client-fingerprint: randomized
+  ws-opts:
+    headers:
+      Host: freedom.pusytroller.cf
+    path: /
+  tfo: false
+  tls: false
+- name: CF中转_1108136797 | 51ms
+  type: vless
+  server: 104.18.2.150
+  port: 443
+  uuid: a114d067-b900-4f60-87a5-50d4d63972b8
+  udp: true
+  tls: true
+  network: ws
+  servername: PaRiSA-CC5Zk0.paRISa-44c.woRKeRs.dev
   flow: ''
   ws-opts:
     path: /?ed=2560
     headers:
-      Host: rAyAn-007.nAsTaRaN.DpDnS.OrG
-- name: 2 | 55ms
-  server: 3.137.215.129
+      Host: PaRiSA-CC5Zk0.paRISa-44c.woRKeRs.dev
+- name: 未知_110813519 | 52ms
+  type: vless
+  server: 017.electrocellco-cf-017.workers.dev
   port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
+  uuid: b74bbaca-8bbe-41e1-9af9-18d467836282
   udp: true
-- name: 🇺🇸 US-18 | SHFX | 56ms
+  tls: true
+  network: ws
+  servername: 017.EleCTRoCelLCo-CF-017.Workers.dEv
+  flow: ''
+  ws-opts:
+    path: /eyJqdW5rIjoibnhUbllUVXY1OWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    headers:
+      Host: 017.EleCTRoCelLCo-CF-017.Workers.dEv
+- name: 美国_110813108 | 52ms
+  type: vless
+  server: 72.167.241.253
+  port: 2096
+  uuid: 2456f90c-5183-476d-b069-16ae74ce120f
+  udp: true
+  tls: true
+  network: ws
+  servername: fast01.0860852.xyz
+  flow: ''
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: fast01.0860852.xyz
+- name: 美国_1108131786 | 52ms
+  type: vless
+  server: 159.112.235.253
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  udp: true
+  tls: true
+  network: ws
+  servername: gaosir.unfeeling.sbs
+  flow: ''
+  ws-opts:
+    path: /X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+- name: 美国_110813209 | 52ms
+  type: vless
+  server: 167.68.4.253
+  port: 2096
+  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
+  udp: true
+  tls: true
+  network: ws
+  servername: vless.muzheng.top
+  flow: ''
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: vless.muzheng.top
+- name: '[OpenRay] 🇨🇦 CA-2095 | 52ms'
+  type: vless
+  server: 172.66.166.61
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: 172.66.166.61
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.cf
+- name: 🇺🇸 US-12 | SHFX | 53ms
   type: vless
   server: www.shopify.com
   port: 2096
@@ -854,7 +916,169 @@ proxies:
       Host: snippet.danfeng.eu.org
   tls: true
   tfo: false
-- name: AutoAiVPN6602549 | 56ms
+- name: 未知_1108131958 | 53ms
+  type: vless
+  server: www.udemy.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: www.udemy.com
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.cf
+- name: AutoAiVPN7031691 | 53ms
+  type: trojan
+  server: 198.46.152.83
+  port: 443
+  password: 2ee85121-31de-4581-a492-eb00f606e392
+  udp: true
+  sni: sj3.freeguard.org
+  skip-cert-verify: false
+- name: CF中转_1108133220 | 54ms
+  type: vless
+  server: 172.67.184.105
+  port: 8443
+  uuid: 1ff4b4b9-af9f-4708-ab43-97dcc832e748
+  udp: true
+  tls: true
+  network: ws
+  servername: 008.eleCtroCellco-Cf-008.woRkers.dev
+  flow: ''
+  ws-opts:
+    path: /eyJqdW5rIjoiMGp6UmU2WUc3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiNS4zNS43MC4xNTUiLCIxNDguMjUxLjE1Ny4xMjciLCIyLjU5LjE4My4xOTgiXX0=?ed=2560
+    headers:
+      Host: 008.eleCtroCellco-Cf-008.woRkers.dev
+- name: CF中转_1108136304 | 54ms
+  type: vless
+  server: 104.21.48.1
+  port: 2087
+  uuid: 6b437afc-62b3-40ba-9112-ee667a783c3d
+  udp: true
+  tls: true
+  network: ws
+  servername: free.bxxxcws.workers.dev
+  flow: ''
+  ws-opts:
+    path: /icawt3hyu1h4ftl4?ed=2560
+    headers:
+      Host: free.bxxxcws.workers.dev
+- name: 未知_110813413 | 54ms
+  type: vless
+  server: ef87bb2b.meti-e9q.pages.dev
+  port: 443
+  uuid: 923509aa-bfb0-4758-a5a1-a6c2d0468169
+  udp: true
+  tls: true
+  network: ws
+  servername: ef87bb2b.meti-e9q.pages.dev
+  flow: ''
+  ws-opts:
+    path: /ck2vlelfdajoybac?ed=2560
+    headers:
+      Host: ef87bb2b.meti-e9q.pages.dev
+- name: CF中转_1108136171 | 55ms
+  type: vless
+  server: 188.114.98.6
+  port: 80
+  uuid: 4751adcd-064b-493e-979b-b1c56c133cb4
+  udp: true
+  tls: false
+  network: ws
+  servername: 188.114.98.6
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: steep-water-754d-ppal0333333333333333.finisal307.workers.dev
+- name: 未知_1108131957 | 55ms
+  type: vless
+  server: namemc.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: namemc.com
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.cf
+- name: 未知_1108133678 | 55ms
+  type: vless
+  server: linux.do
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: fangbinxingnmsl.pusytroller.cf
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.cf
+- name: 卢森堡_110813008 | 56ms
+  type: vless
+  server: 188.42.145.253
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  udp: true
+  tls: true
+  network: ws
+  servername: gaosir.unfeeling.sbs
+  flow: ''
+  ws-opts:
+    path: /XU0001F1E8U0001F1F3@ShadowProxy66/?ed=2560fp=chrome
+    headers:
+      Host: gaosir.unfeeling.sbs
+- name: CF中转_1108133043 | 57ms
+  type: vless
+  server: 104.24.87.230
+  port: 80
+  uuid: 590dfbde-f8c8-429b-b947-39bb767ddd9c
+  udp: true
+  tls: false
+  network: ws
+  servername: 104.24.87.230
+  flow: ''
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: square-moon-bc81-ppal03.tivere6418.workers.dev
+- name: 未知_1108132474 | 57ms
+  type: vless
+  server: support.cloudflare.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: support.cloudflare.com
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: freedom.pusytroller.cf
+- name: 立陶宛_110813029 | 57ms
+  type: vless
+  server: 86.38.214.253
+  port: 2096
+  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
+  udp: true
+  tls: true
+  network: ws
+  servername: vless.muzheng.top
+  flow: ''
+  ws-opts:
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+    headers:
+      Host: vless.muzheng.top
+- name: AutoAiVPN6602549 | 57ms
   type: vless
   server: 172.67.209.105
   port: 2086
@@ -868,74 +1092,7 @@ proxies:
     path: /?ed=2048
     headers:
       Host: worker-ancient-bonus-70e8.96dc4cc80bfb.workers.dev
-- name: CF中转_1108046661 | 57ms
-  type: vless
-  server: 172.67.161.104
-  port: 2095
-  uuid: 8169cd18-e824-47a4-a4d4-96433b1a519d
-  udp: true
-  tls: false
-  network: ws
-  servername: 172.67.161.104
-  flow: ''
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: testdvpnhub69.95f425b718.workers.dev
-- name: CF中转_110804844 | 57ms
-  type: vless
-  server: 104.19.39.69
-  port: 443
-  uuid: f4754aa8-d258-49ef-911c-0c3ca76b93f2
-  udp: true
-  tls: true
-  network: ws
-  servername: 013.eLeCtROceLlCO-cf-013.WOrKErs.DEv
-  flow: ''
-  ws-opts:
-    path: /eyJqdW5rIjoiRDZUb2UwRmxpSHYxNFkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyI1LjEwLjIxNS4yNiJdfQ==?ed=2560
-    headers:
-      Host: 013.eLeCtROceLlCO-cf-013.WOrKErs.DEv
-- name: '>>@v2rayNG_Matsuri::US | 57ms'
-  type: vmess
-  server: 193.124.24.247
-  port: 6513
-  uuid: 5cf7fcbc-e2c1-42c4-d0d7-79c45a7d588d
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  network: tcp
-- name: '%2525252525252525F0%25252525252525259F%252525252525252587%2525252525252525A8%2525252525252525F0%25252525252525259F%252525252525252587%2525252525252525A6CA-142.4.216.225-0354%2525252525252520%252525252525253E%252525252525253E%2525252525252540ShadowsocksM%2525252525253A%2525252525253ACA%25252525253A%25252525253ACA%252525253A%252525253ACA%2525253A%2525253ACA%25253A%25253ACA%253A%253ACA%3A%3ACA::CA
-    | 58ms'
-  type: ss
-  server: 142.4.216.225
-  port: 80
-  cipher: chacha20-ietf-poly1305
-  password: JIhN6rBKkaEboLNXVSv5rq
-  udp: true
-- name: 6 | 58ms
-  server: 3.22.249.200
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-  udp: true
-- name: 15 | 58ms
-  server: 18.218.15.201
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-  udp: true
-- name: 🇺🇸US-3.145.46.227-5495 | 59ms
-  type: ss
-  server: 3.145.46.227
-  port: 443
-  cipher: aes-256-cfb
-  password: amazonskr05
-  udp: true
-- name: '[OpenRay] Dynamic-360 | 59ms'
+- name: '[OpenRay] Dynamic-360 | 57ms'
   type: vless
   server: blog.cloudflare.com
   port: 2095
@@ -949,282 +1106,77 @@ proxies:
     path: /
     headers:
       Host: freedom.pusytroller.cf
-- name: 🇨🇦CA-15.223.195.244-5337 | 60ms
+- name: AutoAiVPN5353755 | 58ms
   type: ss
-  server: 15.223.195.244
-  port: 443
-  cipher: aes-256-cfb
-  password: amazonskr05
+  server: 144.126.146.38
+  port: 30789
+  cipher: chacha20-ietf-poly1305
+  password: 8d73e088-dc5a-4dfe-8927-56351ee80407
   udp: true
-- name: CF中转_1108042047 | 61ms
+- name: 未知_110813501 | 59ms
   type: vless
-  server: 104.16.125.228
+  server: mybb.com
   port: 443
-  uuid: 96806a27-3e67-4927-ac62-0557249be651
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
   udp: true
   tls: true
   network: ws
-  servername: qwa-d40.pages.dev
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
   flow: ''
   ws-opts:
     path: /?ed=2560
     headers:
-      Host: qwa-d40.pages.dev
-- name: 5 | 61ms
-  server: 18.224.33.22
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-  udp: true
-- name: CF中转_1108046995 | 62ms
+      Host: rAyAn-007.nAsTaRaN.DpDnS.OrG
+- name: 荷兰_110813036 | 59ms
   type: vless
-  server: 172.66.40.99
-  port: 2083
-  uuid: ce035748-9913-40c9-9fb6-c8389f7cdcf3
+  server: 194.152.44.253
+  port: 2096
+  uuid: 7556317c-dff6-46e8-ad29-b408f2a6456e
   udp: true
   tls: true
   network: ws
-  servername: yousef.varzesh.dpdns.org
+  servername: vless.muzheng.top
   flow: ''
   ws-opts:
-    path: /?ed=2560
+    path: /Telegram @ /?ed=2560
     headers:
-      Host: yousef.varzesh.dpdns.org
-- name: CF中转_1108047139 | 62ms
-  type: vless
-  server: 104.18.86.131
-  port: 443
-  uuid: c98a16e4-0dc5-42f0-b3db-30f04525c123
-  udp: true
-  tls: true
-  network: ws
-  servername: vless5-edu.pages.dev
-  flow: ''
-  ws-opts:
-    path: /?ed
-    headers:
-      Host: vless5-edu.pages.dev
-- name: '%2525F0%25259F%252587%2525BA%2525F0%25259F%252587%2525B8US-64.74.163.130-0270%252520%25253E%25253E%252540ShadowsocksM%253A%253AXX%3A%3AXX::XX
-    | 62ms'
+      Host: vless.muzheng.top
+- name: WiFi-@V2rayAlpha--2 | 59ms
   type: ss
-  server: 64.74.163.130
-  port: 990
+  server: 144.126.146.38
+  port: 30100
   cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
+  password: 741ddced-e6ee-4175-9c1a-e524009f9045
   udp: true
-- name: '%252540Gp_Config%252520%2525F0%25259F%25258C%25259D%252520%2525DA%2525AF%2525D8%2525B1%2525D9%252588%2525D9%252587%252520%2525DA%2525A9%2525D8%2525A7%2525D9%252586%2525D9%252581%2525DB%25258C%2525DA%2525AF%252520%25253E%25253E%252540ShadowsocksM%253A%253AXX%3A%3AXX::XX
-    | 62ms'
-  type: ss
-  server: 64.74.163.218
-  port: 990
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  udp: true
-- name: CF中转_110804710 | 63ms
+- name: CF中转_1108132210 | 60ms
   type: vless
-  server: 104.21.34.170
+  server: 104.21.80.50
   port: 443
-  uuid: b74bbaca-8bbe-41e1-9af9-18d467836282
+  uuid: 8cb143d6-ba4e-4217-987f-38abbf2ff4f2
   udp: true
   tls: true
   network: ws
-  servername: 017.electrocellco-cf-017.workers.dev
+  servername: ppal03.liana-gutkowski.workers.dev
   flow: ''
   ws-opts:
-    path: /eyJqdW5rIjoibnhUbllUVXY1OWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    path: /viq41rqqcl1ug7nr?ed=2560
     headers:
-      Host: 017.electrocellco-cf-017.workers.dev
-- name: 加拿大_110804034 | 63ms
+      Host: ppal03.liana-gutkowski.workers.dev
+- name: CF中转_1108136041 | 60ms
   type: vless
-  server: 51.222.158.206
-  port: 80
-  uuid: cef1e956-e92b-4dbb-999a-6524679f8a40
-  udp: true
-  tls: false
-  network: ws
-  servername: 51.222.158.206
-  flow: ''
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: '---@ShadowProxy66---@ShadowProxy66---'
-- name: CF中转_110804310 | 64ms
-  type: vless
-  server: 104.21.32.78
-  port: 8443
-  uuid: 1ff4b4b9-af9f-4708-ab43-97dcc832e748
-  udp: true
-  tls: true
-  network: ws
-  servername: 008.ElectRocellcO-Cf-008.wORkErs.dEv
-  flow: ''
-  ws-opts:
-    path: /eyJqdW5rIjoiZ25vNGk3cHRZIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiNS4zNS43MC4xNTUiLCIxNDguMjUxLjE1Ny4xMjciLCIyLjU5LjE4My4xOTgiXX0=?ed=2560
-    headers:
-      Host: 008.ElectRocellcO-Cf-008.wORkErs.dEv
-- name: CF中转_1108047102 | 64ms
-  type: vless
-  server: 104.18.41.190
-  port: 2095
-  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
-  udp: true
-  tls: false
-  network: ws
-  servername: 104.18.41.190
-  flow: ''
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: xijinpingnmsl.s4ar.workers.dev
-- name: 英国_110804013 | 64ms
-  type: vless
-  server: 185.193.31.253
-  port: 2096
-  uuid: 2456f90c-5183-476d-b069-16ae74ce120f
-  udp: true
-  tls: true
-  network: ws
-  servername: fast01.0860852.xyz
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
-    headers:
-      Host: fast01.0860852.xyz
-- name: 🇺🇸 ShatakVPN 442204 | 64ms
-  type: vless
-  server: 104.17.134.117
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  udp: true
-  tls: false
-  network: ws
-  servername: 104.17.134.117
-  flow: ''
-  ws-opts:
-    path: /
-    headers:
-      Host: snippets.pusytroller.cf
-- name: 8 | 64ms
-  server: 3.148.145.1
+  server: 104.17.185.246
   port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-  udp: true
-- name: 美国_110804108 | 65ms
-  type: vless
-  server: 72.167.241.253
-  port: 2096
-  uuid: 2456f90c-5183-476d-b069-16ae74ce120f
+  uuid: 897a4bec-26b8-11e8-94be-00505695472c
   udp: true
   tls: true
   network: ws
-  servername: fast01.0860852.xyz
+  servername: xv6.jpmj.dpdns.org
   flow: ''
   ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    path: /bbs?ed=2048fp=chrome
     headers:
-      Host: fast01.0860852.xyz
-- name: '>> @ShadowsocksM::CA | 65ms'
-  type: vmess
-  server: 51.79.103.76
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-- name: AutoAiVPN8924446 | 66ms
-  type: vless
-  server: 104.21.48.1
-  port: 2096
-  uuid: 6b437afc-62b3-40ba-9112-ee667a783c3d
-  udp: true
-  tls: true
-  network: ws
-  servername: free.bxxxcws.workers.dev
-  flow: ''
-  ws-opts:
-    path: /49etyfa5pjitey44?ed=2560
-    headers:
-      Host: free.bxxxcws.workers.dev
-- name: '[OpenRay] 🇺🇸 US-1259 | 66ms'
-  type: trojan
-  server: 155.138.228.41
-  port: 19313
-  password: vp0GmFj.yIw1RZrd
-  udp: true
-  sni: raincoat.bluetigeraa.click
-  skip-cert-verify: false
-- name: AutoAiVPN7980707 | 67ms
-  type: ss
-  server: 64.74.163.82
-  port: 990
-  cipher: chacha20-ietf-poly1305
-  password: f8f7aCzcPKbsF8p3
-  udp: true
-- name: CF中转_110804314 | 68ms
-  type: vless
-  server: 104.21.23.22
-  port: 443
-  uuid: 203e82ed-a6b7-416a-b04e-ba8a20d8a0c4
-  udp: true
-  tls: true
-  network: ws
-  servername: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
-  flow: ''
-  ws-opts:
-    path: /eyJqdW5rIjoiQkdrUldRNHQzR2MzVHkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
-    headers:
-      Host: 014.ELectRoceLlCO-Cf-014.worKeRS.dev
-- name: CF中转_110804328 | 68ms
-  type: vless
-  server: 172.66.47.63
-  port: 443
-  uuid: 2836c061-ea09-45e5-a98e-4ca478e744b0
-  udp: true
-  tls: true
-  network: ws
-  servername: aDD-1cV.pAGeS.Dev
-  flow: ''
-  ws-opts:
-    path: /f2GYY0YixkpPeMtx/Y2RuLWIxMDAueG4tLWI2Z2FjLmV1Lm9yZw
-    headers:
-      Host: aDD-1cV.pAGeS.Dev
-- name: 🇨🇦 VMESS-加拿大-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-51.79.102.253:80 | 70ms
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers: {}
-- name: '[OpenRay] 🇺🇸 US-207 | 70ms'
-  type: vless
-  server: 104.18.185.26
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  udp: true
-  tls: true
-  network: ws
-  servername: gaosir.unfeeling.sbs
-  flow: ''
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-- name: 未知_1108041136 | 72ms
+      Host: xv6.jpmj.dpdns.org
+- name: 未知_110813933 | 60ms
   type: vless
   server: www.epicgames.com
   port: 2095
@@ -1238,237 +1190,357 @@ proxies:
     path: /
     headers:
       Host: snippets.pusytroller.cf
-- name: 未知_110804515 | 72ms
+- name: CF中转_110813284 | 61ms
   type: vless
-  server: 017.electrocellco-cf-017.workers.dev
+  server: 104.21.47.6
   port: 443
-  uuid: b74bbaca-8bbe-41e1-9af9-18d467836282
+  uuid: 161fa2ac-9618-4a3c-bc9b-5420ecc1826e
   udp: true
   tls: true
   network: ws
-  servername: 017.EleCTRoCelLCo-CF-017.Workers.dEv
+  servername: v2ray-vmess-free.irnoen.workers.dev
   flow: ''
   ws-opts:
-    path: /eyJqdW5rIjoibnhUbllUVXY1OWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    path: /?@VPN_ROOM------@VPN_ROOM
     headers:
-      Host: 017.EleCTRoCelLCo-CF-017.Workers.dEv
+      Host: v2ray-vmess-free.irnoen.workers.dev
+- name: 🇨🇦CA-79.127.233.170-0258 | 61ms
+  type: ss
+  server: 79.127.233.170
+  port: 989
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  udp: true
+- name: 🇨🇦 ShatakVPN 269850 | 61ms
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+- name: CF中转_110813405 | 62ms
+  type: vless
+  server: 172.67.176.159
+  port: 80
+  uuid: 41398380-2073-4d85-878a-24194a6f04a3
+  udp: true
+  tls: false
+  network: ws
+  servername: 172.67.176.159
+  flow: ''
+  ws-opts:
+    path: /Sy0HOf5sZffep0QQ?ed=2560
+    headers:
+      Host: 3.azadteam.workers.dev
+- name: CF中转_1108134662 | 62ms
+  type: vless
+  server: 104.18.109.147
+  port: 80
+  uuid: c29d39bd-92a4-45db-bb61-56013998617c
+  udp: true
+  tls: false
+  network: ws
+  servername: www.speedtest.net.www.1google.com.bing.com.visa.com.tls.xv98.ip-ddns.com
+  flow: ''
+  ws-opts:
+    path: /Telegram-XV2ry2?ed=2048
+    headers:
+      Host: www.speedtest.net.www.1google.com.bing.com.visa.com.tls.xv98.ip-ddns.com
+- name: CF中转_1108137190 | 62ms
+  type: vless
+  server: 172.64.146.66
+  port: 2095
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  udp: true
+  tls: false
+  network: ws
+  servername: xijinpingnmsl.s4ar.workers.dev
+  flow: ''
+  ws-opts:
+    path: /ğŸ”’
+    headers:
+      Host: xijinpingnmsl.s4ar.workers.dev
+- name: '@ConfigV2RayNG >>@configV2rayNG::US | 62ms'
+  type: vmess
+  server: 154.201.76.172
+  port: 20521
+  uuid: 496cec71-a0fd-4f25-bba1-cba9e9d5a52f
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+    headers: {}
+- name: 🇺🇸 US-13 | SHFX | 63ms
+  type: vless
+  server: staticdelivery.nexusmods.com
+  port: 2083
+  uuid: cef7e6ae-078d-42d4-8283-6aacb9128b5a
+  network: ws
+  servername: snippet.danfeng.eu.org
+  skip-cert-verify: true
+  client-fingerprint: random
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snippet.danfeng.eu.org
+  tls: true
+  tfo: false
+- name: CF中转_1108136120 | 63ms
+  type: vless
+  server: 104.17.190.119
+  port: 443
+  uuid: 897a4bec-26b8-11e8-94be-00505695472c
+  udp: true
+  tls: true
+  network: ws
+  servername: xv6.jpmj.dpdns.org
+  flow: ''
+  ws-opts:
+    path: /bbs?ed=2048security=tls
+    headers:
+      Host: xv6.jpmj.dpdns.org
+- name: 斯洛文尼亚_110813003 | 63ms
+  type: vless
+  server: 92.53.191.253
+  port: 2096
+  uuid: 2456f90c-5183-476d-b069-16ae74ce120f
+  udp: true
+  tls: true
+  network: ws
+  servername: fast01.0860852.xyz
+  flow: ''
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: fast01.0860852.xyz
+- name: 未知_1108133387 | 63ms
+  type: vless
+  server: cdnjs.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  udp: true
+  tls: false
+  network: ws
+  servername: cdnjs.com
+  flow: ''
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.cf
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - AUTO-URL
   - DIRECT
-  - 🇺🇸 ShatakVPN 340099 | 9ms
-  - AutoAiVPN4001696 | 16ms
-  - AutoAiVPN7730113 | 24ms
-  - CF中转_110804288 | 29ms
-  - '%2525F0%25259F%252587%2525B9%2525F0%25259F%252587%2525B7telegram%252520%2525E2%25259E%2525A0%252520%252540v2rayNG_Matsuri%252520%25253E%25253E%252540v2rayNG_Matsuri%253A%253ACA%3A%3ACA::CA
+  - AutoAiVPN4001696 | 15ms
+  - 美国_110813170 | 20ms
+  - '@meli_proxyy | 20ms'
+  - '@awlix_ir | 20ms'
+  - CF中转_1108136397 | 27ms
+  - AutoAiVPN7730113 | 27ms
+  - us|6706|puddincat07@Telegram | 28ms
+  - AutoAiVPN211508 | 28ms
+  - 荷兰_110813035 | 29ms
+  - '[OpenRay] 🇨🇦 CA-2097 | 29ms'
+  - CF中转_1108135911 | 30ms
+  - 美国_110813355 | 30ms
+  - '%252525252525253E%252525252525253E%2525252525252540configV2rayNG%252525252525253A%252525252525253AXX%2525252525253A%2525252525253AXX%25252525253A%25252525253AXX%252525253A%252525253AXX%2525253A%2525253AXX%25253A%25253AXX%253A%253AXX%3A%3AXX::XX
     | 31ms'
-  - 美国_1108041687 | 32ms
-  - '[OpenRay] 🇨🇦 CA-2097 | 35ms'
-  - CF中转_1108044708 | 36ms
-  - 荷兰_110804034 | 37ms
-  - CF中转_1108044555 | 38ms
-  - 未知_1108043510 | 39ms
-  - 美国_110804210 | 39ms
-  - 美国_110804212 | 39ms
-  - 荷兰_110804035 | 39ms
-  - CF中转_110804711 | 40ms
-  - 未知_1108041668 | 40ms
-  - CF中转_110804684 | 41ms
-  - 🇺🇸 US | 🔓 VMESS | @v2ray_youtube [8] >>@ShadowsocksM::US | 41ms
-  - CF中转_1108043034 | 42ms
-  - CF中转_1108046167 | 42ms
-  - 立陶宛_110804029 | 42ms
-  - CF中转_1108042342 | 43ms
-  - 美国_1108041585 | 43ms
-  - 卢森堡_110804008 | 44ms
-  - 塞舌尔_110804003 | 44ms
-  - AutoAiVPN8967587 | 44ms
-  - CF中转_1108041628 | 45ms
-  - CF中转_1108046385 | 45ms
-  - 未知_1108043109 | 45ms
-  - '[OpenRay] 🇨🇦 CA-2095 | 45ms'
-  - 香港_110804038 | 46ms
-  - '[OpenRay] 🇺🇸 US-2737 | 46ms'
-  - 未知_110804136 | 47ms
-  - 🇺🇸 US-2 | SHFX | 48ms
-  - CF中转_1108047177 | 48ms
-  - '[OpenRay] 🇺🇸 US-2327 | 48ms'
-  - CF中转_1108047170 | 49ms
-  - CF中转_1108047197 | 49ms
-  - 俄罗斯联邦_110804077 | 49ms
-  - 🇺🇸 ShatakVPN 301166 | 49ms
-  - 🇺🇸 ShatakVPN 228185 | 49ms
-  - CF中转_1108044567 | 50ms
-  - 德国_110804088 | 50ms
-  - 🇺🇸US-156.146.38.169-0186 | 50ms
-  - AutoAiVPN3974495 | 50ms
-  - CF中转_110804315 | 51ms
-  - 未知_110804161 | 51ms
-  - IR-@V2ray_Alpha--2 | 51ms
-  - 🇺🇸US-156.146.38.168-0187 | 51ms
-  - ❔ XX | 🔒 SS | @godv2rang [1] | 51ms
-  - '[OpenRay] 🇺🇸 US-208 | 51ms'
-  - CF中转_1108044652 | 52ms
-  - IR-@V2ray_Alpha--1 | 52ms
-  - CF中转_1108044239 | 53ms
-  - 美国_110804358 | 53ms
-  - AutoAiVPN8735216 | 53ms
-  - 俄罗斯联邦_110804057 | 54ms
-  - 巴西_110804008 | 54ms
-  - 未知_1108042160 | 54ms
-  - 未知_1108043072 | 54ms
-  - 美国_1108042467 | 54ms
-  - 荷兰_110804040 | 54ms
-  - 🇺🇸US-156.146.38.167-0185 | 55ms
-  - 🇺🇸 ShatakVPN 194334 | 55ms
-  - 2 | 55ms
-  - 🇺🇸 US-18 | SHFX | 56ms
-  - AutoAiVPN6602549 | 56ms
-  - CF中转_1108046661 | 57ms
-  - CF中转_110804844 | 57ms
-  - '>>@v2rayNG_Matsuri::US | 57ms'
-  - '%2525252525252525F0%25252525252525259F%252525252525252587%2525252525252525A8%2525252525252525F0%25252525252525259F%252525252525252587%2525252525252525A6CA-142.4.216.225-0354%2525252525252520%252525252525253E%252525252525253E%2525252525252540ShadowsocksM%2525252525253A%2525252525253ACA%25252525253A%25252525253ACA%252525253A%252525253ACA%2525253A%2525253ACA%25253A%25253ACA%253A%253ACA%3A%3ACA::CA
-    | 58ms'
-  - 6 | 58ms
-  - 15 | 58ms
-  - 🇺🇸US-3.145.46.227-5495 | 59ms
-  - '[OpenRay] Dynamic-360 | 59ms'
-  - 🇨🇦CA-15.223.195.244-5337 | 60ms
-  - CF中转_1108042047 | 61ms
-  - 5 | 61ms
-  - CF中转_1108046995 | 62ms
-  - CF中转_1108047139 | 62ms
-  - '%2525F0%25259F%252587%2525BA%2525F0%25259F%252587%2525B8US-64.74.163.130-0270%252520%25253E%25253E%252540ShadowsocksM%253A%253AXX%3A%3AXX::XX
-    | 62ms'
-  - '%252540Gp_Config%252520%2525F0%25259F%25258C%25259D%252520%2525DA%2525AF%2525D8%2525B1%2525D9%252588%2525D9%252587%252520%2525DA%2525A9%2525D8%2525A7%2525D9%252586%2525D9%252581%2525DB%25258C%2525DA%2525AF%252520%25253E%25253E%252540ShadowsocksM%253A%253AXX%3A%3AXX::XX
-    | 62ms'
-  - CF中转_110804710 | 63ms
-  - 加拿大_110804034 | 63ms
-  - CF中转_110804310 | 64ms
-  - CF中转_1108047102 | 64ms
-  - 英国_110804013 | 64ms
-  - 🇺🇸 ShatakVPN 442204 | 64ms
-  - 8 | 64ms
-  - 美国_110804108 | 65ms
-  - '>> @ShadowsocksM::CA | 65ms'
-  - AutoAiVPN8924446 | 66ms
-  - '[OpenRay] 🇺🇸 US-1259 | 66ms'
-  - AutoAiVPN7980707 | 67ms
-  - CF中转_110804314 | 68ms
-  - CF中转_110804328 | 68ms
-  - 🇨🇦 VMESS-加拿大-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-51.79.102.253:80 | 70ms
-  - '[OpenRay] 🇺🇸 US-207 | 70ms'
-  - 未知_1108041136 | 72ms
-  - 未知_110804515 | 72ms
+  - '[OpenRay] 🇺🇸 US-2416 | 31ms'
+  - CF中转_1108133957 | 32ms
+  - CF中转_1108134577 | 32ms
+  - CF中转_1108137115 | 32ms
+  - AutoAiVPN8912835 | 34ms
+  - 巴西_110813008 | 35ms
+  - 荷兰_110813614 | 35ms
+  - '[OpenRay] 🇺🇸 US-2737 | 35ms'
+  - 🇺🇸 ShatakVPN 298139 | 36ms
+  - 🇺🇸 ShatakVPN 512195 | 36ms
+  - CF中转_1108132276 | 37ms
+  - AutoAiVPN3248949 | 37ms
+  - 未知_1108131749 | 38ms
+  - AutoAiVPN7339055 | 38ms
+  - CF中转_1108136179 | 39ms
+  - 美国_110813606 | 39ms
+  - AutoAiVPN11140487 | 39ms
+  - AutoAiVPN3840096 | 39ms
+  - CF中转_1108132196 | 40ms
+  - 塞舌尔_110813003 | 40ms
+  - '[OpenRay] 🇺🇸 US-2744 | 40ms'
+  - CF中转_110813310 | 41ms
+  - 俄罗斯联邦_110813056 | 41ms
+  - CF中转_1108134184 | 42ms
+  - AutoAiVPN6058070 | 42ms
+  - AutoAiVPN3974495 | 42ms
+  - '[OpenRay] 🇺🇸 US-207 | 42ms'
+  - '[OpenRay] 🇺🇸 US-2327 | 43ms'
+  - CF中转_110813311 | 44ms
+  - CF中转_1108134249 | 44ms
+  - CF中转_1108131585 | 45ms
+  - CF中转_1108137183 | 45ms
+  - 俄罗斯联邦_110813036 | 45ms
+  - 未知_1108132904 | 45ms
+  - 未知_1108133679 | 45ms
+  - 美国_110813504 | 45ms
+  - CF中转_1108133706 | 46ms
+  - CF中转_1108134565 | 46ms
+  - 🇺🇸 ShatakVPN 801542 | 47ms
+  - AutoAiVPN8967587 | 47ms
+  - CF中转_1108137210 | 48ms
+  - 未知_1108131956 | 48ms
+  - 未知_1108133305 | 48ms
+  - CF中转_110813703 | 49ms
+  - AutoAiVPN6721105 | 49ms
+  - '[OpenRay] 🇺🇸 US-208 | 49ms'
+  - 香港_110813039 | 50ms
+  - 🇺🇸 US-6 | SHFX | 51ms
+  - CF中转_1108136797 | 51ms
+  - 未知_110813519 | 52ms
+  - 美国_110813108 | 52ms
+  - 美国_1108131786 | 52ms
+  - 美国_110813209 | 52ms
+  - '[OpenRay] 🇨🇦 CA-2095 | 52ms'
+  - 🇺🇸 US-12 | SHFX | 53ms
+  - 未知_1108131958 | 53ms
+  - AutoAiVPN7031691 | 53ms
+  - CF中转_1108133220 | 54ms
+  - CF中转_1108136304 | 54ms
+  - 未知_110813413 | 54ms
+  - CF中转_1108136171 | 55ms
+  - 未知_1108131957 | 55ms
+  - 未知_1108133678 | 55ms
+  - 卢森堡_110813008 | 56ms
+  - CF中转_1108133043 | 57ms
+  - 未知_1108132474 | 57ms
+  - 立陶宛_110813029 | 57ms
+  - AutoAiVPN6602549 | 57ms
+  - '[OpenRay] Dynamic-360 | 57ms'
+  - AutoAiVPN5353755 | 58ms
+  - 未知_110813501 | 59ms
+  - 荷兰_110813036 | 59ms
+  - WiFi-@V2rayAlpha--2 | 59ms
+  - CF中转_1108132210 | 60ms
+  - CF中转_1108136041 | 60ms
+  - 未知_110813933 | 60ms
+  - CF中转_110813284 | 61ms
+  - 🇨🇦CA-79.127.233.170-0258 | 61ms
+  - 🇨🇦 ShatakVPN 269850 | 61ms
+  - CF中转_110813405 | 62ms
+  - CF中转_1108134662 | 62ms
+  - CF中转_1108137190 | 62ms
+  - '@ConfigV2RayNG >>@configV2rayNG::US | 62ms'
+  - 🇺🇸 US-13 | SHFX | 63ms
+  - CF中转_1108136120 | 63ms
+  - 斯洛文尼亚_110813003 | 63ms
+  - 未知_1108133387 | 63ms
 - name: AUTO-URL
   type: url-test
   proxies:
-  - 🇺🇸 ShatakVPN 340099 | 9ms
-  - AutoAiVPN4001696 | 16ms
-  - AutoAiVPN7730113 | 24ms
-  - CF中转_110804288 | 29ms
-  - '%2525F0%25259F%252587%2525B9%2525F0%25259F%252587%2525B7telegram%252520%2525E2%25259E%2525A0%252520%252540v2rayNG_Matsuri%252520%25253E%25253E%252540v2rayNG_Matsuri%253A%253ACA%3A%3ACA::CA
+  - AutoAiVPN4001696 | 15ms
+  - 美国_110813170 | 20ms
+  - '@meli_proxyy | 20ms'
+  - '@awlix_ir | 20ms'
+  - CF中转_1108136397 | 27ms
+  - AutoAiVPN7730113 | 27ms
+  - us|6706|puddincat07@Telegram | 28ms
+  - AutoAiVPN211508 | 28ms
+  - 荷兰_110813035 | 29ms
+  - '[OpenRay] 🇨🇦 CA-2097 | 29ms'
+  - CF中转_1108135911 | 30ms
+  - 美国_110813355 | 30ms
+  - '%252525252525253E%252525252525253E%2525252525252540configV2rayNG%252525252525253A%252525252525253AXX%2525252525253A%2525252525253AXX%25252525253A%25252525253AXX%252525253A%252525253AXX%2525253A%2525253AXX%25253A%25253AXX%253A%253AXX%3A%3AXX::XX
     | 31ms'
-  - 美国_1108041687 | 32ms
-  - '[OpenRay] 🇨🇦 CA-2097 | 35ms'
-  - CF中转_1108044708 | 36ms
-  - 荷兰_110804034 | 37ms
-  - CF中转_1108044555 | 38ms
-  - 未知_1108043510 | 39ms
-  - 美国_110804210 | 39ms
-  - 美国_110804212 | 39ms
-  - 荷兰_110804035 | 39ms
-  - CF中转_110804711 | 40ms
-  - 未知_1108041668 | 40ms
-  - CF中转_110804684 | 41ms
-  - 🇺🇸 US | 🔓 VMESS | @v2ray_youtube [8] >>@ShadowsocksM::US | 41ms
-  - CF中转_1108043034 | 42ms
-  - CF中转_1108046167 | 42ms
-  - 立陶宛_110804029 | 42ms
-  - CF中转_1108042342 | 43ms
-  - 美国_1108041585 | 43ms
-  - 卢森堡_110804008 | 44ms
-  - 塞舌尔_110804003 | 44ms
-  - AutoAiVPN8967587 | 44ms
-  - CF中转_1108041628 | 45ms
-  - CF中转_1108046385 | 45ms
-  - 未知_1108043109 | 45ms
-  - '[OpenRay] 🇨🇦 CA-2095 | 45ms'
-  - 香港_110804038 | 46ms
-  - '[OpenRay] 🇺🇸 US-2737 | 46ms'
-  - 未知_110804136 | 47ms
-  - 🇺🇸 US-2 | SHFX | 48ms
-  - CF中转_1108047177 | 48ms
-  - '[OpenRay] 🇺🇸 US-2327 | 48ms'
-  - CF中转_1108047170 | 49ms
-  - CF中转_1108047197 | 49ms
-  - 俄罗斯联邦_110804077 | 49ms
-  - 🇺🇸 ShatakVPN 301166 | 49ms
-  - 🇺🇸 ShatakVPN 228185 | 49ms
-  - CF中转_1108044567 | 50ms
-  - 德国_110804088 | 50ms
-  - 🇺🇸US-156.146.38.169-0186 | 50ms
-  - AutoAiVPN3974495 | 50ms
-  - CF中转_110804315 | 51ms
-  - 未知_110804161 | 51ms
-  - IR-@V2ray_Alpha--2 | 51ms
-  - 🇺🇸US-156.146.38.168-0187 | 51ms
-  - ❔ XX | 🔒 SS | @godv2rang [1] | 51ms
-  - '[OpenRay] 🇺🇸 US-208 | 51ms'
-  - CF中转_1108044652 | 52ms
-  - IR-@V2ray_Alpha--1 | 52ms
-  - CF中转_1108044239 | 53ms
-  - 美国_110804358 | 53ms
-  - AutoAiVPN8735216 | 53ms
-  - 俄罗斯联邦_110804057 | 54ms
-  - 巴西_110804008 | 54ms
-  - 未知_1108042160 | 54ms
-  - 未知_1108043072 | 54ms
-  - 美国_1108042467 | 54ms
-  - 荷兰_110804040 | 54ms
-  - 🇺🇸US-156.146.38.167-0185 | 55ms
-  - 🇺🇸 ShatakVPN 194334 | 55ms
-  - 2 | 55ms
-  - 🇺🇸 US-18 | SHFX | 56ms
-  - AutoAiVPN6602549 | 56ms
-  - CF中转_1108046661 | 57ms
-  - CF中转_110804844 | 57ms
-  - '>>@v2rayNG_Matsuri::US | 57ms'
-  - '%2525252525252525F0%25252525252525259F%252525252525252587%2525252525252525A8%2525252525252525F0%25252525252525259F%252525252525252587%2525252525252525A6CA-142.4.216.225-0354%2525252525252520%252525252525253E%252525252525253E%2525252525252540ShadowsocksM%2525252525253A%2525252525253ACA%25252525253A%25252525253ACA%252525253A%252525253ACA%2525253A%2525253ACA%25253A%25253ACA%253A%253ACA%3A%3ACA::CA
-    | 58ms'
-  - 6 | 58ms
-  - 15 | 58ms
-  - 🇺🇸US-3.145.46.227-5495 | 59ms
-  - '[OpenRay] Dynamic-360 | 59ms'
-  - 🇨🇦CA-15.223.195.244-5337 | 60ms
-  - CF中转_1108042047 | 61ms
-  - 5 | 61ms
-  - CF中转_1108046995 | 62ms
-  - CF中转_1108047139 | 62ms
-  - '%2525F0%25259F%252587%2525BA%2525F0%25259F%252587%2525B8US-64.74.163.130-0270%252520%25253E%25253E%252540ShadowsocksM%253A%253AXX%3A%3AXX::XX
-    | 62ms'
-  - '%252540Gp_Config%252520%2525F0%25259F%25258C%25259D%252520%2525DA%2525AF%2525D8%2525B1%2525D9%252588%2525D9%252587%252520%2525DA%2525A9%2525D8%2525A7%2525D9%252586%2525D9%252581%2525DB%25258C%2525DA%2525AF%252520%25253E%25253E%252540ShadowsocksM%253A%253AXX%3A%3AXX::XX
-    | 62ms'
-  - CF中转_110804710 | 63ms
-  - 加拿大_110804034 | 63ms
-  - CF中转_110804310 | 64ms
-  - CF中转_1108047102 | 64ms
-  - 英国_110804013 | 64ms
-  - 🇺🇸 ShatakVPN 442204 | 64ms
-  - 8 | 64ms
-  - 美国_110804108 | 65ms
-  - '>> @ShadowsocksM::CA | 65ms'
-  - AutoAiVPN8924446 | 66ms
-  - '[OpenRay] 🇺🇸 US-1259 | 66ms'
-  - AutoAiVPN7980707 | 67ms
-  - CF中转_110804314 | 68ms
-  - CF中转_110804328 | 68ms
-  - 🇨🇦 VMESS-加拿大-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-51.79.102.253:80 | 70ms
-  - '[OpenRay] 🇺🇸 US-207 | 70ms'
-  - 未知_1108041136 | 72ms
-  - 未知_110804515 | 72ms
+  - '[OpenRay] 🇺🇸 US-2416 | 31ms'
+  - CF中转_1108133957 | 32ms
+  - CF中转_1108134577 | 32ms
+  - CF中转_1108137115 | 32ms
+  - AutoAiVPN8912835 | 34ms
+  - 巴西_110813008 | 35ms
+  - 荷兰_110813614 | 35ms
+  - '[OpenRay] 🇺🇸 US-2737 | 35ms'
+  - 🇺🇸 ShatakVPN 298139 | 36ms
+  - 🇺🇸 ShatakVPN 512195 | 36ms
+  - CF中转_1108132276 | 37ms
+  - AutoAiVPN3248949 | 37ms
+  - 未知_1108131749 | 38ms
+  - AutoAiVPN7339055 | 38ms
+  - CF中转_1108136179 | 39ms
+  - 美国_110813606 | 39ms
+  - AutoAiVPN11140487 | 39ms
+  - AutoAiVPN3840096 | 39ms
+  - CF中转_1108132196 | 40ms
+  - 塞舌尔_110813003 | 40ms
+  - '[OpenRay] 🇺🇸 US-2744 | 40ms'
+  - CF中转_110813310 | 41ms
+  - 俄罗斯联邦_110813056 | 41ms
+  - CF中转_1108134184 | 42ms
+  - AutoAiVPN6058070 | 42ms
+  - AutoAiVPN3974495 | 42ms
+  - '[OpenRay] 🇺🇸 US-207 | 42ms'
+  - '[OpenRay] 🇺🇸 US-2327 | 43ms'
+  - CF中转_110813311 | 44ms
+  - CF中转_1108134249 | 44ms
+  - CF中转_1108131585 | 45ms
+  - CF中转_1108137183 | 45ms
+  - 俄罗斯联邦_110813036 | 45ms
+  - 未知_1108132904 | 45ms
+  - 未知_1108133679 | 45ms
+  - 美国_110813504 | 45ms
+  - CF中转_1108133706 | 46ms
+  - CF中转_1108134565 | 46ms
+  - 🇺🇸 ShatakVPN 801542 | 47ms
+  - AutoAiVPN8967587 | 47ms
+  - CF中转_1108137210 | 48ms
+  - 未知_1108131956 | 48ms
+  - 未知_1108133305 | 48ms
+  - CF中转_110813703 | 49ms
+  - AutoAiVPN6721105 | 49ms
+  - '[OpenRay] 🇺🇸 US-208 | 49ms'
+  - 香港_110813039 | 50ms
+  - 🇺🇸 US-6 | SHFX | 51ms
+  - CF中转_1108136797 | 51ms
+  - 未知_110813519 | 52ms
+  - 美国_110813108 | 52ms
+  - 美国_1108131786 | 52ms
+  - 美国_110813209 | 52ms
+  - '[OpenRay] 🇨🇦 CA-2095 | 52ms'
+  - 🇺🇸 US-12 | SHFX | 53ms
+  - 未知_1108131958 | 53ms
+  - AutoAiVPN7031691 | 53ms
+  - CF中转_1108133220 | 54ms
+  - CF中转_1108136304 | 54ms
+  - 未知_110813413 | 54ms
+  - CF中转_1108136171 | 55ms
+  - 未知_1108131957 | 55ms
+  - 未知_1108133678 | 55ms
+  - 卢森堡_110813008 | 56ms
+  - CF中转_1108133043 | 57ms
+  - 未知_1108132474 | 57ms
+  - 立陶宛_110813029 | 57ms
+  - AutoAiVPN6602549 | 57ms
+  - '[OpenRay] Dynamic-360 | 57ms'
+  - AutoAiVPN5353755 | 58ms
+  - 未知_110813501 | 59ms
+  - 荷兰_110813036 | 59ms
+  - WiFi-@V2rayAlpha--2 | 59ms
+  - CF中转_1108132210 | 60ms
+  - CF中转_1108136041 | 60ms
+  - 未知_110813933 | 60ms
+  - CF中转_110813284 | 61ms
+  - 🇨🇦CA-79.127.233.170-0258 | 61ms
+  - 🇨🇦 ShatakVPN 269850 | 61ms
+  - CF中转_110813405 | 62ms
+  - CF中转_1108134662 | 62ms
+  - CF中转_1108137190 | 62ms
+  - '@ConfigV2RayNG >>@configV2rayNG::US | 62ms'
+  - 🇺🇸 US-13 | SHFX | 63ms
+  - CF中转_1108136120 | 63ms
+  - 斯洛文尼亚_110813003 | 63ms
+  - 未知_1108133387 | 63ms
   url: http://www.gstatic.com/generate_204
   interval: 200
 rules:

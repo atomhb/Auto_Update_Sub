@@ -40,6 +40,8 @@ REAL_TEST_URLS = [
 API_TEST_TIMEOUT_SECONDS = 10  # 延长超时
 PING_THRESHOLD_MS = 500  # 预筛选阈值
 MAX_RETRIES = 3  # API重试次数
+PRESCREEN_ENABLED = True  # 可设为 False 禁用预筛选
+FALLBACK_NODE_LIMIT = 20  # fallback 测试节点数
 
 CLASH_BINARY_PATH = './clash'
 

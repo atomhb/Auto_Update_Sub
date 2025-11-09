@@ -471,36 +471,38 @@ def main():
 
     # 预筛选：ICMP + TCP
     logger.info("开始预筛选节点...")
-    prefiltered_nodes = all_nodes[:]  # 默认全量
-    if PRESCREEN_ENABLED:
-        logger.info("开始预筛选节点...")
-        prefiltered_nodes = []
-        failed_count = 0
-        for node in all_nodes:
-            icmp = icmp_latency(node['server'])
-            if icmp > PING_THRESHOLD_MS or icmp == -1:
-                logger.debug(f"节点 {node['name']} ping 失败: {icmp}ms (server: {node['server']})")
-                failed_count += 1
-                continue
-            tcp = tcp_latency(node['server'], node['port'])
-            if tcp > 0 and tcp < MAX_LATENCY_MS * 2:
-                prefiltered_nodes.append(node)
-                logger.debug(f"预筛选通过 {node['name']}: ping={icmp}ms, tcp={tcp}ms")
-            else:
-                logger.debug(f"节点 {node['name']} TCP 失败: {tcp}ms")
-                failed_count += 1
+    prefiltered_nodes = []
+    failed_count = 0
+    for node in all_nodes:
+        icmp = icmp_latency(node['server'])
+        if icmp > PING_THRESHOLD_MS or icmp == -1:
+            logger.debug(f"节点 {node['name']} ping 失败: {icmp}ms (server: {node['server']})")
+            failed_count += 1
+            continue
+        tcp = tcp_latency(node['server'], node['port'])
+        if tcp > 0 and tcp < MAX_LATENCY_MS * 2:
+            prefiltered_nodes.append(node)
+            logger.debug(f"预筛选通过 {node['name']}: ping={icmp}ms, tcp={tcp}ms")
+        else:
+            logger.debug(f"节点 {node['name']} TCP 失败: {tcp}ms")
+            failed_count += 1
 
-        logger.info(f"预筛选后剩余 {len(prefiltered_nodes)} 个节点 ({failed_count} 个失败)。")
-        if len(prefiltered_nodes) == 0:
-            logger.warning(f"预筛选全失败 (阈值: {PING_THRESHOLD_MS}ms)。建议: 检查订阅、降低阈值或设 PRESCREEN_ENABLED=False。")
-            # Fallback: 测试部分 all_nodes
-            prefiltered_nodes = all_nodes[:FALLBACK_NODE_LIMIT]
-            logger.info(f"Fallback: 测试前 {len(prefiltered_nodes)} 个节点。")
+    logger.info(f"预筛选后剩余 {len(prefiltered_nodes)} 个节点 ({failed_count} 个失败)。")
+
+    # Fallback: 如果预筛选失败，全量测试
+    if len(prefiltered_nodes) == 0:
+        logger.warning(f"预筛选全失败 (阈值: {PING_THRESHOLD_MS}ms)。切换到全量 Clash 测试所有 {len(all_nodes)} 个节点。")
+        prefiltered_nodes = all_nodes[:]
+        if len(all_nodes) > 200:
+            logger.warning("节点数过多 (>200)，建议优化订阅以避免测试超时。")
+        max_workers_fallback = min(4, len(prefiltered_nodes))  # 保守并发
+    else:
+        max_workers_fallback = min(8, len(prefiltered_nodes))
 
     logger.info("\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
     node_results = []
     if len(prefiltered_nodes) > 0:
-        max_workers = min(8, len(prefiltered_nodes))
+        max_workers = max_workers_fallback
         logger.info(f"使用 {max_workers} 个并发 workers 测试 {len(prefiltered_nodes)} 个节点。")
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in prefiltered_nodes}
@@ -518,18 +520,23 @@ def main():
     else:
         logger.error("最终无节点可测试，检查 all_nodes。")
 
-    node_results.sort(key=lambda x: x['latency'])
+    # 筛选延迟最小的前 100 个
+    valid_results = [item for item in node_results if item['latency'] > 0]  # 确保 >0
+    valid_results.sort(key=lambda x: x['latency'])
     fast_nodes = []
-    for item in node_results:
+    for item in valid_results[:MAX_NODES_LIMIT]:  # 取前 100
         node = item['node']
         latency = item['latency']
         node['name'] = f"{node['name']} | {latency}ms"
         fast_nodes.append(node)
-        
-    fast_nodes = fast_nodes[:MAX_NODES_LIMIT]
+    
+    logger.info(f"从 {len(valid_results)} 个有效测试中筛选出 {len(fast_nodes)} 个低延迟节点。")
+    if not fast_nodes:
+        logger.warning("无低延迟节点可用，生成空配置。检查订阅质量或 Clash binary。")
+
     fast_nodes = ensure_unique_proxy_names(fast_nodes)
 
-    logger.info(f"\n--- 测试结束 ---\n筛选出 {len(fast_nodes)} 个可用节点。")
+    logger.info(f"\n--- 测试结束 ---\n最终可用节点: {len(fast_nodes)}。")
     generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
 
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:

@@ -439,14 +439,21 @@ def main():
         logger.warning("订阅文件中没有找到有效的链接。")
         return
 
-    logger.info(f"找到 {len(subscription_urls)} 个订阅链接。")
-    all_nodes = []
-    unique_nodes_set = set()
+    logger.info(f"找到 {len(subscription_urls)} 个订阅链接，开始逐个实时追加处理。")
 
-    for url in subscription_urls:
+    # 全局结果列表，用于累积所有订阅的低延迟节点
+    global_valid_results = []  # [{'node': ..., 'latency': ...}]
+    unique_nodes_set = set()  # 全局去重哈希
+
+    for url_idx, url in enumerate(subscription_urls, 1):
+        logger.info(f"\n--- 处理第 {url_idx}/{len(subscription_urls)} 个订阅: {url} ---")
         content = get_subscription_content(url)
         if not content:
+            logger.warning(f"订阅 {url} 获取失败，跳过。")
             continue
+
+        # 解析此订阅节点
+        this_all_nodes = []
         try:
             data = yaml.safe_load(content)
             if isinstance(data, dict) and 'proxies' in data and isinstance(data['proxies'], list):
@@ -455,122 +462,138 @@ def main():
                         node = standardize_node(proxy)
                         node_hash_val = node_hash(node)
                         if node_hash_val not in unique_nodes_set:
-                            all_nodes.append(node)
+                            this_all_nodes.append(node)
                             unique_nodes_set.add(node_hash_val)
-                continue
+                logger.info(f"YAML订阅解析出 {len(this_all_nodes)} 个节点。")
         except Exception as e:
             logger.debug(f"YAML解析失败: {e}")
-        
-        decoded_content = decode_base64_content(content)
-        links_content = decoded_content if decoded_content else content
-        for link in links_content.splitlines():
-            node = parse_node(link)
-            if node:
-                node_hash_val = node_hash(node)
-                if node_hash_val not in unique_nodes_set:
-                    all_nodes.append(node)
-                    unique_nodes_set.add(node_hash_val)
-    
-    logger.info(f"去重后共解析出 {len(all_nodes)} 个节点。")
-    if not all_nodes:
-        logger.warning("无有效节点，退出。")
-        return
 
-    # 预筛选：ICMP + TCP
-    prefiltered_nodes = all_nodes[:]
-    if PRESCREEN_ENABLED:
-        logger.info("开始预筛选节点...")
-        prefiltered_nodes = []
-        failed_count = 0
-        for node in all_nodes:
-            icmp = icmp_latency(node['server'])
-            if icmp > PING_THRESHOLD_MS or icmp == -1:
-                logger.debug(f"节点 {node['name']} ping 失败: {icmp}ms (server: {node['server']})")
-                failed_count += 1
-                continue
-            tcp = tcp_latency(node['server'], node['port'])
-            if tcp > 0 and tcp < MAX_LATENCY_MS * 2:
-                prefiltered_nodes.append(node)
-                logger.debug(f"预筛选通过 {node['name']}: ping={icmp}ms, tcp={tcp}ms")
-            else:
-                logger.debug(f"节点 {node['name']} TCP 失败: {tcp}ms")
-                failed_count += 1
+        if not this_all_nodes:  # 尝试base64链接解析
+            decoded_content = decode_base64_content(content)
+            links_content = decoded_content if decoded_content else content
+            for link in links_content.splitlines():
+                node = parse_node(link)
+                if node:
+                    node_hash_val = node_hash(node)
+                    if node_hash_val not in unique_nodes_set:
+                        this_all_nodes.append(node)
+                        unique_nodes_set.add(node_hash_val)
+            logger.info(f"链接订阅解析出 {len(this_all_nodes)} 个节点。")
 
-        logger.info(f"预筛选后剩余 {len(prefiltered_nodes)} 个节点 ({failed_count} 个失败)。")
+        if not this_all_nodes:
+            logger.warning(f"订阅 {url} 无有效节点，跳过。")
+            continue
 
-    # Fallback: 如果预筛选失败，全量测试
-    if len(prefiltered_nodes) == 0:
-        logger.warning(f"预筛选全失败 (阈值: {PING_THRESHOLD_MS}ms)。切换到全量 Clash 测试所有 {len(all_nodes)} 个节点。")
-        prefiltered_nodes = all_nodes[:]
-        max_workers = min(4, len(prefiltered_nodes))  # 保守并发
-        if len(all_nodes) > 200:
-            logger.warning("节点数过多 (>200)，建议优化订阅以避免测试超时。")
-    else:
-        max_workers = min(8, len(prefiltered_nodes))
+        # 预筛选此订阅节点
+        this_prefiltered_nodes = this_all_nodes[:]
+        if PRESCREEN_ENABLED:
+            logger.info("开始预筛选此订阅节点...")
+            this_prefiltered_nodes = []
+            failed_count = 0
+            for node in this_all_nodes:
+                icmp = icmp_latency(node['server'])
+                if icmp > PING_THRESHOLD_MS or icmp == -1:
+                    logger.debug(f"节点 {node['name']} ping 失败: {icmp}ms")
+                    failed_count += 1
+                    continue
+                tcp = tcp_latency(node['server'], node['port'])
+                if tcp > 0 and tcp < MAX_LATENCY_MS * 2:
+                    this_prefiltered_nodes.append(node)
+                    logger.debug(f"预筛选通过 {node['name']}: ping={icmp}ms, tcp={tcp}ms")
+                else:
+                    logger.debug(f"节点 {node['name']} TCP 失败: {tcp}ms")
+                    failed_count += 1
+            logger.info(f"此订阅预筛选后剩余 {len(this_prefiltered_nodes)} 个节点 ({failed_count} 个失败)。")
 
-    # 分批处理（适用于4w+节点）
-    use_batching = len(prefiltered_nodes) > BATCH_SIZE * 10  # >10批时启用
-    if use_batching:
-        logger.info(f"节点过多 ({len(prefiltered_nodes)})，启用分批测试 (批大小: {BATCH_SIZE})...")
-        node_results = []
-        for i, batch in enumerate(chunks(prefiltered_nodes, BATCH_SIZE)):
-            logger.info(f"处理第 {i+1} 批 ({len(batch)} 个节点)...")
-            batch_max_workers = min(8, len(batch))
-            batch_results = []
-            with ThreadPoolExecutor(max_workers=batch_max_workers) as executor:
-                future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in batch}
-                for future in tqdm(as_completed(future_to_node), total=len(batch), desc=f"批 {i+1} 测试"):
+        # Fallback: 如果预筛选失败，全量测试此订阅
+        if len(this_prefiltered_nodes) == 0:
+            logger.warning(f"此订阅预筛选全失败，切换到全量 Clash 测试 {len(this_all_nodes)} 个节点。")
+            this_prefiltered_nodes = this_all_nodes[:]
+            this_max_workers = min(4, len(this_prefiltered_nodes))
+            if len(this_all_nodes) > 200:
+                logger.warning("此订阅节点过多 (>200)，建议优化。")
+        else:
+            this_max_workers = min(8, len(this_prefiltered_nodes))
+
+        # 分批测试此订阅（适用于大订阅）
+        use_batching = len(this_prefiltered_nodes) > BATCH_SIZE * 10
+        this_results = []
+        if use_batching:
+            logger.info(f"此订阅节点过多，启用分批测试 (批大小: {BATCH_SIZE})...")
+            for i, batch in enumerate(chunks(this_prefiltered_nodes, BATCH_SIZE)):
+                logger.info(f"此订阅批 {i+1} ({len(batch)} 个节点)...")
+                batch_max_workers = min(8, len(batch))
+                batch_results = []
+                with ThreadPoolExecutor(max_workers=batch_max_workers) as executor:
+                    future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in batch}
+                    for future in tqdm(as_completed(future_to_node), total=len(batch), desc=f"批 {i+1}"):
+                        node = future_to_node[future]
+                        try:
+                            latency = future.result()
+                            if 0 < latency < MAX_LATENCY_MS:
+                                batch_results.append({'node': node, 'latency': latency})
+                                logger.info(f"批 {i+1} 成功 {node['name']}: {latency}ms")
+                            else:
+                                logger.warning(f"批 {i+1} 失败: {node['name']} ({latency}ms)")
+                        except Exception as e:
+                            logger.error(f"批 {i+1} 异常 {node['name']}: {e}")
+                this_results.extend(batch_results)
+        else:
+            logger.info(f"此订阅 Clash 测试 ({len(this_prefiltered_nodes)} 个节点，workers: {this_max_workers})...")
+            with ThreadPoolExecutor(max_workers=this_max_workers) as executor:
+                future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in this_prefiltered_nodes}
+                for future in tqdm(as_completed(future_to_node), total=len(this_prefiltered_nodes), desc="此订阅测试"):
                     node = future_to_node[future]
                     try:
                         latency = future.result()
                         if 0 < latency < MAX_LATENCY_MS:
-                            batch_results.append({'node': node, 'latency': latency})
-                            logger.info(f"批 {i+1} 测试成功 {node['name']}: {latency}ms")
+                            this_results.append({'node': node, 'latency': latency})
+                            logger.info(f"此订阅成功 {node['name']}: {latency}ms")
                         else:
-                            logger.warning(f"批 {i+1} 节点延迟超限或失败: {node['name']} ({latency}ms)")
+                            logger.warning(f"此订阅失败: {node['name']} ({latency}ms)")
                     except Exception as e:
-                        logger.error(f"批 {i+1} 测试异常 {node['name']}: {e}")
-            node_results.extend(batch_results)
+                        logger.error(f"此订阅异常 {node['name']}: {e}")
+
+        # 追加此订阅的有效结果到全局
+        this_valid = [item for item in this_results if item['latency'] > 0]
+        global_valid_results.extend(this_valid)
+        logger.info(f"此订阅追加 {len(this_valid)} 个有效节点，全局累积 {len(global_valid_results)} 个。")
+
+        # 实时排序并取top 100，写入YAML
+        if len(global_valid_results) > 0:
+            global_valid_results.sort(key=lambda x: x['latency'])  # 升序，低延迟在前
+            top_100 = global_valid_results[:MAX_NODES_LIMIT]
+            fast_nodes = []
+            for item in top_100:
+                node = item['node']
+                latency = item['latency']
+                node['name'] = f"{node['name']} | {latency}ms"
+                fast_nodes.append(node)
+            fast_nodes = ensure_unique_proxy_names(fast_nodes)
+            logger.info(f"实时更新: 从 {len(global_valid_results)} 个中取前 {len(fast_nodes)} 个低延迟节点。")
+            generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
+        else:
+            logger.warning("此订阅无有效节点，全局暂无top 100。")
+
+    # 最终处理：所有订阅完成后，再次生成完整配置
+    if global_valid_results:
+        global_valid_results.sort(key=lambda x: x['latency'])
+        top_100 = global_valid_results[:MAX_NODES_LIMIT]
+        fast_nodes = []
+        for item in top_100:
+            node = item['node']
+            latency = item['latency']
+            node['name'] = f"{node['name']} | {latency}ms"
+            fast_nodes.append(node)
+        fast_nodes = ensure_unique_proxy_names(fast_nodes)
+        logger.info(f"\n--- 所有订阅处理结束 ---\n最终top {len(fast_nodes)} 个低延迟节点。")
+        generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
     else:
-        logger.info(f"\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
-        logger.info(f"使用 {max_workers} 个并发 workers 测试 {len(prefiltered_nodes)} 个节点。")
-        node_results = []
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in prefiltered_nodes}
-            for future in tqdm(as_completed(future_to_node), total=len(prefiltered_nodes), desc="测试节点"):
-                node = future_to_node[future]
-                try:
-                    latency = future.result()
-                    if 0 < latency < MAX_LATENCY_MS:
-                        node_results.append({'node': node, 'latency': latency})
-                        logger.info(f"测试成功 {node['name']}: {latency}ms")
-                    else:
-                        logger.warning(f"节点延迟超限或失败: {node['name']} ({latency}ms)")
-                except Exception as e:
-                    logger.error(f"测试异常 {node['name']}: {e}")
-
-    # 筛选延迟最小的前 100 个
-    valid_results = [item for item in node_results if item['latency'] > 0]  # 确保 >0
-    valid_results.sort(key=lambda x: x['latency'])
-    fast_nodes = []
-    for item in valid_results[:MAX_NODES_LIMIT]:  # 取前 100
-        node = item['node']
-        latency = item['latency']
-        node['name'] = f"{node['name']} | {latency}ms"
-        fast_nodes.append(node)
-    
-    logger.info(f"从 {len(valid_results)} 个有效测试中筛选出 {len(fast_nodes)} 个低延迟节点。")
-    if not fast_nodes:
-        logger.warning("无低延迟节点可用，生成空配置。检查订阅质量或 Clash binary。")
-
-    fast_nodes = ensure_unique_proxy_names(fast_nodes)
-
-    logger.info(f"\n--- 测试结束 ---\n最终可用节点: {len(fast_nodes)}。")
-    generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
+        logger.warning("所有订阅无有效节点，生成空配置。")
 
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
         update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        f.write(f"最后更新时间: {update_time}\n可用节点数量: {len(fast_nodes)}\n")
+        f.write(f"最后更新时间: {update_time}\n可用节点数量: {len(fast_nodes) if 'fast_nodes' in locals() else 0}\n")
     logger.info(f"成功记录更新时间: {UPDATE_TIME_FILE}")
 
 if __name__ == '__main__':

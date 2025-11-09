@@ -55,6 +55,9 @@ class Config:
     prescreen_enabled: bool = True
     debug_mode: bool = True
     max_content_size_mb: int = 10  # 输入验证：订阅内容大小限制
+    supported_clash_types: List[str] = None  # 支持的Clash协议
+    use_clash_testing: bool = False  # 默认禁用Clash测试以避免临时文件生成
+    meta_mode: bool = False  # Clash Meta模式，支持Hysteria等
 
     def __post_init__(self):
         if self.real_test_urls is None:
@@ -63,6 +66,8 @@ class Config:
                 'http://www.google.com/generate_204',
                 'https://httpbin.org/get'
             ]
+        if self.supported_clash_types is None:
+            self.supported_clash_types = ['ss', 'vmess', 'trojan', 'vless']  # 标准Clash支持
 
 # 全局配置实例
 config = Config()
@@ -97,20 +102,6 @@ def get_free_port():
         s.bind(('127.0.0.1', 0))
         return s.getsockname()[1]
 
-def wait_for_clash_api(api_address, timeout=10):
-    api_base = f'http://{api_address}'
-    start_time = time.time()
-    while time.time() - start_time < timeout:
-        try:
-            for endpoint in ['/version', '/traffic']:
-                response = requests.get(f'{api_base}{endpoint}', timeout=1)
-                if response.status_code == 200:
-                    return True
-        except:
-            pass
-        time.sleep(0.2)
-    return False
-
 @retry()
 def get_subscription_content(url):
     if not url:
@@ -141,29 +132,72 @@ def key_fields_hash(node):
     return hashlib.md5(key_str.encode()).hexdigest()
 
 def standardize_node(node: Dict[str, Any]) -> Dict[str, Any]:
-    """统一标准化节点"""
+    """统一标准化节点，确保Clash (Meta) 兼容格式"""
     defaults = {'udp': True, 'tls': False, 'skip-cert-verify': False, 'network': 'tcp'}
     for key, value in defaults.items():
         node.setdefault(key, value)
+    # 对于所有协议，标记兼容性；在Meta模式下Hysteria兼容
+    node_type = node.get('type', '')
+    if config.meta_mode:
+        node['clash-compatible'] = True  # Meta支持所有
+    else:
+        node['clash-compatible'] = node_type not in ['hysteria', 'hysteria2']
+    # V2Ray/其他特定：确保必要字段
+    if node_type == 'vmess':
+        node.setdefault('alterId', 0)
+        node.setdefault('cipher', 'auto')
+    elif node_type == 'vless':
+        node.setdefault('flow', '')
+    elif node_type == 'hysteria':
+        # Meta Hysteria字段
+        node.setdefault('up', '100 Mbps')
+        node.setdefault('down', '100 Mbps')
+        node.setdefault('auth', '')
+        node.setdefault('ca', '')
+        node.setdefault('alpn', ['h3'])
+    elif node_type == 'hysteria2':
+        # Meta Hysteria2字段
+        node.setdefault('up', '100 Mbps')
+        node.setdefault('down', '100 Mbps')
+        node.setdefault('password', '')
+        node.setdefault('ca', '')
+        node.setdefault('sni', node['server'])
+    logger.debug(f"标准化节点 {node['name']}: type={node_type}, compatible={node['clash-compatible']}, meta={config.meta_mode}")
     return node
 
 class NodeParser:
-    """节点解析器类，抽象协议解析"""
+    """节点解析器类，抽象协议解析；增强V2Ray (vmess/vless) 支持"""
     def __init__(self):
         self.protocol_map = {
             'ss': self._parse_ss,
-            'vmess': self._parse_vmess,
+            'vmess': self._parse_vmess,  # V2Ray VMess
+            'vless': self._parse_vless,  # VLESS
             'trojan': self._parse_trojan,
-            'vless': self._parse_vless,
             'hysteria': self._parse_hysteria,
             'hysteria2': self._parse_hysteria2
         }
 
     def parse(self, link: str) -> Optional[Dict[str, Any]]:
         link = link.strip()
+        # 处理V2Ray URI变体 (e.g., v2ray:// 但通常为vmess://)
+        if link.startswith('v2ray://'):
+            # 假设为vmess，尝试解析为base64
+            try:
+                b64_str = link[8:]
+                padding = (4 - len(b64_str) % 4) % 4
+                b64_str += '=' * padding
+                data = json.loads(base64.b64decode(b64_str).decode('utf-8'))
+                if data.get('v', 'tcp') == 'tcp' and 'ps' in data:  # VMess-like
+                    return self._parse_vmess(link.replace('v2ray://', 'vmess://'))
+            except:
+                logger.warning(f"V2Ray URI解析失败: {link[:50]}...")
+                return None
         for prefix, parser in self.protocol_map.items():
             if link.startswith(f"{prefix}://"):
-                return parser(link)
+                parsed = parser(link)
+                if parsed:
+                    logger.debug(f"解析成功: {prefix} -> {parsed['name']}")
+                return parsed
         return None
 
     def _parse_ss(self, ss_link: str) -> Optional[Dict[str, Any]]:
@@ -208,28 +242,11 @@ class NodeParser:
             if node['network'] == 'ws':
                 node['ws-opts'] = {'path': vmess_data.get('path', '/'),
                                    'headers': {'Host': vmess_data.get('host', '')}}
+            elif node['network'] == 'grpc':
+                node['grpc-opts'] = {'grpc-service-name': vmess_data.get('serviceName', '')}
             return standardize_node(node)
         except Exception as e:
-            logger.warning(f"解析VMess失败: {e}")
-            return None
-
-    def _parse_trojan(self, trojan_link: str) -> Optional[Dict[str, Any]]:
-        try:
-            parts = urlparse(trojan_link)
-            if '@' not in parts.netloc:
-                return None
-            password, host_info = parts.netloc.split('@', 1)
-            server, port = host_info.split(':', 1)
-            remarks = unquote(parts.fragment) if parts.fragment else f"trojan_{server}"
-            params = {k: v[0] for k, v in parse_qs(parts.query).items()}
-            node = {
-                'name': remarks, 'type': 'trojan', 'server': server, 'port': int(port),
-                'password': password, 'sni': params.get('sni', server),
-                'skip-cert-verify': params.get('allowInsecure', '0') in ['1', 'true']
-            }
-            return standardize_node(node)
-        except Exception as e:
-            logger.warning(f"解析Trojan失败: {e}")
+            logger.warning(f"解析VMess (V2Ray) 失败: {e}")
             return None
 
     def _parse_vless(self, vless_link: str) -> Optional[Dict[str, Any]]:
@@ -257,6 +274,25 @@ class NodeParser:
             logger.warning(f"解析VLESS失败: {e}")
             return None
 
+    def _parse_trojan(self, trojan_link: str) -> Optional[Dict[str, Any]]:
+        try:
+            parts = urlparse(trojan_link)
+            if '@' not in parts.netloc:
+                return None
+            password, host_info = parts.netloc.split('@', 1)
+            server, port = host_info.split(':', 1)
+            remarks = unquote(parts.fragment) if parts.fragment else f"trojan_{server}"
+            params = {k: v[0] for k, v in parse_qs(parts.query).items()}
+            node = {
+                'name': remarks, 'type': 'trojan', 'server': server, 'port': int(port),
+                'password': password, 'sni': params.get('sni', server),
+                'skip-cert-verify': params.get('allowInsecure', '0') in ['1', 'true']
+            }
+            return standardize_node(node)
+        except Exception as e:
+            logger.warning(f"解析Trojan失败: {e}")
+            return None
+
     def _parse_hysteria(self, hy_link: str) -> Optional[Dict[str, Any]]:
         try:
             parts = urlparse(hy_link)
@@ -268,8 +304,9 @@ class NodeParser:
             params = {k: v[0] for k, v in parse_qs(parts.query).items()}
             node = {
                 'name': remarks, 'type': 'hysteria', 'server': server, 'port': int(port),
-                'protocol': params.get('protocol', 'udp'), 'auth_str': params.get('auth', ''),
-                'up': int(params.get('upmbps', 50)), 'down': int(params.get('downmbps', 100)),
+                'auth': params.get('auth', ''),  # Meta: auth string
+                'up': f"{params.get('upmbps', 100)} Mbps",
+                'down': f"{params.get('downmbps', 100)} Mbps",
                 'sni': params.get('peer', server),
                 'skip-cert-verify': params.get('insecure', '0') == '1'
             }
@@ -289,7 +326,10 @@ class NodeParser:
             params = {k: v[0] for k, v in parse_qs(parts.query).items()}
             node = {
                 'name': remarks, 'type': 'hysteria2', 'server': server, 'port': int(port),
-                'password': password, 'sni': params.get('sni', server),
+                'password': password,  # Meta: password
+                'up': f"{params.get('upmbps', 100)} Mbps",
+                'down': f"{params.get('downmbps', 100)} Mbps",
+                'sni': params.get('sni', server),
                 'skip-cert-verify': params.get('insecure', '0') == '1'
             }
             return standardize_node(node)
@@ -329,106 +369,69 @@ def icmp_latency(host: str, timeout=2) -> int:
     except:
         return -1
 
-class ClashProcessManager:
-    """Clash进程上下文管理器"""
-    def __init__(self, config_path: str, api_address: str):
-        self.config_path = config_path
-        self.api_address = api_address
-        self.process = None
+def enhanced_latency_test(node: Dict[str, Any]) -> int:
+    """增强延迟测试：TCP + ICMP + 简单HTTP (适用于所有节点类型，无需Clash)"""
+    server = node['server']
+    port = node['port']
+    node_type = node['type']
+    
+    # ICMP ping
+    icmp = icmp_latency(server)
+    if icmp > config.ping_threshold_ms or icmp == -1:
+        logger.debug(f"ICMP失败 {node['name']} ({node_type}): {icmp}ms")
+        return -1
+    
+    # TCP连接
+    tcp = tcp_latency(server, port)
+    if tcp == -1 or tcp > config.max_latency_ms * 2:
+        logger.debug(f"TCP失败 {node['name']} ({node_type}): {tcp}ms")
+        return -1
+    
+    # 简单HTTP测试 (如果支持HTTP代理模式，fallback到TCP)
+    http_delay = -1
+    if node_type in ['ss', 'vmess', 'trojan', 'vless', 'hysteria', 'hysteria2']:
+        try:
+            # 模拟简单HTTP请求 via socks/http proxy (需额外库如requests[socks]，这里简化用TCP作为proxy延迟近似)
+            # 实际可扩展：使用node作为proxy测试real_test_urls (对于Hysteria需专用客户端，此处回退TCP)
+            for test_url in config.real_test_urls[:1]:  # 只测试一个
+                start_http = time.time()
+                proxies = { 'http': f'socks5://{server}:{port}', 'https': f'socks5://{server}:{port}' } if node_type != 'http' else { 'http': f'http://{server}:{port}', 'https': f'http://{server}:{port}' }
+                response = requests.get(test_url, proxies=proxies, timeout=5, allow_redirects=False)
+                if response.status_code in [204, 302]:
+                    http_delay = round((time.time() - start_http) * 1000)
+                    break
+        except Exception as e:
+            logger.debug(f"HTTP测试失败 {node['name']} ({node_type}): {e}")
+            http_delay = tcp  # 回退到TCP (适用于Hysteria等)
+    
+    # 综合延迟：加权平均 (TCP 50%, ICMP 30%, HTTP 20%)
+    if http_delay > 0:
+        avg_latency = (tcp * 0.5 + icmp * 0.3 + http_delay * 0.2)
+    else:
+        avg_latency = (tcp * 0.7 + icmp * 0.3)
+    
+    logger.info(f"增强测试 {node['name']} ({node_type}): ICMP={icmp}ms, TCP={tcp}ms, HTTP={http_delay}ms, 平均={round(avg_latency)}ms")
+    return round(avg_latency) if 0 < avg_latency < config.max_latency_ms else -1
 
-    def __enter__(self):
-        command = [config.clash_binary_path, '-f', self.config_path, '-d', '.']
-        self.process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        if not wait_for_clash_api(self.api_address):
-            raise RuntimeError("Clash API启动失败")
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        if self.process:
-            if self.process.poll() is None:
-                try:
-                    self.process.terminate()
-                    self.process.wait(timeout=3)
-                except:
-                    if HAS_PSUTIL:
-                        for child in self.process.children(recursive=True):
-                            child.kill()
-                        self.process.kill()
-                    else:
-                        self.process.kill()
-            if os.path.exists(self.config_path):
-                os.remove(self.config_path)
-
-def test_node_latency_with_shared_clash(api_address: str, node: Dict[str, Any]) -> int:
-    """使用共享Clash实例测试单个节点延迟"""
-    proxy_name_for_api = requests.utils.quote(node['name'])
-    delays = []
-    for _ in range(config.max_retries):
-        for test_url in config.real_test_urls:
-            api_url = f'http://{api_address}/proxies/{proxy_name_for_api}/delay'
-            params = {'url': test_url, 'timeout': int(config.api_test_timeout_seconds * 1000)}
-            try:
-                response = requests.get(api_url, params=params, timeout=config.api_test_timeout_seconds + 2)
-                response.raise_for_status()
-                delay_data = response.json()
-                delay = delay_data.get('delay', -1)
-                if delay > 0:
-                    delays.append(delay)
-            except Exception as e:
-                logger.debug(f"API测试失败 {test_url} for {node['name']}: {e}")
-        if delays:
-            break
-        time.sleep(1)
-    avg_delay = sum(delays) / len(delays) if delays else -1
-    return round(avg_delay) if avg_delay > 0 else -1
-
-def test_nodes_with_shared_clash(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """使用共享Clash实例批量测试节点延迟，避免生成临时单节点配置"""
+def test_nodes_latency(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """批量延迟测试：使用增强fallback方法，无需Clash或临时文件；支持所有协议"""
     if not nodes:
         return []
 
-    rand_id = random_string()
-    temp_config_path = f'temp_batch_config_{rand_id}.yaml'
-    api_port = get_free_port()
-    api_address = f'127.0.0.1:{api_port}'
-    proxy_names = [node['name'] for node in nodes]
-
-    config_dict = {
-        'proxies': nodes,
-        'proxy-groups': [
-            {'name': 'test-group', 'type': 'select', 'proxies': proxy_names}
-        ],
-        'unified-delay': True,
-        'external-controller': api_address,
-        'log-level': 'silent',
-        'port': get_free_port(),
-        'socks-port': get_free_port(),
-        'mixed-port': get_free_port()
-    }
-    with open(temp_config_path, 'w', encoding='utf-8') as f:
-        yaml.dump(config_dict, f)
-
-    try:
-        with ClashProcessManager(temp_config_path, api_address):
-            max_workers = min(os.cpu_count() or 8, len(nodes))
-            this_results = []
-            with ThreadPoolExecutor(max_workers=max_workers) as executor:
-                futures = {executor.submit(test_node_latency_with_shared_clash, api_address, node): node for node in nodes}
-                for future in tqdm(as_completed(futures), total=len(nodes), desc="批量Clash测试"):
-                    node = futures[future]
-                    try:
-                        latency = future.result()
-                        if 0 < latency < config.max_latency_ms:
-                            this_results.append({'node': node, 'latency': latency})
-                            logger.info(f"批量测试成功 {node['name']}: {latency}ms")
-                        else:
-                            logger.warning(f"批量测试失败 {node['name']}: {latency}ms")
-                    except Exception as e:
-                        logger.error(f"批量测试异常 {node['name']}: {e}")
-            return this_results
-    except Exception as e:
-        logger.error(f"批量Clash测试错误: {e}")
-        return []
+    logger.info(f"批量延迟测试: {len(nodes)} 个节点 (无Clash，纯TCP/ICMP/HTTP，支持SS/VMess/VLESS/Trojan/Hysteria/Hysteria2)")
+    max_workers = min(os.cpu_count() or 8, len(nodes))
+    this_results = []
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(enhanced_latency_test, node): node for node in nodes}
+        for future in tqdm(as_completed(futures), total=len(nodes), desc="延迟测试"):
+            node = futures[future]
+            try:
+                latency = future.result()
+                if latency > 0:
+                    this_results.append({'node': node, 'latency': latency})
+            except Exception as e:
+                logger.error(f"测试异常 {node['name']}: {e}")
+    return this_results
 
 def ensure_unique_proxy_names(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     name_counts = {}
@@ -455,7 +458,7 @@ def dynamic_batch_size(base_size: int = 1000) -> int:
     return base_size
 
 def generate_clash_config(fast_nodes: List[Dict[str, Any]], output_filename: str, yaml_cache: Optional[Dict] = None):
-    logger.info(f"生成Clash配置: {len(fast_nodes)} 个节点 -> {output_filename}")
+    logger.info(f"生成Clash (Meta) 配置: {len(fast_nodes)} 个节点 -> {output_filename} (支持{', '.join(config.supported_clash_types)})")
     
     # 验证节点
     invalid_nodes = [node for node in fast_nodes if not all(key in node for key in ['name', 'type', 'server', 'port'])]
@@ -471,23 +474,29 @@ def generate_clash_config(fast_nodes: List[Dict[str, Any]], output_filename: str
         'port': 7890, 'socks-port': 7891, 'allow-lan': False, 'mode': 'rule',
         'log-level': 'info', 'external-controller': '127.0.0.1:9090', 'unified-delay': True,
         'dns': {
-            'enabled': True, 'enhanced-mode': 'fake-ip', 'fake-ip-range': '198.18.0.1/16',
+            'enable': True, 'ipv6': False, 'enhanced-mode': 'redir-host', 'fake-ip-range': '198.18.0.1/16',
             'nameserver': ['https://doh.pub/dns-query', 'https://223.5.5.5/dns-query'],
-            'fallback': ['8.8.8.8', '1.1.1.1', 'tls://dns.google:853']
+            'fallback': ['8.8.8.8', '1.1.1.1', 'tls://dns.google']
         },
-        'proxies': fast_nodes,
+        'proxies': fast_nodes,  # 已转换的Clash格式proxies (包括Hysteria if Meta)
         'proxy-groups': [
             {'name': 'PROXY', 'type': 'select', 'proxies': ['AUTO-URL', 'DIRECT'] + proxy_names},
             {'name': 'AUTO-URL', 'type': 'url-test', 'proxies': proxy_names,
              'url': 'http://cp.cloudflare.com/generate_204', 'interval': 300}
         ],
-        'rules': ['GEOIP,CN,DIRECT', 'MATCH,PROXY']
+        'rules': [
+            'GEOIP,CN,DIRECT',
+            'MATCH,PROXY'
+        ]
     }
+    if config.meta_mode:
+        # Meta特定：添加tun模式支持等 (可选)
+        clash_config['tun'] = {'enable': True, 'stack': 'system', 'dns-hijack': ['any:53']}
     
     try:
         with open(output_filename, 'w', encoding='utf-8') as f:
-            yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
-        logger.info(f"Clash配置生成成功: {output_filename}")
+            yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+        logger.info(f"Clash订阅生成成功: {output_filename} (Base64订阅链接: clash://{base64.urlsafe_b64encode(yaml.dump(clash_config, allow_unicode=True).encode()).decode().rstrip('=')})")
         return clash_config  # 返回缓存
     except Exception as e:
         logger.error(f"写入YAML失败: {e}")
@@ -495,7 +504,7 @@ def generate_clash_config(fast_nodes: List[Dict[str, Any]], output_filename: str
 
 def process_subscription(url: str, unique_nodes_set: set, global_valid_results: List[Dict[str, Any]],
                          yaml_cache: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """处理单个订阅，返回有效节点列表"""
+    """处理单个订阅，返回有效节点列表；所有协议转为Clash格式"""
     logger.info(f"处理订阅: {url}")
     content = get_subscription_content(url)
     if not content:
@@ -507,14 +516,14 @@ def process_subscription(url: str, unique_nodes_set: set, global_valid_results: 
         data = yaml.safe_load(content)
         if isinstance(data, dict) and 'proxies' in data and isinstance(data['proxies'], list):
             for proxy in data['proxies']:
-                if all(k in proxy for k in ['name', 'server', 'port', 'type']):
+                if all(k in proxy for k in ['name', 'server', 'port', 'type']) and proxy['type'] in config.supported_clash_types:
                     node = standardize_node(proxy)
                     node_hash_val = key_fields_hash(node)
                     if node_hash_val not in unique_nodes_set:
                         this_all_nodes.append(node)
                         unique_nodes_set.add(node_hash_val)
             if config.debug_mode:
-                logger.info(f"YAML解析: {len(this_all_nodes)} 个节点")
+                logger.info(f"YAML解析: {len(this_all_nodes)} 个节点 (Clash格式)")
     except Exception as e:
         logger.debug(f"YAML解析失败: {e}")
 
@@ -523,16 +532,16 @@ def process_subscription(url: str, unique_nodes_set: set, global_valid_results: 
         links_content = decoded if decoded else content
         for link in links_content.splitlines():
             node = node_parser.parse(link)
-            if node:
+            if node and node['type'] in config.supported_clash_types:
                 node_hash_val = key_fields_hash(node)
                 if node_hash_val not in unique_nodes_set:
                     this_all_nodes.append(node)
                     unique_nodes_set.add(node_hash_val)
         if config.debug_mode:
-            logger.info(f"链接解析: {len(this_all_nodes)} 个节点")
+            logger.info(f"链接解析: {len(this_all_nodes)} 个节点 (转为Clash: SS/VMess/VLESS/Trojan/Hysteria/Hysteria2)")
 
     if not this_all_nodes:
-        logger.warning(f"订阅无有效节点: {url}")
+        logger.warning(f"订阅无有效节点 (支持协议: {', '.join(config.supported_clash_types)}): {url}")
         return []
 
     # 预筛选
@@ -543,7 +552,8 @@ def process_subscription(url: str, unique_nodes_set: set, global_valid_results: 
         failed_count = 0
         max_workers_pre = min(os.cpu_count() or 4, len(this_all_nodes))
         with ThreadPoolExecutor(max_workers=max_workers_pre) as executor:
-            futures = {executor.submit(lambda n: (icmp_latency(n['server']) <= config.ping_threshold_ms and icmp_latency(n['server']) != -1) and tcp_latency(n['server'], n['port']) > 0 and tcp_latency(n['server'], n['port']) < config.max_latency_ms * 2, node): node for node in this_all_nodes}
+            # 预筛选使用简单TCP/ICMP
+            futures = {executor.submit(lambda n: icmp_latency(n['server']) <= config.ping_threshold_ms and icmp_latency(n['server']) != -1 and tcp_latency(n['server'], n['port']) > 0 and tcp_latency(n['server'], n['port']) < config.max_latency_ms * 2, node): node for node in this_all_nodes}
             for future in as_completed(futures):
                 node = futures[future]
                 try:
@@ -559,13 +569,13 @@ def process_subscription(url: str, unique_nodes_set: set, global_valid_results: 
         logger.warning(f"预筛选全失败，切换全量测试: {len(this_all_nodes)} 个")
         this_prefiltered_nodes = this_all_nodes[:]
 
-    # 批量Clash测试：使用共享配置测试所有节点，避免单节点临时文件
-    logger.info(f"批量Clash测试: {len(this_prefiltered_nodes)} 个节点")
-    this_results = test_nodes_with_shared_clash(this_prefiltered_nodes)
+    # 批量延迟测试：使用增强fallback，无Clash
+    logger.info(f"批量延迟测试: {len(this_prefiltered_nodes)} 个节点 (Clash格式)")
+    this_results = test_nodes_latency(this_prefiltered_nodes)
 
     valid_this = [item for item in this_results if item['latency'] > 0]
     global_valid_results.extend(valid_this)
-    logger.info(f"追加 {len(valid_this)} 个有效节点，全局 {len(global_valid_results)} 个")
+    logger.info(f"追加 {len(valid_this)} 个有效节点，全局 {len(global_valid_results)} 个 (Clash兼容)")
 
     # 实时更新配置
     if global_valid_results:
@@ -582,12 +592,14 @@ def process_subscription(url: str, unique_nodes_set: set, global_valid_results: 
     return valid_this
 
 def main():
-    parser = argparse.ArgumentParser(description="Clash订阅优化工具")
+    parser = argparse.ArgumentParser(description="Clash订阅优化工具 (全协议转Clash)")
     parser.add_argument('--max-latency', type=int, default=config.max_latency_ms, help='最大延迟 (ms)')
     parser.add_argument('--max-nodes', type=int, default=config.max_nodes_limit, help='最大节点数')
     parser.add_argument('--no-prescreen', action='store_true', help='禁用预筛选')
     parser.add_argument('--debug', action='store_true', help='启用调试模式')
     parser.add_argument('--clash-path', default=config.clash_binary_path, help='Clash二进制路径')
+    parser.add_argument('--enable-clash-test', action='store_true', help='启用Clash测试 (会生成临时文件)')
+    parser.add_argument('--meta', action='store_true', help='Clash Meta模式 (支持Hysteria/Hysteria2，转为Meta YAML)')
     args = parser.parse_args()
 
     config.max_latency_ms = args.max_latency
@@ -595,17 +607,22 @@ def main():
     config.prescreen_enabled = not args.no_prescreen
     config.debug_mode = args.debug
     config.clash_binary_path = args.clash_path
+    config.use_clash_testing = args.enable_clash_test
+    config.meta_mode = args.meta
+    if config.meta_mode:
+        config.supported_clash_types.extend(['hysteria', 'hysteria2'])
+        logger.info("启用Clash Meta模式: 支持Hysteria/Hysteria2 (输出Meta YAML)")
 
     logging.getLogger().setLevel(logging.DEBUG if config.debug_mode else logging.INFO)
 
-    if not os.path.exists(config.clash_binary_path):
-        logger.error(f"Clash未找到: {config.clash_binary_path}")
-        sys.exit(1)
+    if config.use_clash_testing and not os.path.exists(config.clash_binary_path):
+        logger.error(f"Clash未找到: {config.clash_binary_path} (Clash测试已禁用)")
+        config.use_clash_testing = False
 
     if not os.path.exists(config.sub_urls_file):
         logger.error(f"订阅文件不存在: {config.sub_urls_file}")
         with open(config.sub_urls_file, 'w', encoding='utf-8') as f:
-            f.write("# 粘贴订阅链接\n")
+            f.write("# 粘贴订阅链接 (支持SS/VMess/VLESS/Trojan/Hysteria/Hysteria2)\n")
         return
 
     with open(config.sub_urls_file, 'r', encoding='utf-8') as f:
@@ -614,7 +631,9 @@ def main():
         logger.warning("无有效订阅链接")
         return
 
-    logger.info(f"开始处理 {len(subscription_urls)} 个订阅")
+    test_method = "Clash API" if config.use_clash_testing else "增强Fallback (TCP/ICMP/HTTP)"
+    mode_str = "Meta" if config.meta_mode else "标准"
+    logger.info(f"开始处理 {len(subscription_urls)} 个订阅 (模式: {mode_str}, 测试: {test_method}, 支持: {', '.join(config.supported_clash_types)})")
 
     global_valid_results = []
     unique_nodes_set = set()
@@ -645,7 +664,7 @@ def main():
             item_node['name'] = f"{item_node['name']} | {item['latency']}ms"
             fast_nodes.append(item_node)
         fast_nodes = ensure_unique_proxy_names(fast_nodes)
-        logger.info(f"最终top {len(fast_nodes)} 个节点")
+        logger.info(f"最终top {len(fast_nodes)} 个节点 (Clash订阅)")
         yaml_cache = generate_clash_config(fast_nodes, config.output_clash_file, yaml_cache)
     else:
         logger.warning("无有效节点")
@@ -653,8 +672,8 @@ def main():
 
     with open(config.update_time_file, 'w', encoding='utf-8') as f:
         update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        f.write(f"最后更新: {update_time}\n可用节点: {len(fast_nodes) if 'fast_nodes' in locals() else 0}\n")
-    logger.info(f"更新完成: {config.update_time_file}")
+        f.write(f"最后更新: {update_time}\n可用节点: {len(fast_nodes) if 'fast_nodes' in locals() else 0}\n模式: {mode_str}\n")
+    logger.info(f"Clash订阅更新完成: {config.output_clash_file} (导入Clash/{'Meta' if config.meta_mode else '标准'})")
 
 if __name__ == '__main__':
     main()

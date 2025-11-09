@@ -43,6 +43,7 @@ PING_THRESHOLD_MS = 200  # 预筛选阈值
 MAX_RETRIES = 3  # API重试次数
 BATCH_SIZE = 1000  # 分批大小，适用于4w+节点
 PRESCREEN_ENABLED = True  # 可设为 False 禁用预筛选
+DEBUG_MODE = True  # 启用详细日志
 
 CLASH_BINARY_PATH = './clash'
 
@@ -379,16 +380,19 @@ def chunks(iterable, size):
         yield list(islice(iterator, size - 1, None)) + [first] if size > 1 else [first]
 
 def generate_clash_config(fast_nodes, output_filename):
-    if not fast_nodes:
-        logger.warning(f"没有可用的节点，无法生成 {output_filename}")
-        return
-    logger.info(f"正在为 {len(fast_nodes)} 个节点生成 {output_filename}...")
+    logger.info(f"调用 generate_clash_config: 输入 {len(fast_nodes)} 个节点，输出 {output_filename}...")
     
     # 验证节点完整性
+    invalid_nodes = []
     for node in fast_nodes[:]:  # 复制以避免修改时删除
         if not all(key in node for key in ['name', 'type', 'server', 'port']):
-            logger.error(f"节点无效: {node['name']}")
+            invalid_nodes.append(node['name'])
             fast_nodes.remove(node)
+    if invalid_nodes:
+        logger.warning(f"移除 {len(invalid_nodes)} 个无效节点: {invalid_nodes[:3]}...")  # 只显示前3个
+    
+    if not fast_nodes:
+        logger.warning(f"无可用节点，生成空配置 {output_filename}")
     
     clash_config = {
         'port': 7890,
@@ -404,9 +408,9 @@ def generate_clash_config(fast_nodes, output_filename):
             'fake-ip-range': '198.18.0.1/16',
             'nameserver': ['https://doh.pub/dns-query', 'https://223.5.5.5/dns-query'],
             'fallback': ['8.8.8.8', '1.1.1.1', 'tls://dns.google:853']
-        }
+        },
+        'proxies': fast_nodes  # 即使空，也写入 []
     }
-    clash_config['proxies'] = fast_nodes
     proxy_names = [node['name'] for node in fast_nodes]
     clash_config['proxy-groups'] = [
         {'name': 'PROXY', 'type': 'select', 'proxies': ['AUTO-URL', 'DIRECT'] + proxy_names},
@@ -418,9 +422,12 @@ def generate_clash_config(fast_nodes, output_filename):
         'MATCH,PROXY'
     ]  # 可扩展更多规则
     
-    with open(output_filename, 'w', encoding='utf-8') as f:
-        yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
-    logger.info(f"成功生成 Clash 订阅文件: {output_filename}")
+    try:
+        with open(output_filename, 'w', encoding='utf-8') as f:
+            yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
+        logger.info(f"成功生成/更新 Clash 订阅文件: {output_filename} (节点数: {len(fast_nodes)})")
+    except Exception as e:
+        logger.error(f"写入 YAML 失败: {e}")
 
 def main():
     if not os.path.exists(CLASH_BINARY_PATH):
@@ -445,11 +452,26 @@ def main():
     global_valid_results = []  # [{'node': ..., 'latency': ...}]
     unique_nodes_set = set()  # 全局去重哈希
 
+    # 初始空配置生成
+    generate_clash_config([], OUTPUT_CLASH_FILE)  # 确保第一个订阅前有空文件
+
     for url_idx, url in enumerate(subscription_urls, 1):
         logger.info(f"\n--- 处理第 {url_idx}/{len(subscription_urls)} 个订阅: {url} ---")
         content = get_subscription_content(url)
         if not content:
             logger.warning(f"订阅 {url} 获取失败，跳过。")
+            # 即使失败，也重新生成当前配置（保持上一步结果）
+            if global_valid_results:
+                global_valid_results.sort(key=lambda x: x['latency'])
+                top_100 = global_valid_results[:MAX_NODES_LIMIT]
+                fast_nodes = []
+                for item in top_100:
+                    node = item['node']
+                    latency = item['latency']
+                    node['name'] = f"{node['name']} | {latency}ms"
+                    fast_nodes.append(node)
+                fast_nodes = ensure_unique_proxy_names(fast_nodes)
+                generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
             continue
 
         # 解析此订阅节点
@@ -464,7 +486,8 @@ def main():
                         if node_hash_val not in unique_nodes_set:
                             this_all_nodes.append(node)
                             unique_nodes_set.add(node_hash_val)
-                logger.info(f"YAML订阅解析出 {len(this_all_nodes)} 个节点。")
+                if DEBUG_MODE:
+                    logger.info(f"YAML订阅解析出 {len(this_all_nodes)} 个节点。")
         except Exception as e:
             logger.debug(f"YAML解析失败: {e}")
 
@@ -478,10 +501,23 @@ def main():
                     if node_hash_val not in unique_nodes_set:
                         this_all_nodes.append(node)
                         unique_nodes_set.add(node_hash_val)
-            logger.info(f"链接订阅解析出 {len(this_all_nodes)} 个节点。")
+            if DEBUG_MODE:
+                logger.info(f"链接订阅解析出 {len(this_all_nodes)} 个节点。")
 
         if not this_all_nodes:
             logger.warning(f"订阅 {url} 无有效节点，跳过。")
+            # 重新生成当前配置
+            if global_valid_results:
+                global_valid_results.sort(key=lambda x: x['latency'])
+                top_100 = global_valid_results[:MAX_NODES_LIMIT]
+                fast_nodes = []
+                for item in top_100:
+                    node = item['node']
+                    latency = item['latency']
+                    node['name'] = f"{node['name']} | {latency}ms"
+                    fast_nodes.append(node)
+                fast_nodes = ensure_unique_proxy_names(fast_nodes)
+                generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
             continue
 
         # 预筛选此订阅节点
@@ -559,21 +595,23 @@ def main():
         global_valid_results.extend(this_valid)
         logger.info(f"此订阅追加 {len(this_valid)} 个有效节点，全局累积 {len(global_valid_results)} 个。")
 
-        # 实时排序并取top 100，写入YAML
-        if len(global_valid_results) > 0:
-            global_valid_results.sort(key=lambda x: x['latency'])  # 升序，低延迟在前
-            top_100 = global_valid_results[:MAX_NODES_LIMIT]
-            fast_nodes = []
-            for item in top_100:
-                node = item['node']
-                latency = item['latency']
-                node['name'] = f"{node['name']} | {latency}ms"
-                fast_nodes.append(node)
-            fast_nodes = ensure_unique_proxy_names(fast_nodes)
-            logger.info(f"实时更新: 从 {len(global_valid_results)} 个中取前 {len(fast_nodes)} 个低延迟节点。")
-            generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
-        else:
-            logger.warning("此订阅无有效节点，全局暂无top 100。")
+        # 实时排序并取top 100，写入YAML（即使 0，也调用生成空配置）
+        if DEBUG_MODE:
+            logger.debug(f"实时更新前: global_valid_results 长度 {len(global_valid_results)}")
+        global_valid_results.sort(key=lambda x: x['latency'])  # 升序，低延迟在前
+        if DEBUG_MODE:
+            logger.debug(f"排序后: 最小延迟 {global_valid_results[0]['latency'] if global_valid_results else 'N/A'}")
+        
+        top_100 = global_valid_results[:MAX_NODES_LIMIT]
+        fast_nodes = []
+        for item in top_100:
+            node = item['node']
+            latency = item['latency']
+            node['name'] = f"{node['name']} | {latency}ms"
+            fast_nodes.append(node)
+        fast_nodes = ensure_unique_proxy_names(fast_nodes)
+        logger.info(f"实时更新: 从 {len(global_valid_results)} 个中取前 {len(fast_nodes)} 个低延迟节点，生成文件。")
+        generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
 
     # 最终处理：所有订阅完成后，再次生成完整配置
     if global_valid_results:
@@ -590,6 +628,7 @@ def main():
         generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
     else:
         logger.warning("所有订阅无有效节点，生成空配置。")
+        generate_clash_config([], OUTPUT_CLASH_FILE)
 
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
         update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')

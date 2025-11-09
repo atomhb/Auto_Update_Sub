@@ -4,9 +4,11 @@ on:
   workflow_dispatch:
 
   # 设置定时任务，使用 cron 语法
-  # '0 */6 * * *' 表示每隔 6 小时执行一次 (在 0 分, 每 6 小时)
+  # '0 */6 * * *' 表示每隔 24 小时执行一次 (在 0 分, 每 6 小时)
+  # schedule:
+  #   - cron: '0 */6 * * *'
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   update:
@@ -62,11 +64,43 @@ jobs:
       - name: Run subscription update script
         run: python update_subs.py
 
+      - name: Check generated files  # 调试文件生成
+        run: |
+          echo "检查生成的文件..."
+          ls -la sub.yaml update_time.txt || echo "文件未生成或路径错误"
+          if [ -f sub.yaml ]; then
+            echo "sub.yaml 内容预览:"
+            head -n 20 sub.yaml  # 只显示前20行，避免日志过长
+            echo "sub.yaml 大小: $(wc -c < sub.yaml) 字节"
+            if [ $(wc -l < sub.yaml) -gt 10 ]; then
+              echo "文件非空，生成成功"
+            else
+              echo "文件可能为空，检查代码日志"
+            fi
+          else
+            echo "sub.yaml 未生成！可能原因: 订阅解析失败、测试无有效节点或代码异常"
+          fi
+          cat update_time.txt || echo "update_time.txt 未生成"
+
+      - name: Upload sub.yaml as artifact  # 上传 artifacts，便于下载
+        uses: actions/upload-artifact@v4
+        with:
+          name: clash-sub-yaml
+          path: |
+            sub.yaml
+            update_time.txt
+          retention-days: 7  # 保留7天
+
       # 提交并推送更改
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
-          git diff-index --quiet HEAD || git commit -m "feat: 自动更新订阅文件" -m "更新时间: $(date -u)" -m "[skip ci]"
-          git push
+          if git diff-index --quiet HEAD; then
+            echo "无更改，跳过 commit"
+          else
+            git commit -m "feat: 自动更新订阅文件" -m "更新时间: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" -m "[skip ci]"
+            git push
+            echo "已推送 sub.yaml 到 repo"
+          fi

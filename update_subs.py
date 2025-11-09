@@ -18,6 +18,7 @@ from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from ping3 import ping  # pip install ping3
 import hashlib  # 内置，用于去重哈希
+from itertools import islice  # 内置，用于分批
 
 try:
     import psutil  # pip install psutil，可选，用于杀进程
@@ -30,18 +31,18 @@ SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 OUTPUT_CLASH_FILE = 'sub.yaml'
 UPDATE_TIME_FILE = 'update_time.txt'
 
-MAX_LATENCY_MS = 1000
-MAX_NODES_LIMIT = 1000
+MAX_LATENCY_MS = 500
+MAX_NODES_LIMIT = 100
 REAL_TEST_URLS = [
     'http://cp.cloudflare.com/generate_204',
     'http://www.google.com/generate_204',
     'https://httpbin.org/get'
 ]  # 多URL轮换，避免劫持
 API_TEST_TIMEOUT_SECONDS = 10  # 延长超时
-PING_THRESHOLD_MS = 500  # 预筛选阈值
+PING_THRESHOLD_MS = 200  # 预筛选阈值
 MAX_RETRIES = 3  # API重试次数
+BATCH_SIZE = 1000  # 分批大小，适用于4w+节点
 PRESCREEN_ENABLED = True  # 可设为 False 禁用预筛选
-FALLBACK_NODE_LIMIT = 20  # fallback 测试节点数
 
 CLASH_BINARY_PATH = './clash'
 
@@ -371,6 +372,12 @@ def ensure_unique_proxy_names(nodes):
             name_counts[name] = 1
     return nodes
 
+def chunks(iterable, size):
+    """分批生成器"""
+    iterator = iter(iterable)
+    for first in iterator:
+        yield list(islice(iterator, size - 1, None)) + [first] if size > 1 else [first]
+
 def generate_clash_config(fast_nodes, output_filename):
     if not fast_nodes:
         logger.warning(f"没有可用的节点，无法生成 {output_filename}")
@@ -378,7 +385,7 @@ def generate_clash_config(fast_nodes, output_filename):
     logger.info(f"正在为 {len(fast_nodes)} 个节点生成 {output_filename}...")
     
     # 验证节点完整性
-    for node in fast_nodes:
+    for node in fast_nodes[:]:  # 复制以避免修改时删除
         if not all(key in node for key in ['name', 'type', 'server', 'port']):
             logger.error(f"节点无效: {node['name']}")
             fast_nodes.remove(node)
@@ -470,40 +477,64 @@ def main():
         return
 
     # 预筛选：ICMP + TCP
-    logger.info("开始预筛选节点...")
-    prefiltered_nodes = []
-    failed_count = 0
-    for node in all_nodes:
-        icmp = icmp_latency(node['server'])
-        if icmp > PING_THRESHOLD_MS or icmp == -1:
-            logger.debug(f"节点 {node['name']} ping 失败: {icmp}ms (server: {node['server']})")
-            failed_count += 1
-            continue
-        tcp = tcp_latency(node['server'], node['port'])
-        if tcp > 0 and tcp < MAX_LATENCY_MS * 2:
-            prefiltered_nodes.append(node)
-            logger.debug(f"预筛选通过 {node['name']}: ping={icmp}ms, tcp={tcp}ms")
-        else:
-            logger.debug(f"节点 {node['name']} TCP 失败: {tcp}ms")
-            failed_count += 1
+    prefiltered_nodes = all_nodes[:]
+    if PRESCREEN_ENABLED:
+        logger.info("开始预筛选节点...")
+        prefiltered_nodes = []
+        failed_count = 0
+        for node in all_nodes:
+            icmp = icmp_latency(node['server'])
+            if icmp > PING_THRESHOLD_MS or icmp == -1:
+                logger.debug(f"节点 {node['name']} ping 失败: {icmp}ms (server: {node['server']})")
+                failed_count += 1
+                continue
+            tcp = tcp_latency(node['server'], node['port'])
+            if tcp > 0 and tcp < MAX_LATENCY_MS * 2:
+                prefiltered_nodes.append(node)
+                logger.debug(f"预筛选通过 {node['name']}: ping={icmp}ms, tcp={tcp}ms")
+            else:
+                logger.debug(f"节点 {node['name']} TCP 失败: {tcp}ms")
+                failed_count += 1
 
-    logger.info(f"预筛选后剩余 {len(prefiltered_nodes)} 个节点 ({failed_count} 个失败)。")
+        logger.info(f"预筛选后剩余 {len(prefiltered_nodes)} 个节点 ({failed_count} 个失败)。")
 
     # Fallback: 如果预筛选失败，全量测试
     if len(prefiltered_nodes) == 0:
         logger.warning(f"预筛选全失败 (阈值: {PING_THRESHOLD_MS}ms)。切换到全量 Clash 测试所有 {len(all_nodes)} 个节点。")
         prefiltered_nodes = all_nodes[:]
+        max_workers = min(4, len(prefiltered_nodes))  # 保守并发
         if len(all_nodes) > 200:
             logger.warning("节点数过多 (>200)，建议优化订阅以避免测试超时。")
-        max_workers_fallback = min(4, len(prefiltered_nodes))  # 保守并发
     else:
-        max_workers_fallback = min(8, len(prefiltered_nodes))
+        max_workers = min(8, len(prefiltered_nodes))
 
-    logger.info("\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
-    node_results = []
-    if len(prefiltered_nodes) > 0:
-        max_workers = max_workers_fallback
+    # 分批处理（适用于4w+节点）
+    use_batching = len(prefiltered_nodes) > BATCH_SIZE * 10  # >10批时启用
+    if use_batching:
+        logger.info(f"节点过多 ({len(prefiltered_nodes)})，启用分批测试 (批大小: {BATCH_SIZE})...")
+        node_results = []
+        for i, batch in enumerate(chunks(prefiltered_nodes, BATCH_SIZE)):
+            logger.info(f"处理第 {i+1} 批 ({len(batch)} 个节点)...")
+            batch_max_workers = min(8, len(batch))
+            batch_results = []
+            with ThreadPoolExecutor(max_workers=batch_max_workers) as executor:
+                future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in batch}
+                for future in tqdm(as_completed(future_to_node), total=len(batch), desc=f"批 {i+1} 测试"):
+                    node = future_to_node[future]
+                    try:
+                        latency = future.result()
+                        if 0 < latency < MAX_LATENCY_MS:
+                            batch_results.append({'node': node, 'latency': latency})
+                            logger.info(f"批 {i+1} 测试成功 {node['name']}: {latency}ms")
+                        else:
+                            logger.warning(f"批 {i+1} 节点延迟超限或失败: {node['name']} ({latency}ms)")
+                    except Exception as e:
+                        logger.error(f"批 {i+1} 测试异常 {node['name']}: {e}")
+            node_results.extend(batch_results)
+    else:
+        logger.info(f"\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
         logger.info(f"使用 {max_workers} 个并发 workers 测试 {len(prefiltered_nodes)} 个节点。")
+        node_results = []
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in prefiltered_nodes}
             for future in tqdm(as_completed(future_to_node), total=len(prefiltered_nodes), desc="测试节点"):
@@ -517,8 +548,6 @@ def main():
                         logger.warning(f"节点延迟超限或失败: {node['name']} ({latency}ms)")
                 except Exception as e:
                     logger.error(f"测试异常 {node['name']}: {e}")
-    else:
-        logger.error("最终无节点可测试，检查 all_nodes。")
 
     # 筛选延迟最小的前 100 个
     valid_results = [item for item in node_results if item['latency'] > 0]  # 确保 >0
@@ -546,308 +575,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# import base64
-# import json
-# import os
-# import requests
-# import socket
-# import time
-# import yaml
-# import subprocess
-# import random
-# import string
-# import sys
-# import threading
-# from datetime import datetime
-# from urllib.parse import unquote, urlparse, parse_qs
-# import concurrent.futures
-# from tqdm import tqdm
-# from concurrent.futures import ThreadPoolExecutor, as_completed
-# from ping3 import ping  # pip install ping3
-
-# # --- 全局配置 ---
-# SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
-# OUTPUT_CLASH_FILE = 'sub.yaml'
-# UPDATE_TIME_FILE = 'update_time.txt'
-
-# MAX_LATENCY_MS = 500
-# MAX_NODES_LIMIT = 100
-# REAL_TEST_URL = 'http://www.gstatic.com/generate_204' # Clash API 默认使用 HTTP
-# API_TEST_TIMEOUT_SECONDS = 5 # API 调用本身的超时
-
-# CLASH_BINARY_PATH = './clash'
-
-# def random_string(length=8):
-#     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
-
-# def get_free_port():
-#     """在系统上找到一个空闲的 TCP 端口"""
-#     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-#         s.bind(('127.0.0.1', 0))
-#         return s.getsockname()[1]
-
-# def wait_for_clash_api(api_address, timeout=10):
-#     """循环检查 Clash API 是否已启动"""
-#     api_base = f'http://{api_address}'
-#     start_time = time.time()
-#     while time.time() - start_time < timeout:
-#         try:
-#             # 尝试访问轻量级的 /version 或 /traffic 接口
-#             response = requests.get(f'{api_base}/version', timeout=1) 
-#             if response.status_code == 200:
-#                 return True # API 成功响应
-#         except requests.exceptions.ConnectionError:
-#             pass # 连接错误，继续等待
-#         except Exception:
-#             pass # 其他错误，继续等待
-#         time.sleep(0.2) # 每次重试间隔 200 毫秒
-#     return False
-
-# def get_subscription_content(url):
-#     headers = {'User-Agent': 'Clash/1.11.0'}
-#     try:
-#         print(f"获取订阅: {url}")
-#         response = requests.get(url, timeout=15, headers=headers)
-#         response.raise_for_status()
-#         response.encoding = 'utf-8'
-#         return response.text
-#     except requests.RequestException as e:
-#         print(f"获取订阅失败: {url}, 错误: {e}")
-#         return None
-
-# def decode_base64_content(content):
-#     try:
-#         if len(content) % 4 != 0:
-#             content += '=' * (4 - len(content) % 4)
-#         return base64.b64decode(content.encode('ascii')).decode('utf-8')
-#     except Exception:
-#         return None
-
-# def parse_node(link):
-#     link = link.strip()
-#     if link.startswith('ss://'): return parse_ss_link(link)
-#     elif link.startswith('vmess://'): return parse_vmess_link(link)
-#     elif link.startswith('trojan://'): return parse_trojan_link(link)
-#     elif link.startswith('vless://'): return parse_vless_link(link)
-#     elif link.startswith('hysteria://'): return parse_hysteria_link(link)
-#     elif link.startswith('hysteria2://'): return parse_hysteria2_link(link)
-#     return None
-# def parse_ss_link(ss_link):
-#     try:
-#         parts = urlparse(ss_link); user_info, host_info = parts.netloc.split('@'); server, port = host_info.split(':'); remarks = unquote(parts.fragment) if parts.fragment else f"ss_{server}";
-#         try: user_info_str = base64.b64decode(user_info).decode('utf-8')
-#         except: user_info_str = unquote(user_info)
-#         method, password = user_info_str.split(':', 1);
-#         return {'name': remarks, 'type': 'ss', 'server': server, 'port': int(port), 'cipher': method, 'password': password, 'udp': True}
-#     except: return None
-# def parse_vmess_link(vmess_link):
-#     try:
-#         b64_str = vmess_link[8:]; b64_str += '=' * (-len(b64_str) % 4); vmess_data = json.loads(base64.b64decode(b64_str).decode('utf-8'));
-#         node = {'name': vmess_data.get('ps', vmess_data.get('add')), 'type': 'vmess', 'server': vmess_data.get('add'), 'port': int(vmess_data.get('port')), 'uuid': vmess_data.get('id'), 'alterId': int(vmess_data.get('aid')), 'cipher': vmess_data.get('scy', 'auto'), 'udp': True, 'tls': vmess_data.get('tls') == 'tls', 'network': vmess_data.get('net')}
-#         if node.get('tls'): node['servername'] = vmess_data.get('sni', vmess_data.get('host', ''))
-#         if node.get('network') == 'ws': node['ws-opts'] = {'path': vmess_data.get('path', '/'), 'headers': {'Host': vmess_data.get('host')} if vmess_data.get('host') else {}}
-#         return node
-#     except: return None
-# def parse_trojan_link(trojan_link):
-#     try:
-#         parts = urlparse(trojan_link); password, host_info = parts.netloc.split('@'); server, port = host_info.split(':'); remarks = unquote(parts.fragment) if parts.fragment else f"trojan_{server}"; params = {k: v[0] for k, v in parse_qs(parts.query).items()};
-#         return {'name': remarks, 'type': 'trojan', 'server': server, 'port': int(port), 'password': password, 'udp': True, 'sni': params.get('sni', server), 'skip-cert-verify': params.get('allowInsecure', 'false').lower() in ['true', '1']}
-#     except: return None
-# def parse_vless_link(vless_link):
-#     try:
-#         parts = urlparse(vless_link); uuid, host_info = parts.netloc.split('@'); server, port = host_info.split(':'); remarks = unquote(parts.fragment) if parts.fragment else f"vless_{server}"; params = {k: v[0] for k, v in parse_qs(parts.query).items()};
-#         node = {'name': remarks, 'type': 'vless', 'server': server, 'port': int(port), 'uuid': uuid, 'udp': True, 'tls': params.get('security') == 'tls', 'network': params.get('type', 'tcp'), 'servername': params.get('sni', server), 'flow': params.get('flow', '')}
-#         if node.get('network') == 'ws': node['ws-opts'] = {'path': params.get('path', '/'), 'headers': {'Host': params.get('host', server)}}
-#         elif node.get('network') == 'grpc': node['grpc-opts'] = {'grpc-service-name': params.get('serviceName', '')}
-#         return node
-#     except: return None
-# def parse_hysteria_link(hy_link):
-#     try:
-#         parts = urlparse(hy_link); server, port = parts.netloc.split(':'); remarks = unquote(parts.fragment) if parts.fragment else f"hysteria_{server}"; params = {k: v[0] for k, v in parse_qs(parts.query).items()};
-#         return {'name': remarks, 'type': 'hysteria', 'server': server, 'port': int(port), 'protocol': params.get('protocol', 'udp'), 'auth_str': params.get('auth'), 'up': int(params.get('upmbps', 50)), 'down': int(params.get('downmbps', 100)), 'sni': params.get('peer', server), 'skip-cert-verify': params.get('insecure', '0') == '1'}
-#     except: return None
-# def parse_hysteria2_link(hy2_link):
-#     try:
-#         parts = urlparse(hy2_link); password, host_info = parts.netloc.split('@'); server, port = host_info.split(':'); remarks = unquote(parts.fragment) if parts.fragment else f"hysteria2_{server}"; params = {k: v[0] for k, v in parse_qs(parts.query).items()};
-#         return {'name': remarks, 'type': 'hysteria2', 'server': server, 'port': int(port), 'password': password, 'sni': params.get('sni', server), 'skip-cert-verify': params.get('insecure', '0') == '1'}
-#     except: return None
-# # --- 节点解析函数结束 ---
-
-# def tcp_latency(host, port, timeout=2):
-#     """TCP 握手延迟（毫秒）"""
-#     start = time.time()
-#     try:
-#         sock = socket.create_connection((host, port), timeout)
-#         sock.close()
-#         return round((time.time() - start) * 1000)
-#     except:
-#         return -1
-
-# def icmp_latency(host, timeout=2):
-#     """ICMP ping 延迟（毫秒）"""
-#     try:
-#         delay = ping(host, timeout=timeout)
-#         return round(delay * 1000) if delay else -1
-#     except:
-#         return -1
-
-# def test_node_latency_with_clash_core(node):
-#     rand_id = random_string()
-#     temp_config_path = f'temp_config_{rand_id}.yaml'
-#     api_port = get_free_port()
-#     api_address = f'127.0.0.1:{api_port}'
-#     proxy_name_for_api = requests.utils.quote(node['name']) 
-    
-#     config = {
-#         'proxies': [node], 'proxy-groups': [{'name': 'test-group', 'type': 'select', 'proxies': [node['name']]}],
-#         'external-controller': api_address, 'log-level': 'silent', 'port': get_free_port(), 'socks-port': get_free_port()
-#     }
-#     with open(temp_config_path, 'w', encoding='utf-8') as f: yaml.dump(config, f)
-
-#     process = None
-#     try:
-#         command = [CLASH_BINARY_PATH, '-f', temp_config_path, '-d', '.']
-#         process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-#         if not wait_for_clash_api(api_address, timeout=5):
-#             print(f"Clash API 启动失败或超时: {node['name']}") # Debug 用
-#             return -1
-#         if process.poll() is not None: return -1
-
-#         api_url = f'http://{api_address}/proxies/{proxy_name_for_api}/delay'
-#         params = {'url': REAL_TEST_URL, 'timeout': int(API_TEST_TIMEOUT_SECONDS * 1000)}
-#         response = requests.get(api_url, params=params, timeout=API_TEST_TIMEOUT_SECONDS + 2)
-#         response.raise_for_status()
-#         delay_data = response.json()
-#         return delay_data.get('delay', -1)
-#     except requests.exceptions.Timeout:
-#         # print(f"节点测试超时: {node['name']}") # Debug 用
-#         return -1
-#     except Exception as e:
-#         # print(f"节点测试发生错误 {node['name']}: {e}") # Debug 用
-#         return -1
-#     finally:
-#         if process:
-#             try:
-#                 process.terminate()
-#                 process.wait(timeout=3)
-#             except:
-#                 pass
-#         if os.path.exists(temp_config_path):
-#             os.remove(temp_config_path)
-            
-# def ensure_unique_proxy_names(nodes):
-#     name_counts = {}
-#     for node in nodes:
-#         name = node['name']
-#         if name in name_counts:
-#             name_counts[name] += 1
-#             node['name'] = f"{name}_{name_counts[name]}"
-#         else:
-#             name_counts[name] = 1
-#     return nodes
-
-# def generate_clash_config(fast_nodes, output_filename):
-#     if not fast_nodes:
-#         print(f"没有可用的节点，无法生成 {output_filename}")
-#         return
-#     print(f"正在为 {len(fast_nodes)} 个节点生成 {output_filename}...")
-    
-#     clash_config = {
-#         'port': 7890, 'socks-port': 7891, 'allow-lan': False, 'mode': 'rule',
-#         'log-level': 'info', 'external-controller': '127.0.0.1:9090',
-#         'dns': {
-#             'enabled': True, 'enhanced-mode': 'fake-ip', 'fake-ip-range': '198.18.0.1/16',
-#             'nameserver': ['https://doh.pub/dns-query', 'https://223.5.5.5/dns-query'],
-#             'fallback': ['8.8.8.8', '1.1.1.1', 'tls://dns.google:853']
-#         }
-#     }
-#     clash_config['proxies'] = fast_nodes
-#     proxy_names = [node['name'] for node in fast_nodes]
-#     clash_config['proxy-groups'] = [
-#         {'name': 'PROXY', 'type': 'select', 'proxies': ['AUTO-URL', 'DIRECT'] + proxy_names},
-#         {'name': 'AUTO-URL', 'type': 'url-test', 'proxies': proxy_names,
-#          'url': 'http://www.gstatic.com/generate_204', 'interval': 200}
-#     ]
-#     clash_config['rules'] = ['GEOIP,CN,DIRECT', 'MATCH,PROXY'] # 你可以替换成自己的复杂规则列表
-    
-#     with open(output_filename, 'w', encoding='utf-8') as f:
-#         yaml.dump(clash_config, f, allow_unicode=True, sort_keys=False)
-#     print(f"成功生成 Clash 订阅文件: {output_filename}")
-
-# def main():
-#     if not os.path.exists(CLASH_BINARY_PATH):
-#         print(f"错误: Clash 核心文件未在 '{CLASH_BINARY_PATH}' 找到。")
-#         sys.exit(1)
-
-#     if not os.path.exists(SUBSCRIPTION_URLS_FILE):
-#         print(f"错误: 订阅文件 {SUBSCRIPTION_URLS_FILE} 不存在。")
-#         with open(SUBSCRIPTION_URLS_FILE, 'w', encoding='utf-8') as f: f.write("# 在这里粘贴你的订阅链接\n")
-#         return
-
-#     with open(SUBSCRIPTION_URLS_FILE, 'r', encoding='utf-8') as f:
-#         subscription_urls = [line.strip() for line in f if line.strip() and not line.startswith('#')]
-#     if not subscription_urls:
-#         print("订阅文件中没有找到有效的链接。")
-#         return
-
-#     print(f"找到 {len(subscription_urls)} 个订阅链接。")
-#     all_nodes, unique_nodes_set = [], set()
-
-#     for url in subscription_urls:
-#         content = get_subscription_content(url)
-#         if not content: continue
-#         try:
-#             data = yaml.safe_load(content)
-#             if isinstance(data, dict) and 'proxies' in data and isinstance(data['proxies'], list):
-#                 for proxy in data['proxies']:
-#                     if all(k in proxy for k in ['name', 'server', 'port', 'type']):
-#                         node_id = f"{proxy['type']}://{proxy['server']}:{proxy['port']}"
-#                         if node_id not in unique_nodes_set: all_nodes.append(proxy); unique_nodes_set.add(node_id)
-#                 continue
-#         except Exception: pass
-#         decoded_content = decode_base64_content(content)
-#         links_content = decoded_content if decoded_content else content
-#         for link in links_content.splitlines():
-#             node = parse_node(link)
-#             if node:
-#                 node_id = f"{node['type']}://{node['server']}:{node['port']}"
-#                 if node_id not in unique_nodes_set: all_nodes.append(node); unique_nodes_set.add(node_id)
-    
-#     print(f"去重后共解析出 {len(all_nodes)} 个节点。")
-#     if not all_nodes: return
-
-#     print("\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
-#     node_results = []
-#     max_workers = min(16, len(all_nodes))
-#     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-#         future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in all_nodes}
-#         for future in tqdm(concurrent.futures.as_completed(future_to_node), total=len(all_nodes), desc="测试节点"):
-#             node = future_to_node[future]
-#             try:
-#                 latency = future.result()
-#                 if 0 < latency < MAX_LATENCY_MS:
-#                     node_results.append({'node': node, 'latency': latency})
-#             except Exception: pass
-
-#     node_results.sort(key=lambda x: x['latency'])
-#     fast_nodes = []
-#     for item in node_results:
-#         node = item['node']
-#         latency = item['latency']
-#         node['name'] = f"{node['name']} | {latency}ms" # 将延迟附加到节点名称
-#         fast_nodes.append(node)
-        
-#     fast_nodes = fast_nodes[:MAX_NODES_LIMIT]
-#     fast_nodes = ensure_unique_proxy_names(fast_nodes)
-
-#     print(f"\n--- 测试结束 ---\n筛选出 {len(fast_nodes)} 个可用节点。")
-#     generate_clash_config(fast_nodes, OUTPUT_CLASH_FILE)
-
-#     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
-#         update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#         f.write(f"最后更新时间: {update_time}\n可用节点数量: {len(fast_nodes)}\n")
-#     print(f"成功记录更新时间: {UPDATE_TIME_FILE}")
-
-# if __name__ == '__main__':
-#     main()

@@ -464,6 +464,7 @@ def main():
     
     logger.info(f"去重后共解析出 {len(all_nodes)} 个节点。")
     if not all_nodes:
+        logger.warning("无有效节点，退出。")
         return
 
     # 预筛选：ICMP + TCP
@@ -472,30 +473,37 @@ def main():
     for node in all_nodes:
         icmp = icmp_latency(node['server'])
         if icmp > PING_THRESHOLD_MS or icmp == -1:
+            logger.debug(f"节点 {node['name']} ping 失败: {icmp}ms")
             continue
         tcp = tcp_latency(node['server'], node['port'])
         if tcp > 0 and tcp < MAX_LATENCY_MS * 2:  # 宽松阈值
             prefiltered_nodes.append(node)
             logger.debug(f"预筛选通过 {node['name']}: ping={icmp}ms, tcp={tcp}ms")
-    
+        else:
+            logger.debug(f"节点 {node['name']} TCP 失败: {tcp}ms")
+
     logger.info(f"预筛选后剩余 {len(prefiltered_nodes)} 个节点。")
 
     logger.info("\n--- 开始使用 Clash Core 进行真实延迟测试 (并发) ---")
     node_results = []
-    max_workers = min(8, len(prefiltered_nodes))  # 降低并发
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in prefiltered_nodes}
-        for future in tqdm(as_completed(future_to_node), total=len(prefiltered_nodes), desc="测试节点"):
-            node = future_to_node[future]
-            try:
-                latency = future.result()
-                if 0 < latency < MAX_LATENCY_MS:
-                    node_results.append({'node': node, 'latency': latency})
-                    logger.info(f"测试成功 {node['name']}: {latency}ms")
-                else:
-                    logger.warning(f"节点延迟超限或失败: {node['name']} ({latency}ms)")
-            except Exception as e:
-                logger.error(f"测试异常 {node['name']}: {e}")
+    if len(prefiltered_nodes) > 0:
+        max_workers = min(8, len(prefiltered_nodes))  # 确保 >0
+        logger.info(f"使用 {max_workers} 个并发 workers 测试。")
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_node = {executor.submit(test_node_latency_with_clash_core, node): node for node in prefiltered_nodes}
+            for future in tqdm(as_completed(future_to_node), total=len(prefiltered_nodes), desc="测试节点"):
+                node = future_to_node[future]
+                try:
+                    latency = future.result()
+                    if 0 < latency < MAX_LATENCY_MS:
+                        node_results.append({'node': node, 'latency': latency})
+                        logger.info(f"测试成功 {node['name']}: {latency}ms")
+                    else:
+                        logger.warning(f"节点延迟超限或失败: {node['name']} ({latency}ms)")
+                except Exception as e:
+                    logger.error(f"测试异常 {node['name']}: {e}")
+    else:
+        logger.warning("无节点通过预筛选，跳过 Clash 测试。建议检查订阅或降低 PING_THRESHOLD_MS。")
 
     node_results.sort(key=lambda x: x['latency'])
     fast_nodes = []

@@ -30,15 +30,15 @@ SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 OUTPUT_CLASH_FILE = 'sub.yaml'
 UPDATE_TIME_FILE = 'update_time.txt'
 
-MAX_LATENCY_MS = 500
-MAX_NODES_LIMIT = 100
+MAX_LATENCY_MS = 1000
+MAX_NODES_LIMIT = 1000
 REAL_TEST_URLS = [
     'http://cp.cloudflare.com/generate_204',
     'http://www.google.com/generate_204',
     'https://httpbin.org/get'
 ]  # 多URL轮换，避免劫持
 API_TEST_TIMEOUT_SECONDS = 10  # 延长超时
-PING_THRESHOLD_MS = 200  # 预筛选阈值
+PING_THRESHOLD_MS = 500  # 预筛选阈值
 MAX_RETRIES = 3  # API重试次数
 
 CLASH_BINARY_PATH = './clash'

@@ -359,16 +359,45 @@ class ClashProcessManager:
             if os.path.exists(self.config_path):
                 os.remove(self.config_path)
 
-def test_node_latency_with_clash_core(node: Dict[str, Any]) -> int:
+def test_node_latency_with_shared_clash(api_address: str, node: Dict[str, Any]) -> int:
+    """使用共享Clash实例测试单个节点延迟"""
+    proxy_name_for_api = requests.utils.quote(node['name'])
+    delays = []
+    for _ in range(config.max_retries):
+        for test_url in config.real_test_urls:
+            api_url = f'http://{api_address}/proxies/{proxy_name_for_api}/delay'
+            params = {'url': test_url, 'timeout': int(config.api_test_timeout_seconds * 1000)}
+            try:
+                response = requests.get(api_url, params=params, timeout=config.api_test_timeout_seconds + 2)
+                response.raise_for_status()
+                delay_data = response.json()
+                delay = delay_data.get('delay', -1)
+                if delay > 0:
+                    delays.append(delay)
+            except Exception as e:
+                logger.debug(f"API测试失败 {test_url} for {node['name']}: {e}")
+        if delays:
+            break
+        time.sleep(1)
+    avg_delay = sum(delays) / len(delays) if delays else -1
+    return round(avg_delay) if avg_delay > 0 else -1
+
+def test_nodes_with_shared_clash(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """使用共享Clash实例批量测试节点延迟，避免生成临时单节点配置"""
+    if not nodes:
+        return []
+
     rand_id = random_string()
-    temp_config_path = f'temp_config_{rand_id}.yaml'
+    temp_config_path = f'temp_batch_config_{rand_id}.yaml'
     api_port = get_free_port()
     api_address = f'127.0.0.1:{api_port}'
-    proxy_name_for_api = requests.utils.quote(node['name'])
-    
+    proxy_names = [node['name'] for node in nodes]
+
     config_dict = {
-        'proxies': [node],
-        'proxy-groups': [{'name': 'test-group', 'type': 'select', 'proxies': [node['name']]}],
+        'proxies': nodes,
+        'proxy-groups': [
+            {'name': 'test-group', 'type': 'select', 'proxies': proxy_names}
+        ],
         'unified-delay': True,
         'external-controller': api_address,
         'log-level': 'silent',
@@ -381,28 +410,25 @@ def test_node_latency_with_clash_core(node: Dict[str, Any]) -> int:
 
     try:
         with ClashProcessManager(temp_config_path, api_address):
-            delays = []
-            for _ in range(config.max_retries):
-                for test_url in config.real_test_urls:
-                    api_url = f'http://{api_address}/proxies/{proxy_name_for_api}/delay'
-                    params = {'url': test_url, 'timeout': int(config.api_test_timeout_seconds * 1000)}
+            max_workers = min(os.cpu_count() or 8, len(nodes))
+            this_results = []
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                futures = {executor.submit(test_node_latency_with_shared_clash, api_address, node): node for node in nodes}
+                for future in tqdm(as_completed(futures), total=len(nodes), desc="批量Clash测试"):
+                    node = futures[future]
                     try:
-                        response = requests.get(api_url, params=params, timeout=config.api_test_timeout_seconds + 2)
-                        response.raise_for_status()
-                        delay_data = response.json()
-                        delay = delay_data.get('delay', -1)
-                        if delay > 0:
-                            delays.append(delay)
+                        latency = future.result()
+                        if 0 < latency < config.max_latency_ms:
+                            this_results.append({'node': node, 'latency': latency})
+                            logger.info(f"批量测试成功 {node['name']}: {latency}ms")
+                        else:
+                            logger.warning(f"批量测试失败 {node['name']}: {latency}ms")
                     except Exception as e:
-                        logger.debug(f"API测试失败 {test_url}: {e}")
-                if delays:
-                    break
-                time.sleep(1)
-            avg_delay = sum(delays) / len(delays) if delays else -1
-            return round(avg_delay) if avg_delay > 0 else -1
+                        logger.error(f"批量测试异常 {node['name']}: {e}")
+            return this_results
     except Exception as e:
-        logger.error(f"节点测试错误 {node['name']}: {e}")
-        return -1
+        logger.error(f"批量Clash测试错误: {e}")
+        return []
 
 def ensure_unique_proxy_names(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     name_counts = {}
@@ -533,41 +559,9 @@ def process_subscription(url: str, unique_nodes_set: set, global_valid_results: 
         logger.warning(f"预筛选全失败，切换全量测试: {len(this_all_nodes)} 个")
         this_prefiltered_nodes = this_all_nodes[:]
 
-    # 测试
-    max_workers = min(os.cpu_count() or 8, len(this_prefiltered_nodes))
-    batch_size = dynamic_batch_size(config.batch_size)
-    use_batching = len(this_prefiltered_nodes) > batch_size
-    this_results = []
-
-    if use_batching:
-        logger.info(f"启用分批测试 (批大小: {batch_size})")
-        for i, batch in enumerate(chunks(this_prefiltered_nodes, batch_size)):
-            logger.info(f"批 {i+1} ({len(batch)} 个)")
-            batch_workers = min(max_workers, len(batch))
-            batch_results = []
-            with ThreadPoolExecutor(max_workers=batch_workers) as executor:
-                futures = {executor.submit(test_node_latency_with_clash_core, node): node for node in batch}
-                for future in tqdm(as_completed(futures), total=len(batch), desc=f"批 {i+1}"):
-                    node = futures[future]
-                    try:
-                        latency = future.result()
-                        if 0 < latency < config.max_latency_ms:
-                            batch_results.append({'node': node, 'latency': latency})
-                    except Exception as e:
-                        logger.error(f"批 {i+1} 异常 {node['name']}: {e}")
-            this_results.extend(batch_results)
-    else:
-        logger.info(f"Clash测试: {len(this_prefiltered_nodes)} 个 (workers: {max_workers})")
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(test_node_latency_with_clash_core, node): node for node in this_prefiltered_nodes}
-            for future in tqdm(as_completed(futures), total=len(this_prefiltered_nodes), desc="测试"):
-                node = futures[future]
-                try:
-                    latency = future.result()
-                    if 0 < latency < config.max_latency_ms:
-                        this_results.append({'node': node, 'latency': latency})
-                except Exception as e:
-                    logger.error(f"测试异常 {node['name']}: {e}")
+    # 批量Clash测试：使用共享配置测试所有节点，避免单节点临时文件
+    logger.info(f"批量Clash测试: {len(this_prefiltered_nodes)} 个节点")
+    this_results = test_nodes_with_shared_clash(this_prefiltered_nodes)
 
     valid_this = [item for item in this_results if item['latency'] > 0]
     global_valid_results.extend(valid_this)

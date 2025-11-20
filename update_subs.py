@@ -34,8 +34,7 @@ UPDATE_TIME_FILE = 'update_time.txt'
 MAX_LATENCY_MS = 500
 MAX_NODES_LIMIT = 100
 REAL_TEST_URLS = [
-    'http://cp.cloudflare.com/generate_204',
-    'http://www.google.com/generate_204',
+    'https://www.google.com/generate_204',
     'https://scholar.google.com/scholar_labs/search'
 ]  # 多URL轮换，避免劫持
 API_TEST_TIMEOUT_SECONDS = 10  # 延长超时

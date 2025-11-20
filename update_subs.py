@@ -36,7 +36,7 @@ MAX_NODES_LIMIT = 100
 REAL_TEST_URLS = [
     'http://cp.cloudflare.com/generate_204',
     'http://www.google.com/generate_204',
-    'https://httpbin.org/get'
+    'https://scholar.google.com/scholar_labs/search'
 ]  # 多URL轮换，避免劫持
 API_TEST_TIMEOUT_SECONDS = 10  # 延长超时
 PING_THRESHOLD_MS = 200  # 预筛选阈值

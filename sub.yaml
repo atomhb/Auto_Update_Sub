@@ -17,43 +17,43 @@ dns:
   - 1.1.1.1
   - tls://dns.google:853
 proxies:
-- name: '[OpenRay] 🇺🇸 US-8609 | 33ms'
+- name: 🇺🇸 美国 | USA 19_4 | 7ms
+  server: 132.145.154.72
+  port: 80
   type: vmess
-  server: 82.198.246.97
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  uuid: bcb7c581-3c95-4569-a4e7-918141e91ea3
   alterId: 0
   cipher: auto
   tls: false
-  network: tcp
+  skip-cert-verify: true
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - a.189.cn
   udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-8612 | 34ms'
-  type: vmess
-  server: 82.198.246.97
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇺🇸 美国 | USA 8_11 | 11ms
+  server: www.visa.com.sg
+  port: 8443
+  type: vless
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  tls: true
+  tfo: false
+  skip-cert-verify: true
+  servername: azadnet-2f7.pages.dev
+  client-fingerprint: random
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: azadnet-2f7.pages.dev
   udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-8611 | 34ms'
-  type: vmess
-  server: 82.198.246.97
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-1259 | 40ms'
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] 🇺🇸 US-1259 | 13ms'
   type: trojan
   server: 155.138.228.41
   port: 19313
@@ -64,53 +64,7 @@ proxies:
   tls: false
   network: tcp
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: US_01540_0041 | 45ms
-  server: uuk5v.tok8888.com
-  port: 8443
-  type: vless
-  uuid: 593d1652-6022-4893-b756-0c9b86885dad
-  flow: xtls-rprx-vision
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  servername: www.apple.com.cn
-  reality-opts:
-    public-key: kHtBu5SWzLuz79nw0LkDkH4luWft_A-M6MNq4LA-RB4
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: 🇰🇷 韩国 | KOR | 46ms
-  server: cg1c15.waimaojd.com
-  port: 443
-  type: vmess
-  uuid: 091e7354-f07f-44aa-a443-4ad43f51a9f9
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: cg1c15.waimaojd.com
-  network: ws
-  ws-opts:
-    path: /api/v1/graphql
-    headers:
-      Host: cg1c15.waimaojd.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 25_12 | 49ms
-  server: usvless.yydzx.xyz
-  port: 17530
-  type: vless
-  uuid: 5b7124d0-7092-466c-b9fa-c13be64f0cb0
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: true
-  servername: usvless.yydzx.xyz
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: US_01540_0040 | 52ms
+- name: US_0e81f_0040 | 16ms
   server: 47.252.75.203
   port: 443
   type: vless
@@ -124,134 +78,7 @@ proxies:
   udp: true
   network: tcp
   source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: 🇨🇦 加拿大 | CAN 2_4 | 52ms
-  server: cg1d07.waimaojd.com
-  port: 443
-  type: vmess
-  uuid: 091e7354-f07f-44aa-a443-4ad43f51a9f9
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: cg1d07.waimaojd.com
-  network: ws
-  ws-opts:
-    path: /api/v1/graphql
-    headers:
-      Host: cg1d07.waimaojd.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 65_1 | 54ms
-  server: 937ec2e4-t4ssg0-t69h7l-1kcpe.los.gotochinatown.net
-  port: 443
-  type: http
-  username: 3f514ea2-4662-11ed-a8bf-f23c91cfbbc9
-  password: 3f514ea2-4662-11ed-a8bf-f23c91cfbbc9
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇨🇦 CA-5563 | 58ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-5571 | 58ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-5869 | 58ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5159 | 58ms'
-  type: vmess
-  server: elev2e.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: elev2e.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/dmeal1t.m3u8
-    headers:
-      Host: elev2e.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5252 | 58ms'
-  type: vmess
-  server: elev2e.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: elev2e.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/dmeal1t.m3u8
-    headers:
-      Host: elev2e.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7733 | 58ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: za4ia0.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 7_6 | 58ms
+- name: 🇺🇸 美国 | USA 7_6 | 16ms
   server: 47.252.75.203
   port: 443
   type: vless
@@ -266,7 +93,7 @@ proxies:
   network: tcp
   udp: true
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇨🇦 加拿大 | CAN_1 | 58ms
+- name: 🇨🇦 加拿大 | CAN_1 | 16ms
   server: 98.91.23.146
   port: 443
   type: ss
@@ -277,24 +104,7 @@ proxies:
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7261 | 59ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5419 | 59ms'
+- name: '[OpenRay] Dynamic-5086 | 20ms'
   type: vmess
   server: elev2e.keeoomboom.de
   port: 443
@@ -311,7 +121,24 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-8038 | 59ms'
+- name: '[OpenRay] Dynamic-5159 | 20ms'
+  type: vmess
+  server: elev2e.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: elev2e.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/dmeal1t.m3u8
+    headers:
+      Host: elev2e.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7478 | 20ms'
   type: vmess
   server: za4ia0.teeoomboom.de
   port: 443
@@ -328,221 +155,106 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: LB_01540_0023 | 59ms
-  server: 77.110.119.225
+- name: '[OpenRay] Dynamic-5494 | 20ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
   port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: za4ia0.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7828 | 20ms'
+  type: vmess
+  server: elev2e.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: elev2e.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/dmeal1t.m3u8
+    headers:
+      Host: elev2e.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5662 | 20ms'
+  type: vmess
+  server: elev2e.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: elev2e.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/dmeal1t.m3u8
+    headers:
+      Host: elev2e.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5859 | 21ms'
+  type: vmess
+  server: elev2e.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: elev2e.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/dmeal1t.m3u8
+    headers:
+      Host: elev2e.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5200 | 22ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: ''
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-8586 | 22ms'
   type: vless
-  uuid: 4819860c-0e62-4804-9c59-967e5c2bed7a
-  flow: xtls-rprx-vision
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  servername: st.ozone.ru
-  reality-opts:
-    public-key: hnec5SxCD6Os-u0FNi_YS5CML1a_oWb0niZJ1mGuFBo
-    short-id: 07e904766d29b958
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: 🇺🇸 美国 | USA 16_10 | 59ms
-  server: 2249ad93-t5jc00-t6ztiq-er4w.los.west.wctype.com
-  port: 3443
-  type: http
-  username: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  password: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-5086 | 60ms'
-  type: vmess
-  server: elev2e.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: elev2e.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/dmeal1t.m3u8
-    headers:
-      Host: elev2e.keeoomboom.de
+  server: 77.110.119.151
+  port: 48469
+  uuid: f93113d0-008f-4c24-a45a-bc3eeafe8869
+  network: grpc
+  servername: 77.110.119.151
+  flow: ''
+  tls: false
+  grpc-opts:
+    grpc-service-name: Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7270 | 60ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7828 | 60ms'
-  type: vmess
-  server: elev2e.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: elev2e.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/dmeal1t.m3u8
-    headers:
-      Host: elev2e.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5662 | 60ms'
-  type: vmess
-  server: elev2e.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: elev2e.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/dmeal1t.m3u8
-    headers:
-      Host: elev2e.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-6041 | 60ms'
-  type: vmess
-  server: elev2e.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: elev2e.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/dmeal1t.m3u8
-    headers:
-      Host: elev2e.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7053 | 61ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: za4ia0.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5200 | 62ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7478 | 62ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: za4ia0.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5332 | 62ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: za4ia0.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5859 | 62ms'
-  type: vmess
-  server: elev2e.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: elev2e.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/dmeal1t.m3u8
-    headers:
-      Host: elev2e.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-8507 | 62ms'
-  type: vmess
-  server: za4ia0.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: za4ia0.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/sgx9e6vz.m3u8
-    headers:
-      Host: za4ia0.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: LB_01540_0022 | 62ms
+- name: LB_0e81f_0022 | 22ms
   server: 77.110.127.105
   port: 443
   type: vless
@@ -558,57 +270,7 @@ proxies:
   udp: true
   network: tcp
   source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: 🇺🇸 美国 | USA 37_1 | 62ms
-  server: 104.192.226.106
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-8447 | 63ms'
-  type: vless
-  server: www.speedtest.net
-  port: 80
-  uuid: ebbc163a-8bae-4ad1-bac5-615bc38ccbc6
-  network: ws
-  servername: www.speedtest.net
-  flow: ''
-  tls: false
-  ws-opts:
-    path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
-    headers:
-      Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-8552 | 64ms'
-  type: vmess
-  server: 38.12.83.217
-  port: 30002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 49_4 | 64ms
-  server: 18d1c170-t4ssg0-t69l7r-1teuc.los.gotochinatown.net
-  port: 443
-  type: http
-  username: a5a81a34-f257-11ef-ba82-f23c913c8d2b
-  password: a5a81a34-f257-11ef-ba82-f23c913c8d2b
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-5105 | 65ms'
+- name: '[OpenRay] Dynamic-7261 | 23ms'
   type: vmess
   server: za4ia0.teeoomboom.de
   port: 443
@@ -625,47 +287,7 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-7026 | 65ms'
-  type: vmess
-  server: 38.12.83.217
-  port: 30002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: raw
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-7850 | 65ms'
-  type: vmess
-  server: 38.12.83.217
-  port: 30002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-6057 | 66ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5494 | 66ms'
+- name: '[OpenRay] Dynamic-8507 | 23ms'
   type: vmess
   server: za4ia0.teeoomboom.de
   port: 443
@@ -682,93 +304,91 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-6232 | 66ms'
+- name: '[OpenRay] Dynamic-5332 | 24ms'
   type: vmess
-  server: 172.82.67.154.sslip.io
-  port: 80
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
-    headers:
-      Host: 172.82.67.154.sslip.io
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-8588 | 66ms'
-  type: vmess
-  server: 38.12.83.217
-  port: 30002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 10|All-@V2rayAlpha--33 | 68ms
-  type: hysteria2
-  server: 227fd503-t4ssg0-t5vo4i-4550.la.shifen.uk
-  port: 1743
-  password: 6286105c-fb6d-11ef-be96-f23c93136cb3
-  sni: 227fd503-t4ssg0-t5vo4i-4550.la.shifen.uk
-  skip-cert-verify: true
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt
-- name: '[OpenRay] 🇺🇸 US-7051 | 68ms'
-  type: vless
-  server: 40.160.4.60
-  port: 8080
-  uuid: 9dc11620-987c-4344-9088-f46fdfae4054
-  network: ws
-  servername: 40.160.4.60
-  flow: ''
-  tls: false
-  ws-opts:
-    path: /?ed
-    headers:
-      Host: 40.160.4.60
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-8586 | 68ms'
-  type: vless
-  server: 77.110.119.151
-  port: 48469
-  uuid: f93113d0-008f-4c24-a45a-bc3eeafe8869
-  network: grpc
-  servername: 77.110.119.151
-  flow: ''
-  tls: false
-  grpc-opts:
-    grpc-service-name: Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5193 | 72ms'
-  type: vmess
-  server: 4fa4-ADf4-61413791F133.457.Pp.Ua
+  server: za4ia0.teeoomboom.de
   port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
-  servername: 4Fa4-adF4-61413791f133.457.pp.UA
+  servername: za4ia0.teeoomboom.de
   network: ws
   ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
+    path: /video/sgx9e6vz.m3u8
     headers:
-      Host: 4FA4-adF4-61413791F133.457.pP.UA
+      Host: za4ia0.teeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-7231 | 72ms'
+- name: '[OpenRay] Dynamic-8038 | 24ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: za4ia0.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6139 | 24ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: za4ia0.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: LB_0e81f_0023 | 24ms
+  server: 77.110.119.225
+  port: 443
+  type: vless
+  uuid: 4819860c-0e62-4804-9c59-967e5c2bed7a
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  servername: st.ozone.ru
+  reality-opts:
+    public-key: hnec5SxCD6Os-u0FNi_YS5CML1a_oWb0niZJ1mGuFBo
+    short-id: 07e904766d29b958
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- name: '[OpenRay] Dynamic-7053 | 26ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: za4ia0.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-7335 | 27ms'
   type: vmess
   server: 172.82.67.154.sslip.io
   port: 443
@@ -785,7 +405,41 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7738 | 73ms'
+- name: '[OpenRay] Dynamic-5419 | 32ms'
+  type: vmess
+  server: elev2e.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: elev2e.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/dmeal1t.m3u8
+    headers:
+      Host: elev2e.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7423 | 33ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7738 | 33ms'
   type: vmess
   server: 4b-4Fe9-850E-be75b7b33d38.457.pP.UA
   port: 443
@@ -802,7 +456,381 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7739 | 73ms'
+- name: '[OpenRay] Dynamic-8675 | 33ms'
+  type: vmess
+  server: D0-473F-9717-0BC5dAad31dA.457.Pp.UA
+  port: 443
+  uuid: a1d2e3cd-297e-4753-8e7a-6d9fb0f4aac1
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: d0-473f-9717-0bC5daaD31da.457.pp.Ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: d0-473f-9717-0bC5daaD31da.457.pp.Ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8478 | 36ms'
+  type: vmess
+  server: 4fa4-ADf4-61413791F133.457.Pp.Ua
+  port: 443
+  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 4Fa4-adF4-61413791f133.457.pp.UA
+  network: ws
+  ws-opts:
+    path: /D3ipwnrYHWDAqAJBOyj
+    headers:
+      Host: 4FA4-adF4-61413791F133.457.pP.UA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8674 | 36ms'
+  type: vmess
+  server: d0-473F-9717-0bc5daAD31DA.457.PP.uA
+  port: 443
+  uuid: 75b55ef6-7a78-4020-8540-df4e1a533895
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: D0-473f-9717-0Bc5DAaD31DA.457.pp.ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: D0-473f-9717-0Bc5DAaD31DA.457.pp.ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6041 | 37ms'
+  type: vmess
+  server: elev2e.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: elev2e.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/dmeal1t.m3u8
+    headers:
+      Host: elev2e.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5197 | 38ms'
+  type: vmess
+  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+  port: 443
+  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  network: ws
+  ws-opts:
+    path: /D3ipwnrYHWDAqAJBOyj
+    headers:
+      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6033 | 38ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6172 | 38ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: za4ia0.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5105 | 40ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: ''
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5252 | 40ms'
+  type: vmess
+  server: elev2e.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: elev2e.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/dmeal1t.m3u8
+    headers:
+      Host: elev2e.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5812 | 40ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8484 | 40ms'
+  type: vmess
+  server: 12ygev.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 12ygev.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/ux9tb.m3u8
+    headers:
+      Host: 12ygev.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7953 | 41ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7419 | 44ms'
+  type: vmess
+  server: 12ygev.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 12ygev.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/ux9tb.m3u8
+    headers:
+      Host: 12ygev.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7432 | 44ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5495 | 44ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8298 | 44ms'
+  type: vmess
+  server: gpdy0g.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: gpdy0g.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/3y1qv7.m3u8
+    headers:
+      Host: gpdy0g.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6071 | 44ms'
+  type: vmess
+  server: 4120-bE04-13eF56096989.457.pP.UA
+  port: 443
+  uuid: 0cd3c9d1-68e5-4917-8a0a-c62f1a52de56
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 4120-BE04-13ef56096989.457.PP.ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 4120-BE04-13ef56096989.457.PP.ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7270 | 45ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: ''
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5328 | 45ms'
+  type: vmess
+  server: bzwy8b.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: bzwy8b.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/jaf53874.m3u8
+    headers:
+      Host: bzwy8b.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5415 | 45ms'
+  type: vmess
+  server: six0xs.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: six0xs.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/gnyw4cf.m3u8
+    headers:
+      Host: six0xs.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5130 | 46ms'
+  type: vmess
+  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+  port: 443
+  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  network: ws
+  ws-opts:
+    path: /D3ipwnrYHWDAqAJBOyj
+    headers:
+      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6032 | 46ms'
+  type: vmess
+  server: six0xs.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: six0xs.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/gnyw4cf.m3u8
+    headers:
+      Host: six0xs.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6043 | 46ms'
   type: vmess
   server: 3sjyn7.teeoomboom.de
   port: 443
@@ -819,65 +847,639 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 10|All-@V2rayAlpha--46 | 74ms
-  type: hysteria2
-  server: cc65f71a-t4v9c0-t5waci-4550.la.shifen.uk
-  port: 1743
-  password: 6286105c-fb6d-11ef-be96-f23c93136cb3
-  sni: cc65f71a-t4v9c0-t5waci-4550.la.shifen.uk
-  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-7231 | 46ms'
+  type: vmess
+  server: 172.82.67.154.sslip.io
+  port: 443
+  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 172.82.67.154.sslip.io
+  network: ws
+  ws-opts:
+    path: /D3ipwnrYHWDAqAJBOyj
+    headers:
+      Host: 172.82.67.154.sslip.io
   udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8100 | 48ms'
+  type: vmess
+  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+  port: 443
+  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  network: ws
+  ws-opts:
+    path: /D3ipwnrYHWDAqAJBOyj
+    headers:
+      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5694 | 48ms'
+  type: vmess
+  server: bzwy8b.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: bzwy8b.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/jaf53874.m3u8
+    headers:
+      Host: bzwy8b.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇨🇦 CA-6082 | 50ms'
+  type: vmess
+  server: 15.235.41.200
+  port: 80
+  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /IOebhLMhl1CTbFHbL95myfRX2
+    headers:
+      Host: ''
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5418 | 50ms'
+  type: vmess
+  server: gpdy0g.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: gpdy0g.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/3y1qv7.m3u8
+    headers:
+      Host: gpdy0g.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5772 | 50ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5780 | 50ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: ''
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-7051 | 51ms'
+  type: vless
+  server: 40.160.4.60
+  port: 8080
+  uuid: 9dc11620-987c-4344-9088-f46fdfae4054
+  network: ws
+  servername: 40.160.4.60
+  flow: ''
+  tls: false
+  ws-opts:
+    path: /?ed
+    headers:
+      Host: 40.160.4.60
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7204 | 52ms'
+  type: vmess
+  server: 12ygev.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 12ygev.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/ux9tb.m3u8
+    headers:
+      Host: 12ygev.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7745 | 52ms'
+  type: vmess
+  server: 12ygev.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 12ygev.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/ux9tb.m3u8
+    headers:
+      Host: 12ygev.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6198 | 52ms'
+  type: vmess
+  server: bzwy8b.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: bzwy8b.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/jaf53874.m3u8
+    headers:
+      Host: bzwy8b.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: US_0e81f_0042 | 52ms
+  server: 159.89.87.21
+  port: 28190
+  type: vless
+  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  flow: xtls-rprx-vision
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  servername: aws.amazon.com
+  reality-opts:
+    public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- name: '[OpenRay] Dynamic-6070 | 53ms'
+  type: vmess
+  server: 7EbC-47ea-84F0-eBcFBEf3329B.457.PP.Ua
+  port: 443
+  uuid: 75b55ef6-7a78-4020-8540-df4e1a533895
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 7ebc-47eA-84F0-EbCFBef3329b.457.pp.ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 7ebc-47eA-84F0-EbCFBef3329b.457.pp.ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8524 | 53ms'
+  type: vmess
+  server: 2db-cd68-4374-9E0D-721e694FCA66.457.PP.UA
+  port: 443
+  uuid: 0cd3c9d1-68e5-4917-8a0a-c62f1a52de56
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 2dB-CD68-4374-9E0d-721e694fca66.457.pp.UA
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 2dB-CD68-4374-9E0d-721e694fca66.457.pp.UA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7733 | 54ms'
+  type: vmess
+  server: za4ia0.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: za4ia0.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/sgx9e6vz.m3u8
+    headers:
+      Host: za4ia0.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7744 | 54ms'
+  type: vmess
+  server: bzwy8b.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: bzwy8b.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/jaf53874.m3u8
+    headers:
+      Host: bzwy8b.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5496 | 54ms'
+  type: vmess
+  server: gpdy0g.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: gpdy0g.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/3y1qv7.m3u8
+    headers:
+      Host: gpdy0g.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6109 | 55ms'
+  type: vmess
+  server: ojqrok.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: ojqrok.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: ojqrok.teeoomboom.de
+    headers:
+      Host: ''
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-4917 | 56ms'
+  type: vless
+  server: cdnjs.com
+  port: 443
+  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
+  network: ws
+  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /ws
+    headers:
+      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5335 | 56ms'
+  type: vmess
+  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+  port: 443
+  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  network: ws
+  ws-opts:
+    path: /D3ipwnrYHWDAqAJBOyj
+    headers:
+      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8075 | 56ms'
+  type: vmess
+  server: 4b-4Fe9-850E-be75b7b33d38.457.pP.UA
+  port: 443
+  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 4B-4fE9-850E-Be75B7b33d38.457.pP.UA
+  network: ws
+  ws-opts:
+    path: /D3ipwnrYHWDAqAJBOyj
+    headers:
+      Host: 4b-4fE9-850e-Be75b7B33D38.457.PP.UA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5087 | 57ms'
+  type: vmess
+  server: bzwy8b.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: bzwy8b.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/jaf53874.m3u8
+    headers:
+      Host: bzwy8b.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7258 | 58ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: ''
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5512 | 58ms'
+  type: vmess
+  server: 3sjyn7.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 3sjyn7.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/a7g7hql.m3u8
+    headers:
+      Host: 3sjyn7.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8176 | 59ms'
+  type: vmess
+  server: 3sjyn7.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 3sjyn7.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/a7g7hql.m3u8
+    headers:
+      Host: 3sjyn7.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5127 | 60ms'
+  type: vmess
+  server: bzwy8b.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: bzwy8b.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/jaf53874.m3u8
+    headers:
+      Host: bzwy8b.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5179 | 60ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5414 | 60ms'
+  type: vmess
+  server: okl5i3.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: okl5i3.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/pmi58yp5.m3u8
+    headers:
+      Host: okl5i3.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8521 | 62ms'
+  type: vmess
+  server: 7Ebc-47eA-84F0-ebcfBeF3329b.457.PP.ua
+  port: 443
+  uuid: 0cd3c9d1-68e5-4917-8a0a-c62f1a52de56
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 7eBc-47EA-84f0-EBCFbeF3329B.457.PP.ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 7eBc-47EA-84f0-EBCFbeF3329B.457.PP.ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8108 | 63ms'
+  type: vmess
+  server: n1pwpi.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: n1pwpi.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/rbhjd.m3u8
+    headers:
+      Host: n1pwpi.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8525 | 66ms'
+  type: vmess
+  server: 479b-b511-7D5b7828dBeB.457.pP.ua
+  port: 443
+  uuid: 0cd3c9d1-68e5-4917-8a0a-c62f1a52de56
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 479B-B511-7D5b7828Dbeb.457.pp.Ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 479B-B511-7D5b7828Dbeb.457.pp.Ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 13|美国4|@ripaojiedian | 67ms
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
   tls: false
   network: tcp
+  udp: true
+  skip-cert-verify: false
   source: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt
-- name: '[OpenRay] Dynamic-5130 | 74ms'
-  type: vmess
-  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+- name: 🇨🇦 加拿大 | CAN 2_4 | 67ms
+  server: cg1d07.waimaojd.com
   port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  type: vmess
+  uuid: 091e7354-f07f-44aa-a443-4ad43f51a9f9
   alterId: 0
   cipher: auto
   tls: true
-  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  servername: cg1d07.waimaojd.com
   network: ws
   ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
+    path: /api/v1/graphql
     headers:
-      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+      Host: cg1d07.waimaojd.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-8527 | 70ms'
+  type: vmess
+  server: 49B1-a868-94BD7631bF5B.457.PP.Ua
+  port: 443
+  uuid: 75b55ef6-7a78-4020-8540-df4e1a533895
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 49B1-a868-94Bd7631bf5b.457.PP.UA
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 49B1-a868-94Bd7631bf5b.457.PP.UA
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5197 | 74ms'
+- name: '[OpenRay] Dynamic-5637 | 72ms'
   type: vmess
-  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+  server: n1pwpi.teeoomboom.de
   port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
-  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  servername: n1pwpi.teeoomboom.de
   network: ws
   ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
+    path: /video/rbhjd.m3u8
     headers:
-      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+      Host: n1pwpi.teeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7352 | 74ms'
+- name: '[OpenRay] Dynamic-5639 | 72ms'
   type: vmess
-  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+  server: bzwy8b.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: bzwy8b.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/jaf53874.m3u8
+    headers:
+      Host: bzwy8b.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5864 | 73ms'
+  type: vmess
+  server: 12ygev.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 12ygev.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/ux9tb.m3u8
+    headers:
+      Host: 12ygev.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-5120 | 74ms'
+  type: vmess
+  server: 4fa4-ADf4-61413791F133.457.Pp.Ua
   port: 443
   uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
   alterId: 0
   cipher: auto
   tls: true
-  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  servername: 4Fa4-adF4-61413791f133.457.pp.UA
   network: ws
   ws-opts:
     path: /D3ipwnrYHWDAqAJBOyj
     headers:
-      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+      Host: 4FA4-adF4-61413791F133.457.pP.UA
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
@@ -898,56 +1500,153 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5666 | 75ms'
+- name: '[OpenRay] Dynamic-5083 | 76ms'
   type: vmess
-  server: 4fa4-ADf4-61413791F133.457.Pp.Ua
+  server: 3sjyn7.teeoomboom.de
   port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
-  servername: 4Fa4-adF4-61413791f133.457.pp.UA
+  servername: 3sjyn7.teeoomboom.de
   network: ws
   ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
+    path: /video/a7g7hql.m3u8
     headers:
-      Host: 4FA4-adF4-61413791F133.457.pP.UA
+      Host: 3sjyn7.teeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: US_01540_0042 | 75ms
-  server: 159.89.87.21
-  port: 28190
-  type: vless
-  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
-  flow: xtls-rprx-vision
+- name: '[OpenRay] Dynamic-5088 | 78ms'
+  type: vmess
+  server: gpdy0g.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
   tls: true
+  servername: gpdy0g.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/3y1qv7.m3u8
+    headers:
+      Host: gpdy0g.keeoomboom.de
+  udp: true
   skip-cert-verify: false
-  client-fingerprint: chrome
-  servername: aws.amazon.com
-  reality-opts:
-    public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6069 | 78ms'
+  type: vmess
+  server: 4cc8-a2d8-a34a20d2e7e5.457.pp.ua
+  port: 443
+  uuid: a1d2e3cd-297e-4753-8e7a-6d9fb0f4aac1
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 4cc8-a2d8-a34a20d2e7e5.457.pp.ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 4cc8-a2d8-a34a20d2e7e5.457.pp.ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6074 | 78ms'
+  type: vmess
+  server: 4120-be04-13ef56096989.457.pp.ua
+  port: 443
+  uuid: 0cd3c9d1-68e5-4917-8a0a-c62f1a52de56
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 4120-BE04-13ef56096989.457.pP.UA
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 4120-BE04-13ef56096989.457.pP.UA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6073 | 80ms'
+  type: vmess
+  server: 4120-Be04-13EF56096989.457.pp.UA
+  port: 443
+  uuid: a1d2e3cd-297e-4753-8e7a-6d9fb0f4aac1
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 4120-BE04-13EF56096989.457.pp.ua
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 4120-BE04-13EF56096989.457.pp.ua
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-8452 | 80ms'
+  type: vmess
+  server: v2ray.codefyinc.com
+  port: 443
+  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vmessws
+    headers:
+      Host: v2ray.codefyinc.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-8522 | 81ms'
+  type: vmess
+  server: 2237-4CE3-8698-Cfd1b622333A.457.pP.uA
+  port: 443
+  uuid: 0cd3c9d1-68e5-4917-8a0a-c62f1a52de56
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 2237-4cE3-8698-cfd1b622333A.457.PP.UA
+  network: ws
+  ws-opts:
+    path: /kT5VHYcMrphesqROzSPoHrBo
+    headers:
+      Host: 2237-4cE3-8698-cfd1b622333A.457.PP.UA
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇺🇸 美国 | USA 49_4 | 82ms
+  server: 18d1c170-t4ssg0-t69l7r-1teuc.los.gotochinatown.net
+  port: 443
+  type: http
+  username: a5a81a34-f257-11ef-ba82-f23c913c8d2b
+  password: a5a81a34-f257-11ef-ba82-f23c913c8d2b
+  tls: true
+  skip-cert-verify: true
   udp: true
   network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: '[OpenRay] Dynamic-5335 | 76ms'
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-5248 | 83ms'
   type: vmess
-  server: 7AF7-47BA-8478-3d1642FADbC3.457.Pp.ua
+  server: six0xs.zeeoomboom.de
   port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
-  servername: 7aF7-47BA-8478-3d1642FAdBc3.457.Pp.UA
+  servername: six0xs.zeeoomboom.de
   network: ws
   ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
+    path: /video/gnyw4cf.m3u8
     headers:
-      Host: 7AF7-47BA-8478-3d1642faDbc3.457.pp.uA
+      Host: six0xs.zeeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇯🇵 日本 | JPN 2_1 | 76ms
+- name: 🇯🇵 日本 | JPN 2_1 | 83ms
   server: 99.79.161.29
   port: 443
   type: ss
@@ -958,822 +1657,226 @@ proxies:
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-5915 | 79ms'
-  type: vless
-  server: 7e9efc2f16.hhouge123.ggff.net
-  port: 443
-  uuid: 1e823993-86ac-3ead-89b5-227e73825fdb
-  network: ws
-  servername: 7e9efc2f16.hhouge123.ggff.net
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /db10247e9efc2f16
-    headers:
-      Host: 7e9efc2f16.hhouge123.ggff.net
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-4935 | 80ms'
-  type: vless
-  server: d9a44defd1.hhouge123.ggff.net
-  port: 443
-  uuid: 3f9c8463-8610-3ed8-86c8-a26713067825
-  network: ws
-  servername: d9a44defd1.hhouge123.ggff.net
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /db1024d9a44defd1
-    headers:
-      Host: d9a44defd1.hhouge123.ggff.net
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7363 | 80ms'
-  type: vless
-  server: 4bc2-995a-2a1ff2875d1a.457.pp.ua
-  port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
-  network: ws
-  servername: 4bC2-995a-2A1fF2875d1A.457.Pp.uA
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /zS0tQqntyzF9qAJBOyj
-    headers:
-      Host: 4bC2-995A-2A1fF2875D1A.457.PP.uA
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5248 | 82ms'
-  type: vmess
-  server: six0xs.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: six0xs.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/gnyw4cf.m3u8
-    headers:
-      Host: six0xs.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5083 | 83ms'
-  type: vmess
-  server: 3sjyn7.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 3sjyn7.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/a7g7hql.m3u8
-    headers:
-      Host: 3sjyn7.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-6082 | 84ms'
-  type: vmess
-  server: 15.235.41.200
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-6124 | 84ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5198 | 84ms'
-  type: vmess
-  server: 4fa4-ADf4-61413791F133.457.Pp.Ua
-  port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 4Fa4-adF4-61413791f133.457.pp.UA
-  network: ws
-  ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
-    headers:
-      Host: 4FA4-adF4-61413791F133.457.pP.UA
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5415 | 84ms'
-  type: vmess
-  server: six0xs.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: six0xs.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/gnyw4cf.m3u8
-    headers:
-      Host: six0xs.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5512 | 84ms'
-  type: vmess
-  server: 3sjyn7.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 3sjyn7.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/a7g7hql.m3u8
-    headers:
-      Host: 3sjyn7.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-6043 | 84ms'
-  type: vmess
-  server: 3sjyn7.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 3sjyn7.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/a7g7hql.m3u8
-    headers:
-      Host: 3sjyn7.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-8560 | 84ms'
-  type: vmess
-  server: mugen44.6bnw.top
-  port: 8080
-  uuid: 303ff852-dc44-4d48-8394-c6e3781fb5aa
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: buyvmus2.6bnw.top
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-8597 | 84ms'
-  type: vmess
-  server: 3sjyn7.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 3sjyn7.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: 3sjyn7.teeoomboom.de
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-8619 | 84ms'
-  type: vmess
-  server: mugen44.6bnw.top
-  port: 8080
-  uuid: 303ff852-dc44-4d48-8394-c6e3781fb5aa
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: buyvmus2.6bnw.top
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-8176 | 85ms'
-  type: vmess
-  server: 3sjyn7.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 3sjyn7.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/a7g7hql.m3u8
-    headers:
-      Host: 3sjyn7.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5087 | 86ms'
-  type: vmess
-  server: bzwy8b.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: bzwy8b.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/jaf53874.m3u8
-    headers:
-      Host: bzwy8b.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7272 | 86ms'
-  type: vmess
-  server: okl5i3.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: okl5i3.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/pmi58yp5.m3u8
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇨🇦 加拿大 | CAN_2 | 86ms
-  server: 79.127.233.170
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-4917 | 88ms'
-  type: vless
-  server: cdnjs.com
-  port: 443
-  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
-  network: ws
-  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /ws
-    headers:
-      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5328 | 88ms'
-  type: vmess
-  server: bzwy8b.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: bzwy8b.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/jaf53874.m3u8
-    headers:
-      Host: bzwy8b.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7744 | 88ms'
-  type: vmess
-  server: bzwy8b.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: bzwy8b.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/jaf53874.m3u8
-    headers:
-      Host: bzwy8b.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5690 | 88ms'
-  type: vmess
-  server: 3sjyn7.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 3sjyn7.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/a7g7hql.m3u8
-    headers:
-      Host: 3sjyn7.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5852 | 88ms'
-  type: vmess
-  server: six0xs.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: six0xs.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/gnyw4cf.m3u8
-    headers:
-      Host: six0xs.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-6097 | 88ms'
-  type: vmess
-  server: n1pwpi.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: n1pwpi.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/rbhjd.m3u8
-    headers:
-      Host: n1pwpi.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇲🇽 MX-2 | 88ms'
-  type: trojan
-  server: 216.238.94.42
-  port: 19939
-  password: z-H_x58nS=VUaw.o
-  sni: xuhyqrwofidgl.zwodhfgqaps.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 42_2 | 88ms
-  server: 874b9bf5-t4ssg0-t69l7r-1teuc.se.oshuawei.com
-  port: 443
-  type: http
-  username: a5a81a34-f257-11ef-ba82-f23c913c8d2b
-  password: a5a81a34-f257-11ef-ba82-f23c913c8d2b
-  tls: true
+- name: 10|All-@V2rayAlpha--33 | 84ms
+  type: hysteria2
+  server: 227fd503-t4ssg0-t5vo4i-4550.la.shifen.uk
+  port: 1743
+  password: 6286105c-fb6d-11ef-be96-f23c93136cb3
+  sni: 227fd503-t4ssg0-t5vo4i-4550.la.shifen.uk
   skip-cert-verify: true
   udp: true
+  tls: false
   network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7419 | 90ms'
-  type: vmess
-  server: 12ygev.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 12ygev.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/ux9tb.m3u8
-    headers:
-      Host: 12ygev.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-979 | 90ms'
-  type: vmess
-  server: mugen33.6bnw.top
-  port: 8080
-  uuid: 303ff852-dc44-4d48-8394-c6e3781fb5aa
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: buyvmus2.6bnw.top
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-7335 | 90ms'
-  type: vmess
-  server: 172.82.67.154.sslip.io
-  port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 172.82.67.154.sslip.io
-  network: ws
-  ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
-    headers:
-      Host: 172.82.67.154.sslip.io
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 58_1 | 90ms
-  server: efd06bfc-t4ssg0-t69h7l-1kcpe.se.oshuawei.com
-  port: 443
-  type: http
-  username: 3f514ea2-4662-11ed-a8bf-f23c91cfbbc9
-  password: 3f514ea2-4662-11ed-a8bf-f23c91cfbbc9
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇨🇦 CA-5569 | 92ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-5127 | 92ms'
-  type: vmess
-  server: bzwy8b.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: bzwy8b.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/jaf53874.m3u8
-    headers:
-      Host: bzwy8b.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-6037 | 93ms'
-  type: vmess
-  server: 4b-4Fe9-850E-be75b7b33d38.457.pP.UA
-  port: 443
-  uuid: 621a4388-6f08-4bcd-8609-aa55b30d3c93
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 4B-4fE9-850E-Be75B7b33d38.457.pP.UA
-  network: ws
-  ws-opts:
-    path: /D3ipwnrYHWDAqAJBOyj
-    headers:
-      Host: 4b-4fE9-850e-Be75b7B33D38.457.PP.UA
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: US_01540_0039 | 93ms
-  server: usa29.unlockmatrix.org
-  port: 443
-  type: vless
-  uuid: 9b0c1d6e-7f6e-4b06-96ba-b8a397a69166
-  flow: xtls-rprx-vision
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  servername: www.bing.com
-  reality-opts:
-    public-key: BhTJ3phnq-Z-10aFKSsj1lzhA8mULR4L6leE4-0WTAs
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: '[OpenRay] 🇨🇦 CA-5562 | 94ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-5868 | 94ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: 51.79.102.253
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-5976 | 94ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7417 | 94ms'
-  type: vmess
-  server: bzwy8b.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: bzwy8b.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/jaf53874.m3u8
-    headers:
-      Host: bzwy8b.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+  source: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - AUTO-URL
   - DIRECT
-  - '[OpenRay] 🇺🇸 US-8609 | 33ms'
-  - '[OpenRay] 🇺🇸 US-8612 | 34ms'
-  - '[OpenRay] 🇺🇸 US-8611 | 34ms'
-  - '[OpenRay] 🇺🇸 US-1259 | 40ms'
-  - US_01540_0041 | 45ms
-  - 🇰🇷 韩国 | KOR | 46ms
-  - 🇺🇸 美国 | USA 25_12 | 49ms
-  - US_01540_0040 | 52ms
-  - 🇨🇦 加拿大 | CAN 2_4 | 52ms
-  - 🇺🇸 美国 | USA 65_1 | 54ms
-  - '[OpenRay] 🇨🇦 CA-5563 | 58ms'
-  - '[OpenRay] 🇨🇦 CA-5571 | 58ms'
-  - '[OpenRay] 🇨🇦 CA-5869 | 58ms'
-  - '[OpenRay] Dynamic-5159 | 58ms'
-  - '[OpenRay] Dynamic-5252 | 58ms'
-  - '[OpenRay] Dynamic-7733 | 58ms'
-  - 🇺🇸 美国 | USA 7_6 | 58ms
-  - 🇨🇦 加拿大 | CAN_1 | 58ms
-  - '[OpenRay] Dynamic-7261 | 59ms'
-  - '[OpenRay] Dynamic-5419 | 59ms'
-  - '[OpenRay] Dynamic-8038 | 59ms'
-  - LB_01540_0023 | 59ms
-  - 🇺🇸 美国 | USA 16_10 | 59ms
-  - '[OpenRay] Dynamic-5086 | 60ms'
-  - '[OpenRay] Dynamic-7270 | 60ms'
-  - '[OpenRay] Dynamic-7828 | 60ms'
-  - '[OpenRay] Dynamic-5662 | 60ms'
-  - '[OpenRay] Dynamic-6041 | 60ms'
-  - '[OpenRay] Dynamic-7053 | 61ms'
-  - '[OpenRay] Dynamic-5200 | 62ms'
-  - '[OpenRay] Dynamic-7478 | 62ms'
-  - '[OpenRay] Dynamic-5332 | 62ms'
-  - '[OpenRay] Dynamic-5859 | 62ms'
-  - '[OpenRay] Dynamic-8507 | 62ms'
-  - LB_01540_0022 | 62ms
-  - 🇺🇸 美国 | USA 37_1 | 62ms
-  - '[OpenRay] Dynamic-8447 | 63ms'
-  - '[OpenRay] 🇺🇸 US-8552 | 64ms'
-  - 🇺🇸 美国 | USA 49_4 | 64ms
-  - '[OpenRay] Dynamic-5105 | 65ms'
-  - '[OpenRay] 🇺🇸 US-7026 | 65ms'
-  - '[OpenRay] 🇺🇸 US-7850 | 65ms'
-  - '[OpenRay] 🇨🇦 CA-6057 | 66ms'
-  - '[OpenRay] Dynamic-5494 | 66ms'
-  - '[OpenRay] 🇺🇸 US-6232 | 66ms'
-  - '[OpenRay] 🇺🇸 US-8588 | 66ms'
-  - 10|All-@V2rayAlpha--33 | 68ms
-  - '[OpenRay] 🇺🇸 US-7051 | 68ms'
-  - '[OpenRay] 🇺🇸 US-8586 | 68ms'
-  - '[OpenRay] Dynamic-5193 | 72ms'
-  - '[OpenRay] 🇺🇸 US-7231 | 72ms'
-  - '[OpenRay] Dynamic-7738 | 73ms'
-  - '[OpenRay] Dynamic-7739 | 73ms'
-  - 10|All-@V2rayAlpha--46 | 74ms
-  - '[OpenRay] Dynamic-5130 | 74ms'
-  - '[OpenRay] Dynamic-5197 | 74ms'
-  - '[OpenRay] Dynamic-7352 | 74ms'
+  - 🇺🇸 美国 | USA 19_4 | 7ms
+  - 🇺🇸 美国 | USA 8_11 | 11ms
+  - '[OpenRay] 🇺🇸 US-1259 | 13ms'
+  - US_0e81f_0040 | 16ms
+  - 🇺🇸 美国 | USA 7_6 | 16ms
+  - 🇨🇦 加拿大 | CAN_1 | 16ms
+  - '[OpenRay] Dynamic-5086 | 20ms'
+  - '[OpenRay] Dynamic-5159 | 20ms'
+  - '[OpenRay] Dynamic-7478 | 20ms'
+  - '[OpenRay] Dynamic-5494 | 20ms'
+  - '[OpenRay] Dynamic-7828 | 20ms'
+  - '[OpenRay] Dynamic-5662 | 20ms'
+  - '[OpenRay] Dynamic-5859 | 21ms'
+  - '[OpenRay] Dynamic-5200 | 22ms'
+  - '[OpenRay] 🇺🇸 US-8586 | 22ms'
+  - LB_0e81f_0022 | 22ms
+  - '[OpenRay] Dynamic-7261 | 23ms'
+  - '[OpenRay] Dynamic-8507 | 23ms'
+  - '[OpenRay] Dynamic-5332 | 24ms'
+  - '[OpenRay] Dynamic-8038 | 24ms'
+  - '[OpenRay] Dynamic-6139 | 24ms'
+  - LB_0e81f_0023 | 24ms
+  - '[OpenRay] Dynamic-7053 | 26ms'
+  - '[OpenRay] 🇺🇸 US-7335 | 27ms'
+  - '[OpenRay] Dynamic-5419 | 32ms'
+  - '[OpenRay] Dynamic-7423 | 33ms'
+  - '[OpenRay] Dynamic-7738 | 33ms'
+  - '[OpenRay] Dynamic-8675 | 33ms'
+  - '[OpenRay] Dynamic-8478 | 36ms'
+  - '[OpenRay] Dynamic-8674 | 36ms'
+  - '[OpenRay] Dynamic-6041 | 37ms'
+  - '[OpenRay] Dynamic-5197 | 38ms'
+  - '[OpenRay] Dynamic-6033 | 38ms'
+  - '[OpenRay] Dynamic-6172 | 38ms'
+  - '[OpenRay] Dynamic-5105 | 40ms'
+  - '[OpenRay] Dynamic-5252 | 40ms'
+  - '[OpenRay] Dynamic-5812 | 40ms'
+  - '[OpenRay] Dynamic-8484 | 40ms'
+  - '[OpenRay] Dynamic-7953 | 41ms'
+  - '[OpenRay] Dynamic-7419 | 44ms'
+  - '[OpenRay] Dynamic-7432 | 44ms'
+  - '[OpenRay] Dynamic-5495 | 44ms'
+  - '[OpenRay] Dynamic-8298 | 44ms'
+  - '[OpenRay] Dynamic-6071 | 44ms'
+  - '[OpenRay] Dynamic-7270 | 45ms'
+  - '[OpenRay] Dynamic-5328 | 45ms'
+  - '[OpenRay] Dynamic-5415 | 45ms'
+  - '[OpenRay] Dynamic-5130 | 46ms'
+  - '[OpenRay] Dynamic-6032 | 46ms'
+  - '[OpenRay] Dynamic-6043 | 46ms'
+  - '[OpenRay] 🇺🇸 US-7231 | 46ms'
+  - '[OpenRay] Dynamic-8100 | 48ms'
+  - '[OpenRay] Dynamic-5694 | 48ms'
+  - '[OpenRay] 🇨🇦 CA-6082 | 50ms'
+  - '[OpenRay] Dynamic-5418 | 50ms'
+  - '[OpenRay] Dynamic-5772 | 50ms'
+  - '[OpenRay] Dynamic-5780 | 50ms'
+  - '[OpenRay] 🇺🇸 US-7051 | 51ms'
+  - '[OpenRay] Dynamic-7204 | 52ms'
+  - '[OpenRay] Dynamic-7745 | 52ms'
+  - '[OpenRay] Dynamic-6198 | 52ms'
+  - US_0e81f_0042 | 52ms
+  - '[OpenRay] Dynamic-6070 | 53ms'
+  - '[OpenRay] Dynamic-8524 | 53ms'
+  - '[OpenRay] Dynamic-7733 | 54ms'
+  - '[OpenRay] Dynamic-7744 | 54ms'
+  - '[OpenRay] Dynamic-5496 | 54ms'
+  - '[OpenRay] Dynamic-6109 | 55ms'
+  - '[OpenRay] Dynamic-4917 | 56ms'
+  - '[OpenRay] Dynamic-5335 | 56ms'
+  - '[OpenRay] Dynamic-8075 | 56ms'
+  - '[OpenRay] Dynamic-5087 | 57ms'
+  - '[OpenRay] Dynamic-7258 | 58ms'
+  - '[OpenRay] Dynamic-5512 | 58ms'
+  - '[OpenRay] Dynamic-8176 | 59ms'
+  - '[OpenRay] Dynamic-5127 | 60ms'
+  - '[OpenRay] Dynamic-5179 | 60ms'
+  - '[OpenRay] Dynamic-5414 | 60ms'
+  - '[OpenRay] Dynamic-8521 | 62ms'
+  - '[OpenRay] Dynamic-8108 | 63ms'
+  - '[OpenRay] Dynamic-8525 | 66ms'
+  - 13|美国4|@ripaojiedian | 67ms
+  - 🇨🇦 加拿大 | CAN 2_4 | 67ms
+  - '[OpenRay] Dynamic-8527 | 70ms'
+  - '[OpenRay] Dynamic-5637 | 72ms'
+  - '[OpenRay] Dynamic-5639 | 72ms'
+  - '[OpenRay] Dynamic-5864 | 73ms'
+  - '[OpenRay] Dynamic-5120 | 74ms'
   - '[OpenRay] Dynamic-7634 | 74ms'
-  - '[OpenRay] Dynamic-5666 | 75ms'
-  - US_01540_0042 | 75ms
-  - '[OpenRay] Dynamic-5335 | 76ms'
-  - 🇯🇵 日本 | JPN 2_1 | 76ms
-  - '[OpenRay] Dynamic-5915 | 79ms'
-  - '[OpenRay] Dynamic-4935 | 80ms'
-  - '[OpenRay] Dynamic-7363 | 80ms'
-  - '[OpenRay] Dynamic-5248 | 82ms'
-  - '[OpenRay] Dynamic-5083 | 83ms'
-  - '[OpenRay] 🇨🇦 CA-6082 | 84ms'
-  - '[OpenRay] 🇨🇦 CA-6124 | 84ms'
-  - '[OpenRay] Dynamic-5198 | 84ms'
-  - '[OpenRay] Dynamic-5415 | 84ms'
-  - '[OpenRay] Dynamic-5512 | 84ms'
-  - '[OpenRay] Dynamic-6043 | 84ms'
-  - '[OpenRay] Dynamic-8560 | 84ms'
-  - '[OpenRay] Dynamic-8597 | 84ms'
-  - '[OpenRay] Dynamic-8619 | 84ms'
-  - '[OpenRay] Dynamic-8176 | 85ms'
-  - '[OpenRay] Dynamic-5087 | 86ms'
-  - '[OpenRay] Dynamic-7272 | 86ms'
-  - 🇨🇦 加拿大 | CAN_2 | 86ms
-  - '[OpenRay] Dynamic-4917 | 88ms'
-  - '[OpenRay] Dynamic-5328 | 88ms'
-  - '[OpenRay] Dynamic-7744 | 88ms'
-  - '[OpenRay] Dynamic-5690 | 88ms'
-  - '[OpenRay] Dynamic-5852 | 88ms'
-  - '[OpenRay] Dynamic-6097 | 88ms'
-  - '[OpenRay] 🇲🇽 MX-2 | 88ms'
-  - 🇺🇸 美国 | USA 42_2 | 88ms
-  - '[OpenRay] Dynamic-7419 | 90ms'
-  - '[OpenRay] Dynamic-979 | 90ms'
-  - '[OpenRay] 🇺🇸 US-7335 | 90ms'
-  - 🇺🇸 美国 | USA 58_1 | 90ms
-  - '[OpenRay] 🇨🇦 CA-5569 | 92ms'
-  - '[OpenRay] Dynamic-5127 | 92ms'
-  - '[OpenRay] Dynamic-6037 | 93ms'
-  - US_01540_0039 | 93ms
-  - '[OpenRay] 🇨🇦 CA-5562 | 94ms'
-  - '[OpenRay] 🇨🇦 CA-5868 | 94ms'
-  - '[OpenRay] 🇨🇦 CA-5976 | 94ms'
-  - '[OpenRay] Dynamic-7417 | 94ms'
+  - '[OpenRay] Dynamic-5083 | 76ms'
+  - '[OpenRay] Dynamic-5088 | 78ms'
+  - '[OpenRay] Dynamic-6069 | 78ms'
+  - '[OpenRay] Dynamic-6074 | 78ms'
+  - '[OpenRay] Dynamic-6073 | 80ms'
+  - '[OpenRay] 🇺🇸 US-8452 | 80ms'
+  - '[OpenRay] Dynamic-8522 | 81ms'
+  - 🇺🇸 美国 | USA 49_4 | 82ms
+  - '[OpenRay] Dynamic-5248 | 83ms'
+  - 🇯🇵 日本 | JPN 2_1 | 83ms
+  - 10|All-@V2rayAlpha--33 | 84ms
 - name: AUTO-URL
   type: url-test
   proxies:
-  - '[OpenRay] 🇺🇸 US-8609 | 33ms'
-  - '[OpenRay] 🇺🇸 US-8612 | 34ms'
-  - '[OpenRay] 🇺🇸 US-8611 | 34ms'
-  - '[OpenRay] 🇺🇸 US-1259 | 40ms'
-  - US_01540_0041 | 45ms
-  - 🇰🇷 韩国 | KOR | 46ms
-  - 🇺🇸 美国 | USA 25_12 | 49ms
-  - US_01540_0040 | 52ms
-  - 🇨🇦 加拿大 | CAN 2_4 | 52ms
-  - 🇺🇸 美国 | USA 65_1 | 54ms
-  - '[OpenRay] 🇨🇦 CA-5563 | 58ms'
-  - '[OpenRay] 🇨🇦 CA-5571 | 58ms'
-  - '[OpenRay] 🇨🇦 CA-5869 | 58ms'
-  - '[OpenRay] Dynamic-5159 | 58ms'
-  - '[OpenRay] Dynamic-5252 | 58ms'
-  - '[OpenRay] Dynamic-7733 | 58ms'
-  - 🇺🇸 美国 | USA 7_6 | 58ms
-  - 🇨🇦 加拿大 | CAN_1 | 58ms
-  - '[OpenRay] Dynamic-7261 | 59ms'
-  - '[OpenRay] Dynamic-5419 | 59ms'
-  - '[OpenRay] Dynamic-8038 | 59ms'
-  - LB_01540_0023 | 59ms
-  - 🇺🇸 美国 | USA 16_10 | 59ms
-  - '[OpenRay] Dynamic-5086 | 60ms'
-  - '[OpenRay] Dynamic-7270 | 60ms'
-  - '[OpenRay] Dynamic-7828 | 60ms'
-  - '[OpenRay] Dynamic-5662 | 60ms'
-  - '[OpenRay] Dynamic-6041 | 60ms'
-  - '[OpenRay] Dynamic-7053 | 61ms'
-  - '[OpenRay] Dynamic-5200 | 62ms'
-  - '[OpenRay] Dynamic-7478 | 62ms'
-  - '[OpenRay] Dynamic-5332 | 62ms'
-  - '[OpenRay] Dynamic-5859 | 62ms'
-  - '[OpenRay] Dynamic-8507 | 62ms'
-  - LB_01540_0022 | 62ms
-  - 🇺🇸 美国 | USA 37_1 | 62ms
-  - '[OpenRay] Dynamic-8447 | 63ms'
-  - '[OpenRay] 🇺🇸 US-8552 | 64ms'
-  - 🇺🇸 美国 | USA 49_4 | 64ms
-  - '[OpenRay] Dynamic-5105 | 65ms'
-  - '[OpenRay] 🇺🇸 US-7026 | 65ms'
-  - '[OpenRay] 🇺🇸 US-7850 | 65ms'
-  - '[OpenRay] 🇨🇦 CA-6057 | 66ms'
-  - '[OpenRay] Dynamic-5494 | 66ms'
-  - '[OpenRay] 🇺🇸 US-6232 | 66ms'
-  - '[OpenRay] 🇺🇸 US-8588 | 66ms'
-  - 10|All-@V2rayAlpha--33 | 68ms
-  - '[OpenRay] 🇺🇸 US-7051 | 68ms'
-  - '[OpenRay] 🇺🇸 US-8586 | 68ms'
-  - '[OpenRay] Dynamic-5193 | 72ms'
-  - '[OpenRay] 🇺🇸 US-7231 | 72ms'
-  - '[OpenRay] Dynamic-7738 | 73ms'
-  - '[OpenRay] Dynamic-7739 | 73ms'
-  - 10|All-@V2rayAlpha--46 | 74ms
-  - '[OpenRay] Dynamic-5130 | 74ms'
-  - '[OpenRay] Dynamic-5197 | 74ms'
-  - '[OpenRay] Dynamic-7352 | 74ms'
+  - 🇺🇸 美国 | USA 19_4 | 7ms
+  - 🇺🇸 美国 | USA 8_11 | 11ms
+  - '[OpenRay] 🇺🇸 US-1259 | 13ms'
+  - US_0e81f_0040 | 16ms
+  - 🇺🇸 美国 | USA 7_6 | 16ms
+  - 🇨🇦 加拿大 | CAN_1 | 16ms
+  - '[OpenRay] Dynamic-5086 | 20ms'
+  - '[OpenRay] Dynamic-5159 | 20ms'
+  - '[OpenRay] Dynamic-7478 | 20ms'
+  - '[OpenRay] Dynamic-5494 | 20ms'
+  - '[OpenRay] Dynamic-7828 | 20ms'
+  - '[OpenRay] Dynamic-5662 | 20ms'
+  - '[OpenRay] Dynamic-5859 | 21ms'
+  - '[OpenRay] Dynamic-5200 | 22ms'
+  - '[OpenRay] 🇺🇸 US-8586 | 22ms'
+  - LB_0e81f_0022 | 22ms
+  - '[OpenRay] Dynamic-7261 | 23ms'
+  - '[OpenRay] Dynamic-8507 | 23ms'
+  - '[OpenRay] Dynamic-5332 | 24ms'
+  - '[OpenRay] Dynamic-8038 | 24ms'
+  - '[OpenRay] Dynamic-6139 | 24ms'
+  - LB_0e81f_0023 | 24ms
+  - '[OpenRay] Dynamic-7053 | 26ms'
+  - '[OpenRay] 🇺🇸 US-7335 | 27ms'
+  - '[OpenRay] Dynamic-5419 | 32ms'
+  - '[OpenRay] Dynamic-7423 | 33ms'
+  - '[OpenRay] Dynamic-7738 | 33ms'
+  - '[OpenRay] Dynamic-8675 | 33ms'
+  - '[OpenRay] Dynamic-8478 | 36ms'
+  - '[OpenRay] Dynamic-8674 | 36ms'
+  - '[OpenRay] Dynamic-6041 | 37ms'
+  - '[OpenRay] Dynamic-5197 | 38ms'
+  - '[OpenRay] Dynamic-6033 | 38ms'
+  - '[OpenRay] Dynamic-6172 | 38ms'
+  - '[OpenRay] Dynamic-5105 | 40ms'
+  - '[OpenRay] Dynamic-5252 | 40ms'
+  - '[OpenRay] Dynamic-5812 | 40ms'
+  - '[OpenRay] Dynamic-8484 | 40ms'
+  - '[OpenRay] Dynamic-7953 | 41ms'
+  - '[OpenRay] Dynamic-7419 | 44ms'
+  - '[OpenRay] Dynamic-7432 | 44ms'
+  - '[OpenRay] Dynamic-5495 | 44ms'
+  - '[OpenRay] Dynamic-8298 | 44ms'
+  - '[OpenRay] Dynamic-6071 | 44ms'
+  - '[OpenRay] Dynamic-7270 | 45ms'
+  - '[OpenRay] Dynamic-5328 | 45ms'
+  - '[OpenRay] Dynamic-5415 | 45ms'
+  - '[OpenRay] Dynamic-5130 | 46ms'
+  - '[OpenRay] Dynamic-6032 | 46ms'
+  - '[OpenRay] Dynamic-6043 | 46ms'
+  - '[OpenRay] 🇺🇸 US-7231 | 46ms'
+  - '[OpenRay] Dynamic-8100 | 48ms'
+  - '[OpenRay] Dynamic-5694 | 48ms'
+  - '[OpenRay] 🇨🇦 CA-6082 | 50ms'
+  - '[OpenRay] Dynamic-5418 | 50ms'
+  - '[OpenRay] Dynamic-5772 | 50ms'
+  - '[OpenRay] Dynamic-5780 | 50ms'
+  - '[OpenRay] 🇺🇸 US-7051 | 51ms'
+  - '[OpenRay] Dynamic-7204 | 52ms'
+  - '[OpenRay] Dynamic-7745 | 52ms'
+  - '[OpenRay] Dynamic-6198 | 52ms'
+  - US_0e81f_0042 | 52ms
+  - '[OpenRay] Dynamic-6070 | 53ms'
+  - '[OpenRay] Dynamic-8524 | 53ms'
+  - '[OpenRay] Dynamic-7733 | 54ms'
+  - '[OpenRay] Dynamic-7744 | 54ms'
+  - '[OpenRay] Dynamic-5496 | 54ms'
+  - '[OpenRay] Dynamic-6109 | 55ms'
+  - '[OpenRay] Dynamic-4917 | 56ms'
+  - '[OpenRay] Dynamic-5335 | 56ms'
+  - '[OpenRay] Dynamic-8075 | 56ms'
+  - '[OpenRay] Dynamic-5087 | 57ms'
+  - '[OpenRay] Dynamic-7258 | 58ms'
+  - '[OpenRay] Dynamic-5512 | 58ms'
+  - '[OpenRay] Dynamic-8176 | 59ms'
+  - '[OpenRay] Dynamic-5127 | 60ms'
+  - '[OpenRay] Dynamic-5179 | 60ms'
+  - '[OpenRay] Dynamic-5414 | 60ms'
+  - '[OpenRay] Dynamic-8521 | 62ms'
+  - '[OpenRay] Dynamic-8108 | 63ms'
+  - '[OpenRay] Dynamic-8525 | 66ms'
+  - 13|美国4|@ripaojiedian | 67ms
+  - 🇨🇦 加拿大 | CAN 2_4 | 67ms
+  - '[OpenRay] Dynamic-8527 | 70ms'
+  - '[OpenRay] Dynamic-5637 | 72ms'
+  - '[OpenRay] Dynamic-5639 | 72ms'
+  - '[OpenRay] Dynamic-5864 | 73ms'
+  - '[OpenRay] Dynamic-5120 | 74ms'
   - '[OpenRay] Dynamic-7634 | 74ms'
-  - '[OpenRay] Dynamic-5666 | 75ms'
-  - US_01540_0042 | 75ms
-  - '[OpenRay] Dynamic-5335 | 76ms'
-  - 🇯🇵 日本 | JPN 2_1 | 76ms
-  - '[OpenRay] Dynamic-5915 | 79ms'
-  - '[OpenRay] Dynamic-4935 | 80ms'
-  - '[OpenRay] Dynamic-7363 | 80ms'
-  - '[OpenRay] Dynamic-5248 | 82ms'
-  - '[OpenRay] Dynamic-5083 | 83ms'
-  - '[OpenRay] 🇨🇦 CA-6082 | 84ms'
-  - '[OpenRay] 🇨🇦 CA-6124 | 84ms'
-  - '[OpenRay] Dynamic-5198 | 84ms'
-  - '[OpenRay] Dynamic-5415 | 84ms'
-  - '[OpenRay] Dynamic-5512 | 84ms'
-  - '[OpenRay] Dynamic-6043 | 84ms'
-  - '[OpenRay] Dynamic-8560 | 84ms'
-  - '[OpenRay] Dynamic-8597 | 84ms'
-  - '[OpenRay] Dynamic-8619 | 84ms'
-  - '[OpenRay] Dynamic-8176 | 85ms'
-  - '[OpenRay] Dynamic-5087 | 86ms'
-  - '[OpenRay] Dynamic-7272 | 86ms'
-  - 🇨🇦 加拿大 | CAN_2 | 86ms
-  - '[OpenRay] Dynamic-4917 | 88ms'
-  - '[OpenRay] Dynamic-5328 | 88ms'
-  - '[OpenRay] Dynamic-7744 | 88ms'
-  - '[OpenRay] Dynamic-5690 | 88ms'
-  - '[OpenRay] Dynamic-5852 | 88ms'
-  - '[OpenRay] Dynamic-6097 | 88ms'
-  - '[OpenRay] 🇲🇽 MX-2 | 88ms'
-  - 🇺🇸 美国 | USA 42_2 | 88ms
-  - '[OpenRay] Dynamic-7419 | 90ms'
-  - '[OpenRay] Dynamic-979 | 90ms'
-  - '[OpenRay] 🇺🇸 US-7335 | 90ms'
-  - 🇺🇸 美国 | USA 58_1 | 90ms
-  - '[OpenRay] 🇨🇦 CA-5569 | 92ms'
-  - '[OpenRay] Dynamic-5127 | 92ms'
-  - '[OpenRay] Dynamic-6037 | 93ms'
-  - US_01540_0039 | 93ms
-  - '[OpenRay] 🇨🇦 CA-5562 | 94ms'
-  - '[OpenRay] 🇨🇦 CA-5868 | 94ms'
-  - '[OpenRay] 🇨🇦 CA-5976 | 94ms'
-  - '[OpenRay] Dynamic-7417 | 94ms'
+  - '[OpenRay] Dynamic-5083 | 76ms'
+  - '[OpenRay] Dynamic-5088 | 78ms'
+  - '[OpenRay] Dynamic-6069 | 78ms'
+  - '[OpenRay] Dynamic-6074 | 78ms'
+  - '[OpenRay] Dynamic-6073 | 80ms'
+  - '[OpenRay] 🇺🇸 US-8452 | 80ms'
+  - '[OpenRay] Dynamic-8522 | 81ms'
+  - 🇺🇸 美国 | USA 49_4 | 82ms
+  - '[OpenRay] Dynamic-5248 | 83ms'
+  - 🇯🇵 日本 | JPN 2_1 | 83ms
+  - 10|All-@V2rayAlpha--33 | 84ms
   url: http://cp.cloudflare.com/generate_204
   interval: 300
 rules:

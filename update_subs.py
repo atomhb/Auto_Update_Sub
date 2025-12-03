@@ -32,7 +32,7 @@ OUTPUT_CLASH_FILE = 'sub.yaml'
 UPDATE_TIME_FILE = 'update_time.txt'
 
 MAX_LATENCY_MS = 500
-MAX_NODES_LIMIT = 100
+MAX_NODES_LIMIT = 200
 REAL_TEST_URLS = [
     'https://www.google.com/generate_204',
     'https://scholar.google.com/scholar_labs/search'

@@ -17,18 +17,7 @@ dns:
   - 1.1.1.1
   - tls://dns.google:853
 proxies:
-- name: 🇨🇦 加拿大 | CAN_2 | 13ms
-  server: 98.91.23.146
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇺🇸 US-1259 | 18ms'
+- name: '[OpenRay] 🇺🇸 US-1259 | 16ms'
   type: trojan
   server: 155.138.228.41
   port: 19313
@@ -39,7 +28,7 @@ proxies:
   tls: false
   network: tcp
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9583 | 18ms'
+- name: '[OpenRay] 🇺🇸 US-9583 | 16ms'
   type: trojan
   server: 155.138.228.41
   port: 19313
@@ -50,7 +39,23 @@ proxies:
   tls: false
   network: tcp
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7118 | 24ms'
+- name: '[OpenRay] 🇨🇦 CA-7392 | 26ms'
+  type: vless
+  server: 104.17.148.22
+  port: 80
+  uuid: e3fd963e-0236-4d14-a5cc-9e89cdfa86b8
+  network: ws
+  servername: 104.17.148.22
+  flow: ''
+  tls: false
+  ws-opts:
+    path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
+    headers:
+      Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7118 | 26ms'
   type: vless
   server: us-003.shopping-1688.com
   port: 443
@@ -66,258 +71,7 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7337 | 31ms'
-  type: vless
-  server: www.speedtest.net
-  port: 80
-  uuid: e3fd963e-0236-4d14-a5cc-9e89cdfa86b8
-  network: ws
-  servername: www.speedtest.net
-  flow: ''
-  tls: false
-  ws-opts:
-    path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
-    headers:
-      Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-7336 | 32ms'
-  type: vless
-  server: 172.66.156.81
-  port: 80
-  uuid: e3fd963e-0236-4d14-a5cc-9e89cdfa86b8
-  network: ws
-  servername: 172.66.156.81
-  flow: ''
-  tls: false
-  ws-opts:
-    path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
-    headers:
-      Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 未知 TROJAN-792 | free-nodes | 35ms
-  type: trojan
-  server: 198.57.27.27
-  port: 12990
-  password: 6pRjKQJ0CWyFtG.9
-  sni: diningtable.electricbanana.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: 未知 TROJAN-467 | free-nodes | 40ms
-  type: trojan
-  server: 198.57.27.27
-  port: 12990
-  password: 6pRjKQJ0CWyFtG.9
-  sni: diningtable.electricbanana.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: 未知 TROJAN-908 | free-nodes | 40ms
-  type: trojan
-  server: 198.57.27.27
-  port: 12990
-  password: 6pRjKQJ0CWyFtG.9
-  sni: diningtable.electricbanana.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: 未知 TROJAN-629 | free-nodes | 42ms
-  type: trojan
-  server: 198.57.27.27
-  port: 12990
-  password: 6pRjKQJ0CWyFtG.9
-  sni: diningtable.electricbanana.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] 🇨🇦 CA-7276 | 42ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-6558 | 44ms'
-  type: vmess
-  server: 48kikv.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 48kikv.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/wu8ix780.m3u8
-    headers:
-      Host: 48kikv.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9658 | 46ms'
-  type: vmess
-  server: v2ray.codefyinc.com
-  port: 443
-  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /vmessws
-    headers:
-      Host: v2ray.codefyinc.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-6930 | 47ms'
-  type: vmess
-  server: pq90rz.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: pq90rz.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/3ndnys.m3u8
-    headers:
-      Host: pq90rz.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇨🇦 加拿大 | CAN 6 | 48ms
-  server: 137.184.174.93
-  port: 8080
-  type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇨🇦 加拿大 | CAN 2_3 | 52ms
-  server: cdnjs.com
-  port: 443
-  type: vless
-  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
-  tls: true
-  tfo: false
-  skip-cert-verify: true
-  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇨🇦 CA-7340 | 53ms'
-  type: vless
-  server: 104.24.196.20
-  port: 443
-  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
-  network: ws
-  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /ws
-    headers:
-      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-7354 | 58ms'
-  type: vless
-  server: 104.24.197.20
-  port: 443
-  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
-  network: ws
-  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /ws
-    headers:
-      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-3351 | 60ms'
-  type: vless
-  server: us6.candyfans.win
-  port: 443
-  uuid: 5f60f4be-c6b1-4b07-ae9f-30cdcefe1759
-  network: ws
-  servername: us6.candyfans.win
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /nmzuws
-    headers:
-      Host: us6.candyfans.win
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7250 | 60ms'
-  type: vmess
-  server: 48kikv.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 48kikv.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/wu8ix780.m3u8
-    headers:
-      Host: 48kikv.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-6973 | 61ms'
-  type: vmess
-  server: 51.79.103.76
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: aes-128-gcm
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: google.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7251 | 62ms'
+- name: '[OpenRay] Dynamic-7251 | 27ms'
   type: vmess
   server: 529agr.zeeoomboom.de
   port: 443
@@ -334,66 +88,176 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9667 | 62ms'
-  type: vmess
-  server: 209.126.84.189
-  port: 443
-  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
-  alterId: 0
-  cipher: auto
-  tls: false
+- name: '[OpenRay] 🇨🇦 CA-7336 | 29ms'
+  type: vless
+  server: 172.66.156.81
+  port: 80
+  uuid: e3fd963e-0236-4d14-a5cc-9e89cdfa86b8
   network: ws
+  servername: 172.66.156.81
+  flow: ''
+  tls: false
   ws-opts:
-    path: /vmessws
+    path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
     headers:
-      Host: 209.126.84.189
+      Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇩🇪 德国 | DEU 7_2 | 63ms
-  server: 82.198.246.97
-  port: 180
+- name: '[OpenRay] 🇨🇦 CA-7394 | 34ms'
+  type: vless
+  server: 104.17.147.22
+  port: 80
+  uuid: e3fd963e-0236-4d14-a5cc-9e89cdfa86b8
+  network: ws
+  servername: 104.17.147.22
+  flow: ''
+  tls: false
+  ws-opts:
+    path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
+    headers:
+      Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6930 | 40ms'
   type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  server: pq90rz.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
-  tls: false
-  skip-cert-verify: true
+  tls: true
+  servername: pq90rz.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/3ndnys.m3u8
+    headers:
+      Host: pq90rz.keeoomboom.de
   udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7378 | 40ms'
+  type: vmess
+  server: es5fyw.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: es5fyw.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/w444c4eo.m3u8
+    headers:
+      Host: es5fyw.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 未知 TROJAN-629 | free-nodes | 42ms
+  type: trojan
+  server: 198.57.27.27
+  port: 12990
+  password: 6pRjKQJ0CWyFtG.9
+  sni: diningtable.electricbanana.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 未知 TROJAN-908 | free-nodes | 42ms
+  type: trojan
+  server: 198.57.27.27
+  port: 12990
+  password: 6pRjKQJ0CWyFtG.9
+  sni: diningtable.electricbanana.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 加拿大多伦多+V2CROSS.COM | 43ms
+  type: trojan
+  server: 198.57.27.27
+  port: 12990
+  password: 6pRjKQJ0CWyFtG.9
+  sni: diningtable.electricbanana.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 未知 TROJAN-194 | free-nodes | 44ms
+  type: trojan
+  server: 198.57.27.27
+  port: 12990
+  password: 6pRjKQJ0CWyFtG.9
+  sni: diningtable.electricbanana.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: '[OpenRay] Dynamic-7250 | 45ms'
+  type: vmess
+  server: 48kikv.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 48kikv.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/wu8ix780.m3u8
+    headers:
+      Host: 48kikv.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇨🇦 CA-7343 | 48ms'
+  type: vless
+  server: 172.67.66.177
+  port: 443
+  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
+  network: ws
+  servername: rAyAn-cOnFiG-ca-1.pAriSa.dPdNs.oRg
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /ws
+    headers:
+      Host: rAyAn-cOnFiG-ca-1.pAriSa.dPdNs.oRg
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇨🇦 加拿大 | CAN 6 | 48ms
+  server: 137.184.174.93
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  udp: true
+  tls: false
+  skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇨🇦 CA-7123 | 80ms'
-  type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 26_3 | 80ms
-  server: 158.101.11.204
-  port: 15805
+- name: 🇨🇦 加拿大 | CAN_1 | 50ms
+  server: 141.193.213.60
+  port: 443
   type: trojan
-  password: iwangjie
-  sni: nodes.830901.xyz
+  password: 8b45d379-702f-41b3-a6b2-9c87a01dcd5c
+  sni: a3t5vfl95f4d5d9y.catimecsgo.xyz
   skip-cert-verify: true
   network: ws
   ws-opts:
-    path: '%2F%3Fed%3D2560'
+    path: '%2Fimages'
     headers:
-      Host: nodes.830901.xyz
+      Host: a3t5vfl95f4d5d9y.catimecsgo.xyz
   udp: true
   tls: false
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7249 | 82ms'
+- name: '[OpenRay] Dynamic-7249 | 52ms'
   type: vmess
   server: ithw1m.teeoomboom.de
   port: 443
@@ -410,143 +274,23 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 45_3 | 82ms
-  server: 8f98f777-t64xs0-tfjz9x-1t5n1.los.gotochinatown.net
-  port: 443
-  type: http
-  username: ea800f9e-ca6c-11ef-8e74-f23c913c8d2b
-  password: ea800f9e-ca6c-11ef-8e74-f23c913c8d2b
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 16_13 | 82ms
-  server: 2249ad93-t5jc00-t6ztiq-er4w.los.west.wctype.com
-  port: 3443
-  type: http
-  username: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  password: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 36_4 | 84ms
-  server: 09720851-t64xs0-tfj0we-u6bc.los.gotochinatown.net
-  port: 443
-  type: http
-  username: 21747146-3507-11ed-bb74-f23c9164ca5d
-  password: 21747146-3507-11ed-bb74-f23c9164ca5d
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 26_5 | 85ms
-  server: c3ef372c-t5kkg0-tdhz1n-1m952.los.gotochinatown.net
-  port: 443
-  type: http
-  username: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
-  password: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇺🇸 US-9469 | 86ms'
-  type: vmess
-  server: 38.84.201.21
-  port: 53487
-  uuid: c3c1ec05-df2c-4975-9b42-e9b007564eb1
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: none
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9563 | 86ms'
-  type: vmess
-  server: 38.84.201.21
-  port: 53487
-  uuid: c3c1ec05-df2c-4975-9b42-e9b007564eb1
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-7343 | 88ms'
+- name: '[OpenRay] 🇨🇦 CA-7354 | 57ms'
   type: vless
-  server: 172.67.66.177
+  server: 104.24.197.20
   port: 443
   uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
   network: ws
-  servername: rAyAn-cOnFiG-ca-1.pAriSa.dPdNs.oRg
+  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
   flow: ''
   tls: true
   ws-opts:
     path: /ws
     headers:
-      Host: rAyAn-cOnFiG-ca-1.pAriSa.dPdNs.oRg
+      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9442 | 88ms'
-  type: vmess
-  server: 38.14.99.179
-  port: 59807
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: raw
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 23_2 | 88ms
-  server: usvless.yydzx.xyz
-  port: 17186
-  type: vless
-  uuid: 4e084535-bd62-458b-84a2-a0dc57c957aa
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: true
-  servername: usvless.yydzx.xyz
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 24_3 | 88ms
-  server: usvless.yydzx.xyz
-  port: 17179
-  type: vless
-  uuid: 4e084535-bd62-458b-84a2-a0dc57c957aa
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: true
-  servername: usvless.yydzx.xyz
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 英国 V2CROSS.COM | 90ms
-  type: vmess
-  server: 82.198.246.97
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: 未知 TROJAN-224 | free-nodes | 90ms
+- name: 未知 TROJAN-224 | free-nodes | 57ms
   type: trojan
   server: 198.57.27.27
   port: 12990
@@ -557,67 +301,40 @@ proxies:
   tls: false
   network: tcp
   source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] 🇺🇸 US-9641 | 90ms'
+- name: '[OpenRay] Dynamic-6558 | 60ms'
   type: vmess
-  server: 38.14.99.163
-  port: 59807
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  server: 48kikv.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
-  tls: false
-  network: tcp
+  tls: true
+  servername: 48kikv.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/wu8ix780.m3u8
+    headers:
+      Host: 48kikv.zeeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: US_48918_0007 | 90ms
-  server: 38.14.99.179
-  port: 59807
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: US_48918_0010 | 90ms
-  server: 38.14.99.179
-  port: 59807
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: true
-  servername: 38.14.99.179
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: GB_48918_0003 | 90ms
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: 🇺🇸 美国 | USA 38_5 | 90ms
-  server: e97b6456-t4dz40-tlpfci-1jdha.los.gotochinatown.net
+- name: '[OpenRay] Dynamic-3351 | 62ms'
+  type: vless
+  server: us6.candyfans.win
   port: 443
-  type: http
-  username: de629d50-1711-11ed-bd7c-f23c913c8d2b
-  password: de629d50-1711-11ed-bd7c-f23c913c8d2b
+  uuid: 5f60f4be-c6b1-4b07-ae9f-30cdcefe1759
+  network: ws
+  servername: us6.candyfans.win
+  flow: ''
   tls: true
-  skip-cert-verify: true
+  ws-opts:
+    path: /nmzuws
+    headers:
+      Host: us6.candyfans.win
   udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇨🇦 CA-7017 | 91ms'
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇨🇦 CA-7276 | 64ms'
   type: vmess
   server: 51.79.102.253
   port: 80
@@ -629,94 +346,22 @@ proxies:
   ws-opts:
     path: /IOebhLMhl1CTbFHbL95myfRX2
     headers:
-      Host: 51.79.102.253
+      Host: ''
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 未知 TROJAN-194 | free-nodes | 92ms
-  type: trojan
-  server: 198.57.27.27
-  port: 12990
-  password: 6pRjKQJ0CWyFtG.9
-  sni: diningtable.electricbanana.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] 🇺🇸 US-9478 | 92ms'
-  type: vmess
-  server: 38.14.99.163
-  port: 59807
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇨🇦 加拿大 | CAN 2_1 | 92ms
-  server: 45.154.204.7
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 43_4 | 92ms
-  server: 8560a100-t64xs0-tfjz9x-1t5n1.sjc.oshuawei.com
+- name: 🇨🇦 加拿大 | CAN_2 | 71ms
+  server: 98.91.23.146
   port: 443
-  type: http
-  username: ea800f9e-ca6c-11ef-8e74-f23c913c8d2b
-  password: ea800f9e-ca6c-11ef-8e74-f23c913c8d2b
-  tls: true
-  skip-cert-verify: true
+  type: ss
+  cipher: aes-256-cfb
+  password: amazonskr05
   udp: true
+  tls: false
+  skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 加拿大多伦多+V2CROSS.COM | 96ms
-  type: trojan
-  server: 198.57.27.27
-  port: 12990
-  password: 6pRjKQJ0CWyFtG.9
-  sni: diningtable.electricbanana.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] 🇬🇧 GB-982 | 100ms'
-  type: vmess
-  server: 57.129.132.223
-  port: 80
-  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /vmess/
-    headers:
-      Host: google.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 未知 TROJAN-1177 | free-nodes | 102ms
-  type: trojan
-  server: 38.96.254.102
-  port: 18509
-  password: .ie4rghJuMkcf0oF
-  sni: shoppingmall.electricbanana.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] 🇨🇦 CA-7339 | 102ms'
+- name: '[OpenRay] 🇨🇦 CA-7339 | 79ms'
   type: vmess
   server: 15.235.41.200
   port: 80
@@ -732,32 +377,384 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇨🇦 加拿大 | CAN_1 | 103ms
-  server: 141.193.213.60
+- name: 🇺🇸 美国 | USA 16_13 | 80ms
+  server: 2249ad93-t5jc00-t6ztiq-er4w.los.west.wctype.com
+  port: 3443
+  type: http
+  username: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
+  password: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇺🇸 美国 | USA 26_5 | 82ms
+  server: c3ef372c-t5kkg0-tdhz1n-1m952.los.gotochinatown.net
   port: 443
+  type: http
+  username: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
+  password: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 未知 TROJAN-467 | free-nodes | 84ms
   type: trojan
-  password: 8b45d379-702f-41b3-a6b2-9c87a01dcd5c
-  sni: a3t5vfl95f4d5d9y.catimecsgo.xyz
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: '%2Fimages'
-    headers:
-      Host: a3t5vfl95f4d5d9y.catimecsgo.xyz
+  server: 198.57.27.27
+  port: 12990
+  password: 6pRjKQJ0CWyFtG.9
+  sni: diningtable.electricbanana.click
+  skip-cert-verify: false
   udp: true
   tls: false
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇲🇽 MX-3 | 104ms'
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 未知 TROJAN-792 | free-nodes | 84ms
   type: trojan
-  server: 216.238.94.42
-  port: 19939
-  password: z-H_x58nS=VUaw.o
-  sni: xuhyqrwofidgl.zwodhfgqaps.click
+  server: 198.57.27.27
+  port: 12990
+  password: 6pRjKQJ0CWyFtG.9
+  sni: diningtable.electricbanana.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 🇺🇸 美国 | USA 37_1 | 84ms
+  server: 104.192.226.106
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇺🇸 美国 | USA 15_9 | 84ms
+  server: b6a97066-t5gv40-te0r6o-1r7vv.los.gotochinatown.net
+  port: 443
+  type: http
+  username: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
+  password: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] 🇺🇸 US-9478 | 86ms'
+  type: vmess
+  server: 38.14.99.163
+  port: 59807
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇨🇦 加拿大 | CAN 2_3 | 87ms
+  server: cdnjs.com
+  port: 443
+  type: vless
+  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
+  tls: true
+  tfo: false
+  skip-cert-verify: true
+  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] 🇺🇸 US-9563 | 88ms'
+  type: vmess
+  server: 38.84.201.21
+  port: 53487
+  uuid: c3c1ec05-df2c-4975-9b42-e9b007564eb1
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9581 | 88ms'
+  type: vmess
+  server: 38.84.201.21
+  port: 53487
+  uuid: c3c1ec05-df2c-4975-9b42-e9b007564eb1
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: US_54d62_0007 | 88ms
+  server: 38.14.99.179
+  port: 59807
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: true
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- name: US_54d62_0011 | 88ms
+  server: 38.14.99.163
+  port: 59807
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: true
+  servername: 38.14.99.163
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- name: '[OpenRay] 🇺🇸 US-9678 | 89ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9472 | 90ms'
+  type: vmess
+  server: 38.14.99.163
+  port: 59807
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9677 | 90ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇺🇸 美国 | USA 18_10 | 90ms
+  server: 5ce39688-t5jc00-t6ztiq-er4w.sjcdc2.cdnbytescm.com
+  port: 3443
+  type: http
+  username: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
+  password: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] 🇺🇸 US-9473 | 91ms'
+  type: vmess
+  server: 38.14.99.179
+  port: 59807
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇨🇦 CA-7340 | 92ms'
+  type: vless
+  server: 104.24.196.20
+  port: 443
+  uuid: ebc207b1-3024-4484-b7f6-0d68a10ae8b1
+  network: ws
+  servername: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /ws
+    headers:
+      Host: rAyAn-cOnFiG-ca-1.pArSa.dPdNs.oRg
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9679 | 92ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 未知 TROJAN-1316 | free-nodes | 93ms
+  type: trojan
+  server: 38.96.254.102
+  port: 18509
+  password: .ie4rghJuMkcf0oF
+  sni: shoppingmall.electricbanana.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: '[OpenRay] 🇺🇸 US-9442 | 94ms'
+  type: vmess
+  server: 38.14.99.179
+  port: 59807
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: raw
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9641 | 94ms'
+  type: vmess
+  server: 38.14.99.163
+  port: 59807
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9684 | 96ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇩🇪 德国 | DEU 7_2 | 98ms
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: true
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🪝47@oneclickvpnkeys | 101ms
+  password: dongtaiwang.com
+  port: 22222
+  server: 208.87.243.187
+  skip-cert-verify: true
+  sni: 🔒
+  tls: false
+  type: hysteria2
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+- name: '[OpenRay] 🇬🇧 GB-982 | 103ms'
+  type: vmess
+  server: 57.129.132.223
+  port: 80
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: google.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7235 | 104ms'
+  type: vmess
+  server: wlf4wr.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: wlf4wr.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/wg3334.m3u8
+    headers:
+      Host: wlf4wr.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-9598 | 105ms'
+  type: vmess
+  server: wlf4wr.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: wlf4wr.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/wg3334.m3u8
+    headers:
+      Host: wlf4wr.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇨🇦 CA-7406 | 106ms'
+  type: vmess
+  server: 51.79.102.253
+  port: 80
+  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /IOebhLMhl1CTbFHbL95myfRX2
+    headers:
+      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 9|🔴72@oneclickvpnkeys | 108ms
+  type: hysteria2
+  server: 314908c1-t53wg0-tdcdb7-1k27l.us.hyhuawei.com
+  port: 443
+  password: ba4b1f2e-c985-11ed-9c0c-f23c913c8d2b
+  sni: 314908c1-t53wg0-tdcdb7-1k27l.us.hyhuawei.com
   skip-cert-verify: true
   udp: true
   tls: false
   network: tcp
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+  source: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt
 - name: '[OpenRay] Dynamic-5061 | 108ms'
   type: vless
   server: us2.candyfans.win
@@ -774,21 +771,7 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 4_12 | 110ms
-  server: 74.117.196.232
-  port: 37934
-  type: vmess
-  uuid: 6d600864-32da-49fd-baf4-7df051762454
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /speedtest
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇲🇽 MX-4 | 113ms'
+- name: '[OpenRay] 🇲🇽 MX-6 | 112ms'
   type: trojan
   server: 216.238.94.42
   port: 19939
@@ -799,90 +782,7 @@ proxies:
   tls: false
   network: tcp
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7235 | 116ms'
-  type: vmess
-  server: wlf4wr.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: wlf4wr.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/wg3334.m3u8
-    headers:
-      Host: wlf4wr.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 28_7 | 118ms
-  server: c502f48f-t64xs0-tfj0we-u6bc.se.oshuawei.com
-  port: 443
-  type: http
-  username: 21747146-3507-11ed-bb74-f23c9164ca5d
-  password: 21747146-3507-11ed-bb74-f23c9164ca5d
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 22_12 | 118ms
-  server: e56402e7-t5jc00-t6ztiq-er4w.seadc2.cdnbytescm.com
-  port: 3443
-  type: http
-  username: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  password: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 9|🪝47@oneclickvpnkeys | 120ms
-  type: hysteria2
-  server: 208.87.243.187
-  port: 22222
-  password: dongtaiwang.com
-  sni: 208.87.243.187
-  skip-cert-verify: true
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt
-- name: '[OpenRay] 🇲🇽 MX-5 | 120ms'
-  type: trojan
-  server: 216.238.94.42
-  port: 19939
-  password: z-H_x58nS=VUaw.o
-  sni: xuhyqrwofidgl.zwodhfgqaps.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 37_7 | 120ms
-  server: 8654a078-t5bb40-tg010c-1r7od.se.oshuawei.com
-  port: 443
-  type: http
-  username: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
-  password: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 9_6 | 122ms
-  server: 5c57d8c6-t5gv40-te0r6o-1r7vv.se.oshuawei.com
-  port: 443
-  type: http
-  username: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
-  password: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 20_6 | 123ms
+- name: 🇺🇸 美国 | USA 20_6 | 118ms
   server: bef156b9-t5kkg0-tdhz1n-1m952.se.oshuawei.com
   port: 443
   type: http
@@ -893,119 +793,40 @@ proxies:
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-9598 | 124ms'
-  type: vmess
-  server: wlf4wr.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: wlf4wr.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/wg3334.m3u8
-    headers:
-      Host: wlf4wr.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7354 | 124ms'
-  type: vmess
-  server: e1kv7p.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: e1kv7p.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/gmygmacy.m3u8
-    headers:
-      Host: e1kv7p.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇬🇧 英国 | GBR 4_5 | 124ms
-  server: dc5fd1ae-t64xs0-tfjz9x-1t5n1.uk.oshuawei.com
+- name: 🇺🇸 美国 | USA 9_6 | 120ms
+  server: 5c57d8c6-t5gv40-te0r6o-1r7vv.se.oshuawei.com
   port: 443
   type: http
-  username: ea800f9e-ca6c-11ef-8e74-f23c913c8d2b
-  password: ea800f9e-ca6c-11ef-8e74-f23c913c8d2b
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇬🇧 英国 | GBR 3_10 | 124ms
-  server: 2d10cb83-t64xs0-tfj0we-u6bc.uk.oshuawei.com
-  port: 443
-  type: http
-  username: 21747146-3507-11ed-bb74-f23c9164ca5d
-  password: 21747146-3507-11ed-bb74-f23c9164ca5d
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇬🇧 英国 | GBR 2_17 | 124ms
-  server: 75f0b4cf-t5kkg0-tdhz1n-1m952.uk.oshuawei.com
-  port: 443
-  type: http
-  username: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
-  password: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
+  username: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
+  password: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
   tls: true
   udp: true
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇬🇧 英国 | GBR 3_9 | 125ms
-  server: c4dafe88-t5bb40-tg010c-1r7od.uk.oshuawei.com
-  port: 443
+- name: 🇺🇸 美国 | USA 22_12 | 120ms
+  server: e56402e7-t5jc00-t6ztiq-er4w.seadc2.cdnbytescm.com
+  port: 3443
   type: http
-  username: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
-  password: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
+  username: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
+  password: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
   tls: true
-  skip-cert-verify: true
   udp: true
+  skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7241 | 127ms'
-  type: vmess
-  server: 9vh6tr.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 9vh6tr.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/ha440.m3u8
-    headers:
-      Host: 9vh6tr.zeeoomboom.de
+- name: 🇨🇦 加拿大 | CAN 2_1 | 122ms
+  server: 45.154.204.7
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
   udp: true
+  tls: false
   skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-9617 | 129ms'
-  type: vmess
-  server: 9vh6tr.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: 9vh6tr.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/ha440.m3u8
-    headers:
-      Host: 9vh6tr.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇬🇧 英国 | GBR 2_13 | 130ms
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇬🇧 英国 | GBR 2_13 | 123ms
   server: e327efa1-t5gv40-te0r6o-1r7vv.uk.oshuawei.com
   port: 443
   type: http
@@ -1016,18 +837,34 @@ proxies:
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 未知 SS-120 | free-nodes | 132ms
-  type: ss
-  server: 193.29.139.140
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇬🇧 英国 | GBR 2_17 | 123ms
+  server: 75f0b4cf-t5kkg0-tdhz1n-1m952.uk.oshuawei.com
+  port: 443
+  type: http
+  username: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
+  password: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
+  tls: true
   udp: true
-  tls: false
   skip-cert-verify: false
   network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] Dynamic-6900 | 132ms'
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] 🇺🇸 US-9658 | 124ms'
+  type: vmess
+  server: v2ray.codefyinc.com
+  port: 443
+  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vmessws
+    headers:
+      Host: v2ray.codefyinc.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6900 | 125ms'
   type: vmess
   server: ctm0s3.zeeoomboom.de
   port: 443
@@ -1044,7 +881,37 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7329 | 132ms'
+- grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON
+  name: fr|51ea|puddincat07@Telegram | 125ms
+  network: grpc
+  port: 33919
+  server: 141.227.162.151
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  uuid: 9eee43b5-6b7d-494a-a5b3-fb45b7ee4976
+  udp: true
+  source: https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml
+- name: '[OpenRay] Dynamic-9617 | 126ms'
+  type: vmess
+  server: 9vh6tr.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 9vh6tr.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/ha440.m3u8
+    headers:
+      Host: 9vh6tr.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7329 | 128ms'
   type: vmess
   server: e1kv7p.zeeoomboom.de
   port: 443
@@ -1061,172 +928,72 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- cipher: chacha20-ietf-poly1305
-  name: lt|90d1|puddincat07@Telegram | 132ms
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 45.87.175.155
-  type: ss
+- name: '[OpenRay] Dynamic-7354 | 128ms'
+  type: vmess
+  server: e1kv7p.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: e1kv7p.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/gmygmacy.m3u8
+    headers:
+      Host: e1kv7p.zeeoomboom.de
   udp: true
-  tls: false
   skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml
-- name: 🇱🇹 立陶宛 | LTU 5 | 132ms
-  server: 45.87.175.164
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 最高200元终身无限流量 | 128ms
+  type: vless
+  server: 69.84.182.13
+  port: 443
+  uuid: 04f3ed37-bfd4-46d3-b4eb-e62d1f32b6f9
   udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇱🇹 立陶宛 | LTU 2_1 | 132ms
-  server: 45.87.175.154
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 1RWwXhwfAB5gAEozU4G2Pg
+  tls: true
+  skip-cert-verify: null
+  flow: ''
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /kbjc/fr1
+    headers:
+      Host: fr-1-fr-1.aiopen.sbs
+  alterId: 0
+  cipher: ''
+  source: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+- name: '[OpenRay] Dynamic-7337 | 130ms'
+  type: vmess
+  server: ifwtt1.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: ifwtt1.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/icsckzl.m3u8
+    headers:
+      Host: ifwtt1.zeeoomboom.de
   udp: true
-  tls: false
   skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇮🇷_IR_伊朗->🇰🇷_KR_韩国 | 132ms
-  type: ss
-  server: 151.242.251.144
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: US_54d62_0010 | 131ms
+  server: 38.14.99.179
+  port: 59807
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: true
+  servername: 38.14.99.179
   udp: true
-  tls: false
-  skip-cert-verify: false
   network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰_1 | 132ms
-  type: ss
-  server: 151.242.251.133
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇳🇱 荷兰 | NLD 3_4 | 132ms
-  server: 82.38.31.194
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇳🇱 荷兰 | NLD 4_4 | 132ms
-  server: 82.38.31.218
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇱🇹 立陶宛 | LTU_1 | 132ms
-  server: 45.87.175.199
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 4a2rfixophdjffa8KVA4Aa
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇩🇪_DE_德国_3 | 132ms
-  type: ss
-  server: 45.87.175.197
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇱🇹 立陶宛 | LTU 4 | 132ms
-  server: 45.87.175.166
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇮🇷_IR_伊朗 | 132ms
-  type: ss
-  server: 151.242.251.152
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇳🇱 荷兰 | NLD 2_2 | 132ms
-  server: 82.38.31.214
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇳🇱 荷兰 | NLD 7_1 | 133ms
-  server: 82.38.31.199
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇳🇱 荷兰 | NLD_6 | 133ms
-  server: 82.38.31.202
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰 | 133ms
-  type: ss
-  server: 151.242.251.142
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7351 | 134ms'
+  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- name: '[OpenRay] Dynamic-7351 | 132ms'
   type: vmess
   server: fdxad3.teeoomboom.de
   port: 443
@@ -1243,7 +1010,23 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9473 | 134ms'
+- name: '[OpenRay] 🇺🇸 US-3354 | 132ms'
+  type: vless
+  server: 104.17.147.22
+  port: 443
+  uuid: 5ec3a039-ea63-4bf9-a848-a65c9bfa66f5
+  network: ws
+  servername: gb-8981.shenzogmbh.com
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /api/v1
+    headers:
+      Host: gb-8981.shenzogmbh.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9518 | 132ms'
   type: vmess
   server: 38.14.99.179
   port: 59807
@@ -1255,7 +1038,18 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇲🇽 MX-6 | 134ms'
+- name: '[OpenRay] 🇲🇽 MX-3 | 132ms'
+  type: trojan
+  server: 216.238.94.42
+  port: 19939
+  password: z-H_x58nS=VUaw.o
+  sni: xuhyqrwofidgl.zwodhfgqaps.click
+  skip-cert-verify: true
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇲🇽 MX-5 | 132ms'
   type: trojan
   server: 216.238.94.42
   port: 19939
@@ -1266,56 +1060,235 @@ proxies:
   tls: false
   network: tcp
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 34_8 | 134ms
-  server: 6a8c4469-t64xs0-tfj0we-u6bc.sjc.oshuawei.com
-  port: 443
-  type: http
-  username: 21747146-3507-11ed-bb74-f23c9164ca5d
-  password: 21747146-3507-11ed-bb74-f23c9164ca5d
-  tls: true
-  skip-cert-verify: true
+- name: 未知 SS-74 | free-nodes | 132ms
+  type: ss
+  server: 109.71.246.210
+  port: 56689
+  cipher: chacha20-ietf-poly1305
+  password: YQCSKoCF3QazW8YlvDBWA4
   udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 🇩🇪_DE_德国_5 | 132ms
+  type: ss
+  server: 45.87.175.174
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇳🇱 荷兰 | NLD 7_2 | 132ms
+  server: 45.87.175.168
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7342 | 133ms'
+  type: vmess
+  server: fdxad3.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: fdxad3.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/23ktkxm.m3u8
+    headers:
+      Host: fdxad3.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰_1 | 133ms
+  type: ss
+  server: 151.242.251.133
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7035 | 134ms'
+  type: vless
+  server: ipw.gfdv54cvghhgfhgj-njhgj64.info
+  port: 443
+  uuid: 5ec3a039-ea63-4bf9-a848-a65c9bfa66f5
+  network: ws
+  servername: gb-8981.shenzogmbh.com
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /api/v1
+    headers:
+      Host: gb-8981.shenzogmbh.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7241 | 134ms'
+  type: vmess
+  server: 9vh6tr.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 9vh6tr.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/ha440.m3u8
+    headers:
+      Host: 9vh6tr.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7346 | 134ms'
+  type: vmess
+  server: nm7386.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: nm7386.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/2upvxla.m3u8
+    headers:
+      Host: nm7386.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7372 | 134ms'
+  type: vmess
+  server: fdxad3.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: fdxad3.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/23ktkxm.m3u8
+    headers:
+      Host: fdxad3.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7417 | 134ms'
+  type: vmess
+  server: nm7386.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: nm7386.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/2upvxla.m3u8
+    headers:
+      Host: nm7386.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7416 | 134ms'
+  type: vmess
+  server: nm7386.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: nm7386.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/2upvxla.m3u8
+    headers:
+      Host: nm7386.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7418 | 134ms'
+  type: vmess
+  server: ifwtt1.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: ifwtt1.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/icsckzl.m3u8
+    headers:
+      Host: ifwtt1.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7420 | 134ms'
+  type: vmess
+  server: fdxad3.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: fdxad3.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/23ktkxm.m3u8
+    headers:
+      Host: fdxad3.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-4481 | 134ms'
+  type: vless
+  server: 104.17.148.22
+  port: 443
+  uuid: 5ec3a039-ea63-4bf9-a848-a65c9bfa66f5
+  network: ws
+  servername: gb-8981.shenzogmbh.com
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /api/v1
+    headers:
+      Host: gb-8981.shenzogmbh.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇲🇽 MX-4 | 134ms'
+  type: trojan
+  server: 216.238.94.42
+  port: 19939
+  password: z-H_x58nS=VUaw.o
+  sni: xuhyqrwofidgl.zwodhfgqaps.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
 - name: 🇩🇪_DE_德国_2 | 134ms
   type: ss
   server: 45.87.175.193
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: cvII85TrW6n0OGyfpHVS1u
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 18_10 | 134ms
-  server: 5ce39688-t5jc00-t6ztiq-er4w.sjcdc2.cdnbytescm.com
-  port: 3443
-  type: http
-  username: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  password: 4d71ba6e-bc82-11f0-9a19-f23c9313b177
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇱🇹 立陶宛 | LTU 2_2 | 134ms
-  server: 45.87.175.181
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇩🇪_DE_德国_5 | 134ms
-  type: ss
-  server: 45.87.175.174
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
   tls: false
   skip-cert-verify: false
@@ -1332,21 +1305,10 @@ proxies:
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇱🇹 立陶宛 | LTU 3_1 | 134ms
-  server: 45.87.175.192
-  port: 8080
+- name: 🇮🇷_IR_伊朗 | 134ms
   type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 1RWwXhwfAB5gAEozU4G2Pg
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇳🇱 荷兰 | NLD 6_4 | 134ms
-  server: 82.38.31.205
+  server: 151.242.251.152
   port: 8080
-  type: ss
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
@@ -1354,41 +1316,35 @@ proxies:
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇳🇱 荷兰 | NLD 7_2 | 134ms
-  server: 45.87.175.168
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇺🇸 US-9472 | 135ms'
+- name: '[OpenRay] Dynamic-7419 | 135ms'
   type: vmess
-  server: 38.14.99.163
-  port: 59807
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  server: ifwtt1.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
-  tls: false
-  network: tcp
+  tls: true
+  servername: ifwtt1.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/icsckzl.m3u8
+    headers:
+      Host: ifwtt1.zeeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 未知 TROJAN-1316 | free-nodes | 136ms
-  type: trojan
-  server: 38.96.254.102
-  port: 18509
-  password: .ie4rghJuMkcf0oF
-  sni: shoppingmall.electricbanana.click
-  skip-cert-verify: false
+- name: 🇮🇷_IR_伊朗->🇰🇷_KR_韩国 | 135ms
+  type: ss
+  server: 151.242.251.144
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
   udp: true
   tls: false
+  skip-cert-verify: false
   network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] Dynamic-9616 | 136ms'
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-9591 | 136ms'
   type: vmess
   server: v0fmx1.zeeoomboom.de
   port: 443
@@ -1406,254 +1362,6 @@ proxies:
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
 - name: '[OpenRay] Dynamic-7344 | 136ms'
-  type: vless
-  server: serena.ns.cloudflare.com
-  port: 443
-  uuid: f028a8c0-6763-4558-aee3-2563db9d7825
-  network: ws
-  servername: freudd.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /xxvclws
-    headers:
-      Host: freudd.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7352 | 136ms'
-  type: vmess
-  server: nm7386.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: nm7386.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/2upvxla.m3u8
-    headers:
-      Host: nm7386.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7353 | 136ms'
-  type: vmess
-  server: v0fmx1.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: v0fmx1.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/gx8t1e1v.m3u8
-    headers:
-      Host: v0fmx1.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-4481 | 136ms'
-  type: vless
-  server: 104.17.148.22
-  port: 443
-  uuid: 5ec3a039-ea63-4bf9-a848-a65c9bfa66f5
-  network: ws
-  servername: gb-8981.shenzogmbh.com
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /api/v1
-    headers:
-      Host: gb-8981.shenzogmbh.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: US_48918_0011 | 136ms
-  server: 38.14.99.163
-  port: 59807
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: true
-  servername: 38.14.99.163
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-- name: 🇺🇸 美国 | USA 44_5 | 136ms
-  server: 7d34f841-t5bb40-tg010c-1r7od.los.gotochinatown.net
-  port: 443
-  type: http
-  username: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
-  password: 6d56436c-150d-11f0-b0c8-f23c913c8d2b
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇫🇷 法国 | FRA 8_2 | 136ms
-  server: 91.134.8.101
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: linkvws
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇫🇷 法国 | FRA 3_9 | 136ms
-  server: 195.154.119.77
-  port: 989
-  type: ss
-  cipher: aes-256-cfb
-  password: f8f7aCzcPKbsF8p3
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7346 | 137ms'
-  type: vless
-  server: norman.ns.cloudflare.com
-  port: 443
-  uuid: ee122f13-9b54-49b6-abc5-aa47b464fdb3
-  network: ws
-  servername: azizoarjmand.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /yhowcws
-    headers:
-      Host: azizoarjmand.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9402 | 137ms'
-  type: vmess
-  server: 38.14.99.163
-  port: 59807
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: raw
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 未知 SS-53 | free-nodes | 138ms
-  type: ss
-  server: 145.249.109.148
-  port: 16548
-  cipher: chacha20-ietf-poly1305
-  password: ge0S0k9UQZuJS4N5pEH80E
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] Dynamic-7265 | 138ms'
-  type: vless
-  server: norman.ns.cloudflare.com
-  port: 443
-  uuid: bf2ef07d-f680-4c0c-a729-0808d23efeec
-  network: ws
-  servername: 639003338959744562.wrangler-amsis.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /iypdukws
-    headers:
-      Host: 639003338959744562.wrangler-amsis.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7346 | 138ms'
-  type: vmess
-  server: nm7386.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: nm7386.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/2upvxla.m3u8
-    headers:
-      Host: nm7386.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-3354 | 138ms'
-  type: vless
-  server: 104.17.147.22
-  port: 443
-  uuid: 5ec3a039-ea63-4bf9-a848-a65c9bfa66f5
-  network: ws
-  servername: gb-8981.shenzogmbh.com
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /api/v1
-    headers:
-      Host: gb-8981.shenzogmbh.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  down: 55 Mbps
-  name: France_None_hysteria_71 | 138ms
-  port: 50011
-  protocol: udp
-  server: 62.210.10.186
-  skip-cert-verify: true
-  sni: apple.com
-  type: hysteria
-  up: 11 Mbps
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '@V2rayNGVPN <= کانفیگ رایگان #2 | 138ms'
-  obfs: salamander
-  obfs-password: Telegram-->@Ln2Ray
-  password: Telegram-->@Ln2Ray
-  port: 45000
-  server: gavazn.lnmarketplace.net
-  skip-cert-verify: true
-  sni: gavazn.55994421.xyz
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '[OpenRay] Dynamic-9671 | 140ms'
-  type: vless
-  server: delilah.ns.cloudflare.com
-  port: 443
-  uuid: d37d61da-e50d-4f7f-9969-7f0136f97953
-  network: ws
-  servername: hazmkardan.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /fwgisws
-    headers:
-      Host: hazmkardan.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-9674 | 140ms'
   type: vmess
   server: ifwtt1.zeeoomboom.de
   port: 443
@@ -1670,59 +1378,351 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '🇳🇱 - NL - @freeOnlineVPN #11 | 140ms'
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
-  password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  port: 35000
-  server: 206.71.158.41
-  skip-cert-verify: true
-  sni: api.kermanshahi.org
-  tls: false
-  type: hysteria2
+- name: '[OpenRay] Dynamic-9670 | 136ms'
+  type: vless
+  server: brenna.ns.cloudflare.com
+  port: 443
+  uuid: 1b2c91ab-f6c9-42f8-b2c6-8de0ac133d63
+  network: ws
+  servername: terazhedi.info
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /sghiyws
+    headers:
+      Host: terazhedi.info
   udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '🇳🇱 - NL - @freeOnlineVPN #13 | 140ms'
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
-  password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  port: 35000
-  server: dir.cybsecguru.com
   skip-cert-verify: false
-  sni: api.kermanshahi.org
-  tls: false
-  type: hysteria2
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7349 | 136ms'
+  type: vmess
+  server: nm7386.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: nm7386.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/2upvxla.m3u8
+    headers:
+      Host: nm7386.teeoomboom.de
   udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '🇳🇱 - NL - @freeOnlineVPN #14 | 140ms'
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
-  password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  port: 35000
-  server: dir.cybsecguru.com
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-9679 | 136ms'
+  type: vmess
+  server: ifwtt1.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: ifwtt1.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/icsckzl.m3u8
+    headers:
+      Host: ifwtt1.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9402 | 136ms'
+  type: vmess
+  server: 38.14.99.163
+  port: 59807
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: raw
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇫🇷 法国 | FRA 8_2 | 136ms
+  server: 91.134.8.101
+  port: 443
+  type: vmess
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: true
-  sni: jnir.pichondan.com
-  tls: false
-  type: hysteria2
+  network: ws
+  ws-opts:
+    path: linkvws
   udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇳🇱 荷兰 | NLD 7_1 | 136ms
+  server: 82.38.31.199
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
   network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '🇳🇱 - NL - @freeOnlineVPN #12 | 140ms'
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
-  password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  port: 35000
-  server: 206.71.158.41
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇩🇪_DE_德国_1 | 136ms
+  type: ss
+  server: 45.87.175.155
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇱🇹 立陶宛 | LTU 4 | 136ms
+  server: 45.87.175.166
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] 🇹🇷 TR-31 | 137ms'
+  type: vmess
+  server: 45.89.52.207
+  port: 39651
+  uuid: ac4c12c5-45f2-4398-a718-9983941ede2b
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: raw
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇱🇹 立陶宛 | LTU_1 | 137ms
+  server: 45.87.175.199
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇦🇪 阿联酋 | ARE | 137ms
+  server: 151.242.251.131
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7415 | 138ms'
+  type: vmess
+  server: fdxad3.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: fdxad3.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/23ktkxm.m3u8
+    headers:
+      Host: fdxad3.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇬🇧 GB-4 | SHFX | 138ms
+  type: vless
+  server: 192.0.54.114
+  port: 443
+  uuid: 00a85603-d8c6-437d-a8bd-ea521107bd87
+  network: ws
+  servername: snippet.danfeng.netlib.re
   skip-cert-verify: true
-  sni: jnir.pichondan.com
+  client-fingerprint: random
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snippet.danfeng.netlib.re
+  tls: true
+  tfo: false
+  udp: true
+  source: https://raw.githubusercontent.com/Vanic24/VPN/refs/heads/main/Filter
+- name: 未知 SS-108 | free-nodes | 138ms
+  type: ss
+  server: 178.23.190.238
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: uo7EbtqIwgZXXHmMv5LbLcOxptyPlNkh
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 最低2块钱1000G流量 | 138ms
+  server: 134.195.101.191
+  port: 35000
+  ports: 35000-39000
+  mport: 35000-39000
+  udp: true
+  skip-cert-verify: true
+  sni: www.apple.com
+  type: hysteria2
+  password: 04f3ed37-bfd4-46d3-b4eb-e62d1f32b6f9
+  auth: ''
+  fast-open: false
+  servername: www.apple.com
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg
+- name: 🇩🇪 德国 | DEU 3_1 | 138ms
+  server: 104.24.200.154
+  port: 443
+  type: vless
+  uuid: a6ef9041-912c-4775-a5af-162b3636a888
+  tls: true
+  tfo: false
+  skip-cert-verify: true
+  servername: kyvless.pages.dev
+  client-fingerprint: random
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: kyvless.pages.dev
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇱🇹 立陶宛 | LTU 5 | 138ms
+  server: 45.87.175.164
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇳🇱 荷兰 | NLD 2_2 | 138ms
+  server: 82.38.31.214
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇭🇷 克罗地亚 | HRV | 138ms
+  server: 185.156.110.92
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: gXOXk2FJwsz9P6nXIICuDNOqF9gWX1dn
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7337 | 139ms'
+  type: vless
+  server: www.speedtest.net
+  port: 80
+  uuid: e3fd963e-0236-4d14-a5cc-9e89cdfa86b8
+  network: ws
+  servername: www.speedtest.net
+  flow: ''
+  tls: false
+  ws-opts:
+    path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
+    headers:
+      Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '🇳🇱@FreakConfig #1 | 139ms'
+  obfs: salamander
+  obfs-password: Telegram-->@Ln2Ray
+  password: Telegram-->@Ln2Ray
+  port: 45000
+  server: 206.71.158.23
+  skip-cert-verify: true
+  sni: gavazn.55994421.xyz
   tls: false
   type: hysteria2
   udp: true
   network: tcp
   source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '[OpenRay] Dynamic-7345 | 142ms'
+- name: 🇫🇷 法国 | FRA 6 | 139ms
+  server: 172.64.144.20
+  port: 443
+  type: vless
+  uuid: db2c8a95-f751-46e3-b05e-d2def66850fb
+  tls: true
+  tfo: false
+  skip-cert-verify: true
+  servername: ayanamirei.11160321.xyz
+  client-fingerprint: randomized
+  network: ws
+  ws-opts:
+    path: /http://37.187.124.25:8187/
+    headers:
+      Host: ayanamirei.11160321.xyz
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] 🇺🇸 US-9667 | 140ms'
+  type: vmess
+  server: 209.126.84.189
+  port: 443
+  uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vmessws
+    headers:
+      Host: 209.126.84.189
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇬🇧 GB-1 | SHFX | 140ms
+  type: vless
+  server: 37.0.6.185
+  port: 443
+  uuid: 00a85603-d8c6-437d-a8bd-ea521107bd87
+  network: ws
+  servername: snippet.danfeng.netlib.re
+  skip-cert-verify: true
+  client-fingerprint: random
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snippet.danfeng.netlib.re
+  tls: true
+  tfo: false
+  udp: true
+  source: https://raw.githubusercontent.com/Vanic24/VPN/refs/heads/main/Filter
+- name: 🇳🇱 荷兰 | NLD_6 | 140ms
+  server: 82.38.31.202
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7345 | 141ms'
   type: vless
   server: betty.ns.cloudflare.com
   port: 443
@@ -1738,61 +1738,86 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇫🇷 FR-2034 | 142ms'
+- name: '[OpenRay] Dynamic-7373 | 141ms'
   type: vmess
-  server: 5.196.29.123
-  port: 2082
-  uuid: 112ac36f-3f53-4e26-8371-d25c028e1b9a
+  server: nm7386.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
-  tls: false
+  tls: true
+  servername: nm7386.teeoomboom.de
   network: ws
   ws-opts:
-    path: /
+    path: /video/2upvxla.m3u8
     headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+      Host: nm7386.teeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '🇳🇱 - NL - @freeOnlineVPN #7 | 142ms'
-  obfs: salamander
-  obfs-password: Yet-Another-Public-Config-1
-  password: Yet-Another-Public-Config-1
-  port: 36400
-  server: 206.71.158.37
-  skip-cert-verify: true
-  sni: YAPC-1.afshin.ir
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '🇩🇪 - DE - @freeOnlineVPN #3 | 142ms'
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
-  password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  port: 35000
-  server: 77.90.41.197
-  skip-cert-verify: true
-  sni: jnir.pichondan.com
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '[OpenRay] Dynamic-7035 | 143ms'
+- name: '[OpenRay] Dynamic-7264 | 142ms'
   type: vless
-  server: ipw.gfdv54cvghhgfhgj-njhgj64.info
+  server: cosmin.ns.cloudflare.com
   port: 443
-  uuid: 5ec3a039-ea63-4bf9-a848-a65c9bfa66f5
+  uuid: 4f590914-6d75-4f1d-a361-2fddb3cdf669
   network: ws
-  servername: gb-8981.shenzogmbh.com
+  servername: 639003456256484486.giulia-amsis.info
   flow: ''
   tls: true
   ws-opts:
-    path: /api/v1
+    path: /ccemutws
     headers:
-      Host: gb-8981.shenzogmbh.com
+      Host: 639003456256484486.giulia-amsis.info
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 未知 SS-120 | free-nodes | 142ms
+  type: ss
+  server: 193.29.139.140
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: 🇳🇱 荷兰 | NLD 3_6 | 142ms
+  server: 82.38.31.179
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇧🇬 保加利亚 | BGR | 142ms
+  server: 95.164.10.228
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: SDaFISr3Gfm6YkBSSrFIEwwWjEEU7Xbo
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7278 | 143ms'
+  type: vmess
+  server: 0g0ub8.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 0g0ub8.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/z7xqpktt.m3u8
+    headers:
+      Host: 0g0ub8.zeeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
@@ -1813,357 +1838,35 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '@V2rayNGVPN <= کانفیگ رایگان | 143ms'
-  obfs: salamander
-  obfs-password: Telegram-->@Ln2Ray
-  password: Telegram-->@Ln2Ray
-  port: 45000
-  server: 206.71.158.23
-  skip-cert-verify: true
-  sni: gavazn.55994421.xyz
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '🇳🇱 - NL - @freeOnlineVPN #4 | 143ms'
-  obfs: salamander
-  obfs-password: Yet-Another-Public-Config-1
-  password: Yet-Another-Public-Config-1
-  port: 35000
-  server: 206.71.158.37
-  skip-cert-verify: true
-  sni: YAPC-1.afshin.ir
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: 🇩🇪 德国 | DEU_16 | 143ms
-  server: de-2.shvurgceo.online
-  port: 38395
-  type: vless
-  uuid: 0f8e2cfc-fdf2-46c7-bfcd-ce8273d5ff13
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: true
-  reality-opts:
-    public-key: DvKMFkm82Jkp6Jk_7pXYb0fMXq1MsLMNxDeQfcCSbEA
-    short-id: ab12cd34
-  servername: vk.com
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 未知 SS-108 | free-nodes | 144ms
+- name: 🇳🇱 荷兰 | NLD 4_4 | 143ms
+  server: 82.38.31.218
+  port: 8080
   type: ss
-  server: 178.23.190.238
-  port: 443
   cipher: chacha20-ietf-poly1305
-  password: uo7EbtqIwgZXXHmMv5LbLcOxptyPlNkh
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
   tls: false
   skip-cert-verify: false
   network: tcp
-  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-- name: '[OpenRay] Dynamic-9591 | 144ms'
-  type: vmess
-  server: v0fmx1.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: v0fmx1.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/gx8t1e1v.m3u8
-    headers:
-      Host: v0fmx1.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7354 | 144ms'
-  type: vless
-  server: clyde.ns.cloudflare.com
-  port: 443
-  uuid: 02e46039-200d-4ae4-ac90-b0d619f72034
-  network: ws
-  servername: redlabell.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /aafeuws
-    headers:
-      Host: redlabell.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7346 | 144ms'
-  type: vmess
-  server: j4658e.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: j4658e.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/k0uzb.m3u8
-    headers:
-      Host: j4658e.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7349 | 144ms'
-  type: vmess
-  server: nm7386.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: nm7386.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/2upvxla.m3u8
-    headers:
-      Host: nm7386.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9518 | 144ms'
-  type: vmess
-  server: 38.14.99.179
-  port: 59807
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇫🇷 FR-2031 | 144ms'
-  type: vless
-  server: 51.91.98.254
-  port: 4655
-  uuid: f3a4585f-0c2d-4ff9-85a4-94cb1cd19a47
-  network: tcp
-  servername: 51.91.98.254
-  flow: ''
-  tls: false
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '🇳🇱 - NL - @freeOnlineVPN #6 | 144ms'
-  obfs: salamander
-  obfs-password: Yet-Another-Public-Config-1
-  password: Yet-Another-Public-Config-1
-  port: 36300
-  server: 206.71.158.37
-  skip-cert-verify: true
-  sni: YAPC-1.afshin.ir
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: 🇫🇷 法国 | FRA 6 | 144ms
-  server: 172.64.144.20
-  port: 443
-  type: vless
-  uuid: db2c8a95-f751-46e3-b05e-d2def66850fb
-  tls: true
-  tfo: false
-  skip-cert-verify: true
-  servername: ayanamirei.11160321.xyz
-  client-fingerprint: randomized
-  network: ws
-  ws-opts:
-    path: /http://37.187.124.25:8187/
-    headers:
-      Host: ayanamirei.11160321.xyz
-  udp: true
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇫🇷 法国 | FRA 2_3 | 144ms
-  server: 185.193.17.80
-  port: 2066
-  type: vless
-  uuid: 44830663-914e-4127-a9b3-412406f59cbe
+- name: 🇩🇪 德国 | DEU 12_1 | 143ms
+  server: efac35a1-t5kkg0-tdhz1n-1m952.de.oshuawei.com
+  port: 443
+  type: http
+  username: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
+  password: ae992e0c-b9ea-11f0-bf55-f23c913c8d2b
   tls: true
-  tfo: false
-  skip-cert-verify: true
-  reality-opts:
-    public-key: -Z0BnqW2MHBXjDsB2a8-KPfg8GqTO1uIPXriHQAMhSY
-    short-id: 6b245ab1
-  servername: yahoo.com
-  client-fingerprint: firefox
-  network: tcp
   udp: true
+  skip-cert-verify: false
+  network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7238 | 145ms'
-  type: vmess
-  server: jad5r7.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: jad5r7.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/6yx0j.m3u8
-    headers:
-      Host: jad5r7.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7342 | 146ms'
-  type: vmess
-  server: fdxad3.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: fdxad3.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/23ktkxm.m3u8
-    headers:
-      Host: fdxad3.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7344 | 146ms'
-  type: vmess
-  server: ifwtt1.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: ifwtt1.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/icsckzl.m3u8
-    headers:
-      Host: ifwtt1.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-9673 | 146ms'
-  type: vmess
-  server: ifwtt1.zeeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: ifwtt1.zeeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/icsckzl.m3u8
-    headers:
-      Host: ifwtt1.zeeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '💎کانفیگ های بیشتر در چنل تلگرا... #2 | 146ms'
-  obfs: salamander
-  obfs-password: Yet-Another-Public-Config-1
-  password: Yet-Another-Public-Config-1
-  port: 36600
-  server: yapc-1.adamhayward.co.uk
-  skip-cert-verify: false
-  sni: YAPC-1.afshin.ir
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: 🇳🇱 荷兰 | NLD 7_4 | 146ms
-  server: 195.211.124.230
-  port: 34045
+- name: '[OpenRay] Dynamic-117 | 144ms'
   type: vless
-  uuid: d8dd94fd-540e-461d-b5d4-acebef02c22a
-  tls: true
-  tfo: false
-  skip-cert-verify: true
-  reality-opts:
-    public-key: cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA
-    short-id: e8ab71d0
-  servername: visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] 🇸🇪 SE-2607 | 147ms'
-  type: trojan
-  server: 70.34.218.149
-  port: 11930
-  password: BaeSzHdfJIR13l67
-  sni: softpillow.silentrocket.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇸🇪 SE-2616 | 147ms'
-  type: trojan
-  server: 70.34.218.149
-  port: 11930
-  password: BaeSzHdfJIR13l67
-  sni: softpillow.silentrocket.click
-  skip-cert-verify: false
-  udp: true
-  tls: false
-  network: tcp
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇫🇮 FI-126 | 147ms'
-  type: vmess
-  server: free.best-antiaging-reviews.com
-  port: 2053
-  uuid: 095ee315-a14c-4bf7-8bcb-568392415e26
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: free.best-antiaging-reviews.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ''
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇬🇧 GB-2 | SHFX | 148ms
-  type: vless
-  server: 37.0.6.59
-  port: 443
-  uuid: 00a85603-d8c6-437d-a8bd-ea521107bd87
-  network: ws
-  servername: snippet.danfeng.netlib.re
-  skip-cert-verify: true
-  client-fingerprint: random
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snippet.danfeng.netlib.re
-  tls: true
-  tfo: false
-  udp: true
-  source: https://raw.githubusercontent.com/Vanic24/VPN/refs/heads/main/Filter
-- name: '[OpenRay] Dynamic-3176 | 148ms'
-  type: vless
-  server: linux.do
+  server: www.npmjs.com
   port: 2095
   uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
   network: ws
-  servername: linux.do
+  servername: www.npmjs.com
   flow: ''
   tls: false
   ws-opts:
@@ -2173,149 +1876,23 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-6560 | 148ms'
-  type: vmess
-  server: iafqxc.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: iafqxc.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/bavjdnea.m3u8
-    headers:
-      Host: iafqxc.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7350 | 148ms'
+- name: '[OpenRay] Dynamic-9582 | 144ms'
   type: vless
-  server: numberland.ir
-  port: 2095
-  uuid: TEL--JKVPN--JKVPN-32
+  server: brenna.ns.cloudflare.com
+  port: 443
+  uuid: 1c3019a8-7bf1-498a-b7d4-f15677f06e88
   network: ws
-  servername: numberland.ir
+  servername: 639003276456417573.touareg-amsis.info
   flow: ''
-  tls: false
+  tls: true
   ws-opts:
-    path: /TELEGRAM-BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN?ed=2048
+    path: /ldumfkws
     headers:
-      Host: joKer.mEmBerGolaBi.IR
+      Host: 639003276456417573.touareg-amsis.info
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7345 | 148ms'
-  type: vmess
-  server: d7t3ny.keeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: d7t3ny.keeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/1jcyq.m3u8
-    headers:
-      Host: d7t3ny.keeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '🇩🇪@V2RayyNGvpn🇩🇪همه اوپراتور ه... #10 | 148ms'
-  obfs: salamander
-  obfs-password: Jsbdksj@V2RayyNGvpn$Miracle
-  password: I5RKPsSYiP
-  port: 443
-  server: 91.99.225.11
-  skip-cert-verify: true
-  sni: refersion.com
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: 🇩🇪 德国 | DEU 7_1 | 148ms
-  server: 104.26.14.58
-  port: 443
-  type: vless
-  uuid: 54fdfb91-1d27-4c5a-8fb3-61e1b08b2a58
-  tls: true
-  tfo: false
-  skip-cert-verify: true
-  servername: bp.suoni.nyc.mn
-  client-fingerprint: random
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.SG.CMLiussss.net
-    headers:
-      Host: bp.suoni.nyc.mn
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 美国 | USA 15_9 | 148ms
-  server: b6a97066-t5gv40-te0r6o-1r7vv.los.gotochinatown.net
-  port: 443
-  type: http
-  username: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
-  password: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇩🇪 德国 | DEU 6_3 | 148ms
-  server: 185.121.134.113
-  port: 443
-  type: vless
-  uuid: 22eb7060-d314-49d6-9d24-5a3ee72488cd
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: true
-  reality-opts:
-    public-key: ebCoS9P5o6dm9v8Dxbe-lEuEzS-R9rPH0IaimuAIKDg
-    short-id: 25f8f93d
-  servername: torretobarbershop.de
-  client-fingerprint: firefox
-  network: tcp
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇺🇸 US-7 | SHFX | 149ms
-  type: vless
-  server: cloudflare-dl.cnae.top
-  port: 2087
-  uuid: 00a85603-d8c6-437d-a8bd-ea521107bd87
-  network: ws
-  servername: snippet.danfeng.netlib.re
-  skip-cert-verify: true
-  client-fingerprint: random
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snippet.danfeng.netlib.re
-  tls: true
-  tfo: false
-  udp: true
-  source: https://raw.githubusercontent.com/Vanic24/VPN/refs/heads/main/Filter
-- name: '[OpenRay] Dynamic-6912 | 149ms'
-  type: vmess
-  server: iafqxc.teeoomboom.de
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: iafqxc.teeoomboom.de
-  network: ws
-  ws-opts:
-    path: /video/bavjdnea.m3u8
-    headers:
-      Host: iafqxc.teeoomboom.de
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7278 | 149ms'
+- name: '[OpenRay] Dynamic-9595 | 144ms'
   type: vmess
   server: 0g0ub8.zeeoomboom.de
   port: 443
@@ -2332,7 +1909,24 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7344 | 149ms'
+- name: '[OpenRay] Dynamic-9632 | 144ms'
+  type: vmess
+  server: 0g0ub8.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 0g0ub8.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/z7xqpktt.m3u8
+    headers:
+      Host: 0g0ub8.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7344 | 144ms'
   type: vmess
   server: dqhh36.teeoomboom.de
   port: 443
@@ -2349,142 +1943,58 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇺🇸 美国 | USA 27_2 | 149ms
-  server: developers.cloudflare.com
-  port: 2095
-  type: vless
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  tls: false
-  tfo: false
-  skip-cert-verify: true
-  client-fingerprint: randomized
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: freedom.pusytroller.cf
-  udp: true
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇮🇹 意大利 | ITA_2 | 149ms
-  server: 212.102.54.45
-  port: 990
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  network: tcp
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-9317 | 150ms'
+- name: '[OpenRay] Dynamic-7358 | 144ms'
   type: vmess
-  server: 0g0ub8.zeeoomboom.de
+  server: 44m4r0.keeoomboom.de
   port: 443
   uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
-  servername: 0g0ub8.zeeoomboom.de
+  servername: 44m4r0.keeoomboom.de
   network: ws
   ws-opts:
-    path: /video/z7xqpktt.m3u8
+    path: /video/0dw5f.m3u8
     headers:
-      Host: 0g0ub8.zeeoomboom.de
+      Host: 44m4r0.keeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-9632 | 150ms'
+- name: '[OpenRay] Dynamic-7362 | 144ms'
   type: vmess
-  server: 0g0ub8.zeeoomboom.de
+  server: x3t82d.keeoomboom.de
   port: 443
   uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
-  servername: 0g0ub8.zeeoomboom.de
+  servername: x3t82d.keeoomboom.de
   network: ws
   ws-opts:
-    path: /video/z7xqpktt.m3u8
+    path: /video/nu7k9y29.m3u8
     headers:
-      Host: 0g0ub8.zeeoomboom.de
+      Host: x3t82d.keeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '💎کانفیگ های بیشتر در چنل تلگرا... #1 | 151ms'
-  obfs: salamander
-  obfs-password: Yet-Another-Public-Config-1
-  password: Yet-Another-Public-Config-1
-  port: 36300
-  server: yapc-1.adamhayward.co.uk
-  skip-cert-verify: false
-  sni: YAPC-1.afshin.ir
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '[OpenRay] 🇨🇦 CA-7014 | 152ms'
+- name: '[OpenRay] Dynamic-7364 | 144ms'
   type: vmess
-  server: 51.79.102.253
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-9595 | 152ms'
-  type: vmess
-  server: 0g0ub8.zeeoomboom.de
+  server: d7t3ny.keeoomboom.de
   port: 443
   uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   alterId: 0
   cipher: auto
   tls: true
-  servername: 0g0ub8.zeeoomboom.de
+  servername: d7t3ny.keeoomboom.de
   network: ws
   ws-opts:
-    path: /video/z7xqpktt.m3u8
+    path: /video/1jcyq.m3u8
     headers:
-      Host: 0g0ub8.zeeoomboom.de
+      Host: d7t3ny.keeoomboom.de
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7264 | 152ms'
-  type: vless
-  server: cosmin.ns.cloudflare.com
-  port: 443
-  uuid: 4f590914-6d75-4f1d-a361-2fddb3cdf669
-  network: ws
-  servername: 639003456256484486.giulia-amsis.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /ccemutws
-    headers:
-      Host: 639003456256484486.giulia-amsis.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9603 | 152ms'
-  type: vless
-  server: zorox-net.senu-zer.online
-  port: 443
-  uuid: 224629c2-342b-4e54-bb75-b56cb7dabf30
-  network: tcp
-  servername: zorox-net.senu-zer.online
-  flow: ''
-  tls: true
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '🇩🇪 - DE - @freeOnlineVPN #2 | 152ms'
+- name: '🇩🇪 - DE - @freeOnlineVPN #3 | 144ms'
   obfs: salamander
   obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
   password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
@@ -2497,218 +2007,19 @@ proxies:
   udp: true
   network: tcp
   source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: '[OpenRay] Dynamic-7364 | 153ms'
-  type: vmess
-  server: ssssssssssssfffffffgh.2032.pp.ua
-  port: 443
-  uuid: 4174b95d-115e-4d39-add6-1f8db95bb860
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: ''
-  network: ws
-  ws-opts:
-    path: /6We3U9Df1WGxgFnoFPw1
-    headers:
-      Host: ssssssssssssfffffffgh.2032.pp.ua
+- name: 🇱🇹 立陶宛 | LTU 2_1 | 144ms
+  server: 45.87.175.154
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 1RWwXhwfAB5gAEozU4G2Pg
   udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9581 | 153ms'
-  type: vmess
-  server: 38.84.201.21
-  port: 53487
-  uuid: c3c1ec05-df2c-4975-9b42-e9b007564eb1
-  alterId: 0
-  cipher: auto
   tls: false
+  skip-cert-verify: false
   network: tcp
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7166 | 154ms'
-  type: vless
-  server: clyde.ns.cloudflare.com
-  port: 443
-  uuid: 55d198a1-a5f5-4a96-9e4a-70950ea166a8
-  network: ws
-  servername: 639002442881637239.supra-amsir.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /pvoxsaws
-    headers:
-      Host: 639002442881637239.supra-amsir.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7341 | 154ms'
-  type: vless
-  server: clyde.ns.cloudflare.com
-  port: 443
-  uuid: 5ea08836-6be8-4181-ab82-0e26282aa0aa
-  network: ws
-  servername: 639004042094863199.legacy-amsit.info
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /haofzzws
-    headers:
-      Host: 639004042094863199.legacy-amsit.info
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇩🇪 DE-2334 | 154ms'
-  type: vless
-  server: ognbqqfj1a49.greendop.com
-  port: 443
-  uuid: 383c9651-cecb-45b4-8df8-2eb85057848d
-  network: ws
-  servername: ognbqqfj1a49.greendop.com
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /09hmyzvdljYpebWBPqDV7
-    headers:
-      Host: ognbqqfj1a49.greendop.com
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '🇳🇱 - NL - @freeOnlineVPN #9 | 154ms'
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
-  password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  port: 35000
-  server: 206.71.158.40
-  skip-cert-verify: false
-  sni: api.kermanshahi.org
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- name: 🪝47@oneclickvpnkeys | 154ms
-  password: dongtaiwang.com
-  port: 22222
-  server: 208.87.243.187
-  skip-cert-verify: true
-  sni: 🔒
-  tls: false
-  type: hysteria2
-  udp: true
-  network: tcp
-  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
-- grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON
-  name: fr|0d5a|puddincat07@Telegram | 154ms
-  network: grpc
-  port: 56089
-  server: 141.227.172.96
-  skip-cert-verify: false
-  tls: false
-  type: vless
-  uuid: 2d535288-d08e-4de4-b674-fd8cb3c6e4d3
-  udp: true
-  source: https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml
-- name: 🇺🇸 美国 | USA 13_1 | 155ms
-  server: 104.17.148.22
-  port: 2083
-  type: vless
-  uuid: ce035748-9913-40c9-9fb6-c8389f7cdcf3
-  tls: true
-  tfo: false
-  skip-cert-verify: true
-  servername: yousef.varzesh.dpdns.org
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: yousef.varzesh.dpdns.org
-  udp: true
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-5062 | 156ms'
-  type: vless
-  server: us1.candyfans.win
-  port: 443
-  uuid: d82baa81-c138-49fc-b81e-7ef0eb7ff063
-  network: ws
-  servername: us1.candyfans.win
-  flow: ''
-  tls: true
-  ws-opts:
-    path: /cgunws
-    headers:
-      Host: us1.candyfans.win
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7280 | 156ms'
-  type: vless
-  server: www.wto.org
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  servername: www.wto.org
-  flow: ''
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fuckingfangbinxing.pusytroller.cf
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-9669 | 156ms'
-  type: vless
-  server: usaa.fastlynew.hosting-ip.com
-  port: 80
-  uuid: 01a6e691-b436-40da-bc19-f379923c0f6e
-  network: ws
-  servername: usaa.fastlynew.hosting-ip.com
-  flow: ''
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: mojhsjd.global.ssl.fastly.net
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇺🇸 US-9675 | 156ms'
-  type: vless
-  server: 151.101.169.242
-  port: 80
-  uuid: 01a6e691-b436-40da-bc19-f379923c0f6e
-  network: ws
-  servername: 151.101.169.242
-  flow: ''
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: mojhsjd.global.ssl.fastly.net
-  udp: true
-  skip-cert-verify: false
-  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: 🇬🇧 英国 | GBR | 156ms
-  server: 141.193.213.199
-  port: 443
-  type: trojan
-  password: a544940a-2c1c-4723-96cc-d03053a95530
-  sni: 26z68w0ecxbuyf89.ukgogo202511.top
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: '%2Fimages'
-    headers:
-      Host: 26z68w0ecxbuyf89.ukgogo202511.top
-  udp: true
-  tls: false
-  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: 🇨🇦 加拿大 | CAN_3 | 156ms
-  server: 79.127.233.170
+- name: 🇫🇷 法国 | FRA 3_9 | 144ms
+  server: 195.154.119.77
   port: 989
   type: ss
   cipher: aes-256-cfb
@@ -2718,7 +2029,62 @@ proxies:
   skip-cert-verify: false
   network: tcp
   source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
-- name: '[OpenRay] Dynamic-7323 | 157ms'
+- name: 🇩🇪 德国 | DEU 5_11 | 144ms
+  server: 029c0cfa-t5gv40-te0r6o-1r7vv.de.oshuawei.com
+  port: 443
+  type: http
+  username: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
+  password: e515ce48-fdfa-11ee-9970-f23c91cfbbc9
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-9671 | 146ms'
+  type: vless
+  server: delilah.ns.cloudflare.com
+  port: 443
+  uuid: d37d61da-e50d-4f7f-9969-7f0136f97953
+  network: ws
+  servername: hazmkardan.info
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /fwgisws
+    headers:
+      Host: hazmkardan.info
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7366 | 146ms'
+  type: vmess
+  server: j4658e.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: j4658e.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/k0uzb.m3u8
+    headers:
+      Host: j4658e.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 未知 SS-37 | free-nodes | 146ms
+  type: ss
+  server: 162.19.175.40
+  port: 7425
+  cipher: chacha20-ietf-poly1305
+  password: VeUJj6HWCyDZeSaqpmf8AM
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: '[OpenRay] Dynamic-7238 | 147ms'
   type: vmess
   server: jad5r7.teeoomboom.de
   port: 443
@@ -2735,13 +2101,439 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇮🇹 IT-2 | 157ms'
+- name: '[OpenRay] 🇸🇪 SE-2616 | 147ms'
+  type: trojan
+  server: 70.34.218.149
+  port: 11930
+  password: BaeSzHdfJIR13l67
+  sni: softpillow.silentrocket.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇩🇪 德国 | DEU_16 | 147ms
+  server: de-2.shvurgceo.online
+  port: 38395
   type: vless
-  server: 151.101.241.242
+  uuid: 0f8e2cfc-fdf2-46c7-bfcd-ce8273d5ff13
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: true
+  reality-opts:
+    public-key: DvKMFkm82Jkp6Jk_7pXYb0fMXq1MsLMNxDeQfcCSbEA
+    short-id: ab12cd34
+  servername: vk.com
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-6912 | 148ms'
+  type: vmess
+  server: iafqxc.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: iafqxc.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/bavjdnea.m3u8
+    headers:
+      Host: iafqxc.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7368 | 149ms'
+  type: vmess
+  server: jl2klj.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: jl2klj.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/7mtc1f.m3u8
+    headers:
+      Host: jl2klj.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇮🇹 意大利 | ITA_2 | 149ms
+  server: 212.102.54.45
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7354 | 150ms'
+  type: vless
+  server: clyde.ns.cloudflare.com
+  port: 443
+  uuid: 02e46039-200d-4ae4-ac90-b0d619f72034
+  network: ws
+  servername: redlabell.info
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /aafeuws
+    headers:
+      Host: redlabell.info
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-208 | 150ms'
+  type: vless
+  server: 104.16.250.22
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  servername: gaosir.unfeeling.sbs
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇨🇦 加拿大 | CAN_3 | 150ms
+  server: 79.127.233.170
+  port: 989
+  type: ss
+  cipher: aes-256-cfb
+  password: f8f7aCzcPKbsF8p3
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 🇩🇪_DE_德国_1_1 | 150ms
+  type: ss
+  server: 45.87.175.177
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7346 | 151ms'
+  type: vmess
+  server: j4658e.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: j4658e.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/k0uzb.m3u8
+    headers:
+      Host: j4658e.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9469 | 151ms'
+  type: vmess
+  server: 38.84.201.21
+  port: 53487
+  uuid: c3c1ec05-df2c-4975-9b42-e9b007564eb1
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: none
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9676 | 151ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇫🇮 FI-134 | 151ms'
+  type: vmess
+  server: free.best-antiaging-reviews.com
+  port: 2053
+  uuid: 095ee315-a14c-4bf7-8bcb-568392415e26
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: free.best-antiaging-reviews.com
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ''
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: GB_54d62_0003 | 151ms
+  server: 82.198.246.97
+  port: 180
+  type: vmess
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+- name: '[OpenRay] Dynamic-7370 | 152ms'
+  type: vmess
+  server: psgs4r.zeeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: psgs4r.zeeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/3jbso.m3u8
+    headers:
+      Host: psgs4r.zeeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9683 | 152ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇩🇪 德国 | DEU 12_2 | 152ms
+  server: www.visa.cn
+  port: 443
+  type: vless
+  uuid: db2c8a95-f751-46e3-b05e-d2def66850fb
+  tls: true
+  tfo: false
+  skip-cert-verify: true
+  servername: ayanamirei.11160321.xyz
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ed=2560
+    headers:
+      Host: ayanamirei.11160321.xyz
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-7347 | 154ms'
+  type: vless
+  server: cosmin.ns.cloudflare.com
+  port: 443
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  network: ws
+  servername: picassoo.info
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassoo.info
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9681 | 154ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9682 | 154ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-9680 | 154ms'
+  type: vmess
+  server: 82.198.246.97
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '🇸🇪 - SE - @freeOnlineVPN #1 | 154ms'
+  obfs: salamander
+  obfs-password: '@JavidnamanIran-Javid-SHAH-King-Reza-Pahlavi'
+  password: 77238c49bd20e407f05e0c073ad08fdb
+  port: 989
+  server: dd.openaccessnode.com
+  skip-cert-verify: true
+  sni: dd.ircybersec.org
+  tls: false
+  type: hysteria2
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+- name: '[OpenRay] Dynamic-5062 | 155ms'
+  type: vless
+  server: us1.candyfans.win
+  port: 443
+  uuid: d82baa81-c138-49fc-b81e-7ef0eb7ff063
+  network: ws
+  servername: us1.candyfans.win
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /cgunws
+    headers:
+      Host: us1.candyfans.win
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7211 | 155ms'
+  type: vless
+  server: betty.ns.cloudflare.com
+  port: 443
+  uuid: 2b066334-ca87-4c56-9a79-2f3636ee53d1
+  network: ws
+  servername: 639003456251297706.renegade-amsis.info
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /dahdwsws
+    headers:
+      Host: 639003456251297706.renegade-amsis.info
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-2035 | 155ms'
+  type: vless
+  server: wangcai154.000444.cn
+  port: 8880
+  uuid: 7890ce31-9a25-4fd4-90e7-80e5823ff510
+  network: ws
+  servername: Telegram-channel-WangCai2
+  flow: ''
+  tls: false
+  ws-opts:
+    path: /Telegram🇨🇳 @WangCai2 /?ed=2560
+    headers:
+      Host: frejd.11258.workers.dev
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇩🇪 DE-2334 | 155ms'
+  type: vless
+  server: ognbqqfj1a49.greendop.com
+  port: 443
+  uuid: 383c9651-cecb-45b4-8df8-2eb85057848d
+  network: ws
+  servername: ognbqqfj1a49.greendop.com
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /09hmyzvdljYpebWBPqDV7
+    headers:
+      Host: ognbqqfj1a49.greendop.com
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7167 | 156ms'
+  type: vless
+  server: delilah.ns.cloudflare.com
+  port: 443
+  uuid: 5b687f17-0176-495e-84a1-0835f8feec91
+  network: ws
+  servername: 639002592262919469.sentra-amsir.info
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /egakxows
+    headers:
+      Host: 639002592262919469.sentra-amsir.info
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇵🇱 波兰 | POL_5 | 156ms
+  server: 217.30.10.70
+  port: 9059
+  type: ss
+  cipher: aes-256-cfb
+  password: 9XwYyZsK8SNzQDtY
+  udp: true
+  tls: false
+  skip-cert-verify: false
+  network: tcp
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: 9|🪝47@oneclickvpnkeys | 158ms
+  type: hysteria2
+  server: 208.87.243.187
+  port: 22222
+  password: dongtaiwang.com
+  sni: 208.87.243.187
+  skip-cert-verify: true
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/chengaopan/AutoMergePublicNodes/master/list.txt
+- name: '[OpenRay] 🇨🇦 CA-7218 | 158ms'
+  type: vless
+  server: 104.17.237.76
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  servername: www.x-aniu-----jp.netlib.re
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: www.x-aniu-----jp.netlib.re
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇨🇦 CA-7381 | 158ms'
+  type: vless
+  server: 151.101.65.242
   port: 80
   uuid: 01a6e691-b436-40da-bc19-f379923c0f6e
   network: ws
-  servername: 151.101.241.242
+  servername: 151.101.65.242
   flow: ''
   tls: false
   ws-opts:
@@ -2751,35 +2543,295 @@ proxies:
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] 🇨🇦 CA-7074 | 158ms'
+- name: '[OpenRay] Dynamic-5060 | 158ms'
   type: vless
-  server: 104.17.147.22
+  server: us4.candyfans.win
   port: 443
-  uuid: 86825b06-ee56-4dc9-9128-b3abda5c31e8
+  uuid: dfb3a6e5-8ef6-42f8-afe4-addd8518b4de
   network: ws
-  servername: spl01.hatlikarious.org
+  servername: us4.candyfans.win
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /udlpws
+    headers:
+      Host: us4.candyfans.win
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7164 | 158ms'
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: 88538870-5626-4cd7-9cda-1e0b6253c9ce
+  network: ws
+  servername: piaz.mrconfigur.site
   flow: ''
   tls: true
   ws-opts:
     path: /
     headers:
-      Host: spl01.hatlikarious.org
+      Host: piaz.mrconfigur.site
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
-- name: '[OpenRay] Dynamic-7341 | 158ms'
-  type: vless
-  server: joker.membergolabi.ir
-  port: 2095
-  uuid: TEL--JKVPN--JKVPN-32
+- name: '[OpenRay] Dynamic-7361 | 158ms'
+  type: vmess
+  server: v77e5r.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: v77e5r.keeoomboom.de
   network: ws
-  servername: joker.membergolabi.ir
+  ws-opts:
+    path: /video/dk9gm3.m3u8
+    headers:
+      Host: v77e5r.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7376 | 158ms'
+  type: vmess
+  server: 305ede.keeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 305ede.keeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/8nsmoz.m3u8
+    headers:
+      Host: 305ede.keeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇸🇪 SE-2607 | 158ms'
+  type: trojan
+  server: 70.34.218.149
+  port: 11930
+  password: BaeSzHdfJIR13l67
+  sni: softpillow.silentrocket.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 🇸🇬 SG-1 | SHFX | 158ms
+  type: vless
+  server: cfsaas.080112.xyz
+  port: 2096
+  uuid: 00a85603-d8c6-437d-a8bd-ea521107bd87
+  network: ws
+  servername: snippet.danfeng.netlib.re
+  skip-cert-verify: true
+  client-fingerprint: random
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snippet.danfeng.netlib.re
+  tls: true
+  tfo: false
+  udp: true
+  source: https://raw.githubusercontent.com/Vanic24/VPN/refs/heads/main/Filter
+- name: 🇷🇺 俄罗斯 | RUS 4 | 158ms
+  server: 188.42.145.253
+  port: 2096
+  type: vless
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  network: ws
+  ws-opts:
+    path: /TelegramU0001F1E8U0001F1F3 @WangCai2 /?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  skip-cert-verify: false
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON
+  name: fr|48eb|puddincat07@Telegram | 159ms
+  network: grpc
+  port: 56089
+  server: 141.227.172.96
+  skip-cert-verify: false
+  tls: false
+  type: vless
+  uuid: 2d535288-d08e-4de4-b674-fd8cb3c6e4d3
+  udp: true
+  source: https://raw.githubusercontent.com/PuddinCat/BestClash/refs/heads/main/proxies.yaml
+- name: 🇸🇬 新加坡 | SGP | 159ms
+  server: openai.com
+  port: 2095
+  type: vless
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  tls: false
+  tfo: false
+  skip-cert-verify: true
+  client-fingerprint: randomized
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: freedom.pusytroller.cf
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-5827 | 160ms'
+  type: vmess
+  server: dDdCCVFg.922922.SHOP
+  port: 80
+  uuid: bce0c7cb-08d1-46a7-b77b-7bff8b46252f
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /RkUUbqhA9GJZBROjL3Q5vTymr
+    headers:
+      Host: dDdCCVFg.922922.SHOP
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-4450 | 160ms'
+  type: vless
+  server: saas.sin.fan
+  port: 443
+  uuid: db2c8a95-f751-46e3-b05e-d2def66850fb
+  network: ws
+  servername: ayanaminrei.11160321.xyz
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /ed=2560
+    headers:
+      Host: ayanamirei.11160321.xyz
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '🇳🇱@FreakConfig #2 | 160ms'
+  obfs: salamander
+  obfs-password: Telegram-->@Ln2Ray
+  password: Telegram-->@Ln2Ray
+  port: 45000
+  server: gavazn.lnmarketplace.net
+  skip-cert-verify: true
+  sni: gavazn.55994421.xyz
+  tls: false
+  type: hysteria2
+  udp: true
+  network: tcp
+  source: https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+- name: 🇩🇪 德国 | DEU 7_1 | 160ms
+  server: 104.26.14.58
+  port: 443
+  type: vless
+  uuid: 54fdfb91-1d27-4c5a-8fb3-61e1b08b2a58
+  tls: true
+  tfo: false
+  skip-cert-verify: true
+  servername: bp.suoni.nyc.mn
+  client-fingerprint: random
+  network: ws
+  ws-opts:
+    path: /proxyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: bp.suoni.nyc.mn
+  udp: true
+  source: https://raw.githubusercontent.com/lyzz0612/clash-sub-validator/refs/heads/master/clash_config.yaml
+- name: '[OpenRay] Dynamic-184 | 161ms'
+  type: vless
+  server: openai.com
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  servername: openai.com
   flow: ''
   tls: false
   ws-opts:
-    path: /TELEGRAM-BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN?ed=2048
+    path: /
     headers:
-      Host: joKer.mEmBerGolaBi.IR
+      Host: fangbinxingnmsl.pusytroller.cf
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-7166 | 161ms'
+  type: vless
+  server: clyde.ns.cloudflare.com
+  port: 443
+  uuid: 55d198a1-a5f5-4a96-9e4a-70950ea166a8
+  network: ws
+  servername: 639002442881637239.supra-amsir.info
+  flow: ''
+  tls: true
+  ws-opts:
+    path: /pvoxsaws
+    headers:
+      Host: 639002442881637239.supra-amsir.info
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: 未知 TROJAN-1177 | free-nodes | 161ms
+  type: trojan
+  server: 38.96.254.102
+  port: 18509
+  password: .ie4rghJuMkcf0oF
+  sni: shoppingmall.electricbanana.click
+  skip-cert-verify: false
+  udp: true
+  tls: false
+  network: tcp
+  source: https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+- name: '[OpenRay] 🇨🇦 CA-7389 | 162ms'
+  type: vless
+  server: 172.64.146.66
+  port: 2095
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  network: ws
+  servername: 172.64.146.66
+  flow: ''
+  tls: false
+  ws-opts:
+    path: /🔒 [By EbraSha]
+    headers:
+      Host: xijinpingnmsl.s4ar.workers.dev
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] Dynamic-6560 | 162ms'
+  type: vmess
+  server: iafqxc.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: iafqxc.teeoomboom.de
+  network: ws
+  ws-opts:
+    path: /video/bavjdnea.m3u8
+    headers:
+      Host: iafqxc.teeoomboom.de
+  udp: true
+  skip-cert-verify: false
+  source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
+- name: '[OpenRay] 🇺🇸 US-2325 | 162ms'
+  type: vless
+  server: 104.17.134.117
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  servername: 104.17.134.117
+  flow: ''
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: snippets.pusytroller.cf
   udp: true
   skip-cert-verify: false
   source: https://raw.githubusercontent.com/sakha1370/OpenRay/refs/heads/main/output/all_valid_proxies.txt
@@ -2789,409 +2841,409 @@ proxy-groups:
   proxies:
   - AUTO-URL
   - DIRECT
-  - 🇨🇦 加拿大 | CAN_2 | 13ms
-  - '[OpenRay] 🇺🇸 US-1259 | 18ms'
-  - '[OpenRay] 🇺🇸 US-9583 | 18ms'
-  - '[OpenRay] Dynamic-7118 | 24ms'
-  - '[OpenRay] Dynamic-7337 | 31ms'
-  - '[OpenRay] 🇨🇦 CA-7336 | 32ms'
-  - 未知 TROJAN-792 | free-nodes | 35ms
-  - 未知 TROJAN-467 | free-nodes | 40ms
-  - 未知 TROJAN-908 | free-nodes | 40ms
+  - '[OpenRay] 🇺🇸 US-1259 | 16ms'
+  - '[OpenRay] 🇺🇸 US-9583 | 16ms'
+  - '[OpenRay] 🇨🇦 CA-7392 | 26ms'
+  - '[OpenRay] Dynamic-7118 | 26ms'
+  - '[OpenRay] Dynamic-7251 | 27ms'
+  - '[OpenRay] 🇨🇦 CA-7336 | 29ms'
+  - '[OpenRay] 🇨🇦 CA-7394 | 34ms'
+  - '[OpenRay] Dynamic-6930 | 40ms'
+  - '[OpenRay] Dynamic-7378 | 40ms'
   - 未知 TROJAN-629 | free-nodes | 42ms
-  - '[OpenRay] 🇨🇦 CA-7276 | 42ms'
-  - '[OpenRay] Dynamic-6558 | 44ms'
-  - '[OpenRay] 🇺🇸 US-9658 | 46ms'
-  - '[OpenRay] Dynamic-6930 | 47ms'
+  - 未知 TROJAN-908 | free-nodes | 42ms
+  - 加拿大多伦多+V2CROSS.COM | 43ms
+  - 未知 TROJAN-194 | free-nodes | 44ms
+  - '[OpenRay] Dynamic-7250 | 45ms'
+  - '[OpenRay] 🇨🇦 CA-7343 | 48ms'
   - 🇨🇦 加拿大 | CAN 6 | 48ms
-  - 🇨🇦 加拿大 | CAN 2_3 | 52ms
-  - '[OpenRay] 🇨🇦 CA-7340 | 53ms'
-  - '[OpenRay] 🇨🇦 CA-7354 | 58ms'
-  - '[OpenRay] Dynamic-3351 | 60ms'
-  - '[OpenRay] Dynamic-7250 | 60ms'
-  - '[OpenRay] 🇨🇦 CA-6973 | 61ms'
-  - '[OpenRay] Dynamic-7251 | 62ms'
-  - '[OpenRay] 🇺🇸 US-9667 | 62ms'
-  - 🇩🇪 德国 | DEU 7_2 | 63ms
-  - '[OpenRay] 🇨🇦 CA-7123 | 80ms'
-  - 🇺🇸 美国 | USA 26_3 | 80ms
-  - '[OpenRay] Dynamic-7249 | 82ms'
-  - 🇺🇸 美国 | USA 45_3 | 82ms
-  - 🇺🇸 美国 | USA 16_13 | 82ms
-  - 🇺🇸 美国 | USA 36_4 | 84ms
-  - 🇺🇸 美国 | USA 26_5 | 85ms
-  - '[OpenRay] 🇺🇸 US-9469 | 86ms'
-  - '[OpenRay] 🇺🇸 US-9563 | 86ms'
-  - '[OpenRay] 🇨🇦 CA-7343 | 88ms'
-  - '[OpenRay] 🇺🇸 US-9442 | 88ms'
-  - 🇺🇸 美国 | USA 23_2 | 88ms
-  - 🇺🇸 美国 | USA 24_3 | 88ms
-  - 英国 V2CROSS.COM | 90ms
-  - 未知 TROJAN-224 | free-nodes | 90ms
-  - '[OpenRay] 🇺🇸 US-9641 | 90ms'
-  - US_48918_0007 | 90ms
-  - US_48918_0010 | 90ms
-  - GB_48918_0003 | 90ms
-  - 🇺🇸 美国 | USA 38_5 | 90ms
-  - '[OpenRay] 🇨🇦 CA-7017 | 91ms'
-  - 未知 TROJAN-194 | free-nodes | 92ms
-  - '[OpenRay] 🇺🇸 US-9478 | 92ms'
-  - 🇨🇦 加拿大 | CAN 2_1 | 92ms
-  - 🇺🇸 美国 | USA 43_4 | 92ms
-  - 加拿大多伦多+V2CROSS.COM | 96ms
-  - '[OpenRay] 🇬🇧 GB-982 | 100ms'
-  - 未知 TROJAN-1177 | free-nodes | 102ms
-  - '[OpenRay] 🇨🇦 CA-7339 | 102ms'
-  - 🇨🇦 加拿大 | CAN_1 | 103ms
-  - '[OpenRay] 🇲🇽 MX-3 | 104ms'
+  - 🇨🇦 加拿大 | CAN_1 | 50ms
+  - '[OpenRay] Dynamic-7249 | 52ms'
+  - '[OpenRay] 🇨🇦 CA-7354 | 57ms'
+  - 未知 TROJAN-224 | free-nodes | 57ms
+  - '[OpenRay] Dynamic-6558 | 60ms'
+  - '[OpenRay] Dynamic-3351 | 62ms'
+  - '[OpenRay] 🇨🇦 CA-7276 | 64ms'
+  - 🇨🇦 加拿大 | CAN_2 | 71ms
+  - '[OpenRay] 🇨🇦 CA-7339 | 79ms'
+  - 🇺🇸 美国 | USA 16_13 | 80ms
+  - 🇺🇸 美国 | USA 26_5 | 82ms
+  - 未知 TROJAN-467 | free-nodes | 84ms
+  - 未知 TROJAN-792 | free-nodes | 84ms
+  - 🇺🇸 美国 | USA 37_1 | 84ms
+  - 🇺🇸 美国 | USA 15_9 | 84ms
+  - '[OpenRay] 🇺🇸 US-9478 | 86ms'
+  - 🇨🇦 加拿大 | CAN 2_3 | 87ms
+  - '[OpenRay] 🇺🇸 US-9563 | 88ms'
+  - '[OpenRay] 🇺🇸 US-9581 | 88ms'
+  - US_54d62_0007 | 88ms
+  - US_54d62_0011 | 88ms
+  - '[OpenRay] 🇺🇸 US-9678 | 89ms'
+  - '[OpenRay] 🇺🇸 US-9472 | 90ms'
+  - '[OpenRay] 🇺🇸 US-9677 | 90ms'
+  - 🇺🇸 美国 | USA 18_10 | 90ms
+  - '[OpenRay] 🇺🇸 US-9473 | 91ms'
+  - '[OpenRay] 🇨🇦 CA-7340 | 92ms'
+  - '[OpenRay] 🇺🇸 US-9679 | 92ms'
+  - 未知 TROJAN-1316 | free-nodes | 93ms
+  - '[OpenRay] 🇺🇸 US-9442 | 94ms'
+  - '[OpenRay] 🇺🇸 US-9641 | 94ms'
+  - '[OpenRay] 🇺🇸 US-9684 | 96ms'
+  - 🇩🇪 德国 | DEU 7_2 | 98ms
+  - 🪝47@oneclickvpnkeys | 101ms
+  - '[OpenRay] 🇬🇧 GB-982 | 103ms'
+  - '[OpenRay] Dynamic-7235 | 104ms'
+  - '[OpenRay] Dynamic-9598 | 105ms'
+  - '[OpenRay] 🇨🇦 CA-7406 | 106ms'
+  - 9|🔴72@oneclickvpnkeys | 108ms
   - '[OpenRay] Dynamic-5061 | 108ms'
-  - 🇺🇸 美国 | USA 4_12 | 110ms
-  - '[OpenRay] 🇲🇽 MX-4 | 113ms'
-  - '[OpenRay] Dynamic-7235 | 116ms'
-  - 🇺🇸 美国 | USA 28_7 | 118ms
-  - 🇺🇸 美国 | USA 22_12 | 118ms
-  - 9|🪝47@oneclickvpnkeys | 120ms
-  - '[OpenRay] 🇲🇽 MX-5 | 120ms'
-  - 🇺🇸 美国 | USA 37_7 | 120ms
-  - 🇺🇸 美国 | USA 9_6 | 122ms
-  - 🇺🇸 美国 | USA 20_6 | 123ms
-  - '[OpenRay] Dynamic-9598 | 124ms'
-  - '[OpenRay] Dynamic-7354 | 124ms'
-  - 🇬🇧 英国 | GBR 4_5 | 124ms
-  - 🇬🇧 英国 | GBR 3_10 | 124ms
-  - 🇬🇧 英国 | GBR 2_17 | 124ms
-  - 🇬🇧 英国 | GBR 3_9 | 125ms
-  - '[OpenRay] Dynamic-7241 | 127ms'
-  - '[OpenRay] Dynamic-9617 | 129ms'
-  - 🇬🇧 英国 | GBR 2_13 | 130ms
-  - 未知 SS-120 | free-nodes | 132ms
-  - '[OpenRay] Dynamic-6900 | 132ms'
-  - '[OpenRay] Dynamic-7329 | 132ms'
-  - lt|90d1|puddincat07@Telegram | 132ms
-  - 🇱🇹 立陶宛 | LTU 5 | 132ms
-  - 🇱🇹 立陶宛 | LTU 2_1 | 132ms
-  - 🇮🇷_IR_伊朗->🇰🇷_KR_韩国 | 132ms
-  - 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰_1 | 132ms
-  - 🇳🇱 荷兰 | NLD 3_4 | 132ms
-  - 🇳🇱 荷兰 | NLD 4_4 | 132ms
-  - 🇱🇹 立陶宛 | LTU_1 | 132ms
-  - 🇩🇪_DE_德国_3 | 132ms
-  - 🇱🇹 立陶宛 | LTU 4 | 132ms
-  - 🇮🇷_IR_伊朗 | 132ms
-  - 🇳🇱 荷兰 | NLD 2_2 | 132ms
-  - 🇳🇱 荷兰 | NLD 7_1 | 133ms
-  - 🇳🇱 荷兰 | NLD_6 | 133ms
-  - 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰 | 133ms
-  - '[OpenRay] Dynamic-7351 | 134ms'
-  - '[OpenRay] 🇺🇸 US-9473 | 134ms'
-  - '[OpenRay] 🇲🇽 MX-6 | 134ms'
-  - 🇺🇸 美国 | USA 34_8 | 134ms
+  - '[OpenRay] 🇲🇽 MX-6 | 112ms'
+  - 🇺🇸 美国 | USA 20_6 | 118ms
+  - 🇺🇸 美国 | USA 9_6 | 120ms
+  - 🇺🇸 美国 | USA 22_12 | 120ms
+  - 🇨🇦 加拿大 | CAN 2_1 | 122ms
+  - 🇬🇧 英国 | GBR 2_13 | 123ms
+  - 🇬🇧 英国 | GBR 2_17 | 123ms
+  - '[OpenRay] 🇺🇸 US-9658 | 124ms'
+  - '[OpenRay] Dynamic-6900 | 125ms'
+  - fr|51ea|puddincat07@Telegram | 125ms
+  - '[OpenRay] Dynamic-9617 | 126ms'
+  - '[OpenRay] Dynamic-7329 | 128ms'
+  - '[OpenRay] Dynamic-7354 | 128ms'
+  - 最高200元终身无限流量 | 128ms
+  - '[OpenRay] Dynamic-7337 | 130ms'
+  - US_54d62_0010 | 131ms
+  - '[OpenRay] Dynamic-7351 | 132ms'
+  - '[OpenRay] 🇺🇸 US-3354 | 132ms'
+  - '[OpenRay] 🇺🇸 US-9518 | 132ms'
+  - '[OpenRay] 🇲🇽 MX-3 | 132ms'
+  - '[OpenRay] 🇲🇽 MX-5 | 132ms'
+  - 未知 SS-74 | free-nodes | 132ms
+  - 🇩🇪_DE_德国_5 | 132ms
+  - 🇳🇱 荷兰 | NLD 7_2 | 132ms
+  - '[OpenRay] Dynamic-7342 | 133ms'
+  - 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰_1 | 133ms
+  - '[OpenRay] Dynamic-7035 | 134ms'
+  - '[OpenRay] Dynamic-7241 | 134ms'
+  - '[OpenRay] Dynamic-7346 | 134ms'
+  - '[OpenRay] Dynamic-7372 | 134ms'
+  - '[OpenRay] Dynamic-7417 | 134ms'
+  - '[OpenRay] Dynamic-7416 | 134ms'
+  - '[OpenRay] Dynamic-7418 | 134ms'
+  - '[OpenRay] Dynamic-7420 | 134ms'
+  - '[OpenRay] 🇺🇸 US-4481 | 134ms'
+  - '[OpenRay] 🇲🇽 MX-4 | 134ms'
   - 🇩🇪_DE_德国_2 | 134ms
-  - 🇺🇸 美国 | USA 18_10 | 134ms
-  - 🇱🇹 立陶宛 | LTU 2_2 | 134ms
-  - 🇩🇪_DE_德国_5 | 134ms
   - 🇩🇪_DE_德国 | 134ms
-  - 🇱🇹 立陶宛 | LTU 3_1 | 134ms
-  - 🇳🇱 荷兰 | NLD 6_4 | 134ms
-  - 🇳🇱 荷兰 | NLD 7_2 | 134ms
-  - '[OpenRay] 🇺🇸 US-9472 | 135ms'
-  - 未知 TROJAN-1316 | free-nodes | 136ms
-  - '[OpenRay] Dynamic-9616 | 136ms'
+  - 🇮🇷_IR_伊朗 | 134ms
+  - '[OpenRay] Dynamic-7419 | 135ms'
+  - 🇮🇷_IR_伊朗->🇰🇷_KR_韩国 | 135ms
+  - '[OpenRay] Dynamic-9591 | 136ms'
   - '[OpenRay] Dynamic-7344 | 136ms'
-  - '[OpenRay] Dynamic-7352 | 136ms'
-  - '[OpenRay] Dynamic-7353 | 136ms'
-  - '[OpenRay] 🇺🇸 US-4481 | 136ms'
-  - US_48918_0011 | 136ms
-  - 🇺🇸 美国 | USA 44_5 | 136ms
+  - '[OpenRay] Dynamic-9670 | 136ms'
+  - '[OpenRay] Dynamic-7349 | 136ms'
+  - '[OpenRay] Dynamic-9679 | 136ms'
+  - '[OpenRay] 🇺🇸 US-9402 | 136ms'
   - 🇫🇷 法国 | FRA 8_2 | 136ms
-  - 🇫🇷 法国 | FRA 3_9 | 136ms
-  - '[OpenRay] Dynamic-7346 | 137ms'
-  - '[OpenRay] 🇺🇸 US-9402 | 137ms'
-  - 未知 SS-53 | free-nodes | 138ms
-  - '[OpenRay] Dynamic-7265 | 138ms'
-  - '[OpenRay] Dynamic-7346 | 138ms'
-  - '[OpenRay] 🇺🇸 US-3354 | 138ms'
-  - France_None_hysteria_71 | 138ms
-  - '@V2rayNGVPN <= کانفیگ رایگان #2 | 138ms'
-  - '[OpenRay] Dynamic-9671 | 140ms'
-  - '[OpenRay] Dynamic-9674 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #11 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #13 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #14 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #12 | 140ms'
-  - '[OpenRay] Dynamic-7345 | 142ms'
-  - '[OpenRay] 🇫🇷 FR-2034 | 142ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #7 | 142ms'
-  - '🇩🇪 - DE - @freeOnlineVPN #3 | 142ms'
-  - '[OpenRay] Dynamic-7035 | 143ms'
+  - 🇳🇱 荷兰 | NLD 7_1 | 136ms
+  - 🇩🇪_DE_德国_1 | 136ms
+  - 🇱🇹 立陶宛 | LTU 4 | 136ms
+  - '[OpenRay] 🇹🇷 TR-31 | 137ms'
+  - 🇱🇹 立陶宛 | LTU_1 | 137ms
+  - 🇦🇪 阿联酋 | ARE | 137ms
+  - '[OpenRay] Dynamic-7415 | 138ms'
+  - 🇬🇧 GB-4 | SHFX | 138ms
+  - 未知 SS-108 | free-nodes | 138ms
+  - 最低2块钱1000G流量 | 138ms
+  - 🇩🇪 德国 | DEU 3_1 | 138ms
+  - 🇱🇹 立陶宛 | LTU 5 | 138ms
+  - 🇳🇱 荷兰 | NLD 2_2 | 138ms
+  - 🇭🇷 克罗地亚 | HRV | 138ms
+  - '[OpenRay] Dynamic-7337 | 139ms'
+  - '🇳🇱@FreakConfig #1 | 139ms'
+  - 🇫🇷 法国 | FRA 6 | 139ms
+  - '[OpenRay] 🇺🇸 US-9667 | 140ms'
+  - 🇬🇧 GB-1 | SHFX | 140ms
+  - 🇳🇱 荷兰 | NLD_6 | 140ms
+  - '[OpenRay] Dynamic-7345 | 141ms'
+  - '[OpenRay] Dynamic-7373 | 141ms'
+  - '[OpenRay] Dynamic-7264 | 142ms'
+  - 未知 SS-120 | free-nodes | 142ms
+  - 🇳🇱 荷兰 | NLD 3_6 | 142ms
+  - 🇧🇬 保加利亚 | BGR | 142ms
+  - '[OpenRay] Dynamic-7278 | 143ms'
   - '[OpenRay] Dynamic-9668 | 143ms'
-  - '@V2rayNGVPN <= کانفیگ رایگان | 143ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #4 | 143ms'
-  - 🇩🇪 德国 | DEU_16 | 143ms
-  - 未知 SS-108 | free-nodes | 144ms
-  - '[OpenRay] Dynamic-9591 | 144ms'
-  - '[OpenRay] Dynamic-7354 | 144ms'
-  - '[OpenRay] Dynamic-7346 | 144ms'
-  - '[OpenRay] Dynamic-7349 | 144ms'
-  - '[OpenRay] 🇺🇸 US-9518 | 144ms'
-  - '[OpenRay] 🇫🇷 FR-2031 | 144ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #6 | 144ms'
-  - 🇫🇷 法国 | FRA 6 | 144ms
-  - 🇫🇷 法国 | FRA 2_3 | 144ms
-  - '[OpenRay] Dynamic-7238 | 145ms'
-  - '[OpenRay] Dynamic-7342 | 146ms'
-  - '[OpenRay] Dynamic-7344 | 146ms'
-  - '[OpenRay] Dynamic-9673 | 146ms'
-  - '💎کانفیگ های بیشتر در چنل تلگرا... #2 | 146ms'
-  - 🇳🇱 荷兰 | NLD 7_4 | 146ms
-  - '[OpenRay] 🇸🇪 SE-2607 | 147ms'
+  - 🇳🇱 荷兰 | NLD 4_4 | 143ms
+  - 🇩🇪 德国 | DEU 12_1 | 143ms
+  - '[OpenRay] Dynamic-117 | 144ms'
+  - '[OpenRay] Dynamic-9582 | 144ms'
+  - '[OpenRay] Dynamic-9595 | 144ms'
+  - '[OpenRay] Dynamic-9632 | 144ms'
+  - '[OpenRay] Dynamic-7344 | 144ms'
+  - '[OpenRay] Dynamic-7358 | 144ms'
+  - '[OpenRay] Dynamic-7362 | 144ms'
+  - '[OpenRay] Dynamic-7364 | 144ms'
+  - '🇩🇪 - DE - @freeOnlineVPN #3 | 144ms'
+  - 🇱🇹 立陶宛 | LTU 2_1 | 144ms
+  - 🇫🇷 法国 | FRA 3_9 | 144ms
+  - 🇩🇪 德国 | DEU 5_11 | 144ms
+  - '[OpenRay] Dynamic-9671 | 146ms'
+  - '[OpenRay] Dynamic-7366 | 146ms'
+  - 未知 SS-37 | free-nodes | 146ms
+  - '[OpenRay] Dynamic-7238 | 147ms'
   - '[OpenRay] 🇸🇪 SE-2616 | 147ms'
-  - '[OpenRay] 🇫🇮 FI-126 | 147ms'
-  - 🇬🇧 GB-2 | SHFX | 148ms
-  - '[OpenRay] Dynamic-3176 | 148ms'
-  - '[OpenRay] Dynamic-6560 | 148ms'
-  - '[OpenRay] Dynamic-7350 | 148ms'
-  - '[OpenRay] Dynamic-7345 | 148ms'
-  - '🇩🇪@V2RayyNGvpn🇩🇪همه اوپراتور ه... #10 | 148ms'
-  - 🇩🇪 德国 | DEU 7_1 | 148ms
-  - 🇺🇸 美国 | USA 15_9 | 148ms
-  - 🇩🇪 德国 | DEU 6_3 | 148ms
-  - 🇺🇸 US-7 | SHFX | 149ms
-  - '[OpenRay] Dynamic-6912 | 149ms'
-  - '[OpenRay] Dynamic-7278 | 149ms'
-  - '[OpenRay] Dynamic-7344 | 149ms'
-  - 🇺🇸 美国 | USA 27_2 | 149ms
+  - 🇩🇪 德国 | DEU_16 | 147ms
+  - '[OpenRay] Dynamic-6912 | 148ms'
+  - '[OpenRay] Dynamic-7368 | 149ms'
   - 🇮🇹 意大利 | ITA_2 | 149ms
-  - '[OpenRay] Dynamic-9317 | 150ms'
-  - '[OpenRay] Dynamic-9632 | 150ms'
-  - '💎کانفیگ های بیشتر در چنل تلگرا... #1 | 151ms'
-  - '[OpenRay] 🇨🇦 CA-7014 | 152ms'
-  - '[OpenRay] Dynamic-9595 | 152ms'
-  - '[OpenRay] Dynamic-7264 | 152ms'
-  - '[OpenRay] 🇺🇸 US-9603 | 152ms'
-  - '🇩🇪 - DE - @freeOnlineVPN #2 | 152ms'
-  - '[OpenRay] Dynamic-7364 | 153ms'
-  - '[OpenRay] 🇺🇸 US-9581 | 153ms'
-  - '[OpenRay] Dynamic-7166 | 154ms'
-  - '[OpenRay] Dynamic-7341 | 154ms'
-  - '[OpenRay] 🇩🇪 DE-2334 | 154ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #9 | 154ms'
-  - 🪝47@oneclickvpnkeys | 154ms
-  - fr|0d5a|puddincat07@Telegram | 154ms
-  - 🇺🇸 美国 | USA 13_1 | 155ms
-  - '[OpenRay] Dynamic-5062 | 156ms'
-  - '[OpenRay] Dynamic-7280 | 156ms'
-  - '[OpenRay] Dynamic-9669 | 156ms'
-  - '[OpenRay] 🇺🇸 US-9675 | 156ms'
-  - 🇬🇧 英国 | GBR | 156ms
-  - 🇨🇦 加拿大 | CAN_3 | 156ms
-  - '[OpenRay] Dynamic-7323 | 157ms'
-  - '[OpenRay] 🇮🇹 IT-2 | 157ms'
-  - '[OpenRay] 🇨🇦 CA-7074 | 158ms'
-  - '[OpenRay] Dynamic-7341 | 158ms'
+  - '[OpenRay] Dynamic-7354 | 150ms'
+  - '[OpenRay] 🇺🇸 US-208 | 150ms'
+  - 🇨🇦 加拿大 | CAN_3 | 150ms
+  - 🇩🇪_DE_德国_1_1 | 150ms
+  - '[OpenRay] Dynamic-7346 | 151ms'
+  - '[OpenRay] 🇺🇸 US-9469 | 151ms'
+  - '[OpenRay] 🇺🇸 US-9676 | 151ms'
+  - '[OpenRay] 🇫🇮 FI-134 | 151ms'
+  - GB_54d62_0003 | 151ms
+  - '[OpenRay] Dynamic-7370 | 152ms'
+  - '[OpenRay] 🇺🇸 US-9683 | 152ms'
+  - 🇩🇪 德国 | DEU 12_2 | 152ms
+  - '[OpenRay] Dynamic-7347 | 154ms'
+  - '[OpenRay] 🇺🇸 US-9681 | 154ms'
+  - '[OpenRay] 🇺🇸 US-9682 | 154ms'
+  - '[OpenRay] 🇺🇸 US-9680 | 154ms'
+  - '🇸🇪 - SE - @freeOnlineVPN #1 | 154ms'
+  - '[OpenRay] Dynamic-5062 | 155ms'
+  - '[OpenRay] Dynamic-7211 | 155ms'
+  - '[OpenRay] Dynamic-2035 | 155ms'
+  - '[OpenRay] 🇩🇪 DE-2334 | 155ms'
+  - '[OpenRay] Dynamic-7167 | 156ms'
+  - 🇵🇱 波兰 | POL_5 | 156ms
+  - 9|🪝47@oneclickvpnkeys | 158ms
+  - '[OpenRay] 🇨🇦 CA-7218 | 158ms'
+  - '[OpenRay] 🇨🇦 CA-7381 | 158ms'
+  - '[OpenRay] Dynamic-5060 | 158ms'
+  - '[OpenRay] Dynamic-7164 | 158ms'
+  - '[OpenRay] Dynamic-7361 | 158ms'
+  - '[OpenRay] Dynamic-7376 | 158ms'
+  - '[OpenRay] 🇸🇪 SE-2607 | 158ms'
+  - 🇸🇬 SG-1 | SHFX | 158ms
+  - 🇷🇺 俄罗斯 | RUS 4 | 158ms
+  - fr|48eb|puddincat07@Telegram | 159ms
+  - 🇸🇬 新加坡 | SGP | 159ms
+  - '[OpenRay] Dynamic-5827 | 160ms'
+  - '[OpenRay] Dynamic-4450 | 160ms'
+  - '🇳🇱@FreakConfig #2 | 160ms'
+  - 🇩🇪 德国 | DEU 7_1 | 160ms
+  - '[OpenRay] Dynamic-184 | 161ms'
+  - '[OpenRay] Dynamic-7166 | 161ms'
+  - 未知 TROJAN-1177 | free-nodes | 161ms
+  - '[OpenRay] 🇨🇦 CA-7389 | 162ms'
+  - '[OpenRay] Dynamic-6560 | 162ms'
+  - '[OpenRay] 🇺🇸 US-2325 | 162ms'
 - name: AUTO-URL
   type: url-test
   proxies:
-  - 🇨🇦 加拿大 | CAN_2 | 13ms
-  - '[OpenRay] 🇺🇸 US-1259 | 18ms'
-  - '[OpenRay] 🇺🇸 US-9583 | 18ms'
-  - '[OpenRay] Dynamic-7118 | 24ms'
-  - '[OpenRay] Dynamic-7337 | 31ms'
-  - '[OpenRay] 🇨🇦 CA-7336 | 32ms'
-  - 未知 TROJAN-792 | free-nodes | 35ms
-  - 未知 TROJAN-467 | free-nodes | 40ms
-  - 未知 TROJAN-908 | free-nodes | 40ms
+  - '[OpenRay] 🇺🇸 US-1259 | 16ms'
+  - '[OpenRay] 🇺🇸 US-9583 | 16ms'
+  - '[OpenRay] 🇨🇦 CA-7392 | 26ms'
+  - '[OpenRay] Dynamic-7118 | 26ms'
+  - '[OpenRay] Dynamic-7251 | 27ms'
+  - '[OpenRay] 🇨🇦 CA-7336 | 29ms'
+  - '[OpenRay] 🇨🇦 CA-7394 | 34ms'
+  - '[OpenRay] Dynamic-6930 | 40ms'
+  - '[OpenRay] Dynamic-7378 | 40ms'
   - 未知 TROJAN-629 | free-nodes | 42ms
-  - '[OpenRay] 🇨🇦 CA-7276 | 42ms'
-  - '[OpenRay] Dynamic-6558 | 44ms'
-  - '[OpenRay] 🇺🇸 US-9658 | 46ms'
-  - '[OpenRay] Dynamic-6930 | 47ms'
+  - 未知 TROJAN-908 | free-nodes | 42ms
+  - 加拿大多伦多+V2CROSS.COM | 43ms
+  - 未知 TROJAN-194 | free-nodes | 44ms
+  - '[OpenRay] Dynamic-7250 | 45ms'
+  - '[OpenRay] 🇨🇦 CA-7343 | 48ms'
   - 🇨🇦 加拿大 | CAN 6 | 48ms
-  - 🇨🇦 加拿大 | CAN 2_3 | 52ms
-  - '[OpenRay] 🇨🇦 CA-7340 | 53ms'
-  - '[OpenRay] 🇨🇦 CA-7354 | 58ms'
-  - '[OpenRay] Dynamic-3351 | 60ms'
-  - '[OpenRay] Dynamic-7250 | 60ms'
-  - '[OpenRay] 🇨🇦 CA-6973 | 61ms'
-  - '[OpenRay] Dynamic-7251 | 62ms'
-  - '[OpenRay] 🇺🇸 US-9667 | 62ms'
-  - 🇩🇪 德国 | DEU 7_2 | 63ms
-  - '[OpenRay] 🇨🇦 CA-7123 | 80ms'
-  - 🇺🇸 美国 | USA 26_3 | 80ms
-  - '[OpenRay] Dynamic-7249 | 82ms'
-  - 🇺🇸 美国 | USA 45_3 | 82ms
-  - 🇺🇸 美国 | USA 16_13 | 82ms
-  - 🇺🇸 美国 | USA 36_4 | 84ms
-  - 🇺🇸 美国 | USA 26_5 | 85ms
-  - '[OpenRay] 🇺🇸 US-9469 | 86ms'
-  - '[OpenRay] 🇺🇸 US-9563 | 86ms'
-  - '[OpenRay] 🇨🇦 CA-7343 | 88ms'
-  - '[OpenRay] 🇺🇸 US-9442 | 88ms'
-  - 🇺🇸 美国 | USA 23_2 | 88ms
-  - 🇺🇸 美国 | USA 24_3 | 88ms
-  - 英国 V2CROSS.COM | 90ms
-  - 未知 TROJAN-224 | free-nodes | 90ms
-  - '[OpenRay] 🇺🇸 US-9641 | 90ms'
-  - US_48918_0007 | 90ms
-  - US_48918_0010 | 90ms
-  - GB_48918_0003 | 90ms
-  - 🇺🇸 美国 | USA 38_5 | 90ms
-  - '[OpenRay] 🇨🇦 CA-7017 | 91ms'
-  - 未知 TROJAN-194 | free-nodes | 92ms
-  - '[OpenRay] 🇺🇸 US-9478 | 92ms'
-  - 🇨🇦 加拿大 | CAN 2_1 | 92ms
-  - 🇺🇸 美国 | USA 43_4 | 92ms
-  - 加拿大多伦多+V2CROSS.COM | 96ms
-  - '[OpenRay] 🇬🇧 GB-982 | 100ms'
-  - 未知 TROJAN-1177 | free-nodes | 102ms
-  - '[OpenRay] 🇨🇦 CA-7339 | 102ms'
-  - 🇨🇦 加拿大 | CAN_1 | 103ms
-  - '[OpenRay] 🇲🇽 MX-3 | 104ms'
+  - 🇨🇦 加拿大 | CAN_1 | 50ms
+  - '[OpenRay] Dynamic-7249 | 52ms'
+  - '[OpenRay] 🇨🇦 CA-7354 | 57ms'
+  - 未知 TROJAN-224 | free-nodes | 57ms
+  - '[OpenRay] Dynamic-6558 | 60ms'
+  - '[OpenRay] Dynamic-3351 | 62ms'
+  - '[OpenRay] 🇨🇦 CA-7276 | 64ms'
+  - 🇨🇦 加拿大 | CAN_2 | 71ms
+  - '[OpenRay] 🇨🇦 CA-7339 | 79ms'
+  - 🇺🇸 美国 | USA 16_13 | 80ms
+  - 🇺🇸 美国 | USA 26_5 | 82ms
+  - 未知 TROJAN-467 | free-nodes | 84ms
+  - 未知 TROJAN-792 | free-nodes | 84ms
+  - 🇺🇸 美国 | USA 37_1 | 84ms
+  - 🇺🇸 美国 | USA 15_9 | 84ms
+  - '[OpenRay] 🇺🇸 US-9478 | 86ms'
+  - 🇨🇦 加拿大 | CAN 2_3 | 87ms
+  - '[OpenRay] 🇺🇸 US-9563 | 88ms'
+  - '[OpenRay] 🇺🇸 US-9581 | 88ms'
+  - US_54d62_0007 | 88ms
+  - US_54d62_0011 | 88ms
+  - '[OpenRay] 🇺🇸 US-9678 | 89ms'
+  - '[OpenRay] 🇺🇸 US-9472 | 90ms'
+  - '[OpenRay] 🇺🇸 US-9677 | 90ms'
+  - 🇺🇸 美国 | USA 18_10 | 90ms
+  - '[OpenRay] 🇺🇸 US-9473 | 91ms'
+  - '[OpenRay] 🇨🇦 CA-7340 | 92ms'
+  - '[OpenRay] 🇺🇸 US-9679 | 92ms'
+  - 未知 TROJAN-1316 | free-nodes | 93ms
+  - '[OpenRay] 🇺🇸 US-9442 | 94ms'
+  - '[OpenRay] 🇺🇸 US-9641 | 94ms'
+  - '[OpenRay] 🇺🇸 US-9684 | 96ms'
+  - 🇩🇪 德国 | DEU 7_2 | 98ms
+  - 🪝47@oneclickvpnkeys | 101ms
+  - '[OpenRay] 🇬🇧 GB-982 | 103ms'
+  - '[OpenRay] Dynamic-7235 | 104ms'
+  - '[OpenRay] Dynamic-9598 | 105ms'
+  - '[OpenRay] 🇨🇦 CA-7406 | 106ms'
+  - 9|🔴72@oneclickvpnkeys | 108ms
   - '[OpenRay] Dynamic-5061 | 108ms'
-  - 🇺🇸 美国 | USA 4_12 | 110ms
-  - '[OpenRay] 🇲🇽 MX-4 | 113ms'
-  - '[OpenRay] Dynamic-7235 | 116ms'
-  - 🇺🇸 美国 | USA 28_7 | 118ms
-  - 🇺🇸 美国 | USA 22_12 | 118ms
-  - 9|🪝47@oneclickvpnkeys | 120ms
-  - '[OpenRay] 🇲🇽 MX-5 | 120ms'
-  - 🇺🇸 美国 | USA 37_7 | 120ms
-  - 🇺🇸 美国 | USA 9_6 | 122ms
-  - 🇺🇸 美国 | USA 20_6 | 123ms
-  - '[OpenRay] Dynamic-9598 | 124ms'
-  - '[OpenRay] Dynamic-7354 | 124ms'
-  - 🇬🇧 英国 | GBR 4_5 | 124ms
-  - 🇬🇧 英国 | GBR 3_10 | 124ms
-  - 🇬🇧 英国 | GBR 2_17 | 124ms
-  - 🇬🇧 英国 | GBR 3_9 | 125ms
-  - '[OpenRay] Dynamic-7241 | 127ms'
-  - '[OpenRay] Dynamic-9617 | 129ms'
-  - 🇬🇧 英国 | GBR 2_13 | 130ms
-  - 未知 SS-120 | free-nodes | 132ms
-  - '[OpenRay] Dynamic-6900 | 132ms'
-  - '[OpenRay] Dynamic-7329 | 132ms'
-  - lt|90d1|puddincat07@Telegram | 132ms
-  - 🇱🇹 立陶宛 | LTU 5 | 132ms
-  - 🇱🇹 立陶宛 | LTU 2_1 | 132ms
-  - 🇮🇷_IR_伊朗->🇰🇷_KR_韩国 | 132ms
-  - 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰_1 | 132ms
-  - 🇳🇱 荷兰 | NLD 3_4 | 132ms
-  - 🇳🇱 荷兰 | NLD 4_4 | 132ms
-  - 🇱🇹 立陶宛 | LTU_1 | 132ms
-  - 🇩🇪_DE_德国_3 | 132ms
-  - 🇱🇹 立陶宛 | LTU 4 | 132ms
-  - 🇮🇷_IR_伊朗 | 132ms
-  - 🇳🇱 荷兰 | NLD 2_2 | 132ms
-  - 🇳🇱 荷兰 | NLD 7_1 | 133ms
-  - 🇳🇱 荷兰 | NLD_6 | 133ms
-  - 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰 | 133ms
-  - '[OpenRay] Dynamic-7351 | 134ms'
-  - '[OpenRay] 🇺🇸 US-9473 | 134ms'
-  - '[OpenRay] 🇲🇽 MX-6 | 134ms'
-  - 🇺🇸 美国 | USA 34_8 | 134ms
+  - '[OpenRay] 🇲🇽 MX-6 | 112ms'
+  - 🇺🇸 美国 | USA 20_6 | 118ms
+  - 🇺🇸 美国 | USA 9_6 | 120ms
+  - 🇺🇸 美国 | USA 22_12 | 120ms
+  - 🇨🇦 加拿大 | CAN 2_1 | 122ms
+  - 🇬🇧 英国 | GBR 2_13 | 123ms
+  - 🇬🇧 英国 | GBR 2_17 | 123ms
+  - '[OpenRay] 🇺🇸 US-9658 | 124ms'
+  - '[OpenRay] Dynamic-6900 | 125ms'
+  - fr|51ea|puddincat07@Telegram | 125ms
+  - '[OpenRay] Dynamic-9617 | 126ms'
+  - '[OpenRay] Dynamic-7329 | 128ms'
+  - '[OpenRay] Dynamic-7354 | 128ms'
+  - 最高200元终身无限流量 | 128ms
+  - '[OpenRay] Dynamic-7337 | 130ms'
+  - US_54d62_0010 | 131ms
+  - '[OpenRay] Dynamic-7351 | 132ms'
+  - '[OpenRay] 🇺🇸 US-3354 | 132ms'
+  - '[OpenRay] 🇺🇸 US-9518 | 132ms'
+  - '[OpenRay] 🇲🇽 MX-3 | 132ms'
+  - '[OpenRay] 🇲🇽 MX-5 | 132ms'
+  - 未知 SS-74 | free-nodes | 132ms
+  - 🇩🇪_DE_德国_5 | 132ms
+  - 🇳🇱 荷兰 | NLD 7_2 | 132ms
+  - '[OpenRay] Dynamic-7342 | 133ms'
+  - 🇮🇷_IR_伊朗->🇳🇱_NL_荷兰_1 | 133ms
+  - '[OpenRay] Dynamic-7035 | 134ms'
+  - '[OpenRay] Dynamic-7241 | 134ms'
+  - '[OpenRay] Dynamic-7346 | 134ms'
+  - '[OpenRay] Dynamic-7372 | 134ms'
+  - '[OpenRay] Dynamic-7417 | 134ms'
+  - '[OpenRay] Dynamic-7416 | 134ms'
+  - '[OpenRay] Dynamic-7418 | 134ms'
+  - '[OpenRay] Dynamic-7420 | 134ms'
+  - '[OpenRay] 🇺🇸 US-4481 | 134ms'
+  - '[OpenRay] 🇲🇽 MX-4 | 134ms'
   - 🇩🇪_DE_德国_2 | 134ms
-  - 🇺🇸 美国 | USA 18_10 | 134ms
-  - 🇱🇹 立陶宛 | LTU 2_2 | 134ms
-  - 🇩🇪_DE_德国_5 | 134ms
   - 🇩🇪_DE_德国 | 134ms
-  - 🇱🇹 立陶宛 | LTU 3_1 | 134ms
-  - 🇳🇱 荷兰 | NLD 6_4 | 134ms
-  - 🇳🇱 荷兰 | NLD 7_2 | 134ms
-  - '[OpenRay] 🇺🇸 US-9472 | 135ms'
-  - 未知 TROJAN-1316 | free-nodes | 136ms
-  - '[OpenRay] Dynamic-9616 | 136ms'
+  - 🇮🇷_IR_伊朗 | 134ms
+  - '[OpenRay] Dynamic-7419 | 135ms'
+  - 🇮🇷_IR_伊朗->🇰🇷_KR_韩国 | 135ms
+  - '[OpenRay] Dynamic-9591 | 136ms'
   - '[OpenRay] Dynamic-7344 | 136ms'
-  - '[OpenRay] Dynamic-7352 | 136ms'
-  - '[OpenRay] Dynamic-7353 | 136ms'
-  - '[OpenRay] 🇺🇸 US-4481 | 136ms'
-  - US_48918_0011 | 136ms
-  - 🇺🇸 美国 | USA 44_5 | 136ms
+  - '[OpenRay] Dynamic-9670 | 136ms'
+  - '[OpenRay] Dynamic-7349 | 136ms'
+  - '[OpenRay] Dynamic-9679 | 136ms'
+  - '[OpenRay] 🇺🇸 US-9402 | 136ms'
   - 🇫🇷 法国 | FRA 8_2 | 136ms
-  - 🇫🇷 法国 | FRA 3_9 | 136ms
-  - '[OpenRay] Dynamic-7346 | 137ms'
-  - '[OpenRay] 🇺🇸 US-9402 | 137ms'
-  - 未知 SS-53 | free-nodes | 138ms
-  - '[OpenRay] Dynamic-7265 | 138ms'
-  - '[OpenRay] Dynamic-7346 | 138ms'
-  - '[OpenRay] 🇺🇸 US-3354 | 138ms'
-  - France_None_hysteria_71 | 138ms
-  - '@V2rayNGVPN <= کانفیگ رایگان #2 | 138ms'
-  - '[OpenRay] Dynamic-9671 | 140ms'
-  - '[OpenRay] Dynamic-9674 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #11 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #13 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #14 | 140ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #12 | 140ms'
-  - '[OpenRay] Dynamic-7345 | 142ms'
-  - '[OpenRay] 🇫🇷 FR-2034 | 142ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #7 | 142ms'
-  - '🇩🇪 - DE - @freeOnlineVPN #3 | 142ms'
-  - '[OpenRay] Dynamic-7035 | 143ms'
+  - 🇳🇱 荷兰 | NLD 7_1 | 136ms
+  - 🇩🇪_DE_德国_1 | 136ms
+  - 🇱🇹 立陶宛 | LTU 4 | 136ms
+  - '[OpenRay] 🇹🇷 TR-31 | 137ms'
+  - 🇱🇹 立陶宛 | LTU_1 | 137ms
+  - 🇦🇪 阿联酋 | ARE | 137ms
+  - '[OpenRay] Dynamic-7415 | 138ms'
+  - 🇬🇧 GB-4 | SHFX | 138ms
+  - 未知 SS-108 | free-nodes | 138ms
+  - 最低2块钱1000G流量 | 138ms
+  - 🇩🇪 德国 | DEU 3_1 | 138ms
+  - 🇱🇹 立陶宛 | LTU 5 | 138ms
+  - 🇳🇱 荷兰 | NLD 2_2 | 138ms
+  - 🇭🇷 克罗地亚 | HRV | 138ms
+  - '[OpenRay] Dynamic-7337 | 139ms'
+  - '🇳🇱@FreakConfig #1 | 139ms'
+  - 🇫🇷 法国 | FRA 6 | 139ms
+  - '[OpenRay] 🇺🇸 US-9667 | 140ms'
+  - 🇬🇧 GB-1 | SHFX | 140ms
+  - 🇳🇱 荷兰 | NLD_6 | 140ms
+  - '[OpenRay] Dynamic-7345 | 141ms'
+  - '[OpenRay] Dynamic-7373 | 141ms'
+  - '[OpenRay] Dynamic-7264 | 142ms'
+  - 未知 SS-120 | free-nodes | 142ms
+  - 🇳🇱 荷兰 | NLD 3_6 | 142ms
+  - 🇧🇬 保加利亚 | BGR | 142ms
+  - '[OpenRay] Dynamic-7278 | 143ms'
   - '[OpenRay] Dynamic-9668 | 143ms'
-  - '@V2rayNGVPN <= کانفیگ رایگان | 143ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #4 | 143ms'
-  - 🇩🇪 德国 | DEU_16 | 143ms
-  - 未知 SS-108 | free-nodes | 144ms
-  - '[OpenRay] Dynamic-9591 | 144ms'
-  - '[OpenRay] Dynamic-7354 | 144ms'
-  - '[OpenRay] Dynamic-7346 | 144ms'
-  - '[OpenRay] Dynamic-7349 | 144ms'
-  - '[OpenRay] 🇺🇸 US-9518 | 144ms'
-  - '[OpenRay] 🇫🇷 FR-2031 | 144ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #6 | 144ms'
-  - 🇫🇷 法国 | FRA 6 | 144ms
-  - 🇫🇷 法国 | FRA 2_3 | 144ms
-  - '[OpenRay] Dynamic-7238 | 145ms'
-  - '[OpenRay] Dynamic-7342 | 146ms'
-  - '[OpenRay] Dynamic-7344 | 146ms'
-  - '[OpenRay] Dynamic-9673 | 146ms'
-  - '💎کانفیگ های بیشتر در چنل تلگرا... #2 | 146ms'
-  - 🇳🇱 荷兰 | NLD 7_4 | 146ms
-  - '[OpenRay] 🇸🇪 SE-2607 | 147ms'
+  - 🇳🇱 荷兰 | NLD 4_4 | 143ms
+  - 🇩🇪 德国 | DEU 12_1 | 143ms
+  - '[OpenRay] Dynamic-117 | 144ms'
+  - '[OpenRay] Dynamic-9582 | 144ms'
+  - '[OpenRay] Dynamic-9595 | 144ms'
+  - '[OpenRay] Dynamic-9632 | 144ms'
+  - '[OpenRay] Dynamic-7344 | 144ms'
+  - '[OpenRay] Dynamic-7358 | 144ms'
+  - '[OpenRay] Dynamic-7362 | 144ms'
+  - '[OpenRay] Dynamic-7364 | 144ms'
+  - '🇩🇪 - DE - @freeOnlineVPN #3 | 144ms'
+  - 🇱🇹 立陶宛 | LTU 2_1 | 144ms
+  - 🇫🇷 法国 | FRA 3_9 | 144ms
+  - 🇩🇪 德国 | DEU 5_11 | 144ms
+  - '[OpenRay] Dynamic-9671 | 146ms'
+  - '[OpenRay] Dynamic-7366 | 146ms'
+  - 未知 SS-37 | free-nodes | 146ms
+  - '[OpenRay] Dynamic-7238 | 147ms'
   - '[OpenRay] 🇸🇪 SE-2616 | 147ms'
-  - '[OpenRay] 🇫🇮 FI-126 | 147ms'
-  - 🇬🇧 GB-2 | SHFX | 148ms
-  - '[OpenRay] Dynamic-3176 | 148ms'
-  - '[OpenRay] Dynamic-6560 | 148ms'
-  - '[OpenRay] Dynamic-7350 | 148ms'
-  - '[OpenRay] Dynamic-7345 | 148ms'
-  - '🇩🇪@V2RayyNGvpn🇩🇪همه اوپراتور ه... #10 | 148ms'
-  - 🇩🇪 德国 | DEU 7_1 | 148ms
-  - 🇺🇸 美国 | USA 15_9 | 148ms
-  - 🇩🇪 德国 | DEU 6_3 | 148ms
-  - 🇺🇸 US-7 | SHFX | 149ms
-  - '[OpenRay] Dynamic-6912 | 149ms'
-  - '[OpenRay] Dynamic-7278 | 149ms'
-  - '[OpenRay] Dynamic-7344 | 149ms'
-  - 🇺🇸 美国 | USA 27_2 | 149ms
+  - 🇩🇪 德国 | DEU_16 | 147ms
+  - '[OpenRay] Dynamic-6912 | 148ms'
+  - '[OpenRay] Dynamic-7368 | 149ms'
   - 🇮🇹 意大利 | ITA_2 | 149ms
-  - '[OpenRay] Dynamic-9317 | 150ms'
-  - '[OpenRay] Dynamic-9632 | 150ms'
-  - '💎کانفیگ های بیشتر در چنل تلگرا... #1 | 151ms'
-  - '[OpenRay] 🇨🇦 CA-7014 | 152ms'
-  - '[OpenRay] Dynamic-9595 | 152ms'
-  - '[OpenRay] Dynamic-7264 | 152ms'
-  - '[OpenRay] 🇺🇸 US-9603 | 152ms'
-  - '🇩🇪 - DE - @freeOnlineVPN #2 | 152ms'
-  - '[OpenRay] Dynamic-7364 | 153ms'
-  - '[OpenRay] 🇺🇸 US-9581 | 153ms'
-  - '[OpenRay] Dynamic-7166 | 154ms'
-  - '[OpenRay] Dynamic-7341 | 154ms'
-  - '[OpenRay] 🇩🇪 DE-2334 | 154ms'
-  - '🇳🇱 - NL - @freeOnlineVPN #9 | 154ms'
-  - 🪝47@oneclickvpnkeys | 154ms
-  - fr|0d5a|puddincat07@Telegram | 154ms
-  - 🇺🇸 美国 | USA 13_1 | 155ms
-  - '[OpenRay] Dynamic-5062 | 156ms'
-  - '[OpenRay] Dynamic-7280 | 156ms'
-  - '[OpenRay] Dynamic-9669 | 156ms'
-  - '[OpenRay] 🇺🇸 US-9675 | 156ms'
-  - 🇬🇧 英国 | GBR | 156ms
-  - 🇨🇦 加拿大 | CAN_3 | 156ms
-  - '[OpenRay] Dynamic-7323 | 157ms'
-  - '[OpenRay] 🇮🇹 IT-2 | 157ms'
-  - '[OpenRay] 🇨🇦 CA-7074 | 158ms'
-  - '[OpenRay] Dynamic-7341 | 158ms'
+  - '[OpenRay] Dynamic-7354 | 150ms'
+  - '[OpenRay] 🇺🇸 US-208 | 150ms'
+  - 🇨🇦 加拿大 | CAN_3 | 150ms
+  - 🇩🇪_DE_德国_1_1 | 150ms
+  - '[OpenRay] Dynamic-7346 | 151ms'
+  - '[OpenRay] 🇺🇸 US-9469 | 151ms'
+  - '[OpenRay] 🇺🇸 US-9676 | 151ms'
+  - '[OpenRay] 🇫🇮 FI-134 | 151ms'
+  - GB_54d62_0003 | 151ms
+  - '[OpenRay] Dynamic-7370 | 152ms'
+  - '[OpenRay] 🇺🇸 US-9683 | 152ms'
+  - 🇩🇪 德国 | DEU 12_2 | 152ms
+  - '[OpenRay] Dynamic-7347 | 154ms'
+  - '[OpenRay] 🇺🇸 US-9681 | 154ms'
+  - '[OpenRay] 🇺🇸 US-9682 | 154ms'
+  - '[OpenRay] 🇺🇸 US-9680 | 154ms'
+  - '🇸🇪 - SE - @freeOnlineVPN #1 | 154ms'
+  - '[OpenRay] Dynamic-5062 | 155ms'
+  - '[OpenRay] Dynamic-7211 | 155ms'
+  - '[OpenRay] Dynamic-2035 | 155ms'
+  - '[OpenRay] 🇩🇪 DE-2334 | 155ms'
+  - '[OpenRay] Dynamic-7167 | 156ms'
+  - 🇵🇱 波兰 | POL_5 | 156ms
+  - 9|🪝47@oneclickvpnkeys | 158ms
+  - '[OpenRay] 🇨🇦 CA-7218 | 158ms'
+  - '[OpenRay] 🇨🇦 CA-7381 | 158ms'
+  - '[OpenRay] Dynamic-5060 | 158ms'
+  - '[OpenRay] Dynamic-7164 | 158ms'
+  - '[OpenRay] Dynamic-7361 | 158ms'
+  - '[OpenRay] Dynamic-7376 | 158ms'
+  - '[OpenRay] 🇸🇪 SE-2607 | 158ms'
+  - 🇸🇬 SG-1 | SHFX | 158ms
+  - 🇷🇺 俄罗斯 | RUS 4 | 158ms
+  - fr|48eb|puddincat07@Telegram | 159ms
+  - 🇸🇬 新加坡 | SGP | 159ms
+  - '[OpenRay] Dynamic-5827 | 160ms'
+  - '[OpenRay] Dynamic-4450 | 160ms'
+  - '🇳🇱@FreakConfig #2 | 160ms'
+  - 🇩🇪 德国 | DEU 7_1 | 160ms
+  - '[OpenRay] Dynamic-184 | 161ms'
+  - '[OpenRay] Dynamic-7166 | 161ms'
+  - 未知 TROJAN-1177 | free-nodes | 161ms
+  - '[OpenRay] 🇨🇦 CA-7389 | 162ms'
+  - '[OpenRay] Dynamic-6560 | 162ms'
+  - '[OpenRay] 🇺🇸 US-2325 | 162ms'
   url: http://cp.cloudflare.com/generate_204
   interval: 300
 rules:

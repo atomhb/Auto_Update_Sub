@@ -788,7 +788,8 @@ def main():
     prefiltered_nodes = prefilter_all_nodes(all_nodes)
     if not prefiltered_nodes:
         logger.warning("预筛选后无节点，使用全部节点测试")
-        prefiltered_nodes = all_nodes[:min(len(all_nodes), 100)]  # 限制数量
+        # prefiltered_nodes = all_nodes[:min(len(all_nodes), 100)]  # 限制数量
+        prefiltered_nodes = all_nodes
 
     # 阶段4: Clash延迟测试 + Google Scholar验证
     logger.info("\n[阶段4/5] Clash延迟测试 + Google Scholar访问验证...")

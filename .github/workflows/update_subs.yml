@@ -8,7 +8,11 @@ on:
   # schedule:
   #   - cron: '0 */6 * * *'
   schedule:
-    - cron: '0 0,12 * * *'  # 每天UTC 0点和12点
+    - cron: '0 16 * * *'
+    - cron: '0 4 * * *'
+
+env:
+  TZ: 'Asia/Shanghai'  # 设置时区为北京时间
 
 jobs:
   update:
@@ -20,16 +24,36 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cach: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests pyyaml tqdm PySocks ping3 psutil
+
+      - name: Cache V2ray core
+        id: cache-v2ray
+        uses: actions/cache@v4
+        with:
+          path: v2ray
+          key: v2ray-core-v5.20.0-${{ runner.os }}
+          
+      - name: Download V2ray core
+        if: steps.cache-v2ray.outputs.cache-hit != 'true'
+        run: |
+          echo "📥 下载V2ray核心..."
+          V2RAY_VERSION="v5.20.0"
+          wget -q https://github.com/v2fly/v2ray-core/releases/download/${V2RAY_VERSION}/v2ray-linux-64.zip
+          unzip -q v2ray-linux-64.zip v2ray
+          chmod +x v2ray
+          ./v2ray version
 
       - name: 下载 mihomo (Clash.Meta) 核心
         run: |
@@ -81,6 +105,34 @@ jobs:
             echo "sub.yaml 未生成！可能原因: 订阅解析失败、测试无有效节点或代码异常"
           fi
           cat update_time.txt || echo "update_time.txt 未生成"
+
+      - name: Generate statistics
+        run: |
+          cat > STATS.md << 'EOF'
+          # 订阅统计
+
+          ## 更新信息
+          - 更新时间: $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+          - 运行编号: ${{ github.run_number }}
+          - 触发方式: ${{ github.event_name }}
+
+          ## 节点信息
+          EOF
+
+          if [ -f sub.yaml ]; then
+            NODE_COUNT=$(grep -c 'name:' sub.yaml || echo 0)
+            echo "- 可用节点数: $NODE_COUNT" >> STATS.md
+          fi
+
+          if [ -f update_time.txt ]; then
+            echo "" >> STATS.md
+            echo "## 详细信息" >> STATS.md
+            echo '```' >> STATS.md
+            cat update_time.txt >> STATS.md
+            echo '```' >> STATS.md
+          fi
+
+          cat STATS.md
 
       # 提交并推送更改
       - name: Commit and push changes

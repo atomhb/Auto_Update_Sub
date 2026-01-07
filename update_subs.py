@@ -52,7 +52,6 @@ MAX_WORKERS_CLASH = 6  # Clash测试并发数
 
 # 学术验证配置
 SCHOLAR_VERIFY_URL = 'https://scholar.google.com/scholar_labs/search'
-SCHOLAR_KEYWORDS = ['scholar', 'articles', 'cited by']
 
 logging.basicConfig(
     level=logging.INFO,

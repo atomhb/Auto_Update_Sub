@@ -692,26 +692,45 @@ def wait_for_clash_api(api_address, timeout=10):
     return False
 
 def verify_scholar_access(socks_address, node_name):
-    """验证Google Scholar访问"""
     if not STAGE2_SCHOLAR_TEST:
         return True
 
+    # 这里的 SCHOLAR_VERIFY_URL 应为 "https://scholar.google.com/scholar_labs/search"
     try:
-        proxies = {'http': f'socks5h://{socks_address}', 'https': f'socks5h://{socks_address}'}
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0'}
+        proxies = {
+            'http': f'socks5h://{socks_address}', 
+            'https': f'socks5h://{socks_address}'
+        }
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0',
+            'Accept-Language': 'en-US,en;q=0.9'
+        }
 
-        response = requests.get(SCHOLAR_VERIFY_URL, proxies=proxies, timeout=12, headers=headers, verify=False)
+        # 发起请求，注意 Scholar Labs 可能对 Header 要求更严
+        response = requests.get(
+            SCHOLAR_VERIFY_URL, 
+            proxies=proxies, 
+            timeout=15, 
+            headers=headers, 
+            verify=False
+        )
 
         if response.status_code == 200:
             content_lower = response.text.lower()
-            has_scholar = any(kw in content_lower for kw in SCHOLAR_KEYWORDS)
-            is_blocked = 'captcha' in content_lower or 'automated queries' in content_lower
+            # 检查是否存在 Google 典型的自动化查询拦截特征
+            # Scholar Labs 在 2026 年初可能包含 AI 驱动的检测，检测词包括 captcha, automated queries, unusual traffic
+            is_blocked = any(kw in content_lower for kw in ['captcha', 'automated queries', '/sorry/index'])
 
-            if has_scholar and not is_blocked:
-                logger.info(f"✓ Scholar可访问: {node_name}")
+            if not is_blocked:
+                logger.info(f"✓ Scholar Labs 可访问: {node_name}")
                 return True
-    except:
-        pass
+            else:
+                logger.warning(f"✗ Scholar 访问受限 (触发验证码): {node_name}")
+        else:
+            logger.debug(f"✗ Scholar 返回状态码 {response.status_code}: {node_name}")
+
+    except Exception as e:
+        logger.debug(f"! Scholar 连接异常 [{node_name}]: {str(e)}")
 
     return False
 

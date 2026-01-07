@@ -15,6 +15,9 @@ from urllib.parse import unquote, urlparse, parse_qs
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 import hashlib
+import urllib3
+
+urllib3.disable_warnings()
 
 try:
     import psutil

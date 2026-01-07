@@ -29,7 +29,7 @@ UPDATE_TIME_FILE = 'update_time.txt'
 
 # 两阶段测试配置
 STAGE1_V2RAY_TEST = True  # 是否启用V2ray快速测试
-STAGE1_TOP_N = 300  # 第一阶段保留前N个低延迟节点
+STAGE1_TOP_N = 2000  # 第一阶段保留前N个低延迟节点
 STAGE2_SCHOLAR_TEST = True  # 第二阶段是否验证Google Scholar
 
 # V2ray测试配置

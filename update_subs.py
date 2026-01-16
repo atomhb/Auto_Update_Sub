@@ -28,6 +28,7 @@ except ImportError:
 # ==================== 全局配置 ====================
 SUBSCRIPTION_URLS_FILE = 'sub_urls.txt'
 OUTPUT_CLASH_FILE = 'sub.yaml'
+OUTPUT_CLASH_FILE_SCHOLAR = 'sub_scholar.yaml'
 UPDATE_TIME_FILE = 'update_time.txt'
 
 # 两阶段测试配置
@@ -37,18 +38,18 @@ STAGE2_SCHOLAR_TEST = True  # 第二阶段是否验证Google Scholar
 
 # V2ray测试配置
 V2RAY_BINARY_PATH = './v2ray'  # V2ray核心路径
-V2RAY_TEST_TIMEOUT = 10  # V2ray测试超时(秒)
-V2RAY_TEST_URL = 'https://www.google.com/generate_204'
+V2RAY_TEST_TIMEOUT = 2  # V2ray测试超时(秒)
+V2RAY_TEST_URL = 'https://www.google.com'
 
 # Clash测试配置
 CLASH_BINARY_PATH = './clash'
 MAX_LATENCY_MS = 500
-MAX_NODES_LIMIT = 100
+MAX_NODES_LIMIT = 500
 
 # 并发控制
 MAX_WORKERS_FETCH = 10
-MAX_WORKERS_V2RAY = 16  # V2ray测试并发数（可以更高）
-MAX_WORKERS_CLASH = 6  # Clash测试并发数
+MAX_WORKERS_V2RAY = 32  # V2ray测试并发数（可以更高）
+MAX_WORKERS_CLASH = 8  # Clash测试并发数
 
 # 学术验证配置
 SCHOLAR_VERIFY_URL = 'https://scholar.google.com/scholar_labs/search'
@@ -938,6 +939,10 @@ def main():
     # 阶段1: V2ray测试
     if STAGE1_V2RAY_TEST:
         stage1_nodes = stage1_v2ray_test(all_nodes)
+        
+        stage1_nodes = ensure_unique_names(stage1_nodes)
+        generate_clash_config(stage1_nodes, OUTPUT_CLASH_FILE)
+        
     else:
         stage1_nodes = all_nodes[:STAGE1_TOP_N]
 
@@ -946,16 +951,20 @@ def main():
         generate_clash_config([], OUTPUT_CLASH_FILE)
         return
 
+    with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
+            f.write(f"更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"可用节点: {len(final_nodes)}\n")
+            f.write(f"订阅来源: {len(contents)}\n")
+
     # 阶段2: Clash Scholar验证
     final_nodes = stage2_clash_scholar_test(stage1_nodes)
 
     if final_nodes:
         final_nodes = ensure_unique_names(final_nodes)
-        generate_clash_config(final_nodes, OUTPUT_CLASH_FILE)
+        generate_clash_config(final_nodes, OUTPUT_CLASH_FILE_SCHOLAR)
 
-        with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
-            f.write(f"更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"可用节点: {len(final_nodes)}\n")
+        with open(UPDATE_TIME_FILE, 'a', encoding='utf-8') as f:
+            f.write(f"google scholar 可用节点: {len(final_nodes)}\n")
             f.write(f"订阅来源: {len(contents)}\n")
 
         logger.info(f"\n{'='*60}")
@@ -963,7 +972,7 @@ def main():
         logger.info(f"{'='*60}")
     else:
         logger.warning("无可用节点")
-        generate_clash_config([], OUTPUT_CLASH_FILE)
+        generate_clash_config([], OUTPUT_CLASH_FILE_SCHOLAR)
 
 if __name__ == '__main__':
     try:

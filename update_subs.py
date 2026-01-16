@@ -953,7 +953,7 @@ def main():
 
     with open(UPDATE_TIME_FILE, 'w', encoding='utf-8') as f:
             f.write(f"更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"可用节点: {len(final_nodes)}\n")
+            f.write(f"可用节点: {len(stage1_nodes)}\n")
             f.write(f"订阅来源: {len(contents)}\n")
 
     # 阶段2: Clash Scholar验证

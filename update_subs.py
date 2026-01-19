@@ -38,8 +38,9 @@ STAGE2_SCHOLAR_TEST = True  # 第二阶段是否验证Google Scholar
 
 # V2ray测试配置
 V2RAY_BINARY_PATH = './v2ray'  # V2ray核心路径
-V2RAY_TEST_TIMEOUT = 2  # V2ray测试超时(秒)
-V2RAY_TEST_URL = 'https://www.google.com'
+V2RAY_TEST_TIMEOUT = 0.5  # V2ray测试超时(秒)
+# V2RAY_TEST_URL = 'https://www.google.com'
+V2RAY_TEST_URL = 'https://gemini.google.com/'
 
 # Clash测试配置
 CLASH_BINARY_PATH = './clash'

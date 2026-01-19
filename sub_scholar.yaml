@@ -1,0 +1,260 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+dns:
+  enabled: true
+  enhanced-mode: fake-ip
+  nameserver:
+  - https://doh.pub/dns-query
+  - https://223.5.5.5/dns-query
+  fallback:
+  - 8.8.8.8
+  - 1.1.1.1
+proxies:
+- name: US SS-132 | free-nodes
+  type: ss
+  server: 147.135.77.6
+  port: 11201
+  cipher: chacha20-ietf-poly1305
+  password: 7f9cb9aef317f096
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 美国 | USA 33
+  server: 37.19.198.236
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-11046'
+  type: vless
+  server: cloudflare.182682.xyz
+  port: 80
+  uuid: 93526fcb-8dbf-442e-a656-eb304f1da4ef
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: lucky-voice-d6f3.difat89954-0c6.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-10764_2'
+  type: vmess
+  server: GgGgGGgGggggGg.222769.XYZ
+  port: 80
+  uuid: 2e65577e-8fdb-4bb1-a495-96f3122099a7
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /f6taOMcOSZb9TPR
+    headers:
+      Host: gggggggggggggg.222769.xyz
+  udp: true
+  skip-cert-verify: false
+- name: free-vless-优选1
+  type: vless
+  server: 104.17.162.123
+  port: 8443
+  uuid: 3859bc77-09ad-4d60-a0d0-df3ebe7c4ff7
+  network: ws
+  tls: true
+  servername: zqsf87fcn1xq91ba503b0ihedf7q6tpbl0rd7d3xcm5s.zjde5.de5.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: zqsf87fcn1xq91ba503b0ihedf7q6tpbl0rd7d3xcm5s.zjde5.de5.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇲🇽 MX-1'
+  type: vmess
+  server: 216.238.87.47
+  port: 27502
+  uuid: b8155ce4-7e08-4c40-800f-8671312b7124
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+- name: free-vless-优选8
+  type: vless
+  server: 172.64.154.125
+  port: 8443
+  uuid: 7ea2d794-9b96-42df-bf03-ac14d7ea2a6a
+  network: ws
+  tls: true
+  servername: 893gmm2nnvtlny0jj2faatvarmvqhh0.zjde5.de5.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: 893gmm2nnvtlny0jj2faatvarmvqhh0.zjde5.de5.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-11082_2'
+  type: vless
+  server: singapore.com
+  port: 2053
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  network: ws
+  tls: true
+  servername: ss1.f1w.de5.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /proxyip=sjc.o00o.ooo
+    headers:
+      Host: ss1.f1w.de5.net
+  udp: true
+  skip-cert-verify: false
+- name: DE SS-133 | free-nodes
+  type: ss
+  server: 141.95.104.145
+  port: 11201
+  cipher: chacha20-ietf-poly1305
+  password: 4f032d993dfec318
+  udp: true
+  skip-cert-verify: false
+- name: free-vless-优选4
+  type: vless
+  server: 104.17.165.123
+  port: 8443
+  uuid: 11536f13-71ae-4eac-8a8f-7626cfcaf18e
+  network: ws
+  tls: true
+  servername: ihlzpl6i0izl8pet1hmsv5ej76rqbunht0rtw7xvmff0r1bcclx.zjde5.de5.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: ihlzpl6i0izl8pet1hmsv5ej76rqbunht0rtw7xvmff0r1bcclx.zjde5.de5.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-359'
+  type: vless
+  server: www.fbi.gov
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fuckingfangbinxing.pusytroller.cf
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-8769'
+  type: vless
+  server: 104.18.35.15
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fuckingfangbinxing.pusytroller.cf
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇵🇱 PL-160'
+  type: vless
+  server: 141.101.121.31
+  port: 8880
+  uuid: 8a13ed66-d70a-4d32-8052-cbd8e0c5f7f4
+  network: ws
+  tls: false
+  ws-opts:
+    path: /Free-VPN-CF-Geo-Project/HK
+    headers:
+      Host: joss.gvpn2.web.id
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇵🇱 PL-177'
+  type: vless
+  server: 144.31.1.127
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: plcdn13.suio.me
+  client-fingerprint: chrome
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇫🇷 FR-355'
+  type: vless
+  server: 141.101.121.1
+  port: 8880
+  uuid: 8a13ed66-d70a-4d32-8052-cbd8e0c5f7f4
+  network: ws
+  tls: false
+  ws-opts:
+    path: /Free-VPN-CF-Geo-Project/HK
+    headers:
+      Host: joss.gvpn2.web.id
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇵🇱 PL-183'
+  type: vless
+  server: plcdn1.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: plcdn1.suio.me
+  client-fingerprint: chrome
+  udp: true
+  skip-cert-verify: false
+proxy-groups:
+- name: PROXY
+  type: select
+  proxies:
+  - AUTO
+  - US SS-132 | free-nodes
+  - 🇺🇸 美国 | USA 33
+  - '[OpenRay] Dynamic-11046'
+  - '[OpenRay] Dynamic-10764_2'
+  - free-vless-优选1
+  - '[OpenRay] 🇲🇽 MX-1'
+  - free-vless-优选8
+  - '[OpenRay] Dynamic-11082_2'
+  - DE SS-133 | free-nodes
+  - free-vless-优选4
+  - '[OpenRay] Dynamic-359'
+  - '[OpenRay] 🇨🇦 CA-8769'
+  - '[OpenRay] 🇵🇱 PL-160'
+  - '[OpenRay] 🇵🇱 PL-177'
+  - '[OpenRay] 🇫🇷 FR-355'
+  - '[OpenRay] 🇵🇱 PL-183'
+- name: AUTO
+  type: url-test
+  proxies:
+  - US SS-132 | free-nodes
+  - 🇺🇸 美国 | USA 33
+  - '[OpenRay] Dynamic-11046'
+  - '[OpenRay] Dynamic-10764_2'
+  - free-vless-优选1
+  - '[OpenRay] 🇲🇽 MX-1'
+  - free-vless-优选8
+  - '[OpenRay] Dynamic-11082_2'
+  - DE SS-133 | free-nodes
+  - free-vless-优选4
+  - '[OpenRay] Dynamic-359'
+  - '[OpenRay] 🇨🇦 CA-8769'
+  - '[OpenRay] 🇵🇱 PL-160'
+  - '[OpenRay] 🇵🇱 PL-177'
+  - '[OpenRay] 🇫🇷 FR-355'
+  - '[OpenRay] 🇵🇱 PL-183'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+rules:
+- DOMAIN-SUFFIX,scholar.google.com,PROXY
+- DOMAIN-SUFFIX,google.com,PROXY
+- GEOIP,CN,DIRECT
+- MATCH,PROXY

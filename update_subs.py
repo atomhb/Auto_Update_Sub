@@ -53,7 +53,8 @@ MAX_WORKERS_V2RAY = 32  # V2ray测试并发数（可以更高）
 MAX_WORKERS_CLASH = 8  # Clash测试并发数
 
 # 学术验证配置
-SCHOLAR_VERIFY_URL = 'https://scholar.google.com/scholar_labs/search'
+# SCHOLAR_VERIFY_URL = 'https://scholar.google.com/scholar_labs/search'
+SCHOLAR_VERIFY_URL =  'https://gemini.google.com/'
 
 logging.basicConfig(
     level=logging.INFO,

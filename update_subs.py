@@ -941,6 +941,13 @@ def main():
         stage1_nodes = stage1_v2ray_test(all_nodes)
         
         stage1_nodes = ensure_unique_names(stage1_nodes)
+
+        # 再次测试V2ray延迟
+        stage12_nodes = stage1_v2ray_test(stage1_nodes)
+        # 再测试后保存
+        stage1_nodes = stage1_v2ray_test(stage12_nodes)
+
+        
         generate_clash_config(stage1_nodes, OUTPUT_CLASH_FILE)
         
     else:

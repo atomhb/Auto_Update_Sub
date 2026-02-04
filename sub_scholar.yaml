@@ -14,12 +14,12 @@ dns:
   - 8.8.8.8
   - 1.1.1.1
 proxies:
-- cipher: chacha20-ietf-poly1305
-  name: us|a6d4|puddincat07@Telegram
-  password: zwBLM6bBE5YxvwvnKgxAq3ErXpqMYv20
-  port: 443
-  server: 185.193.48.157
+- name: '[OpenRay] 🇯🇵 JP-648'
   type: ss
+  server: 3.112.130.53
+  port: 8316
+  cipher: chacha20-ietf-poly1305
+  password: ljqdalu13..
   udp: true
   skip-cert-verify: false
 proxy-groups:
@@ -27,11 +27,11 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - us|a6d4|puddincat07@Telegram
+  - '[OpenRay] 🇯🇵 JP-648'
 - name: AUTO
   type: url-test
   proxies:
-  - us|a6d4|puddincat07@Telegram
+  - '[OpenRay] 🇯🇵 JP-648'
   url: http://www.gstatic.com/generate_204
   interval: 300
 rules:

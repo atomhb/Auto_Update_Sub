@@ -14,544 +14,252 @@ dns:
   - 8.8.8.8
   - 1.1.1.1
 proxies:
-- name: 新加坡06aws
-  type: hysteria2
-  server: sg06.453521.xyz
-  port: 8080
-  password: cfa36789-94aa-4c4c-ad06-ab35a8eb9312
-  sni: sg06.453521.xyz
-  udp: true
-  skip-cert-verify: false
-- name: JP23｜家宽｜非常安全
-  password: ab586e14-5ee0-4b4e-b309-566552eda49a
-  port: 21733
-  server: jp.xiongchumo.shop
-  skip-cert-verify: true
-  sni: jp.xiongchumo.shop
-  tls: false
-  type: hysteria2
-  udp: true
-- name: JP15｜家宽｜非常安全
-  password: c24191f6-2d66-44b0-af03-6a66dac2be43
-  port: 21707
-  server: jp.xiongchumo.shop
-  skip-cert-verify: true
-  sni: jp.xiongchumo.shop
-  tls: false
-  type: hysteria2
-  udp: true
-- name: 🇺🇸 US-23 | Filter
-  type: tuic
-  server: 107.150.1.135
-  port: 45000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 香港02HKT
-  type: hysteria2
-  server: hkmax03.476579.xyz
-  port: 8080
-  password: cfa36789-94aa-4c4c-ad06-ab35a8eb9312
-  sni: hkmax03.476579.xyz
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸 US-48 | Filter
-  type: tuic
-  server: 108.165.121.116
-  port: 40000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: US6｜机房｜低风险
-  password: 767ed51d-2358-4981-9447-a807c1419e93
-  port: 50000
-  server: 129.153.76.186
-  skip-cert-verify: true
-  sni: fastcdn.hoyoverse.com
-  tls: false
-  type: hysteria2
-  udp: true
-- name: 🇵🇱 PL-1 [ipv6] | Filter
-  type: hysteria2
-  server: 2001:41d0:602:f54:5d83:94b3:dd5c:b515
-  port: 8088
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.apple.com
-  skip-cert-verify: true
-  obfs: salamander
-  obfs-password: yFV4aQYAdEEvu5if
-  udp: true
-- name: 🇺🇸 US-40 | Filter
-  type: tuic
-  server: 107.175.6.66
-  port: 40001
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 新疆西藏福建可用
+- name: '[OpenRay] 🇨🇦 CA-11852'
   type: vless
-  server: cf.090227.xyz
-  port: 443
-  uuid: 5a2c16f9-e365-4080-8d38-6924c3835586
-  encryption: none
-  udp: true
-  tfo: false
-  tls: true
-  sni: pg.hhhhh.eu.org
-  servername: pg.hhhhh.eu.org
-  client-fingerprint: chrome
+  server: 104.18.14.19
+  port: 80
+  uuid: a2af6e7c-a792-4e51-9460-fff4bd74fbfc
   network: ws
+  tls: false
   ws-opts:
     path: /
     headers:
-      Host: pg.hhhhh.eu.org
-  alterId: 0
-- name: JP5｜机房｜低风险
-  password: 767ed51d-2358-4981-9447-a807c1419e93
-  port: 55000
-  server: 103.62.49.132
-  skip-cert-verify: true
-  sni: fastcdn.hoyoverse.com
-  tls: false
-  type: hysteria2
-  udp: true
-- name: 🇺🇸【北美洲】美国01丨直连
-  type: hysteria2
-  server: us01zl.poke-mon.xyz
-  port: 443
-  password: 10bfc72f-e344-4c22-95ec-37403e9bcddf
-  sni: bing.com
-  skip-cert-verify: true
-  udp: true
-- name: 🇩🇪 DE-10 | Filter
-  type: tuic
-  server: 143.20.37.17
-  port: 50000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 🇷🇺 RU-1 | Filter
-  type: tuic
-  server: 45.8.159.225
-  port: 47413
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: '[OpenRay] Dynamic-8837'
-  type: vless
-  server: malaysia.com
-  port: 443
-  uuid: 25577310-a767-4b2c-90c6-9fcf4bb387f0
-  network: ws
-  tls: true
-  servername: fffb57cc.tacgne.pages.dev
-  client-fingerprint: random
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fffb57cc.tacgne.pages.dev
+      Host: vahidqaz-ft33vt-1.vahidqaz.workers.dev
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸 US-30 | Filter
-  type: tuic
-  server: 108.165.122.82
-  port: 43602
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 官网520.juanwangjc.top美国 免费使用-26
+- name: '[OpenRay] 🇨🇦 CA-11825'
   type: vless
-  server: 185.156.19.238
-  port: 2096
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  server: 104.21.22.213
+  port: 80
+  uuid: 94671f42-fdd3-4503-a3e6-bda4a2527560
   network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoibUVFb0RQcHJZZSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbIjM0LjI1My4yMzQuNjIiXX0=?ed=2560
+    headers:
+      Host: 019.electrocellco-cf-019.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-11691'
+  type: vless
+  server: 104.21.233.186
+  port: 2086
+  uuid: 636de463-b509-4631-adc6-400b21733278
+  network: ws
+  tls: false
+  ws-opts:
+    path: /vgn80ag4q5o0oxj5
+    headers:
+      Host: index.harmony610.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦 加拿大 | CAN 4
+  server: 25.26.27.238
+  port: 2096
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   tls: true
   servername: sni.jpmj.dev
   client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.jpmj.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-13253'
-  type: vless
-  server: 104.20.6.134
-  port: 443
-  uuid: d89d6641-3b1a-4f51-a194-9c9109fd21b6
-  network: ws
-  tls: true
-  servername: DiprOX.pages.DEV
-  ws-opts:
-    path: /assets
-    headers:
-      Host: diprox.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: 香港06HKT
-  type: hysteria2
-  server: hkt06.476579.xyz
-  port: 8080
-  password: cfa36789-94aa-4c4c-ad06-ab35a8eb9312
-  sni: hkt06.476579.xyz
-  udp: true
-  skip-cert-verify: false
-- name: AU1｜机房｜低风险
-  password: 767ed51d-2358-4981-9447-a807c1419e93
-  port: 50000
-  server: 152.69.160.74
-  skip-cert-verify: true
-  sni: fastcdn.hoyoverse.com
-  tls: false
-  type: hysteria2
-  udp: true
-- name: 新加坡11BGP
-  type: hysteria2
-  server: sg11.352343.cc
-  port: 8080
-  password: cfa36789-94aa-4c4c-ad06-ab35a8eb9312
-  sni: sg11.352343.cc
-  udp: true
-  skip-cert-verify: false
-- name: JP13｜家宽｜非常安全
-  password: 7c014d1d-262d-4ce0-97d0-2d622b9910c2
-  port: 21617
-  server: jp.xiongchumo.shop
-  skip-cert-verify: true
-  sni: jp.xiongchumo.shop
-  tls: false
-  type: hysteria2
-  udp: true
-- name: 🇳🇱 NL-3 | Filter
-  type: tuic
-  server: 62.84.172.51
-  port: 42156
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.apple.com
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 日本_020723236
-  type: hysteria2
-  server: 2.6rguyesfdhvbz.uk
-  port: 15040
-  password: dd7519c3-b4c6-4f24-80d9-434ae26675ed
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸 US-15 | Filter
-  type: tuic
-  server: 136.0.41.47
-  port: 40000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: Shadowsocks
-  type: socks5
-  server: 127.0.0.1
-  port: 1080
-  udp: true
-  skip-cert-verify: false
-- name: DE22｜原生/疑似家宽｜高风险 (黑名单)
-  port: 1080
-  server: 193.233.254.7
-  tls: false
-  type: socks5
-  username: T2dAMTkzLjIzMy4yNTQuNzo%3D
-  udp: true
-  skip-cert-verify: false
-- name: 新加坡04aws
-  type: hysteria2
-  server: sg04.352343.cc
-  port: 8080
-  password: cfa36789-94aa-4c4c-ad06-ab35a8eb9312
-  sni: sg04.352343.cc
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-8778'
-  type: vless
-  server: www.visakorea.com
-  port: 443
-  uuid: 25577310-a767-4b2c-90c6-9fcf4bb387f0
-  network: ws
-  tls: true
-  servername: fffb57cc.tacgne.pages.dev
-  client-fingerprint: random
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fffb57cc.tacgne.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: 官网520.juanwangjc.top英国 免费使用-07
-  type: vless
-  server: 5.10.247.138
-  port: 2096
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.indevs.in
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.111000.indevs.in
-  udp: true
-  skip-cert-verify: false
-- name: 官网520.juanwangjc.top加拿大 免费使用-02
-  type: vless
-  server: 156.243.83.238
-  port: 2096
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.jpmj.dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.jpmj.dev
-  udp: true
-  skip-cert-verify: false
-- name: KR_a2b44_0038
-  server: testkr3.ssv.vc
-  port: 30446
-  type: http
-  username: test
-  password: test.+
-  tls: true
-  skip-cert-verify: true
-  udp: true
-- name: 香港03
-  type: hysteria2
-  server: jw.01.jwlink-platform01.com
-  port: 36803
-  password: e2b68fe2-eff2-476b-94cc-b256652010cc
-  sni: learn.microsoft.com
-  skip-cert-verify: true
-  udp: true
-- name: 🇺🇸 US-10 | Filter
-  type: tuic
-  server: 166.88.142.143
-  port: 50000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 香港05
-  type: hysteria2
-  server: jw.05.jwlink-platform01.com
-  port: 36805
-  password: e2b68fe2-eff2-476b-94cc-b256652010cc
-  sni: learn.microsoft.com
-  skip-cert-verify: true
-  udp: true
-- name: 🇺🇸 美国 | USA
-  server: creativecommons.org
-  port: 443
-  type: vless
-  uuid: d89d6641-3b1a-4f51-a194-9c9109fd21b6
-  tls: true
-  servername: DiprOX.pages.DEV
   network: ws
   ws-opts:
-    path: /assets
-    headers:
-      Host: DiprOX.pages.DEV
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_1|2.5MB/s
-  network: ws
-  port: 2096
-  server: 185.251.81.238
-  servername: sni.jpmj.dev
-  tls: true
-  type: vless
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.jpmj.dev
     path: /?ed=2560&Telegram🇨🇳 @WangCai2
+    headers:
+      Host: sni.jpmj.dev
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸 US-32 | Filter
-  type: tuic
-  server: 108.165.120.141
-  port: 61000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: '[OpenRay] Dynamic-8866'
+- name: '[OpenRay] Dynamic-11697'
   type: vless
-  server: www.gov.ua
+  server: 019.electrocellco-cf-019.workers.dev
+  port: 80
+  uuid: 94671f42-fdd3-4503-a3e6-bda4a2527560
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoibUVFb0RQcHJZZSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbIjM0LjI1My4yMzQuNjIiXX0=?ed=2560
+    headers:
+      Host: 019.electrocellco-cf-019.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-11791'
+  type: vless
+  server: lively-brook-c471.nedena3319.workers.dev
   port: 443
-  uuid: 25577310-a767-4b2c-90c6-9fcf4bb387f0
+  uuid: 17ebee4e-97ea-4cad-8737-cc228478ca9d
   network: ws
   tls: true
-  servername: fffb57cc.tacgne.pages.dev
-  client-fingerprint: random
+  servername: lively-brook-c471.nedena3319.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: lively-brook-c471.nedena3319.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 官网520.juanwangjc.top美国 免费使用-23
+  type: vless
+  server: 77.105.163.138
+  port: 2096
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-13537'
+  type: vmess
+  server: vvvbbnhhju.un2026.indevs.in
+  port: 80
+  uuid: f063dee0-f33c-4e6c-83f9-4d884b62ba9e
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /ZIVRTHcp4rPi9Y6g1253o9NgB
+    headers:
+      Host: vvvbbnhhju.un2026.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: 官网520.juanwangjc.top英国 免费使用-02
+  type: vless
+  server: 185.170.166.138
+  port: 2096
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-11857'
+  type: vless
+  server: 188.114.97.0
+  port: 443
+  uuid: 03896a37-db8f-44ed-8ce1-45a1577f6da6
+  network: ws
+  tls: true
+  servername: stipulations.gelatin.workers.dev
+  client-fingerprint: randomized
+  ws-opts:
+    path: /eyJqdW5rIjoiZzIxRUF6V2JFOW5IRyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: stipulations.gelatin.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 官网520.juanwangjc.top美国 免费使用-28
+  type: vless
+  server: 155.138.227.121
+  port: 8443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-12103'
+  type: vless
+  server: llllllllo.890404.indevs.in
+  port: 80
+  uuid: dd39bb7d-2bea-41b5-be20-fa228a45f639
+  network: ws
+  tls: false
+  ws-opts:
+    path: /KogllNDwTXOaeofV7ia41dH
+    headers:
+      Host: llllllllo.890404.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-12645'
+  type: vless
+  server: 172.67.207.29
+  port: 80
+  uuid: 94671f42-fdd3-4503-a3e6-bda4a2527560
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoibUVFb0RQcHJZZSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbIjM0LjI1My4yMzQuNjIiXX0=
+    headers:
+      Host: 019.electrocellco-cf-019.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_cd44613f
+  type: vless
+  server: 45.12.30.138
+  port: 2096
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-12050'
+  type: vless
+  server: 46.17.107.199
+  port: 443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-12729'
+  type: ss
+  server: 51.161.33.111
+  port: 11202
+  cipher: chacha20-ietf-poly1305
+  password: f6c4600d4d513857
+  udp: true
+  skip-cert-verify: false
+- name: 官网520.juanwangjc.top美国 免费使用-39
+  type: vless
+  server: 143.20.207.86
+  port: 8443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: ☮️95@oneclickvpnkeys
+  type: vless
+  server: 212.183.88.238
+  port: 2096
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.jpmj.dev
   ws-opts:
     path: /?ed=2560
     headers:
-      Host: fffb57cc.tacgne.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-11901'
-  type: ss
-  server: dmitmalibu.szxcn.net
-  port: 18829
-  cipher: aes-128-gcm
-  password: fa593414-7a76-4975-909b-7a7c46be123b
-  udp: true
-  skip-cert-verify: false
-- name: 香港08
-  type: hysteria2
-  server: jw.08.jwlink-platform01.com
-  port: 36808
-  password: e2b68fe2-eff2-476b-94cc-b256652010cc
-  sni: learn.microsoft.com
-  skip-cert-verify: true
-  udp: true
-- name: 🇩🇪 DE-7 | Filter
-  type: tuic
-  server: 37.114.48.20
-  port: 43697
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 🇺🇸 US-43 | Filter
-  type: tuic
-  server: 107.172.250.191
-  port: 20000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 官网520.juanwangjc.top美国 免费使用-45
-  type: vless
-  server: 185.158.133.138
-  port: 2096
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.indevs.in
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.111000.indevs.in
-  udp: true
-  skip-cert-verify: false
-- name: JP17｜家宽｜非常安全
-  password: c24191f6-2d66-44b0-af03-6a66dac2be43
-  port: 21315
-  server: jp.xiongchumo.shop
-  skip-cert-verify: true
-  sni: jp.xiongchumo.shop
-  tls: false
-  type: hysteria2
-  udp: true
-- name: 🇯🇵 JP-1 | Filter
-  type: tuic
-  server: 212.192.221.153
-  port: 40000
-  uuid: a1102edc-f382-4720-99f5-ecc0a74507af
-  password: a1102edc-f382-4720-99f5-ecc0a74507af
-  sni: www.python.org
-  skip-cert-verify: true
-  udp: true
-  alpn:
-  - h3
-  congestion-controller: bbr
-  udp-relay-mode: native
-- name: 新加坡02
-  type: hysteria2
-  server: hkmax02.352343.cc
-  port: 8080
-  password: cfa36789-94aa-4c4c-ad06-ab35a8eb9312
-  sni: hkmax02.352343.cc
-  udp: true
-  skip-cert-verify: false
-- name: 官网520.juanwangjc.top德国 免费使用-15
-  type: vless
-  server: 45.12.31.138
-  port: 2096
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.indevs.in
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.111000.indevs.in
+      Host: sni.jpmj.dev
   udp: true
   skip-cert-verify: false
 - name: '[OpenRay] 🇲🇽 MX-12'
@@ -562,86 +270,25 @@ proxies:
   password: 651df5dc8fd08d0c
   udp: true
   skip-cert-verify: false
-- name: '>>@freev2rayssr::US'
-  type: ss
-  server: 37.19.198.243
+- name: 🇺🇸 美国 | USA 6
+  server: 108.162.198.154
   port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇲🇽 MX-13'
-  type: ss
-  server: 185.163.1.90
-  port: 11201
-  cipher: chacha20-ietf-poly1305
-  password: 2b195d916cb84007
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-12125'
   type: vless
-  server: 45.77.4.176
-  port: 36983
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
+  uuid: d89d6641-3b1a-4f51-a194-9c9109fd21b6
   tls: true
-  servername: sni.111000.indevs.in
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳 @WangCai2
-    headers:
-      Host: sni.111000.indevs.in
-  udp: true
-  skip-cert-verify: false
-- name: 新加坡23aws
-  type: hysteria2
-  server: sg23.476579.xyz
-  port: 8080
-  password: cfa36789-94aa-4c4c-ad06-ab35a8eb9312
-  sni: sg23.476579.xyz
-  udp: true
-  skip-cert-verify: false
-- name: 官网520.juanwangjc.top美国 免费使用-08
-  type: vless
-  server: 97.64.26.199
-  port: 8443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.indevs.in
+  servername: DiprOX.pages.DEV
   client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.111000.indevs.in
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-13534'
-  type: vmess
-  server: vvvbgh.000890604.xyz
-  port: 80
-  uuid: f063dee0-f33c-4e6c-83f9-4d884b62ba9e
-  alterId: 0
-  cipher: auto
-  tls: false
   network: ws
   ws-opts:
-    path: /ZIVRTHcp4rPi9Y6g1253o9NgB
+    path: /fp=chrome#TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
     headers:
-      Host: vvvbgh.000890604.xyz
+      Host: DiprOX.pages.DEV
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-11898'
-  type: ss
-  server: 147.135.77.6
-  port: 11201
-  cipher: chacha20-ietf-poly1305
-  password: 7f9cb9aef317f096
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸 US-36 | Filter
+- name: 🇺🇸 US-35 | Filter
   type: tuic
-  server: 166.0.192.229
-  port: 8080
+  server: 209.141.58.4
+  port: 34587
   uuid: a1102edc-f382-4720-99f5-ecc0a74507af
   password: a1102edc-f382-4720-99f5-ecc0a74507af
   sni: www.python.org
@@ -651,101 +298,47 @@ proxies:
   - h3
   congestion-controller: bbr
   udp-relay-mode: native
-- name: '[OpenRay] 🇨🇦 CA-12730'
+- name: '[OpenRay] 🇫🇷 FR-629'
   type: ss
-  server: 51.161.80.138
-  port: 12743
-  cipher: chacha20-ietf-poly1305
-  password: ae1f6fea74b7391a
+  server: 51.159.103.137
+  port: 18290
+  cipher: aes-128-gcm
+  password: mBl1fYhX88xk3K39IePrRnmsQDvb1h4f
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-11897'
+- name: 未知 SS-24 | free-nodes
   type: ss
-  server: 147.135.78.88
+  server: 82.38.31.69
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: KR5｜机房｜低风险
+  obfs: salamander
+  obfs-password: rVYx28ncsHBinunc
+  password: fbf28ef0-3981-4ac6-ab33-95e599afdd99
+  port: 42329
+  server: kr2.miyazono-kaori.com
+  skip-cert-verify: true
+  sni: kr2.miyazono-kaori.com
+  tls: false
+  type: hysteria2
+  udp: true
+- name: GB TROJAN-31 | free-nodes
+  type: trojan
+  server: 45.89.111.142
+  port: 443
+  password: 7LBbob9IutFObLxLf9Svc1HaV
+  sni: hl-freedom-1.undef.network
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇩🇪 DE-6132'
+  type: ss
+  server: 54.36.116.190
   port: 11201
   cipher: chacha20-ietf-poly1305
-  password: a7f8d870c0ca04bc
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-12728'
-  type: ss
-  server: 51.161.32.44
-  port: 13026
-  cipher: chacha20-ietf-poly1305
-  password: e799b903a32fc1fe
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-12200'
-  type: vless
-  server: 159.203.144.233
-  port: 8443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.indevs.in
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.111000.indevs.in
-  udp: true
-  skip-cert-verify: false
-- name: 9| HK
-  type: hysteria2
-  server: ffc60249-t53wg0-t92wi1-1qkeg.hk2.hyhuawei.com
-  port: 443
-  password: a305ac08-d136-11ee-b6db-f23c91cfbbc9
-  sni: ffc60249-t53wg0-t92wi1-1qkeg.hk2.hyhuawei.com
-  udp: true
-  skip-cert-verify: false
-- client-fingerprint: chrome
-  encryption: none
-  name: 🇺🇸US_6|1.7MB/s
-  network: ws
-  port: 443
-  server: 185.16.110.0
-  servername: sni.111000.indevs.in
-  tls: true
-  type: vless
-  udp: true
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  ws-opts:
-    headers:
-      Host: sni.111000.indevs.in
-      User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/46.0.2490.80 Safari/537.36
-    path: /?ed=2560
-  xudp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇲🇽 MX-18'
-  type: vmess
-  server: 131.196.252.59
-  port: 20521
-  uuid: 5809911a-a16e-43d3-90b0-2c94cfc2035e
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 131.196.252.59
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-12687'
-  type: ss
-  server: 45.154.204.7
-  port: 990
-  cipher: chacha20-ietf-poly1305
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-10280'
-  type: vless
-  server: pqh29v3.globalfymain.com
-  port: 8880
-  uuid: 8dc7722c-2767-4eea-a28b-2f8daacc07e3
-  network: grpc
-  tls: false
+  password: ca5efd5cf9e947ad
   udp: true
   skip-cert-verify: false
 proxy-groups:
@@ -753,141 +346,61 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 新加坡06aws
-  - JP23｜家宽｜非常安全
-  - JP15｜家宽｜非常安全
-  - 🇺🇸 US-23 | Filter
-  - 香港02HKT
-  - 🇺🇸 US-48 | Filter
-  - US6｜机房｜低风险
-  - 🇵🇱 PL-1 [ipv6] | Filter
-  - 🇺🇸 US-40 | Filter
-  - 新疆西藏福建可用
-  - JP5｜机房｜低风险
-  - 🇺🇸【北美洲】美国01丨直连
-  - 🇩🇪 DE-10 | Filter
-  - 🇷🇺 RU-1 | Filter
-  - '[OpenRay] Dynamic-8837'
-  - 🇺🇸 US-30 | Filter
-  - 官网520.juanwangjc.top美国 免费使用-26
-  - '[OpenRay] 🇨🇦 CA-13253'
-  - 香港06HKT
-  - AU1｜机房｜低风险
-  - 新加坡11BGP
-  - JP13｜家宽｜非常安全
-  - 🇳🇱 NL-3 | Filter
-  - 日本_020723236
-  - 🇺🇸 US-15 | Filter
-  - Shadowsocks
-  - DE22｜原生/疑似家宽｜高风险 (黑名单)
-  - 新加坡04aws
-  - '[OpenRay] Dynamic-8778'
-  - 官网520.juanwangjc.top英国 免费使用-07
-  - 官网520.juanwangjc.top加拿大 免费使用-02
-  - KR_a2b44_0038
-  - 香港03
-  - 🇺🇸 US-10 | Filter
-  - 香港05
-  - 🇺🇸 美国 | USA
-  - 🇺🇸US_1|2.5MB/s
-  - 🇺🇸 US-32 | Filter
-  - '[OpenRay] Dynamic-8866'
-  - '[OpenRay] 🇺🇸 US-11901'
-  - 香港08
-  - 🇩🇪 DE-7 | Filter
-  - 🇺🇸 US-43 | Filter
-  - 官网520.juanwangjc.top美国 免费使用-45
-  - JP17｜家宽｜非常安全
-  - 🇯🇵 JP-1 | Filter
-  - 新加坡02
-  - 官网520.juanwangjc.top德国 免费使用-15
+  - '[OpenRay] 🇨🇦 CA-11852'
+  - '[OpenRay] 🇨🇦 CA-11825'
+  - '[OpenRay] 🇨🇦 CA-11691'
+  - 🇨🇦 加拿大 | CAN 4
+  - '[OpenRay] Dynamic-11697'
+  - '[OpenRay] Dynamic-11791'
+  - 官网520.juanwangjc.top美国 免费使用-23
+  - '[OpenRay] Dynamic-13537'
+  - 官网520.juanwangjc.top英国 免费使用-02
+  - '[OpenRay] 🇨🇦 CA-11857'
+  - 官网520.juanwangjc.top美国 免费使用-28
+  - '[OpenRay] 🇺🇸 US-12103'
+  - '[OpenRay] 🇨🇦 CA-12645'
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_cd44613f
+  - '[OpenRay] 🇺🇸 US-12050'
+  - '[OpenRay] 🇨🇦 CA-12729'
+  - 官网520.juanwangjc.top美国 免费使用-39
+  - ☮️95@oneclickvpnkeys
   - '[OpenRay] 🇲🇽 MX-12'
-  - '>>@freev2rayssr::US'
-  - '[OpenRay] 🇲🇽 MX-13'
-  - '[OpenRay] 🇺🇸 US-12125'
-  - 新加坡23aws
-  - 官网520.juanwangjc.top美国 免费使用-08
-  - '[OpenRay] Dynamic-13534'
-  - '[OpenRay] 🇺🇸 US-11898'
-  - 🇺🇸 US-36 | Filter
-  - '[OpenRay] 🇨🇦 CA-12730'
-  - '[OpenRay] 🇺🇸 US-11897'
-  - '[OpenRay] 🇨🇦 CA-12728'
-  - '[OpenRay] 🇺🇸 US-12200'
-  - 9| HK
-  - 🇺🇸US_6|1.7MB/s
-  - '[OpenRay] 🇲🇽 MX-18'
-  - '[OpenRay] 🇨🇦 CA-12687'
-  - '[OpenRay] 🇺🇸 US-10280'
+  - 🇺🇸 美国 | USA 6
+  - 🇺🇸 US-35 | Filter
+  - '[OpenRay] 🇫🇷 FR-629'
+  - 未知 SS-24 | free-nodes
+  - KR5｜机房｜低风险
+  - GB TROJAN-31 | free-nodes
+  - '[OpenRay] 🇩🇪 DE-6132'
 - name: AUTO
   type: url-test
   proxies:
-  - 新加坡06aws
-  - JP23｜家宽｜非常安全
-  - JP15｜家宽｜非常安全
-  - 🇺🇸 US-23 | Filter
-  - 香港02HKT
-  - 🇺🇸 US-48 | Filter
-  - US6｜机房｜低风险
-  - 🇵🇱 PL-1 [ipv6] | Filter
-  - 🇺🇸 US-40 | Filter
-  - 新疆西藏福建可用
-  - JP5｜机房｜低风险
-  - 🇺🇸【北美洲】美国01丨直连
-  - 🇩🇪 DE-10 | Filter
-  - 🇷🇺 RU-1 | Filter
-  - '[OpenRay] Dynamic-8837'
-  - 🇺🇸 US-30 | Filter
-  - 官网520.juanwangjc.top美国 免费使用-26
-  - '[OpenRay] 🇨🇦 CA-13253'
-  - 香港06HKT
-  - AU1｜机房｜低风险
-  - 新加坡11BGP
-  - JP13｜家宽｜非常安全
-  - 🇳🇱 NL-3 | Filter
-  - 日本_020723236
-  - 🇺🇸 US-15 | Filter
-  - Shadowsocks
-  - DE22｜原生/疑似家宽｜高风险 (黑名单)
-  - 新加坡04aws
-  - '[OpenRay] Dynamic-8778'
-  - 官网520.juanwangjc.top英国 免费使用-07
-  - 官网520.juanwangjc.top加拿大 免费使用-02
-  - KR_a2b44_0038
-  - 香港03
-  - 🇺🇸 US-10 | Filter
-  - 香港05
-  - 🇺🇸 美国 | USA
-  - 🇺🇸US_1|2.5MB/s
-  - 🇺🇸 US-32 | Filter
-  - '[OpenRay] Dynamic-8866'
-  - '[OpenRay] 🇺🇸 US-11901'
-  - 香港08
-  - 🇩🇪 DE-7 | Filter
-  - 🇺🇸 US-43 | Filter
-  - 官网520.juanwangjc.top美国 免费使用-45
-  - JP17｜家宽｜非常安全
-  - 🇯🇵 JP-1 | Filter
-  - 新加坡02
-  - 官网520.juanwangjc.top德国 免费使用-15
+  - '[OpenRay] 🇨🇦 CA-11852'
+  - '[OpenRay] 🇨🇦 CA-11825'
+  - '[OpenRay] 🇨🇦 CA-11691'
+  - 🇨🇦 加拿大 | CAN 4
+  - '[OpenRay] Dynamic-11697'
+  - '[OpenRay] Dynamic-11791'
+  - 官网520.juanwangjc.top美国 免费使用-23
+  - '[OpenRay] Dynamic-13537'
+  - 官网520.juanwangjc.top英国 免费使用-02
+  - '[OpenRay] 🇨🇦 CA-11857'
+  - 官网520.juanwangjc.top美国 免费使用-28
+  - '[OpenRay] 🇺🇸 US-12103'
+  - '[OpenRay] 🇨🇦 CA-12645'
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_cd44613f
+  - '[OpenRay] 🇺🇸 US-12050'
+  - '[OpenRay] 🇨🇦 CA-12729'
+  - 官网520.juanwangjc.top美国 免费使用-39
+  - ☮️95@oneclickvpnkeys
   - '[OpenRay] 🇲🇽 MX-12'
-  - '>>@freev2rayssr::US'
-  - '[OpenRay] 🇲🇽 MX-13'
-  - '[OpenRay] 🇺🇸 US-12125'
-  - 新加坡23aws
-  - 官网520.juanwangjc.top美国 免费使用-08
-  - '[OpenRay] Dynamic-13534'
-  - '[OpenRay] 🇺🇸 US-11898'
-  - 🇺🇸 US-36 | Filter
-  - '[OpenRay] 🇨🇦 CA-12730'
-  - '[OpenRay] 🇺🇸 US-11897'
-  - '[OpenRay] 🇨🇦 CA-12728'
-  - '[OpenRay] 🇺🇸 US-12200'
-  - 9| HK
-  - 🇺🇸US_6|1.7MB/s
-  - '[OpenRay] 🇲🇽 MX-18'
-  - '[OpenRay] 🇨🇦 CA-12687'
-  - '[OpenRay] 🇺🇸 US-10280'
+  - 🇺🇸 美国 | USA 6
+  - 🇺🇸 US-35 | Filter
+  - '[OpenRay] 🇫🇷 FR-629'
+  - 未知 SS-24 | free-nodes
+  - KR5｜机房｜低风险
+  - GB TROJAN-31 | free-nodes
+  - '[OpenRay] 🇩🇪 DE-6132'
   url: http://www.gstatic.com/generate_204
   interval: 300
 rules:

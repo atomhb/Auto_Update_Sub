@@ -14,49 +14,100 @@ dns:
   - 8.8.8.8
   - 1.1.1.1
 proxies:
-- name: '[OpenRay] 🇨🇦 CA-12647'
+- name: '[OpenRay] 🇨🇦 CA-11717'
   type: vless
-  server: 188.114.97.0
-  port: 443
-  uuid: 6e16baf3-82cd-4e5e-bfea-5bd4d2253b4f
+  server: 104.18.13.229
+  port: 2052
+  uuid: 12d75b7d-8fdf-4785-8d62-d836854e7e63
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: parking-nfchbwa1-v2.parking-1ab.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-13348'
+  type: vless
+  server: 188.114.99.4
+  port: 8443
+  uuid: 26524cce-d514-4014-a426-365fb266a14d
   network: ws
   tls: true
-  servername: tELEGRAM.prOXIe2-TEL.wOrKErS.DEV
+  servername: cyuxj212pnq.chinat.indevs.in
+  client-fingerprint: random
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: cyuxj212pnq.chinat.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-12350'
+  type: vless
+  server: convera.com
+  port: 2053
+  uuid: 26524cce-d514-4014-a426-365fb266a14d
+  network: ws
+  tls: true
+  servername: snippet.fgfw.eu.org
   client-fingerprint: chrome
   ws-opts:
-    path: /eyJqdW5rIjoidXYyRXNUTXEiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+    path: /danfeng?ed=2560
     headers:
-      Host: telegram.proxie2-tel.workers.dev
+      Host: snippet.fgfw.eu.org
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-12611'
-  type: vless
-  server: 64.23.252.20
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.dynv6.net
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳 @WangCai2
-    headers:
-      Host: sni.111000.dynv6.net
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-13320'
+- name: '[OpenRay] Dynamic-15734'
   type: vmess
-  server: usaapp1.jisuyun.top
-  port: 2053
-  uuid: 4b80aa86-4354-40bb-d2a3-47126cff0bea
+  server: u67.dddc.us.ci
+  port: 443
+  uuid: 34778794-72e8-4862-b1e7-6e6c3ba894be
   alterId: 0
   cipher: auto
   tls: true
   network: ws
   ws-opts:
-    path: /usavm
+    path: /qlWiWOdPkCVqBXYWmzP5D1vsO
     headers:
-      Host: usaapp1.jisuyun.top
-  servername: usaapp1.jisuyun.top
+      Host: u67.dddc.us.ci
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-13339'
+  type: vless
+  server: notion.site
+  port: 2053
+  uuid: 26524cce-d514-4014-a426-365fb266a14d
+  network: ws
+  tls: true
+  servername: _acme-challenge.443888.xyz
+  client-fingerprint: chrome
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: _acme-challenge.443888.xyz
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-15137'
+  type: vless
+  server: tty34.003330333.xyz
+  port: 443
+  uuid: 9f9b2ba3-77c1-400f-9b72-76b9b0829e51
+  network: ws
+  tls: true
+  servername: tty34.003330333.xyz
+  client-fingerprint: chrome
+  ws-opts:
+    path: /VUEhrz1FFlVljj0Fy6bojk
+    headers:
+      Host: tty34.003330333.xyz
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇳🇱 NL-734'
+  type: ss
+  server: 193.29.139.227
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
   udp: true
   skip-cert-verify: false
 proxy-groups:
@@ -64,15 +115,23 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - '[OpenRay] 🇨🇦 CA-12647'
-  - '[OpenRay] 🇺🇸 US-12611'
-  - '[OpenRay] 🇺🇸 US-13320'
+  - '[OpenRay] 🇨🇦 CA-11717'
+  - '[OpenRay] 🇺🇸 US-13348'
+  - '[OpenRay] Dynamic-12350'
+  - '[OpenRay] Dynamic-15734'
+  - '[OpenRay] Dynamic-13339'
+  - '[OpenRay] Dynamic-15137'
+  - '[OpenRay] 🇳🇱 NL-734'
 - name: AUTO
   type: url-test
   proxies:
-  - '[OpenRay] 🇨🇦 CA-12647'
-  - '[OpenRay] 🇺🇸 US-12611'
-  - '[OpenRay] 🇺🇸 US-13320'
+  - '[OpenRay] 🇨🇦 CA-11717'
+  - '[OpenRay] 🇺🇸 US-13348'
+  - '[OpenRay] Dynamic-12350'
+  - '[OpenRay] Dynamic-15734'
+  - '[OpenRay] Dynamic-13339'
+  - '[OpenRay] Dynamic-15137'
+  - '[OpenRay] 🇳🇱 NL-734'
   url: http://www.gstatic.com/generate_204
   interval: 300
 rules:

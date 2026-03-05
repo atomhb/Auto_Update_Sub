@@ -14,47 +14,27 @@ dns:
   - 8.8.8.8
   - 1.1.1.1
 proxies:
-- name: '[OpenRay] Dynamic-12350'
+- name: '[OpenRay] Dynamic-14283'
   type: vless
-  server: convera.com
-  port: 2053
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
+  server: cf.008500.xyz
+  port: 443
+  uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
   network: ws
   tls: true
-  servername: snippet.fgfw.eu.org
-  client-fingerprint: chrome
+  servername: powered-by-surena.configfarsi695fd4636f1c8.workers.dev
+  client-fingerprint: firefox
   ws-opts:
-    path: /danfeng?ed=2560
+    path: /?ed=2560
     headers:
-      Host: snippet.fgfw.eu.org
+      Host: powered-by-surena.configfarsi695fd4636f1c8.workers.dev
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] Dynamic-16263'
-  type: vmess
-  server: test226.2568954.xyz
-  port: 2087
-  uuid: 2f0a3a26-8384-4bbf-f91a-e41e252b30c5
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /021e6967-ebd6-46d1
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-13969'
-  type: vless
-  server: 104.17.71.206
-  port: 2053
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  network: ws
-  tls: true
-  servername: snippet.fgfw.eu.org
-  client-fingerprint: chrome
-  ws-opts:
-    path: /danfeng?ed=2560
-    headers:
-      Host: snippet.fgfw.eu.org
+- name: '[OpenRay] 🇳🇱 NL-708'
+  type: ss
+  server: 193.29.139.151
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
   skip-cert-verify: false
 proxy-groups:
@@ -62,15 +42,13 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - '[OpenRay] Dynamic-12350'
-  - '[OpenRay] Dynamic-16263'
-  - '[OpenRay] 🇨🇦 CA-13969'
+  - '[OpenRay] Dynamic-14283'
+  - '[OpenRay] 🇳🇱 NL-708'
 - name: AUTO
   type: url-test
   proxies:
-  - '[OpenRay] Dynamic-12350'
-  - '[OpenRay] Dynamic-16263'
-  - '[OpenRay] 🇨🇦 CA-13969'
+  - '[OpenRay] Dynamic-14283'
+  - '[OpenRay] 🇳🇱 NL-708'
   url: http://www.gstatic.com/generate_204
   interval: 300
 rules:

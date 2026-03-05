@@ -14,27 +14,56 @@ dns:
   - 8.8.8.8
   - 1.1.1.1
 proxies:
-- name: '[OpenRay] Dynamic-14283'
+- name: 中文官网：[卷王.cc] 美国 -0x-28
   type: vless
-  server: cf.008500.xyz
+  server: 135.84.73.239
   port: 443
-  uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   network: ws
   tls: true
-  servername: powered-by-surena.configfarsi695fd4636f1c8.workers.dev
-  client-fingerprint: firefox
+  servername: sni.111000.dynv6.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.dynv6.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-12618'
+  type: vless
+  server: 47.89.136.31
+  port: 36301
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.dynv6.net
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳 @WangCai2
+    headers:
+      Host: sni.111000.dynv6.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-11918'
+  type: ss
+  server: 217.77.3.68
+  port: 28954
+  cipher: chacha20-ietf-poly1305
+  password: a586ae8d773f250f
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-16198'
+  type: vless
+  server: cf.9999669.xyz
+  port: 2087
+  uuid: 77777777-6663-4ef2-b26b-ed2d70642678
+  network: ws
+  tls: true
+  servername: hfnb8xmvw3h14.fx02.ccwu.cc
+  client-fingerprint: chrome
   ws-opts:
     path: /?ed=2560
     headers:
-      Host: powered-by-surena.configfarsi695fd4636f1c8.workers.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇳🇱 NL-708'
-  type: ss
-  server: 193.29.139.151
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
+      Host: hfnb8xmvw3h14.fx02.ccwu.cc
   udp: true
   skip-cert-verify: false
 proxy-groups:
@@ -42,13 +71,17 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - '[OpenRay] Dynamic-14283'
-  - '[OpenRay] 🇳🇱 NL-708'
+  - 中文官网：[卷王.cc] 美国 -0x-28
+  - '[OpenRay] 🇺🇸 US-12618'
+  - '[OpenRay] 🇺🇸 US-11918'
+  - '[OpenRay] Dynamic-16198'
 - name: AUTO
   type: url-test
   proxies:
-  - '[OpenRay] Dynamic-14283'
-  - '[OpenRay] 🇳🇱 NL-708'
+  - 中文官网：[卷王.cc] 美国 -0x-28
+  - '[OpenRay] 🇺🇸 US-12618'
+  - '[OpenRay] 🇺🇸 US-11918'
+  - '[OpenRay] Dynamic-16198'
   url: http://www.gstatic.com/generate_204
   interval: 300
 rules:

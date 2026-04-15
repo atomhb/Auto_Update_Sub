@@ -14,6 +14,10 @@ on:
 env:
   TZ: 'Asia/Shanghai'  # 设置时区为北京时间
 
+concurrency:
+  group: update-subscription
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -25,13 +29,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cach: 'pip'
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
@@ -108,7 +112,7 @@ jobs:
 
       - name: Generate statistics
         run: |
-          cat > STATS.md << 'EOF'
+          cat > STATS.md << EOF
           # 订阅统计
 
           ## 更新信息
@@ -143,7 +147,13 @@ jobs:
           if git diff-index --quiet HEAD; then
             echo "无更改，跳过 commit"
           else
-            git commit -m "feat: 自动更新订阅文件" -m "更新时间: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" -m "[skip ci]"
-            git push
-            echo "已推送 sub.yaml 到 repo"
+            git commit -m "feat: 自动更新订阅文件" \
+                       -m "更新时间: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" \
+                       -m "[skip ci]"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push origin main && break
+              echo "⚠️ 第 $i 次重试..."
+              sleep $((i * 5))
+            done
+            echo "✅ 已推送更新"
           fi

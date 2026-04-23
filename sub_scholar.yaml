@@ -20,35 +20,129 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: 🇺🇸 美国3|BGP优化
+- name: 美国直连2-备用节点-防失联
   type: anytls
-  server: hkzz.yuyan.vin
-  port: 10026
-  password: 53db9c44-94a1-4976-8682-5d1c3642058d
-  sni: www.apple.com
+  server: a.any.358.onl
+  port: 18897
+  password: 309a74a1-364f-4788-b44f-fb15013f69fb
+  sni: us11.jifeng.click
   skip-cert-verify: true
   udp: true
-- auth: qQe1z5kU8kN6SlKnDt9Ru3Qp
-  name: 🇦🇺AU_1|2.2MB/s
-  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
-  port: 443
-  server: vpn-au-001.fastervpn.world
-  skip-cert-verify: true
-  sni: vpn-au-001.fastervpn.world
-  type: hysteria2
-  udp: true
-- name: '[OpenRay] Dynamic-11763'
+- name: '[OpenRay] 🇨🇦 CA-13948'
   type: vless
-  server: tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev
+  server: 162.159.34.121
+  port: 80
+  uuid: 0ca855d9-7c03-40eb-929b-919f934abdc3
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: amirvpn.amirhm00100.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-17045'
+  type: vless
+  server: h7-83w.pages.dev
   port: 443
-  uuid: 49d598ee-4dfc-4001-95ca-99a5b6002e3c
+  uuid: 0f4d41cf-0be1-4fcc-ac41-53b843ba0752
   network: ws
   tls: true
-  servername: tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev
   ws-opts:
-    path: ws
+    path: /
+  udp: true
+  skip-cert-verify: false
+- auth: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  name: 🇬🇧GB_1|1.0MB/s
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  port: 443
+  server: vpn-uk-004.fastervpn.world
+  skip-cert-verify: true
+  sni: vpn-uk-004.fastervpn.world
+  type: hysteria2
+  udp: true
+- name: '[OpenRay] 🇨🇦 CA-15971'
+  type: vless
+  server: 162.159.14.88
+  port: 80
+  uuid: 55cb8179-ce11-4ec8-a03c-333f797265f9
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
     headers:
-      Host: tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev
+      Host: long-forest-ac72.salari1382m.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-14617'
+  type: vless
+  server: www.hivenet.com
+  port: 2053
+  uuid: 8c4604ef-749c-4b56-adf1-7da405002a21
+  network: ws
+  tls: true
+  servername: qyi.fqjd663.ggff.net
+  client-fingerprint: randomized
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: qyi.fqjd663.ggff.net
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-美国 -0x-04
+  type: vless
+  server: love.zshabai.top
+  port: 443
+  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+  network: ws
+  tls: true
+  servername: gsgsdgreyrehjsrteargsfhtrhsrwrhtruiekghmg.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: gsgsdgreyrehjsrteargsfhtrhsrwrhtruiekghmg.pages.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇺🇸[🎬🤖📺]_github.com/Ruk1ng001_7148a6b4
+  type: vless
+  server: 91.193.58.162
+  port: 443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.v6.rocks
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&https://t.me/WangCai2🇨🇳
+    headers:
+      Host: sni.111000.v6.rocks
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-13939'
+  type: vless
+  server: 104.19.54.173
+  port: 80
+  uuid: 0ca855d9-7c03-40eb-929b-919f934abdc3
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: amirvpn.amirhm00100.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-17064'
+  type: vless
+  server: 104.21.31.4
+  port: 8880
+  uuid: 0a5ab719-2407-4398-b507-8437ef365023
+  network: ws
+  tls: false
+  ws-opts:
+    path: /FCHANNEL---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY
+    headers:
+      Host: underthegun.cfd.
   udp: true
   skip-cert-verify: false
 - name: '[OpenRay] 🇨🇦 CA-17098'
@@ -65,38 +159,66 @@ proxies:
       Host: sni.111000.indevs.in
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-17169'
+- name: '[OpenRay] Dynamic-15357'
+  type: vless
+  server: gardconfig12.bnam38637.workers.dev
+  port: 443
+  uuid: 1f034338-33a3-40f7-8e82-e4042e8410af
+  network: ws
+  tls: true
+  servername: gardconfig12.bnam38637.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: ws
+    headers:
+      Host: gardconfig12.bnam38637.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-12420'
+  type: vless
+  server: 209.177.165.17
+  port: 443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.dynv6.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳+@WangCai2
+    headers:
+      Host: sni.111000.dynv6.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-11763'
+  type: vless
+  server: tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev
+  port: 443
+  uuid: 49d598ee-4dfc-4001-95ca-99a5b6002e3c
+  network: ws
+  tls: true
+  servername: tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev
+  ws-opts:
+    path: ws
+    headers:
+      Host: tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-11943'
   type: vless
   server: 104.18.185.26
-  port: 2096
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  port: 8880
+  uuid: 7890ce31-9a25-4fd4-90e7-80e5823ff510
   network: ws
-  tls: true
-  servername: sni.111000.indevs.in
-  client-fingerprint: chrome
+  tls: false
   ws-opts:
-    path: /?ed=2560
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
     headers:
-      Host: sni.111000.indevs.in
+      Host: frejd.11258.workers.dev
   udp: true
   skip-cert-verify: false
-- name: 🇩🇪 德国 | DEU 3
-  server: 5.83.129.153
-  port: 20088
-  type: hysteria
-  auth_str: dongtaiwang.com
-  auth-str: dongtaiwang.com
-  up: 500
-  down: 1000
-  protocol: udp
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  udp: true
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_5433e2df
+- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_3e67a7f9
   type: vless
-  server: 91.193.58.80
+  server: 91.193.58.187
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   network: ws
@@ -109,100 +231,183 @@ proxies:
       Host: sni.111000.v6.rocks
   udp: true
   skip-cert-verify: false
-- name: 🔴🇺🇸[🎬📺🔍]_github.com/Ruk1ng001_555d148e
+- name: '[OpenRay] Dynamic-11791'
   type: vless
-  server: 91.193.58.86
+  server: lively-brook-c471.nedena3319.workers.dev
   port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  uuid: 17ebee4e-97ea-4cad-8737-cc228478ca9d
   network: ws
   tls: true
-  servername: sni.111000.v6.rocks
+  servername: lively-brook-c471.nedena3319.workers.dev
   client-fingerprint: chrome
   ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
+    path: /?ed=2048
     headers:
-      Host: sni.111000.v6.rocks
+      Host: lively-brook-c471.nedena3319.workers.dev
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-15035'
-  type: ss
-  server: 45.55.40.127
-  port: 49726
-  cipher: chacha20-ietf-poly1305
-  password: elTuo73FsQwO90EbLo96Ve
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-15064'
+- name: '[OpenRay] 🇨🇦 CA-11853'
   type: vless
-  server: 8.6.112.71
-  port: 2096
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  server: 188.114.96.3
+  port: 443
+  uuid: a73b8135-ec7a-4f70-bac6-81fbccad4515
   network: ws
   tls: true
-  servername: sni.111000.indevs.in
+  servername: labeller.neonime83.workers.dev
   ws-opts:
     path: /
     headers:
-      Host: sni.111000.indevs.in
+      Host: labeller.neonime83.workers.dev
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-14896'
+- name: '[OpenRay] 🇨🇦 CA-16272'
   type: vless
-  server: 8.34.146.41
-  port: 443
-  uuid: 42add63b-deda-4e71-aa48-ddd288181858
-  network: ws
-  tls: true
-  servername: edtunnel-eiz.pages.dev
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: edtunnel-eiz.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-16437'
-  type: vless
-  server: 104.18.40.152
-  port: 8880
-  uuid: 2f0f84ed-9e4c-40ef-8a6c-286839e11a63
-  network: ws
-  tls: false
-  ws-opts:
-    path: /512
-    headers:
-      Host: hmedrza.ghwhdr51.workers.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-11697'
-  type: vless
-  server: 019.electrocellco-cf-019.workers.dev
+  server: 104.18.32.47
   port: 80
-  uuid: 94671f42-fdd3-4503-a3e6-bda4a2527560
+  uuid: 787b3724-16c8-4e58-a038-2b8013cdc6d9
   network: ws
   tls: false
   ws-opts:
-    path: /eyJqdW5rIjoibUVFb0RQcHJZZSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbIjM0LjI1My4yMzQuNjIiXX0=?ed=2560
+    path: /eyJqdW5rIjoiTG1jRlUwNjNwVUxvYyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
     headers:
-      Host: 019.electrocellco-cf-019.workers.dev
+      Host: c3linogp4x20x5acoguup217nstesdu1.nobodyface4b13.workers.dev
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸US_2|1.0MB/s
-  network: ws
-  port: 443
-  server: 91.193.58.135
-  servername: sni.111000.v6.rocks
-  skip-cert-verify: true
-  tls: true
+- name: '[OpenRay] Dynamic-13935'
   type: vless
-  udp: true
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  server: amirvpn.amirhm00100.workers.dev
+  port: 80
+  uuid: 0ca855d9-7c03-40eb-929b-919f934abdc3
+  network: ws
+  tls: false
   ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: amirvpn.amirhm00100.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-17111'
+  type: vless
+  server: hio-awx.pages.dev
+  port: 443
+  uuid: d37a75db-76b6-4db8-b213-0d5b044d138d
+  network: ws
+  tls: true
+  ws-opts:
+    path: /
+    headers:
+      Host: hio-awx.pages.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-11689'
+  type: vless
+  server: 104.18.4.46
+  port: 8880
+  uuid: 5b002005-7fb1-413e-8cbd-08e50c87c2ea
+  network: ws
+  tls: false
+  ws-opts:
+    headers:
+      Host: wetfleagidc-8tsbi8xd-v3.wet-flea-gidc.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16245'
+  type: vless
+  server: 104.20.6.134
+  port: 2086
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  network: ws
+  tls: false
+  ws-opts:
+    path: /PdgTMW8NBNZYo6L23v
+    headers:
+      Host: index.0x15.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_85a2831f
+  type: vless
+  server: 91.193.58.142
+  port: 443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.v6.rocks
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560&https://t.me/WangCai2🇨🇳
     headers:
       Host: sni.111000.v6.rocks
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-- name: '[OpenRay] 🇨🇦 CA-16969'
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16783'
   type: vless
-  server: 104.17.25.173
+  server: 172.64.147.180
+  port: 8880
+  uuid: 7890ce31-9a25-4fd4-90e7-80e5823ff510
+  network: ws
+  tls: false
+  ws-opts:
+    path: /telegram🇨🇳
+    headers:
+      Host: frejd.11258.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-10496'
+  type: vless
+  server: 45.82.251.33
+  port: 8880
+  uuid: 8dc7722c-2767-4eea-a28b-2f8daacc07e3
+  network: grpc
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-15513'
+  type: vless
+  server: grok.com
+  port: 443
+  uuid: 9ae7432c-317f-40e1-b551-a03f0e0e7ca7
+  network: ws
+  tls: true
+  servername: vpN-2291.PayEEr1385.wORKErs.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /eyJqdW5rIjoicVAzZzd1elVVUVpNcDkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyI4NS4xMzMuMjI3Ljg4Il19?ed=2560
+    headers:
+      Host: vpn-2291.payeer1385.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-14678'
+  type: vless
+  server: www.bigcommerce.com
+  port: 2053
+  uuid: 8c4604ef-749c-4b56-adf1-7da405002a21
+  network: ws
+  tls: true
+  servername: qyi.fqjd663.ggff.net
+  ws-opts:
+    path: /
+    headers:
+      Host: qyi.fqjd663.ggff.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-15115'
+  type: vless
+  server: 8.39.125.31
+  port: 2096
+  uuid: 52f94104-7a84-4342-8bcd-96969eb46cbe
+  network: ws
+  tls: true
+  servername: tristandeng.cc.cd
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: tristandeng.cc.cd
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16561'
+  type: vless
+  server: 162.159.36.20
   port: 80
   uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
   network: ws
@@ -213,19 +418,110 @@ proxies:
       Host: vip.yaml7.ggff.net
   udp: true
   skip-cert-verify: false
-- name: 中文官网：[卷王.cc]-韩国 -0x-01
+- name: '[OpenRay] Dynamic-17077'
   type: vless
-  server: 104.17.128.1
-  port: 2096
-  uuid: d0298536-d670-4045-bbb1-ddd5ea68683e
+  server: da.mfa.gov.ua
+  port: 443
+  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
   network: ws
   tls: true
-  servername: azadnet-1ml.pages.dev
+  servername: 1-axj.pages.dev
+  ws-opts:
+    path: /proxyip=ProxyIP.DE.owg.dpdns.org
+    headers:
+      Host: 1-axj.pages.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-13811'
+  type: vless
+  server: chatgpt.com
+  port: 80
+  uuid: 787b3724-16c8-4e58-a038-2b8013cdc6d9
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiTG1jRlUwNjNwVUxvYyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: c3linogp4x20x5acoguup217nstesdu1.nobodyface4b13.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16160'
+  type: vless
+  server: 104.16.250.22
+  port: 80
+  uuid: 93526fcb-8dbf-442e-a656-eb304f1da4ef
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: lucky-voice-d6f3.difat89954-0c6.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-15111'
+  type: vless
+  server: 8.35.211.68
+  port: 2087
+  uuid: 52f94104-7a84-4342-8bcd-96969eb46cbe
+  network: ws
+  tls: true
+  servername: tristandeng.cc.cd
   client-fingerprint: chrome
   ws-opts:
-    path: /azadnet-1ml.pages.dev/
+    path: /
     headers:
-      Host: azadnet-1ml.pages.dev
+      Host: tristandeng.cc.cd
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16713'
+  type: vless
+  server: 104.17.152.49
+  port: 80
+  uuid: 5aa7d17e-7dc2-46dd-9acf-c3c97440259b
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: sss.yaml7.ggff.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-17066'
+  type: vless
+  server: vip.yaml7.ggff.net
+  port: 80
+  uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: vip.yaml7.ggff.net
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16514'
+  type: vless
+  server: 188.114.97.3
+  port: 80
+  uuid: 14e1775b-d92c-455b-8db3-e6c6d61909e0
+  network: ws
+  tls: false
+  ws-opts:
+    headers:
+      Host: vpnpro.eshghiabolfazl2009.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16718'
+  type: vless
+  server: 172.64.147.255
+  port: 8880
+  uuid: 7890ce31-9a25-4fd4-90e7-80e5823ff510
+  network: ws
+  tls: false
+  ws-opts:
+    path: /telegram🇨🇳
+    headers:
+      Host: frejd.11258.workers.dev
   udp: true
   skip-cert-verify: false
 - name: 英国/伦敦/United Kingdom/London
@@ -243,604 +539,301 @@ proxies:
       Host: sni.jpmj.dev
   udp: true
   skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_1618e86d
+- name: '[OpenRay] 🇨🇦 CA-17099'
   type: vless
-  server: 91.193.58.252
-  port: 443
+  server: 104.17.72.206
+  port: 8443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   network: ws
   tls: true
-  servername: sni.111000.v6.rocks
+  servername: sni.111000.dynv6.net
   client-fingerprint: chrome
   ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
+    path: /?Telegram🇨🇳 @WangCai2
     headers:
-      Host: sni.111000.v6.rocks
+      Host: sni.111000.dynv6.net
   udp: true
   skip-cert-verify: false
-- name: 中文官网：[卷王.cc]-美国 -0x-19
+- name: '[OpenRay] 🇨🇦 CA-16290'
   type: vless
-  server: 173.245.58.16
-  port: 2053
-  uuid: 52f94104-7a84-4342-8bcd-96969eb46cbe
+  server: 104.17.147.22
+  port: 2083
+  uuid: b2c47b38-23bf-4469-b477-e52206bbb8c1
   network: ws
   tls: true
-  servername: tristandeng.cc.cd
-  client-fingerprint: chrome
+  servername: aged-sun-9128.danicng13.workers.dev
+  client-fingerprint: randomized
+  ws-opts:
+    path: /scaas8qmzxhqiqch/ynbilnlvdxnlzi5pc2vnyxjvlmnvbq==?ed=2560
+    headers:
+      Host: aged-sun-9128.danicng13.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-13936'
+  type: vless
+  server: 104.18.81.143
+  port: 80
+  uuid: 0ca855d9-7c03-40eb-929b-919f934abdc3
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: amirvpn.amirhm00100.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16172'
+  type: vless
+  server: 104.20.63.52
+  port: 80
+  uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
+  network: ws
+  tls: false
   ws-opts:
     path: /
     headers:
-      Host: tristandeng.cc.cd
+      Host: vip.yaml7.ggff.net
   udp: true
   skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_353bf2b3
+- name: '[OpenRay] 🇨🇦 CA-17169'
   type: vless
-  server: 91.193.58.64
+  server: 104.18.185.26
+  port: 2096
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: sni.111000.indevs.in
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16629'
+  type: vless
+  server: 104.17.147.22
+  port: 8443
+  uuid: b2c47b38-23bf-4469-b477-e52206bbb8c1
+  network: ws
+  tls: true
+  servername: aged-sun-9128.danicng13.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /v9lthtdhp1hvnyc0/ynbilnlvdxnlzi5pc2vnyxjvlmnvbq==
+    headers:
+      Host: aged-sun-9128.danicng13.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 US-2 | Filter
+  type: vless
+  server: 192.200.160.19
+  port: 443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  servername: sni.111000.v6.navy
+  skip-cert-verify: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      host: sni.111000.v6.navy
+  tls: true
+  tfo: false
+  udp: true
+- name: '[OpenRay] 🇨🇦 CA-16664'
+  type: vless
+  server: 172.64.147.137
+  port: 8880
+  uuid: 7890ce31-9a25-4fd4-90e7-80e5823ff510
+  network: ws
+  tls: false
+  ws-opts:
+    path: /telegram🇨🇳
+    headers:
+      Host: frejd.11258.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-12593'
+  type: vless
+  server: 38.244.204.203
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   network: ws
   tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
+  servername: sni.111000.v6.navy
   ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
+    path: /?ed=2560&Telegram🇨🇳 @WangCai2
     headers:
-      Host: sni.111000.v6.rocks
+      Host: sni.111000.v6.navy
   udp: true
   skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_64920555
+- name: '[OpenRay] 🇨🇦 CA-16299'
   type: vless
-  server: 91.193.58.143
+  server: 172.67.137.47
+  port: 2086
+  uuid: 636de463-b509-4631-adc6-400b21733278
+  network: ws
+  tls: false
+  ws-opts:
+    path: /1qrxwiek8tujvr6h
+    headers:
+      Host: index.harmony510.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-13561'
+  type: vless
+  server: 141.193.213.21
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   network: ws
   tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
+  servername: nameless-violet-d45c.anthony900.workers.dev
   ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
+    path: /sni.111000.dynv6.net/?ed=2560
     headers:
-      Host: sni.111000.v6.rocks
+      Host: nameless-violet-d45c.anthony900.workers.dev
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17109'
+- name: '[OpenRay] Dynamic-12595'
   type: vless
-  server: auth.vercel.com
+  server: 002.inc-electrocell-001-002.workers.dev
   port: 443
-  uuid: a01daac7-1e65-4645-854d-b47d226f6b08
+  uuid: 36a857e4-f3d4-43aa-8b90-d7da849da989
   network: ws
   tls: true
-  servername: y6-3cj.pages.dev
+  servername: 002.Inc-ElectROcElL-001-002.WoRKERS.DEV
+  client-fingerprint: chrome
+  ws-opts:
+    path: /eyJqdW5rIjoib0RnakxTZUZvOSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560
+    headers:
+      Host: 002.inc-electrocell-001-002.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16636'
+  type: vless
+  server: 172.64.146.198
+  port: 8880
+  uuid: 7890ce31-9a25-4fd4-90e7-80e5823ff510
+  network: ws
+  tls: false
+  ws-opts:
+    path: /telegram🇨🇳
+    headers:
+      Host: frejd.11258.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] Dynamic-12449'
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: ba49d874-fe02-465d-82d3-ed981dc7694f
+  network: ws
+  tls: true
+  servername: O94yv7LIF0-AnXisD9EFEhVVS7mxN6Bh.Z-UlE-iKA-D-E-ne-k-e.wORkers.dEv
+  client-fingerprint: chrome
+  ws-opts:
+    path: /CmtD3y72juVnvSxU?ed=2560
+    headers:
+      Host: o94yv7lif0-anxisd9efehvvs7mxn6bh.z-ule-ika-d-e-ne-k-e.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-16569'
+  type: vless
+  server: 172.66.44.211
+  port: 80
+  uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
+  network: ws
+  tls: false
   ws-opts:
     path: /
     headers:
-      Host: y6-3cj.pages.dev
+      Host: vip.yaml7.ggff.net
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17045'
+- name: '[OpenRay] Dynamic-11788'
   type: vless
-  server: y6-3cj.pages.dev
+  server: www.visa.com.sg
+  port: 2052
+  uuid: 12d75b7d-8fdf-4785-8d62-d836854e7e63
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: parking-nfchbwa1-v2.parking-1ab.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇺🇸 US-14103'
+  type: vless
+  server: 8.34.146.191
+  port: 2096
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.my111000.tech
+  ws-opts:
+    path: Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: sni.my111000.tech
+  udp: true
+  skip-cert-verify: false
+- name: '[OpenRay] 🇨🇦 CA-11856'
+  type: vless
+  server: 104.16.250.22
+  port: 443
+  uuid: 17ebee4e-97ea-4cad-8737-cc228478ca9d
+  network: ws
+  tls: true
+  servername: lively-brook-c471.nedena3319.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: lively-brook-c471.nedena3319.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 美国/San Francisco/United States/San Francisco
+  type: vless
+  server: 104.18.12.149
   port: 443
   uuid: a01daac7-1e65-4645-854d-b47d226f6b08
   network: ws
   tls: true
   servername: y6-3cj.PAgES.DEV
+  client-fingerprint: chrome
   ws-opts:
     path: /
     headers:
       Host: y6-3cj.PAgES.DEV
   udp: true
   skip-cert-verify: false
-- name: 🔴🇺🇸[🎬📺🔍]_github.com/Ruk1ng001_f3020b75
+- name: '[OpenRay] 🇺🇸 US-12049'
   type: vless
-  server: 91.193.58.179
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-14762'
-  type: vmess
-  server: 216.106.183.35
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 1
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_3eb33cf6
-  type: vless
-  server: 91.193.58.83
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17065'
-  type: vless
-  server: vip.yaml7.ggff.net
-  port: 443
-  uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
-  network: ws
-  tls: true
-  ws-opts:
-    path: /
-    headers:
-      Host: vip.yaml7.ggff.net
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-12954'
-  type: vless
-  server: 8.35.211.75
+  server: 129.158.198.241
   port: 8443
-  uuid: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
-  network: ws
-  tls: true
-  servername: javad.fighterjavad8-faa.workers.dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: javad.fighterjavad8-faa.workers.dev
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_f7aadbc2
-  type: vless
-  server: 91.193.58.208
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-14909'
-  type: vless
-  server: 8.6.112.6
-  port: 8443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.dynv6.net
-  ws-opts:
-    headers:
-      Host: sni.111000.dynv6.net
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🔍]_github.com/Ruk1ng001_bf7c22d0
-  type: vless
-  server: 91.193.58.233
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17162'
-  type: vless
-  server: openai.com
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  network: ws
-  tls: true
-  servername: 3-2h8.pages.dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: 3-2h8.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-16832'
-  type: vless
-  server: v1.dabache.top
-  port: 2053
-  uuid: d37a75db-76b6-4db8-b213-0d5b044d138d
-  network: ws
-  tls: true
-  servername: hio-awx.pages.dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /fast
-    headers:
-      Host: hio-awx.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-12446'
-  type: vless
-  server: 188.114.97.7
-  port: 443
-  uuid: ba49d874-fe02-465d-82d3-ed981dc7694f
-  network: ws
-  tls: true
-  servername: o94Yv7LIF0-aNXISd9eFehvvS7mxn6bH.Z-ULe-iKa-d-e-ne-K-e.wORkeRs.Dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /7J5lLqtBnJg9WjVT?ed=2560
-    headers:
-      Host: o94yv7lif0-anxisd9efehvvs7mxn6bh.z-ule-ika-d-e-ne-k-e.workers.dev
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-15088'
-  type: vmess
-  server: 67.220.95.3
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_452f9660
-  type: vless
-  server: 91.193.58.138
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_575776f7
-  type: vless
-  server: 91.193.58.247
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_70a34658
-  type: vless
-  server: 91.193.58.132
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17041'
-  type: vless
-  server: worker-5n2.pages.dev
-  port: 443
-  uuid: 89b3cbba-e6ac-485a-9481-976a0415eab9
-  network: ws
-  tls: true
-  ws-opts:
-    path: /%2F
-    headers:
-      Host: wOrker-5N2.pAgeS.DEv
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_104e4db3
-  type: vless
-  server: cf2.danfeng.eu.org
-  port: 8443
-  uuid: bafacd98-136a-4530-838d-4e5c51838dac
-  network: ws
-  tls: true
-  servername: juzi8186.qea.ccwu.cc
-  client-fingerprint: firefox
-  ws-opts:
-    path: /feedback/acg/juzibaipiao?ed=2560
-    headers:
-      Host: juzi8186.qea.ccwu.cc
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-17145'
-  type: vless
-  server: nitroserverir.nitronetwork.online
-  port: 443
-  uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
-  network: ws
-  tls: true
-  servername: 2026.hhhhh.eu.org
-  ws-opts:
-    path: /222.167.202.31:7443
-    headers:
-      Host: 2026.hhhhh.eu.org
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-17100'
-  type: vless
-  server: 104.18.16.56
-  port: 80
-  uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
-  network: ws
-  tls: false
-  ws-opts:
-    path: / @ProxyVPN11
-    headers:
-      Host: vip.yaml7.ggff.net
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-12485'
-  type: vless
-  server: 188.114.99.243
-  port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   network: ws
   tls: true
   servername: sni.111000.indevs.in
   ws-opts:
-    path: /?ed=2560&Telegram🇨🇳+@WangCai2
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
     headers:
       Host: sni.111000.indevs.in
   udp: true
   skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17036'
+- name: 中文官网：[卷王.cc]-美国 -0x-24
   type: vless
-  server: ciallo-egb.pages.dev
-  port: 2096
-  uuid: 89b3cbba-e6ac-485a-9481-976a0415eab9
-  network: ws
-  tls: true
-  ws-opts:
-    path: /%2F
-    headers:
-      Host: CIALlO-EgB.pAGES.dEV
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_11f07d66
-  type: vless
-  server: 91.193.58.118
+  server: 135.84.73.42
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   network: ws
   tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_c94e6905
-  type: vless
-  server: 91.193.58.186
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-14614'
-  type: vless
-  server: www.panel.com
-  port: 2053
-  uuid: 8c4604ef-749c-4b56-adf1-7da405002a21
-  network: ws
-  tls: true
-  servername: qyi.fqjd663.ggff.net
-  client-fingerprint: randomized
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: qyi.fqjd663.ggff.net
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-15109'
-  type: vless
-  server: 8.35.211.105
-  port: 443
-  uuid: 52f94104-7a84-4342-8bcd-96969eb46cbe
-  network: ws
-  tls: true
-  servername: tristandeng.cc.cd
+  servername: sni.111000.v6.navy
   client-fingerprint: chrome
   ws-opts:
     path: /
     headers:
-      Host: tristandeng.cc.cd
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇨🇦 CA-17180'
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_31db2db4
-  type: vless
-  server: 91.193.58.98
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: 中文官网：[卷王.cc]-美国 -0x-27
-  type: vless
-  server: etl2.pages.dev
-  port: 443
-  uuid: 88d92d15-bfdb-47e7-8bdb-bfbef904a4d4
-  network: ws
-  tls: true
-  servername: etl2.pages.dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: etl2.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: 🇸🇬 新加坡 | SGP 5
-  server: a00656ea-tdyf40-twnp5a-ahsb.sg3.oshuawei.com
-  port: 443
-  type: http
-  username: 2e42c1ee-aaaa-11ec-bb74-f23c9164ca5d
-  password: 2e42c1ee-aaaa-11ec-bb74-f23c9164ca5d
-  tls: true
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17032'
-  type: vless
-  server: 1-442.pages.dev
-  port: 443
-  uuid: 89b3cbba-e6ac-485a-9481-976a0415eab9
-  network: ws
-  tls: true
-  ws-opts:
-    path: /%2F
-    headers:
-      Host: 1-442.pagEs.dev
-  udp: true
-  skip-cert-verify: false
-- name: 中文官网：[卷王.cc]-美国 -0x-10
-  type: vmess
-  server: 107.172.75.141
-  port: 10086
-  uuid: e02c67a8-d769-4d73-833a-ab6acdb86e6e
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  client-fingerprint: chrome
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-14625'
-  type: vless
-  server: franklinandwillow.com
-  port: 2053
-  uuid: 8c4604ef-749c-4b56-adf1-7da405002a21
-  network: ws
-  tls: true
-  servername: qyi.fqjd663.ggff.net
-  client-fingerprint: randomized
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: qyi.fqjd663.ggff.net
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_77f85302
-  type: vless
-  server: 91.193.58.181
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.rocks
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?ed=2560&https://t.me/WangCai2🇨🇳
-    headers:
-      Host: sni.111000.v6.rocks
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] 🇺🇸 US-14753'
-  type: vmess
-  server: 107.175.91.118
-  port: 443
-  uuid: 1bb1f95f-7425-4442-93f7-8fc1bd1a2001
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /v2ray-wisp
-  servername: mivps.mitiendamex.com
-  client-fingerprint: chrome
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-17202'
-  type: vless
-  server: all.tellmethetrue.shop
-  port: 443
-  uuid: e4824193-4f54-453b-d037-88368e85ef0e
-  network: grpc
-  tls: true
-  servername: pqh42v8.carwashipdir.shop
-  udp: true
-  skip-cert-verify: false
-- name: '[OpenRay] Dynamic-12487'
-  type: vless
-  server: 019.electrocellco-cf-019.workers.dev
-  port: 443
-  uuid: 94671f42-fdd3-4503-a3e6-bda4a2527560
-  network: ws
-  tls: true
-  servername: 019.ElEcTRoCELLcO-cF-019.woRKeRS.DEv
-  client-fingerprint: chrome
-  ws-opts:
-    path: /eyJqdW5rIjoidlZLUEdEQjkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyIzNC4yNTMuMjM0LjYyIl19?ed=2560
-    headers:
-      Host: 019.electrocellco-cf-019.workers.dev
-  udp: true
-  skip-cert-verify: false
-- name: 中文官网：[卷王.cc]-美国 -0x-06
-  type: vmess
-  server: 38.110.1.246
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: tcp
-  client-fingerprint: chrome
+      Host: sni.111000.v6.navy
   udp: true
   skip-cert-verify: false
 proxy-groups:
@@ -850,129 +843,129 @@ proxy-groups:
   - AUTO
   - FALLBACK
   - DIRECT
-  - 🇺🇸 美国3|BGP优化
-  - 🇦🇺AU_1|2.2MB/s
-  - '[OpenRay] Dynamic-11763'
-  - '[OpenRay] 🇨🇦 CA-17098'
-  - '[OpenRay] 🇨🇦 CA-17169'
-  - 🇩🇪 德国 | DEU 3
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_5433e2df
-  - 🔴🇺🇸[🎬📺🔍]_github.com/Ruk1ng001_555d148e
-  - '[OpenRay] 🇺🇸 US-15035'
-  - '[OpenRay] 🇺🇸 US-15064'
-  - '[OpenRay] 🇺🇸 US-14896'
-  - '[OpenRay] 🇨🇦 CA-16437'
-  - '[OpenRay] Dynamic-11697'
-  - 🇺🇸US_2|1.0MB/s
-  - '[OpenRay] 🇨🇦 CA-16969'
-  - 中文官网：[卷王.cc]-韩国 -0x-01
-  - 英国/伦敦/United Kingdom/London
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_1618e86d
-  - 中文官网：[卷王.cc]-美国 -0x-19
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_353bf2b3
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_64920555
-  - '[OpenRay] Dynamic-17109'
+  - 美国直连2-备用节点-防失联
+  - '[OpenRay] 🇨🇦 CA-13948'
   - '[OpenRay] Dynamic-17045'
-  - 🔴🇺🇸[🎬📺🔍]_github.com/Ruk1ng001_f3020b75
-  - '[OpenRay] 🇺🇸 US-14762'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_3eb33cf6
-  - '[OpenRay] Dynamic-17065'
-  - '[OpenRay] 🇺🇸 US-12954'
-  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_f7aadbc2
-  - '[OpenRay] 🇺🇸 US-14909'
-  - 🔴🇺🇸[🎬🔍]_github.com/Ruk1ng001_bf7c22d0
-  - '[OpenRay] Dynamic-17162'
-  - '[OpenRay] Dynamic-16832'
-  - '[OpenRay] 🇨🇦 CA-12446'
-  - '[OpenRay] 🇺🇸 US-15088'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_452f9660
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_575776f7
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_70a34658
-  - '[OpenRay] Dynamic-17041'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_104e4db3
-  - '[OpenRay] 🇨🇦 CA-17145'
-  - '[OpenRay] 🇨🇦 CA-17100'
-  - '[OpenRay] 🇺🇸 US-12485'
-  - '[OpenRay] Dynamic-17036'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_11f07d66
-  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_c94e6905
-  - '[OpenRay] Dynamic-14614'
-  - '[OpenRay] 🇺🇸 US-15109'
-  - '[OpenRay] 🇨🇦 CA-17180'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_31db2db4
-  - 中文官网：[卷王.cc]-美国 -0x-27
-  - 🇸🇬 新加坡 | SGP 5
-  - '[OpenRay] Dynamic-17032'
-  - 中文官网：[卷王.cc]-美国 -0x-10
-  - '[OpenRay] Dynamic-14625'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_77f85302
-  - '[OpenRay] 🇺🇸 US-14753'
-  - '[OpenRay] Dynamic-17202'
-  - '[OpenRay] Dynamic-12487'
-  - 中文官网：[卷王.cc]-美国 -0x-06
+  - 🇬🇧GB_1|1.0MB/s
+  - '[OpenRay] 🇨🇦 CA-15971'
+  - '[OpenRay] Dynamic-14617'
+  - 中文官网：[卷王.cc]-美国 -0x-04
+  - 🔴🇺🇸[🎬🤖📺]_github.com/Ruk1ng001_7148a6b4
+  - '[OpenRay] 🇨🇦 CA-13939'
+  - '[OpenRay] 🇨🇦 CA-17064'
+  - '[OpenRay] 🇨🇦 CA-17098'
+  - '[OpenRay] Dynamic-15357'
+  - '[OpenRay] 🇺🇸 US-12420'
+  - '[OpenRay] Dynamic-11763'
+  - '[OpenRay] 🇨🇦 CA-11943'
+  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_3e67a7f9
+  - '[OpenRay] Dynamic-11791'
+  - '[OpenRay] 🇨🇦 CA-11853'
+  - '[OpenRay] 🇨🇦 CA-16272'
+  - '[OpenRay] Dynamic-13935'
+  - '[OpenRay] Dynamic-17111'
+  - '[OpenRay] 🇨🇦 CA-11689'
+  - '[OpenRay] 🇨🇦 CA-16245'
+  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_85a2831f
+  - '[OpenRay] 🇨🇦 CA-16783'
+  - '[OpenRay] 🇺🇸 US-10496'
+  - '[OpenRay] Dynamic-15513'
+  - '[OpenRay] Dynamic-14678'
+  - '[OpenRay] 🇺🇸 US-15115'
+  - '[OpenRay] 🇨🇦 CA-16561'
+  - '[OpenRay] Dynamic-17077'
+  - '[OpenRay] Dynamic-13811'
+  - '[OpenRay] 🇨🇦 CA-16160'
+  - '[OpenRay] 🇺🇸 US-15111'
+  - '[OpenRay] 🇨🇦 CA-16713'
+  - '[OpenRay] Dynamic-17066'
+  - '[OpenRay] 🇨🇦 CA-16514'
+  - '[OpenRay] 🇨🇦 CA-16718'
+  - 英国/伦敦/United Kingdom/London
+  - '[OpenRay] 🇨🇦 CA-17099'
+  - '[OpenRay] 🇨🇦 CA-16290'
+  - '[OpenRay] 🇨🇦 CA-13936'
+  - '[OpenRay] 🇨🇦 CA-16172'
+  - '[OpenRay] 🇨🇦 CA-17169'
+  - '[OpenRay] 🇨🇦 CA-16629'
+  - 🇺🇸 US-2 | Filter
+  - '[OpenRay] 🇨🇦 CA-16664'
+  - '[OpenRay] 🇺🇸 US-12593'
+  - '[OpenRay] 🇨🇦 CA-16299'
+  - '[OpenRay] 🇺🇸 US-13561'
+  - '[OpenRay] Dynamic-12595'
+  - '[OpenRay] 🇨🇦 CA-16636'
+  - '[OpenRay] Dynamic-12449'
+  - '[OpenRay] 🇨🇦 CA-16569'
+  - '[OpenRay] Dynamic-11788'
+  - '[OpenRay] 🇺🇸 US-14103'
+  - '[OpenRay] 🇨🇦 CA-11856'
+  - 美国/San Francisco/United States/San Francisco
+  - '[OpenRay] 🇺🇸 US-12049'
+  - 中文官网：[卷王.cc]-美国 -0x-24
 - name: AUTO
   type: url-test
   proxies: &id001
-  - 🇺🇸 美国3|BGP优化
-  - 🇦🇺AU_1|2.2MB/s
-  - '[OpenRay] Dynamic-11763'
-  - '[OpenRay] 🇨🇦 CA-17098'
-  - '[OpenRay] 🇨🇦 CA-17169'
-  - 🇩🇪 德国 | DEU 3
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_5433e2df
-  - 🔴🇺🇸[🎬📺🔍]_github.com/Ruk1ng001_555d148e
-  - '[OpenRay] 🇺🇸 US-15035'
-  - '[OpenRay] 🇺🇸 US-15064'
-  - '[OpenRay] 🇺🇸 US-14896'
-  - '[OpenRay] 🇨🇦 CA-16437'
-  - '[OpenRay] Dynamic-11697'
-  - 🇺🇸US_2|1.0MB/s
-  - '[OpenRay] 🇨🇦 CA-16969'
-  - 中文官网：[卷王.cc]-韩国 -0x-01
-  - 英国/伦敦/United Kingdom/London
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_1618e86d
-  - 中文官网：[卷王.cc]-美国 -0x-19
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_353bf2b3
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_64920555
-  - '[OpenRay] Dynamic-17109'
+  - 美国直连2-备用节点-防失联
+  - '[OpenRay] 🇨🇦 CA-13948'
   - '[OpenRay] Dynamic-17045'
-  - 🔴🇺🇸[🎬📺🔍]_github.com/Ruk1ng001_f3020b75
-  - '[OpenRay] 🇺🇸 US-14762'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_3eb33cf6
-  - '[OpenRay] Dynamic-17065'
-  - '[OpenRay] 🇺🇸 US-12954'
-  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_f7aadbc2
-  - '[OpenRay] 🇺🇸 US-14909'
-  - 🔴🇺🇸[🎬🔍]_github.com/Ruk1ng001_bf7c22d0
-  - '[OpenRay] Dynamic-17162'
-  - '[OpenRay] Dynamic-16832'
-  - '[OpenRay] 🇨🇦 CA-12446'
-  - '[OpenRay] 🇺🇸 US-15088'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_452f9660
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_575776f7
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_70a34658
-  - '[OpenRay] Dynamic-17041'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_104e4db3
-  - '[OpenRay] 🇨🇦 CA-17145'
-  - '[OpenRay] 🇨🇦 CA-17100'
-  - '[OpenRay] 🇺🇸 US-12485'
-  - '[OpenRay] Dynamic-17036'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_11f07d66
-  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_c94e6905
-  - '[OpenRay] Dynamic-14614'
-  - '[OpenRay] 🇺🇸 US-15109'
-  - '[OpenRay] 🇨🇦 CA-17180'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_31db2db4
-  - 中文官网：[卷王.cc]-美国 -0x-27
-  - 🇸🇬 新加坡 | SGP 5
-  - '[OpenRay] Dynamic-17032'
-  - 中文官网：[卷王.cc]-美国 -0x-10
-  - '[OpenRay] Dynamic-14625'
-  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_77f85302
-  - '[OpenRay] 🇺🇸 US-14753'
-  - '[OpenRay] Dynamic-17202'
-  - '[OpenRay] Dynamic-12487'
-  - 中文官网：[卷王.cc]-美国 -0x-06
+  - 🇬🇧GB_1|1.0MB/s
+  - '[OpenRay] 🇨🇦 CA-15971'
+  - '[OpenRay] Dynamic-14617'
+  - 中文官网：[卷王.cc]-美国 -0x-04
+  - 🔴🇺🇸[🎬🤖📺]_github.com/Ruk1ng001_7148a6b4
+  - '[OpenRay] 🇨🇦 CA-13939'
+  - '[OpenRay] 🇨🇦 CA-17064'
+  - '[OpenRay] 🇨🇦 CA-17098'
+  - '[OpenRay] Dynamic-15357'
+  - '[OpenRay] 🇺🇸 US-12420'
+  - '[OpenRay] Dynamic-11763'
+  - '[OpenRay] 🇨🇦 CA-11943'
+  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_3e67a7f9
+  - '[OpenRay] Dynamic-11791'
+  - '[OpenRay] 🇨🇦 CA-11853'
+  - '[OpenRay] 🇨🇦 CA-16272'
+  - '[OpenRay] Dynamic-13935'
+  - '[OpenRay] Dynamic-17111'
+  - '[OpenRay] 🇨🇦 CA-11689'
+  - '[OpenRay] 🇨🇦 CA-16245'
+  - 🔴🇺🇸[🎬🤖📺🔍]_github.com/Ruk1ng001_85a2831f
+  - '[OpenRay] 🇨🇦 CA-16783'
+  - '[OpenRay] 🇺🇸 US-10496'
+  - '[OpenRay] Dynamic-15513'
+  - '[OpenRay] Dynamic-14678'
+  - '[OpenRay] 🇺🇸 US-15115'
+  - '[OpenRay] 🇨🇦 CA-16561'
+  - '[OpenRay] Dynamic-17077'
+  - '[OpenRay] Dynamic-13811'
+  - '[OpenRay] 🇨🇦 CA-16160'
+  - '[OpenRay] 🇺🇸 US-15111'
+  - '[OpenRay] 🇨🇦 CA-16713'
+  - '[OpenRay] Dynamic-17066'
+  - '[OpenRay] 🇨🇦 CA-16514'
+  - '[OpenRay] 🇨🇦 CA-16718'
+  - 英国/伦敦/United Kingdom/London
+  - '[OpenRay] 🇨🇦 CA-17099'
+  - '[OpenRay] 🇨🇦 CA-16290'
+  - '[OpenRay] 🇨🇦 CA-13936'
+  - '[OpenRay] 🇨🇦 CA-16172'
+  - '[OpenRay] 🇨🇦 CA-17169'
+  - '[OpenRay] 🇨🇦 CA-16629'
+  - 🇺🇸 US-2 | Filter
+  - '[OpenRay] 🇨🇦 CA-16664'
+  - '[OpenRay] 🇺🇸 US-12593'
+  - '[OpenRay] 🇨🇦 CA-16299'
+  - '[OpenRay] 🇺🇸 US-13561'
+  - '[OpenRay] Dynamic-12595'
+  - '[OpenRay] 🇨🇦 CA-16636'
+  - '[OpenRay] Dynamic-12449'
+  - '[OpenRay] 🇨🇦 CA-16569'
+  - '[OpenRay] Dynamic-11788'
+  - '[OpenRay] 🇺🇸 US-14103'
+  - '[OpenRay] 🇨🇦 CA-11856'
+  - 美国/San Francisco/United States/San Francisco
+  - '[OpenRay] 🇺🇸 US-12049'
+  - 中文官网：[卷王.cc]-美国 -0x-24
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50

@@ -20,23 +20,64 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: 🌐 Anycast-IP | 🇧🇷 🇩🇪 | [BL]
+- name: IPv4.@Vasl_b
+  obfs: salamander
+  obfs-password: OzJ10Bk1Z9MfaTDFAgDX0HldGsMiI7C2
+  password: t8667063839
+  port: 443
+  server: vids.jibijij.top
+  skip-cert-verify: true
+  sni: bts.com
+  tls: false
   type: hysteria2
-  server: 202.61.205.86
-  port: 4433
-  password: 18cf8030-1ceb-4b7d-8c0c-c036413c144e
-  sni: de1.xiaoliyu.cyou
   udp: true
-  skip-cert-verify: false
-- name: 罗马尼亚 - Voluntari - 2
-  server: 84.239.49.175
+- name: IPv6美国05do
+  type: hysteria2
+  server: 2600:3c01::2000:42ff:fe74:a459
+  port: 20000
+  password: 8d9ddfb4-7583-45b3-acf1-5343db385a38
+  sni: 2600:3c01::2000:42ff:fe74:a459
+  skip-cert-verify: true
+  obfs: salamander
+  obfs-password: ZTBjNDA0YTVhNTFkMzFlOQ==
+  udp: true
+- name: RO_d6a4d_0019
+  server: 84.239.49.201
   port: 9002
   type: http
   tls: true
   skip-cert-verify: true
   udp: true
-  delay: 2906
-- name: 🇩🇪 德国 | DEU 2
+- name: SHADOWSOCKS-2 | 31ms
+  type: ss
+  server: 37.19.198.244
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-3 | 29ms
+  type: ss
+  server: 37.19.198.236
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- alpn:
+  - h3
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  down: '55'
+  name: 🇩🇪DE_2|2.5MB/s
+  port: 10066
+  protocol: udp
+  server: 62.210.29.98
+  skip-cert-verify: true
+  sni: bing.com
+  type: hysteria
+  up: '11'
+  udp: true
+- name: 🇩🇪 德国 | DEU 4
   server: 5.83.129.90
   port: 54177
   type: hysteria
@@ -50,102 +91,61 @@ proxies:
   alpn:
   - h3
   udp: true
-- name: VLESS-70 | 37ms
-  type: vless
-  server: up2-df6.pages.dev
-  port: 443
-  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
-  network: ws
-  tls: true
-  servername: up2-df6.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: 中国 - 香港 - 6
-  server: e7ab8a8f-t9zts0-tcw58g-1p0be.cm4.oshuawei.com
-  port: 5228
-  type: http
-  username: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
-  password: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 541
-- name: 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 172.66.44.238
-  port: 443
-  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
-  network: ws
-  tls: true
-  servername: up2-df6.pages.dev
-  ws-opts:
-    path: /uTZSXPBI2IfoxF86
-    headers:
-      Host: up2-df6.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: 罗马尼亚 - Voluntari - 3
-  server: 84.239.49.201
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 1107
-- client-fingerprint: chrome
-  encryption: none
-  name: 🇸🇬SG_1|3.4MB/s
-  network: ws
-  port: 443
-  server: 198.41.223.61
-  servername: edgetunnell-1dc.pages.dev
-  tls: true
-  type: vless
-  udp: true
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  ws-opts:
-    headers:
-      Host: edgetunnell-1dc.pages.dev
-      User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/60.0.3112.90 Safari/537.36
-    path: /
-  xudp: true
-  skip-cert-verify: false
-- name: 🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | [BL]
-  type: hysteria2
-  server: 2.27.25.75
-  port: 1935
-  password: germany_2_hysteria2_fastlane_htai3zdzz:kIyrtdiT2W9oIq9OyhmAuY8wo6YT97NA
-  sni: de11.h.fastlanehosting.ru
-  skip-cert-verify: true
-  udp: true
-- name: 中国 - 香港 - 7
-  server: fc26ffd1-t9zts0-tfpsin-1q3dm.cm4.oshuawei.com
-  port: 5228
-  type: http
-  username: c1785de0-212f-11ef-92aa-f23c9164ca5d
-  password: c1785de0-212f-11ef-92aa-f23c9164ca5d
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 1916
-- name: 荷兰 - 阿姆斯特丹 - 1
-  server: ssr2.762988.xyz
-  port: 33336
-  type: ssr
-  cipher: chacha20-ietf
+- multiplexing: MULTIPLEXING_LOW
+  name: 🇺🇸US_1|1.2MB/s
   password: dongtaiwang.com
-  protocol: auth_chain_a
-  obfs: tls1.2_ticket_auth
+  port: 34567
+  server: 157.254.223.44
+  transport: TCP
+  type: mieru
+  username: dongtaiwang.com
   udp: true
-  delay: 1009
   skip-cert-verify: false
-- name: SHADOWSOCKS-32 | 128ms
+- name: KR_d6a4d_0012
+  server: testkr3.ssv.vc
+  port: 30446
+  type: http
+  username: test
+  password: test.+
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: 荷兰 - Dronten - 2
+  server: 5.255.99.75
+  port: 1080
+  type: socks5
+  skip-cert-verify: true
+  udp: true
+  delay: 965
+- name: SHADOWSOCKS-22 | 67ms
   type: ss
-  server: 108.181.0.177
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: G5p6ww4o67HB
+  server: 156.146.38.169
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-26 | 67ms
+  type: ss
+  server: 156.146.38.167
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 8.39.125.219
+  port: 2087
+  uuid: b1f8283d-36f5-4ff9-8ad8-e6d733a18fa0
+  network: ws
+  tls: true
+  servername: darkness427edge-93h.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: darkness427edge-93h.pages.dev
   udp: true
   skip-cert-verify: false
 - name: 🔴🇭🇰[🎬🔍]_github.com/Ruk1ng001_903ada19
@@ -163,94 +163,79 @@ proxies:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
   skip-cert-verify: false
-- name: 罗马尼亚 - Voluntari - 1
-  server: 84.239.49.58
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 1155
-- name: SHADOWSOCKS-29 | 116ms
+- name: SHADOWSOCKS-20 | 69ms
   type: ss
-  server: 173.244.56.9
+  server: 149.28.255.6
+  port: 816
+  cipher: chacha20-ietf-poly1305
+  password: GyZ5Xo0ht41vYmW3H4
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
+  type: trojan
+  server: 45.79.8.17
+  port: 443
+  password: rXyShM8Jni+5Sbq3k4gkyr5Lq0zOMRL2Uf
+  sni: 45.79.8.17
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  udp: true
+- name: 美国/阿什本/United States/Ashburn
+  type: ss
+  server: 108.181.57.93
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: RSo52SbxW40r
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-27 | 46ms
+  type: ss
+  server: 107.172.250.161
+  port: 59556
+  cipher: chacha20-ietf-poly1305
+  password: QTmLViU4VEmuwbOxUw4IXd
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-23 | 68ms
+  type: ss
+  server: 156.146.38.170
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
   skip-cert-verify: false
+- name: VLESS-70 | 37ms
+  type: vless
+  server: up2-df6.pages.dev
+  port: 443
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  network: ws
+  tls: true
+  servername: up2-df6.pages.dev
+  udp: true
+  skip-cert-verify: false
 - multiplexing: MULTIPLEXING_LOW
-  name: 🇺🇸US_1|1.4MB/s
+  name: 🇿🇦ZA_1|1.1MB/s
   password: dongtaiwang.com
-  port: 34567
-  server: 157.254.223.44
+  port: 28866
+  server: 45.221.98.11
   transport: TCP
   type: mieru
   username: dongtaiwang.com
   udp: true
   skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: xx|8d37|puddincat07@Telegram
-  password: XUMTygEM1jVYIvysXKqA5T
-  port: 443
-  server: hackney-latest-strike.freesocks.work
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-30 | 114ms
-  type: ss
-  server: 173.244.56.6
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: Shadowsocks
-  type: socks5
-  server: 127.0.0.1
-  port: 1080
-  udp: true
-  skip-cert-verify: false
-- name: 'B - 🇯🇵 JP 09 TG: @nodpai'
-  password: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
-  port: 443
-  server: e9b9c37c-t9zts0-tcw58g-1p0be.jp.oshuawei.com
-  tls: true
-  type: http
-  username: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
-  udp: true
-  skip-cert-verify: false
-- name: NZ_45c5a_0017
-  server: 202.37.33.81
-  port: 443
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
   type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-  tls: true
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  servername: m.udemy.com.cyylr.eu.cc
-  alpn:
-  - http/1.1
+  server: 172.64.52.173
+  port: 2087
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   network: ws
+  tls: true
+  servername: fgnix832fx.fx6hsv0.ccwu.cc
   ws-opts:
-    path: /id-tksi
+    path: /
     headers:
-      Host: m.udemy.com.cyylr.eu.cc
-  udp: true
-- name: '[SS] 🇺🇸 美国 V2CROSS.COM'
-  server: 149.28.255.6
-  port: 816
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: GyZ5Xo0ht41vYmW3H4
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-22 | 67ms
-  type: ss
-  server: 156.146.38.169
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
+      Host: fgnix832fx.fx6hsv0.ccwu.cc
   udp: true
   skip-cert-verify: false
 - name: 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_29a28431
@@ -267,73 +252,104 @@ proxies:
       Host: support.zoom.us.cyylr.eu.cc
   udp: true
   skip-cert-verify: false
-- name: SHADOWSOCKS-23 | 68ms
+- name: 🇷🇴RO_1|2.1MB/s
+  port: 9002
+  server: 84.239.49.239
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- cipher: chacha20-ietf
+  name: xx|0ac7|puddincat07@Telegram
+  obfs: tls1.2_ticket_auth
+  password: dongtaiwang.com
+  port: 33336
+  protocol: auth_chain_a
+  server: ssr2.762988.xyz
+  type: ssr
+  udp: true
+  skip-cert-verify: false
+- client-fingerprint: chrome
+  encryption: none
+  name: 🇯🇵JP_1|1.0MB/s
+  network: ws
+  port: 2087
+  server: 172.64.229.253
+  servername: darkness427edge-93h.pages.dev
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: b1f8283d-36f5-4ff9-8ad8-e6d733a18fa0
+  ws-opts:
+    headers:
+      Host: darkness427edge-93h.pages.dev
+    path: /
+  xudp: true
+- name: 10|🇺🇸 美国5|@ripaojiedian
+  type: vmess
+  server: 82.198.246.233
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+- name: Shadowsocks
+  type: socks5
+  server: 127.0.0.1
+  port: 1080
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-29 | 116ms
   type: ss
-  server: 156.146.38.170
+  server: 173.244.56.9
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
   udp: true
   skip-cert-verify: false
-- alterId: 0
-  cipher: auto
-  name: 🇺🇸 美国5|@ripaojiedian
-  port: 180
-  server: 82.198.246.233
+- name: SHADOWSOCKS-32 | 128ms
+  type: ss
+  server: 108.181.0.177
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: G5p6ww4o67HB
+  udp: true
   skip-cert-verify: false
-  tls: false
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+- name: SHADOWSOCKS-30 | 114ms
+  type: ss
+  server: 173.244.56.6
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-- name: KR_45c5a_0012
-  server: testkr3.ssv.vc
-  port: 30446
-  type: http
-  username: test
-  password: test.+
-  tls: true
-  skip-cert-verify: true
-  udp: true
-- name: KR_45c5a_0013
+  skip-cert-verify: false
+- name: KR_d6a4d_0013
   server: 121.169.46.116
   port: 1090
   type: socks5
   udp: true
   skip-cert-verify: false
-- name: SHADOWSOCKS-26 | 67ms
+- name: RO_d6a4d_0018
+  server: 84.239.14.158
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: 🇩🇪DE德国 39.5KB/s
   type: ss
-  server: 156.146.38.167
+  server: hackney-latest-strike.freesocks.work
   port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-27 | 46ms
-  type: ss
-  server: 107.172.250.161
-  port: 59556
   cipher: chacha20-ietf-poly1305
-  password: QTmLViU4VEmuwbOxUw4IXd
+  alterId: 0
+  tls: true
+  password: XUMTygEM1jVYIvysXKqA5T
+  skip-cert-verify: true
   udp: true
-  skip-cert-verify: false
-- multiplexing: MULTIPLEXING_LOW
-  name: 'B - 🇿🇦 ZA 04 TG: @nodpai'
-  password: dongtaiwang.com
-  port: 28866
-  server: 45.221.98.11
-  transport: TCP
-  type: mieru
-  username: dongtaiwang.com
-  udp: true
-  skip-cert-verify: false
-- name: 美国/阿什本/United States/Ashburn
-  type: ss
-  server: 108.181.57.93
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: RSo52SbxW40r
-  udp: true
-  skip-cert-verify: false
 - name: SHADOWSOCKS-50 | 540ms
   type: ss
   server: 149.22.95.183
@@ -342,64 +358,322 @@ proxies:
   password: shadowsocks
   udp: true
   skip-cert-verify: false
-- name: RO_45c5a_0018
-  server: 84.239.14.158
-  port: 9002
-  type: http
+- name: VLESS-65 | 158ms
+  type: vless
+  server: 104.168.30.161
+  port: 443
+  uuid: 7131f38f-9a4a-4e38-ae1d-aa9e132265ea
+  network: tcp
+  tls: true
+  servername: proxy.wastech.org
+  udp: true
+  skip-cert-verify: false
+- name: NZ_d6a4d_0017
+  server: 202.37.33.81
+  port: 443
+  type: vless
+  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  servername: m.udemy.com.cyylr.eu.cc
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: m.udemy.com.cyylr.eu.cc
+  udp: true
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: 172.64.35.45
+  port: 443
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  network: ws
+  tls: true
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
+  type: vless
+  server: 162.159.36.5
+  port: 443
+  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
+  network: ws
+  tls: true
+  servername: vangoghhh.info
+  ws-opts:
+    path: /tixvuws
+    headers:
+      Host: vangoghhh.info
+  udp: true
+  skip-cert-verify: false
+- name: 未知20 29.0MB/s
+  type: vmess
+  server: 172.236.244.171
+  port: 2053
+  cipher: auto
+  uuid: 4b80aa86-4354-40bb-d2a3-47126cff0bea
+  alterId: 0
   tls: true
   skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /usavm
+    headers:
+      host: usaapp1.jisuyun.top
   udp: true
-- name: SHADOWSOCKS-3 | 29ms
+- name: 🇺🇸 US-21 | Filter
+  type: vless
+  server: 154.17.237.73
+  port: 37811
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: SHADOWSOCKS-72 | 164ms
   type: ss
-  server: 37.19.198.236
+  server: series-a2.samanehha.co
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-78 | 152ms
+  type: ss
+  server: admin.c1.webramz.co
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 US-18 | Filter
+  type: vless
+  server: 69.63.218.168
+  port: 10101
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: SHADOWSOCKS-90 | 152ms
+  type: ss
+  server: admin.c1.havij.co
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: 1kVr0KATIJI7mwOF
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-82 | 312ms
+  type: ss
+  server: 141.98.101.178
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 US-19 | Filter
+  type: vless
+  server: 93.179.99.130
+  port: 777
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: SHADOWSOCKS-112 | 165ms
+  type: ss
+  server: 193.29.139.204
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: 德国/Germany
+  type: ss
+  server: 135.125.219.2
+  port: 12911
+  cipher: chacha20-ietf-poly1305
+  password: 4368f055243e225f
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 US-20 | Filter
+  type: vless
+  server: 173.249.210.53
+  port: 56671
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: SHADOWSOCKS-121 | 164ms
+  type: ss
+  server: 193.29.139.151
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-166 | 166ms
+  type: ss
+  server: 8.209.74.72
+  port: 20001
+  cipher: chacha20-ietf-poly1305
+  password: PWpjPo3tqhPN4yRZ
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-97 | 170ms
+  type: ss
+  server: 141.98.101.182
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: VLESS-133 | 171ms
+  type: vless
+  server: 91.107.244.117
+  port: 2052
+  uuid: b5bd7d6d-5ab9-4965-bccc-32acdbc4f714
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-176 | 322ms
+  type: ss
+  server: 193.47.60.186
+  port: 28687
+  cipher: chacha20-ietf-poly1305
+  password: yKVMoB3AwiTEznpnoq2FYR
   udp: true
   skip-cert-verify: false
 - cipher: chacha20-ietf-poly1305
-  name: us|e61c|puddincat07@Telegram
-  password: gqkUCvmeOTghYJXF1YIuk5
-  port: 443
-  server: 71.19.148.74
+  name: nl|2376|puddincat07@Telegram
+  password: cvII85TrW6n0OGyfpHVS1u
+  port: 8080
+  server: 193.29.139.179
   type: ss
   udp: true
   skip-cert-verify: false
-- name: SHADOWSOCKS-2 | 31ms
-  type: ss
-  server: 37.19.198.244
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-1 | 35ms
-  type: ss
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: hbGrpfvNrJsUmKmPbR3iY2
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸163Mb | Aeza Group
+- name: 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥
   type: vless
-  server: 77.110.124.100
-  port: 80
-  uuid: e3c68e9e-5bf3-4e4b-abac-806053baa43a
+  server: 91.107.255.167
+  port: 24391
+  uuid: 7d8584e3-410b-4667-a9b3-9a6465d4f999
   network: tcp
   tls: false
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸US北美 30.4MB/s
+- name: SHADOWSOCKS-80 | 158ms
+  type: ss
+  server: series-a1.samanehha.co
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+  udp: true
+  skip-cert-verify: false
+- name: 法国 - 巴黎 - 1
+  server: 13.36.249.118
   type: trojan
-  server: 23.227.193.173
+  country: 🇫🇷FR
+  port: 22223
+  password: telegram-id-directvpn
+  sni: trojan.burgerip.co.uk
+  skip-cert-verify: true
+  udp: true
+  delay: 1223
+- name: US_d6a4d_0033
+  server: 155.117.127.137
+  port: 443
+  type: vless
+  uuid: 5a20b5d0-3a98-4792-9559-95f4e24277ec
+  tls: false
+  skip-cert-verify: false
+  udp: true
+- name: VLESS-104 | 188ms
+  type: vless
+  server: cdg-1.fromblancwithlove.com
+  port: 8443
+  uuid: 55f7d143-a594-4a91-b030-f227039f85ef
+  network: tcp
+  tls: true
+  servername: cdg-1.fromblancwithlove.com
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-129 | 175ms
+  type: ss
+  server: 82.38.31.191
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸US美国17 2.7MB/s
+  type: trojan
+  server: 172.236.220.10
   port: 443
   alterId: 0
   tls: true
-  password: AZWY=WAZk5TeVYmMUudr2xmeb00I3ymeMQ
-  sni: www.dataset-logger.click
+  password: s_WEN9lMmufG+qDIsn-4C7JOVAnDdbS3Ui
+  sni: 172.236.220.10
   skip-cert-verify: true
+  network: tcp
   udp: true
+- name: SHADOWSOCKS-116 | 174ms
+  type: ss
+  server: 82.38.31.194
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  skip-cert-verify: false
+- name: VLESS-76 | 244ms
+  type: vless
+  server: proxy.wastech.org
+  port: 443
+  uuid: 7131f38f-9a4a-4e38-ae1d-aa9e132265ea
+  network: tcp
+  tls: true
+  servername: proxy.wastech.org
+  udp: true
+  skip-cert-verify: false
 - name: 🇺🇸 US-4 | Sub3
   type: vless
   server: cf.130209.xyz
@@ -419,215 +693,6 @@ proxies:
       Host: usa.hybe.cc.cd
   tls: true
   udp: true
-- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 108.162.193.217
-  port: 443
-  uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
-  network: ws
-  tls: true
-  servername: vangoghhh.info
-  ws-opts:
-    path: /tixvuws
-    headers:
-      Host: vangoghhh.info
-  udp: true
-  skip-cert-verify: false
-- name: 🟢🇹🇼[🎬🤖📺]_github.com/Ruk1ng001_a2a74db6
-  type: ss
-  server: 61.231.8.4
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  udp: true
-  skip-cert-verify: false
-- name: 🇸🇬 SG-5 | Filter
-  type: vless
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-  network: ws
-  sni: tianshu13.pages.dev
-  servername: tianshu13.pages.dev
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  ws-opts:
-    path: /pyip=ProxyIP.SG.CMLiussss.netfp=chrome
-    headers:
-      Host: tianshu13.pages.dev
-  tls: true
-  tfo: false
-  udp: false
-- name: SCP|US
-  type: vmess
-  server: cf.scpnb.top
-  port: 443
-  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
-    headers:
-      Host: vienna-bread-threats-amendment.trycloudflare.com
-  servername: vienna-bread-threats-amendment.trycloudflare.com
-  client-fingerprint: chrome
-  udp: true
-  skip-cert-verify: false
-- name: 英国 - 伊斯靈頓 - 1
-  server: 94.237.60.189
-  type: vmess
-  country: 🇫🇮FI
-  port: 443
-  uuid: 33453d72-e5a3-4e58-b66b-079c11dc7a18
-  alterId: 0
-  cipher: auto
-  network: tcp
-  http-opts: {}
-  h2-opts: {}
-  skip-cert-verify: true
-  delay: 648
-  udp: true
-- name: SHADOWSOCKS-80 | 158ms
-  type: ss
-  server: series-a1.samanehha.co
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-72 | 164ms
-  type: ss
-  server: series-a2.samanehha.co
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-78 | 152ms
-  type: ss
-  server: admin.c1.webramz.co
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: W74XFALLLuw6m5IA
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-90 | 152ms
-  type: ss
-  server: admin.c1.havij.co
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 1kVr0KATIJI7mwOF
-  udp: true
-  skip-cert-verify: false
-- name: 荷兰/Netherlands
-  type: ss
-  server: 195.93.253.240
-  port: 14130
-  cipher: chacha20-ietf-poly1305
-  password: 5DJXRpmi3iyqxQ79PfKv3B
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-121 | 164ms
-  type: ss
-  server: 193.29.139.151
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: VLESS-133 | 171ms
-  type: vless
-  server: 91.107.244.117
-  port: 2052
-  uuid: b5bd7d6d-5ab9-4965-bccc-32acdbc4f714
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇳 China, Beijing | [BL]
-  type: trojan
-  server: 130.94.65.52
-  port: 443
-  password: IbezlLAYfrLRwFn9.mHn5FDwk1asLi599U
-  sni: www.static-cast.click
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  udp: true
-- name: SHADOWSOCKS-97 | 170ms
-  type: ss
-  server: 141.98.101.182
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-116 | 174ms
-  type: ss
-  server: 82.38.31.194
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-166 | 166ms
-  type: ss
-  server: 8.209.74.72
-  port: 20001
-  cipher: chacha20-ietf-poly1305
-  password: PWpjPo3tqhPN4yRZ
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-112 | 165ms
-  type: ss
-  server: 193.29.139.204
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-82 | 312ms
-  type: ss
-  server: 141.98.101.178
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 芬兰 - 赫尔辛基 - 1
-  server: 195.133.2.2
-  type: ss
-  country: 🇷🇺RU
-  port: 34898
-  password: v2LIewZzNUsIrqODr22FVc
-  cipher: chacha20-ietf-poly1305
-  delay: 1309
-  udp: true
-  skip-cert-verify: false
-- name: '[Trojan] 🇫🇷 法国 巴黎Choopa数据中心'
-  server: 217.69.2.107
-  port: 443
-  type: trojan
-  password: YGWIMlg.W1wRWQkRDcKfjZY7sng09aC=Yh
-  sni: www.weavenet.click
-  skip-cert-verify: true
-  udp: true
-- name: US_45c5a_0033
-  server: 155.117.127.137
-  port: 443
-  type: vless
-  uuid: 5a20b5d0-3a98-4792-9559-95f4e24277ec
-  tls: false
-  skip-cert-verify: false
-  udp: true
-- name: SHADOWSOCKS-176 | 322ms
-  type: ss
-  server: 193.47.60.186
-  port: 28687
-  cipher: chacha20-ietf-poly1305
-  password: yKVMoB3AwiTEznpnoq2FYR
-  udp: true
-  skip-cert-verify: false
 - name: VLESS-105 | 196ms
   type: vless
   server: 152.233.35.228
@@ -638,58 +703,200 @@ proxies:
   servername: de1.fromblancwithlove.com
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸US美国9 601.2KB/s
+- name: 🇵🇱🚀 Польша [🏳️LTE] | 🥭🔥
   type: trojan
-  server: 65.20.90.225
+  server: 64.176.65.85
   port: 443
-  alterId: 0
-  tls: true
-  password: Tu1fZjElnkRg0ECRj0sI0u54PY8ptUmATg
-  sni: www.sandbox-cloud.click
-  skip-cert-verify: true
-  udp: true
-- name: 🔴🇮🇩[🤖📺🎪✨]_github.com/Ruk1ng001_6400cb3d
-  type: trojan
-  server: qfdfsg.wsone.icu
-  port: 443
-  password: M7v%w11Se*
-  sni: qfdfsg.wsone.icu
+  password: iGccGWTMHtoXtBhGYK4mogg7iIUhGbcvCf
+  sni: 64.176.65.85
   client-fingerprint: chrome
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
+- name: 🇬🇧 GB-7 | Filter
   type: vless
-  server: l10-1.l-itx.info
-  port: 2053
-  uuid: 5da05cf7-9913-45a9-a7c6-71a41b1cd713
+  server: 166.88.167.206
+  port: 30715
+  uuid: 00000000-0000-4000-8000-000000000000
   network: ws
-  tls: true
-  servername: 09e89262740b6ba0.itx-server.digital
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
   ws-opts:
-    path: /ws
+    path: /@Marisa_kristi
     headers:
-      Host: itx-server.digital
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇬🇧 GB-6 | Filter
+  type: vless
+  server: 91.149.203.13
+  port: 15429
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇬🇧 GB-5 | Filter
+  type: vless
+  server: 5.181.27.81
+  port: 15566
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 土耳其/伊斯坦布尔/Türkiye/Istanbul
+  type: ss
+  server: 194.87.39.215
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: X6btbRvJCo3uTQ--yaaT8Mvh0CgqhYTL
   udp: true
   skip-cert-verify: false
-- name: 德国 - Frankfurt Am Main - 1
-  server: speedtest.org
-  type: vmess
-  country: 🏁ZZ
-  port: 80
-  uuid: 58fe1542-5290-40ad-815a-77707a81afe5
-  alterId: 0
-  cipher: auto
-  network: ws
-  servername: de2.ping-game.ir
-  http-opts: {}
-  h2-opts: {}
-  skip-cert-verify: true
-  ws-opts:
-    path: /IOebhLMhl1CTbFHbL95myfRX2
-    headers:
-      HOST: de2.ping-game.ir
-  delay: 835
+- cipher: chacha20-ietf-poly1305
+  name: us|fc06|puddincat07@Telegram
+  password: gqkUCvmeOTghYJXF1YIuk5
+  port: 443
+  server: 71.19.148.74
+  type: ss
   udp: true
+  skip-cert-verify: false
+- name: 🇨🇱 Chile, Santiago | [BL]
+  type: trojan
+  server: 130.94.104.210
+  port: 443
+  password: lTs6OZOMoqYAkDEbK10t-tE8KMjuREBW3m
+  sni: www.cdn-structure.click
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  udp: true
+- name: 🇩🇪 DE-13 | Filter
+  type: vless
+  server: 213.179.69.128
+  port: 19128
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- encryption: none
+  name: 🇫🇷FR_2|1.1MB/s
+  network: ws
+  port: 443
+  server: bab-6.site
+  servername: bab-6.site
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  ws-opts:
+    headers:
+      Host: bab-6.site
+    path: /vws/
+  xudp: true
+- name: 🇩🇪 DE-12 | Filter
+  type: vless
+  server: 146.70.20.110
+  port: 20205
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇩🇪 DE-15 | Filter
+  type: vless
+  server: 213.179.69.150
+  port: 35130
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 荷兰/鹿特丹/Netherlands/Rotterdam
+  type: ss
+  server: 185.18.54.70
+  port: 31348
+  cipher: chacha20-ietf-poly1305
+  password: MPS4QxIySO20yGnFTGEbyYTOwd2HlEmcC0ksqogxZtLyLYRl
+  udp: true
+  skip-cert-verify: false
+- name: 🇬🇧 GB-3 | Filter
+  type: vless
+  server: 213.165.48.180
+  port: 17071
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇩🇪 DE-14 | Filter
+  type: vless
+  server: 89.208.107.193
+  port: 26701
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
 - name: 英国/朴次茅斯/United Kingdom/Portsmouth
   type: ss
   server: 149.102.144.110
@@ -698,83 +905,254 @@ proxies:
   password: 7a5af500cb295935
   udp: true
   skip-cert-verify: false
-- name: 'B - 🇺🇸 US 34 TG: @nodpai'
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  port: 46424
-  server: 90081bb25c.node.tro.cac.cab
-  skip-cert-verify: true
-  sni: de.01.naiun.bilibili.com
-  tls: true
-  type: trojan
-  udp: true
-- name: 🇱🇻58Mb | U1 Digital Services
+- name: 🇩🇪 DE-1 | Sub3
   type: vless
-  server: 213.21.241.104
-  port: 35935
-  uuid: 873f54fb-117c-431c-9817-ab649e089968
-  network: tcp
-  tls: false
-  udp: true
+  server: singgcdn.singgnetworkcdn.com
+  port: 443
+  uuid: 924106da-29ec-4822-bd13-703021e2a4f8
+  encryption: none
+  network: ws
+  security: tls
+  sni: germany.xiaomaimai1314.ccwu.cc
+  servername: germany.xiaomaimai1314.ccwu.cc
   skip-cert-verify: false
-- name: SHADOWSOCKS-117 | 172ms
-  type: ss
-  server: 193.29.139.157
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: cvII85TrW6n0OGyfpHVS1u
+  fp: edge
+  client-fingerprint: edge
+  ws-opts:
+    path: /api/v2/check_update
+    headers:
+      Host: germany.xiaomaimai1314.ccwu.cc
+  tls: true
   udp: true
-  skip-cert-verify: false
-- name: 瑞士 - 苏黎世 - 1
-  server: 90081bb25c.node.tro.cac.cab
-  port: 45553
-  type: trojan
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  sni: ch.01.naiun.bilibili.com
+- name: 🇯🇵 JP-5 | Filter
+  type: vless
+  server: 54.178.110.17
+  port: 4443
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
   skip-cert-verify: true
-  udp: true
-  delay: 1858
-- name: SHADOWSOCKS-77 | 174ms
-  type: ss
-  server: 82.38.31.217
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: '[Trojan] 🇺🇸 美国 Akamai科技公司CDN网络节点'
-  server: 172.237.145.189
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇯🇵 JP-7 | Filter
+  type: vless
+  server: 212.135.210.133
+  port: 56788
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇯🇵 JP-9 | Filter
+  type: vless
+  server: 45.143.131.216
+  port: 42769
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇬🇧 GB-4 | Filter
+  type: vless
+  server: 91.184.240.106
+  port: 433
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇯🇵 JP-8 | Filter
+  type: vless
+  server: 45.143.234.26
+  port: 13236
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: '[Trojan] 🇺🇸 美国 V2CROSS.COM'
+  server: 65.20.90.225
   port: 443
   type: trojan
-  password: A3uIh_5NqMg3hFa.gDYWT.afz0UuJ6=VIM
-  sni: 172.237.145.189
+  password: Tu1fZjElnkRg0ECRj0sI0u54PY8ptUmATg
+  sni: www.sandbox-cloud.click
   skip-cert-verify: true
   udp: true
-- name: 加纳 - 阿克拉 - 1
+- name: 🇯🇵 JP-6 | Filter
+  type: vless
+  server: 45.12.89.124
+  port: 51055
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇺🇸US美国5 416.0KB/s
+  type: ss
+  server: 149.104.109.74
+  port: 21273
+  cipher: chacha20-ietf-poly1305
+  alterId: 0
+  tls: true
+  password: Ll6cYfXM5DzQbdtMMb72A_jqVnNljU3yqe
+  skip-cert-verify: true
+  udp: true
+- name: 南非 - 约翰内斯堡 - 1
+  server: 20.164.221.1
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: WUpTYsnFmIND14vx
+  udp: true
+  delay: 512
+  skip-cert-verify: false
+- name: 南非/South Africa
+  type: ss
+  server: 192.142.18.127
+  port: 443
+  cipher: aes-256-gcm
+  password: d2890c8f-8d15-42b7-80e3-687fab8b2c7a
+  udp: true
+  skip-cert-verify: false
+- client-fingerprint: chrome
+  name: 🇸🇬SG_3|3.8MB/s
+  network: ws
+  port: 443
+  server: cf.tencentapp.cn
+  servername: tianshu13.pages.dev
+  tls: true
+  type: vless
+  udp: true
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  ws-opts:
+    headers:
+      Host: tianshu13.pages.dev
+      User-Agent: Mozilla/5.0 (Windows NT 6.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/55.0.2883.87 Safari/537.36
+    path: /pyip=ProxyIP.SG.CMLiussss.netfp=chrome
+  xudp: true
+  skip-cert-verify: false
+- name: 🇬🇭🚀 Гана [🏳️LTE] | 🥭🔥
+  type: trojan
   server: 90081bb25c.node.tro.cac.cab
   port: 48697
-  type: trojan
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   sni: gh.01.naiun.bilibili.com
   skip-cert-verify: true
   udp: true
-  delay: 1828
-- client-fingerprint: chrome
-  name: 🇭🇰HK_1|1.4MB/s
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  port: 47909
-  server: 90081bb25c.node.tro.cac.cab
-  skip-cert-verify: true
-  sni: is.01.naiun.bilibili.com
+- name: 🇨🇳 China, Beijing | [BL]
   type: trojan
+  server: 130.94.92.144
+  port: 443
+  password: oUAfbL8z87q-mhgjZ6g7mWQobf9=b7ut_F
+  sni: www.node-finder.click
   udp: true
-- name: 'B - 🇺🇸 US 33 TG: @nodpai'
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  port: 41943
-  server: 90081bb25c.node.tro.cac.cab
-  skip-cert-verify: true
-  sni: az.01.naiun.bilibili.com
-  tls: true
+  skip-cert-verify: false
+- name: 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_2
   type: trojan
+  server: 90081bb25c.node.tro.cac.cab
+  port: 46424
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  sni: de.01.naiun.bilibili.com
+  skip-cert-verify: true
+  udp: true
+- name: 🇰🇷 KR-2 | Filter
+  type: vless
+  server: 146.56.106.51
+  port: 56271
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- cipher: chacha20-ietf-poly1305
+  name: nl|60bf|puddincat07@Telegram
+  password: QCXDxuDlTTMD7jtgHUjIoj
+  port: 8080
+  server: 193.29.139.199
+  type: ss
+  udp: true
+  skip-cert-verify: false
+- name: 🇰🇷 KR-3 | Filter
+  type: vless
+  server: 144.24.66.151
+  port: 21828
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇧🇬 Bulgaria, Sofia | [BL]
+  type: trojan
+  server: 130.94.97.11
+  port: 443
+  password: Z3_=ewk_+l1U4OT4usQ5=o2vFfk95yfy1V
+  sni: www.selectnet.click
+  skip-cert-verify: true
+  client-fingerprint: chrome
   udp: true
 - name: 🇹🇷 TR-1 | Sub3
   type: vless
@@ -795,15 +1173,99 @@ proxies:
       Host: turkey.i-dle.cc.cd
   tls: true
   udp: true
-- name: 法国 - 巴黎 - 4
-  server: 90081bb25c.node.tro.cac.cab
-  port: 45619
+- name: 🇸🇬 SG-9 | Filter
+  type: vless
+  server: 8.219.2.255
+  port: 33284
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇸🇬 SG-10 | Filter
+  type: vless
+  server: 110.238.111.113
+  port: 31187
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_3
   type: trojan
+  server: 90081bb25c.node.tro.cac.cab
+  port: 45553
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  sni: fr.01.naiun.bilibili.com
+  sni: ch.01.naiun.bilibili.com
   skip-cert-verify: true
   udp: true
-  delay: 1533
+- name: 🇰🇷 KR-4 | Filter
+  type: vless
+  server: 138.2.112.117
+  port: 15807
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇰🇷 KR-1 | Filter
+  type: vless
+  server: 144.24.64.13
+  port: 35555
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
+- name: 🇰🇷 KR-5 | Filter
+  type: vless
+  server: 140.245.75.37
+  port: 627
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
+  tls: true
+  tfo: false
+  udp: false
 - name: 🇻🇳 Vietnam, Hanoi | [BL]
   type: trojan
   server: 130.94.3.146
@@ -813,14 +1275,57 @@ proxies:
   client-fingerprint: chrome
   udp: true
   skip-cert-verify: false
-- name: VLESS-65 | 158ms
+- name: 🇸🇬 SG-11 | Filter
   type: vless
-  server: 104.168.30.161
-  port: 443
-  uuid: 7131f38f-9a4a-4e38-ae1d-aa9e132265ea
-  network: tcp
+  server: 45.76.191.197
+  port: 10460
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
   tls: true
-  servername: proxy.wastech.org
+  tfo: false
+  udp: false
+- name: United States_None_trojan_1123
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  port: 47909
+  server: 90081bb25c.node.tro.cac.cab
+  skip-cert-verify: true
+  sni: is.01.naiun.bilibili.com
+  tls: true
+  type: trojan
+  udp: true
+- name: United States_None_trojan_1120
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  port: 41943
+  server: 90081bb25c.node.tro.cac.cab
+  skip-cert-verify: true
+  sni: az.01.naiun.bilibili.com
+  tls: true
+  type: trojan
+  udp: true
+- name: 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_4
+  type: trojan
+  server: 90081bb25c.node.tro.cac.cab
+  port: 45619
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  sni: fr.01.naiun.bilibili.com
+  skip-cert-verify: true
+  udp: true
+- name: 芬兰 - 赫尔辛基 - 2
+  server: 109.107.182.229
+  type: ss
+  country: 🇷🇺RU
+  port: 51544
+  password: MZeSTvpl2uoey1R0frhPyJ
+  cipher: chacha20-ietf-poly1305
+  delay: 1567
   udp: true
   skip-cert-verify: false
 - name: SHADOWSOCKS-119 | 172ms
@@ -831,31 +1336,42 @@ proxies:
   password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
   skip-cert-verify: false
-- name: 🟢🇩🇪[🎬🤖📺🔍]_github.com/Ruk1ng001_013570b6
+- name: 🇸🇬 SG-8 | Filter
   type: vless
-  server: 82.40.62.106
-  port: 2082
-  uuid: b5bd7d6d-5ab9-4965-bccc-32acdbc4f714
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 罗马尼亚/Romania
-  type: ss
-  server: 154.46.31.106
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
-  udp: true
-  skip-cert-verify: false
-- name: VLESS-120 | 213ms
-  type: vless
-  server: uk1.fromblancwithlove.com
-  port: 8443
-  uuid: 394f6981-a782-4779-9a85-e6cf22935d93
-  network: tcp
+  server: 45.32.103.8
+  port: 20742
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  sni: sas0dpjv2rmyx842.makuyo.dpdns.org
+  servername: sas0dpjv2rmyx842.makuyo.dpdns.org
+  skip-cert-verify: true
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: sas0dpjv2rmyx842.makuyo.dpdns.org
   tls: true
-  servername: uk1.fromblancwithlove.com
+  tfo: false
+  udp: false
+- name: 美国 - Boydton - 1
+  server: 57.151.100.27
+  type: vmess
+  country: 🇧🇪BE
+  port: 10086
+  uuid: 550e8400-e29b-41d4-a716-446655440000
+  alterId: 0
+  cipher: auto
+  http-opts: {}
+  h2-opts: {}
+  skip-cert-verify: true
+  delay: 592
+  udp: true
+- name: SHADOWSOCKS-117 | 172ms
+  type: ss
+  server: 193.29.139.157
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: cvII85TrW6n0OGyfpHVS1u
   udp: true
   skip-cert-verify: false
 - name: SHADOWSOCKS-149 | 268ms
@@ -866,7 +1382,87 @@ proxies:
   password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
   skip-cert-verify: false
-- name: 🇩🇪967Mb | Hetzner
+- name: 🔴🇷🇺[📺🔍]_github.com/Ruk1ng001_8c1cf3a8
+  type: ss
+  server: 45.140.169.216
+  port: 30129
+  cipher: aes-256-gcm
+  password: c5fcdf7829112cb4
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-77 | 174ms
+  type: ss
+  server: 82.38.31.217
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  skip-cert-verify: false
+- name: GB_d6a4d_0007
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  udp: true
+- name: SHADOWSOCKS-93 | 167ms
+  type: ss
+  server: 82.38.31.35
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- cipher: chacha20-ietf-poly1305
+  name: 🇳🇱NL_1|1.7MB/s
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  port: 8080
+  server: 82.38.31.210
+  type: ss
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇳 CN-3 | Sub3
+  type: vless
+  server: xmm.130209.xyz
+  port: 2053
+  uuid: 924106da-29ec-4822-bd13-703021e2a4f8
+  encryption: none
+  network: ws
+  security: tls
+  sni: taiwanv6.xiaomaimai.qzz.io
+  servername: taiwanv6.xiaomaimai.qzz.io
+  skip-cert-verify: false
+  fp: edge
+  client-fingerprint: edge
+  ws-opts:
+    path: /api/v2/check_update
+    headers:
+      Host: taiwanv6.xiaomaimai.qzz.io
+  tls: true
+  udp: true
+- name: 🇨🇳 CN-4 | Sub3
+  type: vless
+  server: xmm2.130209.xyz
+  port: 443
+  uuid: 924106da-29ec-4822-bd13-703021e2a4f8
+  encryption: none
+  network: ws
+  security: tls
+  sni: taiwan.xiaomaimai.qzz.io
+  servername: taiwan.xiaomaimai.qzz.io
+  skip-cert-verify: false
+  fp: edge
+  client-fingerprint: edge
+  ws-opts:
+    path: /api/v2/check_update
+    headers:
+      Host: taiwan.xiaomaimai.qzz.io
+  tls: true
+  udp: true
+- name: 🇩🇪734Mb | Hetzner
   type: vless
   server: 63.141.128.5
   port: 2083
@@ -881,53 +1477,35 @@ proxies:
       Host: mzaxmc.lizardshop.org
   udp: true
   skip-cert-verify: false
-- name: 芬兰 - 赫尔辛基 - 2
-  server: 109.107.182.229
+- name: 中国 - 香港 - 2
+  server: li.feng3d.com
   type: ss
-  country: 🇷🇺RU
-  port: 51544
-  password: MZeSTvpl2uoey1R0frhPyJ
-  cipher: chacha20-ietf-poly1305
-  delay: 542
+  country: 🇺🇸US
+  port: 8388
+  password: feng3d@ss2025
+  cipher: aes-256-gcm
+  delay: 444
   udp: true
   skip-cert-verify: false
-- name: 美国 - 水牛城 - 1
-  server: v29.hdacd.com
-  port: 30829
-  type: vmess
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  tls: false
+- name: 新加坡 - 新加坡 - 3
+  server: 140.235.140.105
+  port: 443
+  type: trojan
+  password: BxceQaOe
+  sni: t.me%252Fripaojiedian
   skip-cert-verify: true
   udp: true
-  delay: 887
-- name: RU_45c5a_0020
-  server: 89.23.98.196
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: Sy2vCAJafzeswDVuBfNO6Q
+  delay: 2721
+- alterId: 0
+  cipher: auto
+  name: Italy_Milan_vmess_1114
+  port: 6003
+  server: gtm-sg-cc54q7d1q01.365cloud0285.com
+  skip-cert-verify: true
+  tls: false
+  type: vmess
+  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
   udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-93 | 167ms
-  type: ss
-  server: 82.38.31.35
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: VLESS-79 | 174ms
-  type: vless
-  server: 152.233.28.198
-  port: 8443
-  uuid: 394f6981-a782-4779-9a85-e6cf22935d93
-  network: tcp
-  tls: true
-  servername: uk1.fromblancwithlove.com
-  udp: true
-  skip-cert-verify: false
 proxy-groups:
 - name: PROXY
   type: select
@@ -935,195 +1513,269 @@ proxy-groups:
   - AUTO
   - FALLBACK
   - DIRECT
-  - 🌐 Anycast-IP | 🇧🇷 🇩🇪 | [BL]
-  - 罗马尼亚 - Voluntari - 2
-  - 🇩🇪 德国 | DEU 2
-  - VLESS-70 | 37ms
-  - 中国 - 香港 - 6
-  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥
-  - 罗马尼亚 - Voluntari - 3
-  - 🇸🇬SG_1|3.4MB/s
-  - 🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | [BL]
-  - 中国 - 香港 - 7
-  - 荷兰 - 阿姆斯特丹 - 1
-  - SHADOWSOCKS-32 | 128ms
-  - 🔴🇭🇰[🎬🔍]_github.com/Ruk1ng001_903ada19
-  - 罗马尼亚 - Voluntari - 1
-  - SHADOWSOCKS-29 | 116ms
-  - 🇺🇸US_1|1.4MB/s
-  - xx|8d37|puddincat07@Telegram
-  - SHADOWSOCKS-30 | 114ms
-  - Shadowsocks
-  - 'B - 🇯🇵 JP 09 TG: @nodpai'
-  - NZ_45c5a_0017
-  - '[SS] 🇺🇸 美国 V2CROSS.COM'
-  - SHADOWSOCKS-22 | 67ms
-  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_29a28431
-  - SHADOWSOCKS-23 | 68ms
-  - 🇺🇸 美国5|@ripaojiedian
-  - KR_45c5a_0012
-  - KR_45c5a_0013
-  - SHADOWSOCKS-26 | 67ms
-  - SHADOWSOCKS-27 | 46ms
-  - 'B - 🇿🇦 ZA 04 TG: @nodpai'
-  - 美国/阿什本/United States/Ashburn
-  - SHADOWSOCKS-50 | 540ms
-  - RO_45c5a_0018
-  - SHADOWSOCKS-3 | 29ms
-  - us|e61c|puddincat07@Telegram
+  - IPv4.@Vasl_b
+  - IPv6美国05do
+  - RO_d6a4d_0019
   - SHADOWSOCKS-2 | 31ms
-  - SHADOWSOCKS-1 | 35ms
-  - 🇺🇸163Mb | Aeza Group
-  - 🇺🇸US北美 30.4MB/s
-  - 🇺🇸 US-4 | Sub3
+  - SHADOWSOCKS-3 | 29ms
+  - 🇩🇪DE_2|2.5MB/s
+  - 🇩🇪 德国 | DEU 4
+  - 🇺🇸US_1|1.2MB/s
+  - KR_d6a4d_0012
+  - 荷兰 - Dronten - 2
+  - SHADOWSOCKS-22 | 67ms
+  - SHADOWSOCKS-26 | 67ms
   - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
-  - 🟢🇹🇼[🎬🤖📺]_github.com/Ruk1ng001_a2a74db6
-  - 🇸🇬 SG-5 | Filter
-  - SCP|US
-  - 英国 - 伊斯靈頓 - 1
-  - SHADOWSOCKS-80 | 158ms
+  - 🔴🇭🇰[🎬🔍]_github.com/Ruk1ng001_903ada19
+  - SHADOWSOCKS-20 | 69ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
+  - 美国/阿什本/United States/Ashburn
+  - SHADOWSOCKS-27 | 46ms
+  - SHADOWSOCKS-23 | 68ms
+  - VLESS-70 | 37ms
+  - 🇿🇦ZA_1|1.1MB/s
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
+  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_29a28431
+  - 🇷🇴RO_1|2.1MB/s
+  - xx|0ac7|puddincat07@Telegram
+  - 🇯🇵JP_1|1.0MB/s
+  - 10|🇺🇸 美国5|@ripaojiedian
+  - Shadowsocks
+  - SHADOWSOCKS-29 | 116ms
+  - SHADOWSOCKS-32 | 128ms
+  - SHADOWSOCKS-30 | 114ms
+  - KR_d6a4d_0013
+  - RO_d6a4d_0018
+  - 🇩🇪DE德国 39.5KB/s
+  - SHADOWSOCKS-50 | 540ms
+  - VLESS-65 | 158ms
+  - NZ_d6a4d_0017
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
+  - 未知20 29.0MB/s
+  - 🇺🇸 US-21 | Filter
   - SHADOWSOCKS-72 | 164ms
   - SHADOWSOCKS-78 | 152ms
+  - 🇺🇸 US-18 | Filter
   - SHADOWSOCKS-90 | 152ms
-  - 荷兰/Netherlands
-  - SHADOWSOCKS-121 | 164ms
-  - VLESS-133 | 171ms
-  - 🇨🇳 China, Beijing | [BL]
-  - SHADOWSOCKS-97 | 170ms
-  - SHADOWSOCKS-116 | 174ms
-  - SHADOWSOCKS-166 | 166ms
-  - SHADOWSOCKS-112 | 165ms
   - SHADOWSOCKS-82 | 312ms
-  - 芬兰 - 赫尔辛基 - 1
-  - '[Trojan] 🇫🇷 法国 巴黎Choopa数据中心'
-  - US_45c5a_0033
+  - 🇺🇸 US-19 | Filter
+  - SHADOWSOCKS-112 | 165ms
+  - 德国/Germany
+  - 🇺🇸 US-20 | Filter
+  - SHADOWSOCKS-121 | 164ms
+  - SHADOWSOCKS-166 | 166ms
+  - SHADOWSOCKS-97 | 170ms
+  - VLESS-133 | 171ms
   - SHADOWSOCKS-176 | 322ms
+  - nl|2376|puddincat07@Telegram
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥
+  - SHADOWSOCKS-80 | 158ms
+  - 法国 - 巴黎 - 1
+  - US_d6a4d_0033
+  - VLESS-104 | 188ms
+  - SHADOWSOCKS-129 | 175ms
+  - 🇺🇸US美国17 2.7MB/s
+  - SHADOWSOCKS-116 | 174ms
+  - VLESS-76 | 244ms
+  - 🇺🇸 US-4 | Sub3
   - VLESS-105 | 196ms
-  - 🇺🇸US美国9 601.2KB/s
-  - 🔴🇮🇩[🤖📺🎪✨]_github.com/Ruk1ng001_6400cb3d
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
-  - 德国 - Frankfurt Am Main - 1
+  - 🇵🇱🚀 Польша [🏳️LTE] | 🥭🔥
+  - 🇬🇧 GB-7 | Filter
+  - 🇬🇧 GB-6 | Filter
+  - 🇬🇧 GB-5 | Filter
+  - 土耳其/伊斯坦布尔/Türkiye/Istanbul
+  - us|fc06|puddincat07@Telegram
+  - 🇨🇱 Chile, Santiago | [BL]
+  - 🇩🇪 DE-13 | Filter
+  - 🇫🇷FR_2|1.1MB/s
+  - 🇩🇪 DE-12 | Filter
+  - 🇩🇪 DE-15 | Filter
+  - 荷兰/鹿特丹/Netherlands/Rotterdam
+  - 🇬🇧 GB-3 | Filter
+  - 🇩🇪 DE-14 | Filter
   - 英国/朴次茅斯/United Kingdom/Portsmouth
-  - 'B - 🇺🇸 US 34 TG: @nodpai'
-  - 🇱🇻58Mb | U1 Digital Services
-  - SHADOWSOCKS-117 | 172ms
-  - 瑞士 - 苏黎世 - 1
-  - SHADOWSOCKS-77 | 174ms
-  - '[Trojan] 🇺🇸 美国 Akamai科技公司CDN网络节点'
-  - 加纳 - 阿克拉 - 1
-  - 🇭🇰HK_1|1.4MB/s
-  - 'B - 🇺🇸 US 33 TG: @nodpai'
+  - 🇩🇪 DE-1 | Sub3
+  - 🇯🇵 JP-5 | Filter
+  - 🇯🇵 JP-7 | Filter
+  - 🇯🇵 JP-9 | Filter
+  - 🇬🇧 GB-4 | Filter
+  - 🇯🇵 JP-8 | Filter
+  - '[Trojan] 🇺🇸 美国 V2CROSS.COM'
+  - 🇯🇵 JP-6 | Filter
+  - 🇺🇸US美国5 416.0KB/s
+  - 南非 - 约翰内斯堡 - 1
+  - 南非/South Africa
+  - 🇸🇬SG_3|3.8MB/s
+  - 🇬🇭🚀 Гана [🏳️LTE] | 🥭🔥
+  - 🇨🇳 China, Beijing | [BL]
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_2
+  - 🇰🇷 KR-2 | Filter
+  - nl|60bf|puddincat07@Telegram
+  - 🇰🇷 KR-3 | Filter
+  - 🇧🇬 Bulgaria, Sofia | [BL]
   - 🇹🇷 TR-1 | Sub3
-  - 法国 - 巴黎 - 4
+  - 🇸🇬 SG-9 | Filter
+  - 🇸🇬 SG-10 | Filter
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_3
+  - 🇰🇷 KR-4 | Filter
+  - 🇰🇷 KR-1 | Filter
+  - 🇰🇷 KR-5 | Filter
   - 🇻🇳 Vietnam, Hanoi | [BL]
-  - VLESS-65 | 158ms
-  - SHADOWSOCKS-119 | 172ms
-  - 🟢🇩🇪[🎬🤖📺🔍]_github.com/Ruk1ng001_013570b6
-  - 罗马尼亚/Romania
-  - VLESS-120 | 213ms
-  - SHADOWSOCKS-149 | 268ms
-  - 🇩🇪967Mb | Hetzner
+  - 🇸🇬 SG-11 | Filter
+  - United States_None_trojan_1123
+  - United States_None_trojan_1120
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_4
   - 芬兰 - 赫尔辛基 - 2
-  - 美国 - 水牛城 - 1
-  - RU_45c5a_0020
+  - SHADOWSOCKS-119 | 172ms
+  - 🇸🇬 SG-8 | Filter
+  - 美国 - Boydton - 1
+  - SHADOWSOCKS-117 | 172ms
+  - SHADOWSOCKS-149 | 268ms
+  - 🔴🇷🇺[📺🔍]_github.com/Ruk1ng001_8c1cf3a8
+  - SHADOWSOCKS-77 | 174ms
+  - GB_d6a4d_0007
   - SHADOWSOCKS-93 | 167ms
-  - VLESS-79 | 174ms
+  - 🇳🇱NL_1|1.7MB/s
+  - 🇨🇳 CN-3 | Sub3
+  - 🇨🇳 CN-4 | Sub3
+  - 🇩🇪734Mb | Hetzner
+  - 中国 - 香港 - 2
+  - 新加坡 - 新加坡 - 3
+  - Italy_Milan_vmess_1114
 - name: AUTO
   type: url-test
   proxies: &id001
-  - 🌐 Anycast-IP | 🇧🇷 🇩🇪 | [BL]
-  - 罗马尼亚 - Voluntari - 2
-  - 🇩🇪 德国 | DEU 2
-  - VLESS-70 | 37ms
-  - 中国 - 香港 - 6
-  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥
-  - 罗马尼亚 - Voluntari - 3
-  - 🇸🇬SG_1|3.4MB/s
-  - 🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | [BL]
-  - 中国 - 香港 - 7
-  - 荷兰 - 阿姆斯特丹 - 1
-  - SHADOWSOCKS-32 | 128ms
-  - 🔴🇭🇰[🎬🔍]_github.com/Ruk1ng001_903ada19
-  - 罗马尼亚 - Voluntari - 1
-  - SHADOWSOCKS-29 | 116ms
-  - 🇺🇸US_1|1.4MB/s
-  - xx|8d37|puddincat07@Telegram
-  - SHADOWSOCKS-30 | 114ms
-  - Shadowsocks
-  - 'B - 🇯🇵 JP 09 TG: @nodpai'
-  - NZ_45c5a_0017
-  - '[SS] 🇺🇸 美国 V2CROSS.COM'
-  - SHADOWSOCKS-22 | 67ms
-  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_29a28431
-  - SHADOWSOCKS-23 | 68ms
-  - 🇺🇸 美国5|@ripaojiedian
-  - KR_45c5a_0012
-  - KR_45c5a_0013
-  - SHADOWSOCKS-26 | 67ms
-  - SHADOWSOCKS-27 | 46ms
-  - 'B - 🇿🇦 ZA 04 TG: @nodpai'
-  - 美国/阿什本/United States/Ashburn
-  - SHADOWSOCKS-50 | 540ms
-  - RO_45c5a_0018
-  - SHADOWSOCKS-3 | 29ms
-  - us|e61c|puddincat07@Telegram
+  - IPv4.@Vasl_b
+  - IPv6美国05do
+  - RO_d6a4d_0019
   - SHADOWSOCKS-2 | 31ms
-  - SHADOWSOCKS-1 | 35ms
-  - 🇺🇸163Mb | Aeza Group
-  - 🇺🇸US北美 30.4MB/s
-  - 🇺🇸 US-4 | Sub3
+  - SHADOWSOCKS-3 | 29ms
+  - 🇩🇪DE_2|2.5MB/s
+  - 🇩🇪 德国 | DEU 4
+  - 🇺🇸US_1|1.2MB/s
+  - KR_d6a4d_0012
+  - 荷兰 - Dronten - 2
+  - SHADOWSOCKS-22 | 67ms
+  - SHADOWSOCKS-26 | 67ms
   - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
-  - 🟢🇹🇼[🎬🤖📺]_github.com/Ruk1ng001_a2a74db6
-  - 🇸🇬 SG-5 | Filter
-  - SCP|US
-  - 英国 - 伊斯靈頓 - 1
-  - SHADOWSOCKS-80 | 158ms
+  - 🔴🇭🇰[🎬🔍]_github.com/Ruk1ng001_903ada19
+  - SHADOWSOCKS-20 | 69ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
+  - 美国/阿什本/United States/Ashburn
+  - SHADOWSOCKS-27 | 46ms
+  - SHADOWSOCKS-23 | 68ms
+  - VLESS-70 | 37ms
+  - 🇿🇦ZA_1|1.1MB/s
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
+  - 🔴🇭🇰[🎬🤖📺🔍]_github.com/Ruk1ng001_29a28431
+  - 🇷🇴RO_1|2.1MB/s
+  - xx|0ac7|puddincat07@Telegram
+  - 🇯🇵JP_1|1.0MB/s
+  - 10|🇺🇸 美国5|@ripaojiedian
+  - Shadowsocks
+  - SHADOWSOCKS-29 | 116ms
+  - SHADOWSOCKS-32 | 128ms
+  - SHADOWSOCKS-30 | 114ms
+  - KR_d6a4d_0013
+  - RO_d6a4d_0018
+  - 🇩🇪DE德国 39.5KB/s
+  - SHADOWSOCKS-50 | 540ms
+  - VLESS-65 | 158ms
+  - NZ_d6a4d_0017
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
+  - 未知20 29.0MB/s
+  - 🇺🇸 US-21 | Filter
   - SHADOWSOCKS-72 | 164ms
   - SHADOWSOCKS-78 | 152ms
+  - 🇺🇸 US-18 | Filter
   - SHADOWSOCKS-90 | 152ms
-  - 荷兰/Netherlands
-  - SHADOWSOCKS-121 | 164ms
-  - VLESS-133 | 171ms
-  - 🇨🇳 China, Beijing | [BL]
-  - SHADOWSOCKS-97 | 170ms
-  - SHADOWSOCKS-116 | 174ms
-  - SHADOWSOCKS-166 | 166ms
-  - SHADOWSOCKS-112 | 165ms
   - SHADOWSOCKS-82 | 312ms
-  - 芬兰 - 赫尔辛基 - 1
-  - '[Trojan] 🇫🇷 法国 巴黎Choopa数据中心'
-  - US_45c5a_0033
+  - 🇺🇸 US-19 | Filter
+  - SHADOWSOCKS-112 | 165ms
+  - 德国/Germany
+  - 🇺🇸 US-20 | Filter
+  - SHADOWSOCKS-121 | 164ms
+  - SHADOWSOCKS-166 | 166ms
+  - SHADOWSOCKS-97 | 170ms
+  - VLESS-133 | 171ms
   - SHADOWSOCKS-176 | 322ms
+  - nl|2376|puddincat07@Telegram
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥
+  - SHADOWSOCKS-80 | 158ms
+  - 法国 - 巴黎 - 1
+  - US_d6a4d_0033
+  - VLESS-104 | 188ms
+  - SHADOWSOCKS-129 | 175ms
+  - 🇺🇸US美国17 2.7MB/s
+  - SHADOWSOCKS-116 | 174ms
+  - VLESS-76 | 244ms
+  - 🇺🇸 US-4 | Sub3
   - VLESS-105 | 196ms
-  - 🇺🇸US美国9 601.2KB/s
-  - 🔴🇮🇩[🤖📺🎪✨]_github.com/Ruk1ng001_6400cb3d
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
-  - 德国 - Frankfurt Am Main - 1
+  - 🇵🇱🚀 Польша [🏳️LTE] | 🥭🔥
+  - 🇬🇧 GB-7 | Filter
+  - 🇬🇧 GB-6 | Filter
+  - 🇬🇧 GB-5 | Filter
+  - 土耳其/伊斯坦布尔/Türkiye/Istanbul
+  - us|fc06|puddincat07@Telegram
+  - 🇨🇱 Chile, Santiago | [BL]
+  - 🇩🇪 DE-13 | Filter
+  - 🇫🇷FR_2|1.1MB/s
+  - 🇩🇪 DE-12 | Filter
+  - 🇩🇪 DE-15 | Filter
+  - 荷兰/鹿特丹/Netherlands/Rotterdam
+  - 🇬🇧 GB-3 | Filter
+  - 🇩🇪 DE-14 | Filter
   - 英国/朴次茅斯/United Kingdom/Portsmouth
-  - 'B - 🇺🇸 US 34 TG: @nodpai'
-  - 🇱🇻58Mb | U1 Digital Services
-  - SHADOWSOCKS-117 | 172ms
-  - 瑞士 - 苏黎世 - 1
-  - SHADOWSOCKS-77 | 174ms
-  - '[Trojan] 🇺🇸 美国 Akamai科技公司CDN网络节点'
-  - 加纳 - 阿克拉 - 1
-  - 🇭🇰HK_1|1.4MB/s
-  - 'B - 🇺🇸 US 33 TG: @nodpai'
+  - 🇩🇪 DE-1 | Sub3
+  - 🇯🇵 JP-5 | Filter
+  - 🇯🇵 JP-7 | Filter
+  - 🇯🇵 JP-9 | Filter
+  - 🇬🇧 GB-4 | Filter
+  - 🇯🇵 JP-8 | Filter
+  - '[Trojan] 🇺🇸 美国 V2CROSS.COM'
+  - 🇯🇵 JP-6 | Filter
+  - 🇺🇸US美国5 416.0KB/s
+  - 南非 - 约翰内斯堡 - 1
+  - 南非/South Africa
+  - 🇸🇬SG_3|3.8MB/s
+  - 🇬🇭🚀 Гана [🏳️LTE] | 🥭🔥
+  - 🇨🇳 China, Beijing | [BL]
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_2
+  - 🇰🇷 KR-2 | Filter
+  - nl|60bf|puddincat07@Telegram
+  - 🇰🇷 KR-3 | Filter
+  - 🇧🇬 Bulgaria, Sofia | [BL]
   - 🇹🇷 TR-1 | Sub3
-  - 法国 - 巴黎 - 4
+  - 🇸🇬 SG-9 | Filter
+  - 🇸🇬 SG-10 | Filter
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_3
+  - 🇰🇷 KR-4 | Filter
+  - 🇰🇷 KR-1 | Filter
+  - 🇰🇷 KR-5 | Filter
   - 🇻🇳 Vietnam, Hanoi | [BL]
-  - VLESS-65 | 158ms
-  - SHADOWSOCKS-119 | 172ms
-  - 🟢🇩🇪[🎬🤖📺🔍]_github.com/Ruk1ng001_013570b6
-  - 罗马尼亚/Romania
-  - VLESS-120 | 213ms
-  - SHADOWSOCKS-149 | 268ms
-  - 🇩🇪967Mb | Hetzner
+  - 🇸🇬 SG-11 | Filter
+  - United States_None_trojan_1123
+  - United States_None_trojan_1120
+  - 🇪🇺🚀 Европа [🏳️LTE] | 🥭🔥_4
   - 芬兰 - 赫尔辛基 - 2
-  - 美国 - 水牛城 - 1
-  - RU_45c5a_0020
+  - SHADOWSOCKS-119 | 172ms
+  - 🇸🇬 SG-8 | Filter
+  - 美国 - Boydton - 1
+  - SHADOWSOCKS-117 | 172ms
+  - SHADOWSOCKS-149 | 268ms
+  - 🔴🇷🇺[📺🔍]_github.com/Ruk1ng001_8c1cf3a8
+  - SHADOWSOCKS-77 | 174ms
+  - GB_d6a4d_0007
   - SHADOWSOCKS-93 | 167ms
-  - VLESS-79 | 174ms
+  - 🇳🇱NL_1|1.7MB/s
+  - 🇨🇳 CN-3 | Sub3
+  - 🇨🇳 CN-4 | Sub3
+  - 🇩🇪734Mb | Hetzner
+  - 中国 - 香港 - 2
+  - 新加坡 - 新加坡 - 3
+  - Italy_Milan_vmess_1114
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50

@@ -19,12 +19,475 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
-proxies: []
+proxies:
+- name: RO_de262_0015
+  server: 84.239.49.42
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: RO_de262_0006
+  server: 84.239.49.231
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: Shadowsocks
+  type: socks5
+  server: 127.0.0.1
+  port: 1080
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-10 | 75ms
+  type: ss
+  server: 156.146.38.168
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: RO_de262_0043
+  server: 84.239.49.156
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: RO_de262_0037
+  server: 84.239.49.227
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: RO_de262_0008
+  server: 84.239.49.175
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: 🇷🇴RO_7|1.1MB/s
+  port: 9002
+  server: 193.176.84.40
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: RO_de262_0025
+  server: 84.239.49.225
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: RO_de262_0028
+  server: 84.239.49.166
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: RO_de262_0007
+  server: 84.239.49.224
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: RO_de262_0044
+  server: 84.239.14.159
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: RO_de262_0018
+  server: 84.239.14.152
+  port: 9002
+  type: http
+  tls: true
+  skip-cert-verify: true
+  udp: true
+- name: SHADOWSOCKS-5 | 56ms
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-136 | 289ms
+  type: ss
+  server: 108.181.126.122
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: CJmTCCx7Ltud
+  udp: true
+  skip-cert-verify: false
+- cipher: chacha20-ietf-poly1305
+  name: nl|0cb9|puddincat07@Telegram
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 193.29.139.235
+  type: ss
+  udp: true
+  skip-cert-verify: false
+- name: 德国/法兰克福/Germany/Frankfurt am Main
+  type: ss
+  server: 57.129.121.230
+  port: 10443
+  cipher: chacha20-ietf-poly1305
+  password: uROuEqsL8IUMMVb4wDwnGU
+  udp: true
+  skip-cert-verify: false
+- name: VLESS-194 | 421ms
+  type: vless
+  server: 46.229.243.74
+  port: 8443
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+  network: tcp
+  tls: true
+  servername: cdn3-87.vk-cdnvideo.com
+  udp: true
+  skip-cert-verify: false
+- name: VLESS-164 | 385ms
+  type: vless
+  server: 46.229.243.137
+  port: 8443
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+  network: tcp
+  tls: true
+  servername: cdn3-87.vk-cdnvideo.com
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-25 | 182ms
+  type: ss
+  server: 149.22.87.241
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: VLESS-14 | 74ms
+  type: vless
+  server: proxy.wastech.org
+  port: 443
+  uuid: 7131f38f-9a4a-4e38-ae1d-aa9e132265ea
+  network: tcp
+  tls: true
+  servername: proxy.wastech.org
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-32 | 197ms
+  type: ss
+  server: 103.106.228.175
+  port: 8009
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪 DE-5 | Filter
+  type: vless
+  server: 151.101.66.219
+  port: 80
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  network: ws
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+  tfo: false
+  udp: false
+- encryption: none
+  name: 🇩🇪DE_8|2.5MB/s
+  network: ws
+  port: 80
+  server: 151.101.109.223
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/46.0.2490.86 Safari/537.36
+    path: /
+  xudp: true
+  skip-cert-verify: false
+- name: 🇩🇪 DE-12 | Filter
+  type: vless
+  server: 151.101.195.151
+  port: 80
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  network: ws
+  skip-cert-verify: true
+  ws-opts:
+    path: /?https://t.me/WangCai2🇨🇳
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+  tfo: false
+  udp: false
+- name: 🇩🇪 DE-13 | Filter
+  type: vless
+  server: 151.101.242.151
+  port: 80
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  network: ws
+  skip-cert-verify: true
+  ws-opts:
+    path: /?https://t.me/WangCai2🇨🇳
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+  tfo: false
+  udp: false
+- name: VLESS-87 | 402ms
+  type: vless
+  server: 77.74.123.168
+  port: 8443
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+  network: tcp
+  tls: true
+  servername: cdn3-87.vk-cdnvideo.com
+  udp: true
+  skip-cert-verify: false
+- client-fingerprint: chrome
+  name: 🇭🇺HU_2|1.8MB/s
+  network: tcp
+  packet-encoding: xudp
+  port: 8443
+  server: 77.74.123.180
+  servername: cdn7-09.vk-cdnvideo.com
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+- name: 未知17 885.4KB/s
+  type: vmess
+  server: it.connfull.org
+  port: 2053
+  cipher: auto
+  uuid: d7a4643c-1b72-4199-b54d-810da8d0e657
+  alterId: 0
+  tls: true
+  skip-cert-verify: true
+  network: tcp
+  udp: true
+- name: SHADOWSOCKS-166 | 238ms
+  type: ss
+  server: r3mrcg00129437x.cybervena.com
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪 DE-3 | Filter
+  type: vless
+  server: 151.101.194.219
+  port: 80
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  network: ws
+  sni: max-gb1.global.ssl.fastly.net
+  servername: max-gb1.global.ssl.fastly.net
+  skip-cert-verify: true
+  ws-opts:
+    path: /
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+  tfo: false
+  udp: false
+- name: 🇺🇸US美国24
+  type: trojan
+  server: 155.117.198.85
+  port: 45553
+  alterId: 0
+  tls: true
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  sni: ch.01.naiun.bilibili.com
+  skip-cert-verify: true
+  udp: true
+- client-fingerprint: chrome
+  name: 🇸🇬SG_1|1.7MB/s
+  network: ws
+  port: 2096
+  server: 188.114.97.6
+  servername: group.shalana.xyz
+  tls: true
+  type: vless
+  udp: true
+  uuid: 70252937-5c61-4fb0-8656-d1a16261b795
+  ws-opts:
+    headers:
+      Host: group.shalana.xyz
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/58.0.3029.81 Safari/537.36
+    path: /shalana
+  xudp: true
+  skip-cert-verify: false
+- name: 🇩🇪DE德国4
+  type: trojan
+  server: 90081bb25c.node.tro.cac.cab
+  port: 46424
+  alterId: 0
+  tls: true
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  sni: de.01.naiun.bilibili.com
+  skip-cert-verify: true
+  udp: true
+- name: 🇺🇸US美国22
+  type: trojan
+  server: 103.177.136.42
+  port: 48697
+  alterId: 0
+  tls: true
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  sni: gh.01.naiun.bilibili.com
+  skip-cert-verify: true
+  udp: true
+- name: 🇺🇸US美国7
+  type: trojan
+  server: 103.177.136.45
+  port: 41943
+  alterId: 0
+  tls: true
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  sni: az.01.naiun.bilibili.com
+  skip-cert-verify: true
+  udp: true
+- name: 🇫🇷 France, Paris 09 Opéra | [BL]_3
+  type: trojan
+  server: 188.253.12.91
+  port: 45619
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  sni: fr.01.naiun.bilibili.com
+  skip-cert-verify: true
+  udp: true
+- name: 🇩🇪 DE-6 | Filter
+  type: vless
+  server: 151.101.140.151
+  port: 80
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  network: ws
+  skip-cert-verify: true
+  ws-opts:
+    path: /?https://t.me/WangCai2🇨🇳
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+  tfo: false
+  udp: false
+- name: 🇩🇪 DE-7 | Filter
+  type: vless
+  server: 151.101.76.151
+  port: 80
+  uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+  network: ws
+  skip-cert-verify: true
+  ws-opts:
+    path: /?https://t.me/WangCai2🇨🇳
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+  tfo: false
+  udp: false
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
+  - AUTO
+  - FALLBACK
   - DIRECT
+  - RO_de262_0015
+  - RO_de262_0006
+  - Shadowsocks
+  - SHADOWSOCKS-10 | 75ms
+  - RO_de262_0043
+  - RO_de262_0037
+  - RO_de262_0008
+  - 🇷🇴RO_7|1.1MB/s
+  - RO_de262_0025
+  - RO_de262_0028
+  - RO_de262_0007
+  - RO_de262_0044
+  - RO_de262_0018
+  - SHADOWSOCKS-5 | 56ms
+  - SHADOWSOCKS-136 | 289ms
+  - nl|0cb9|puddincat07@Telegram
+  - 德国/法兰克福/Germany/Frankfurt am Main
+  - VLESS-194 | 421ms
+  - VLESS-164 | 385ms
+  - SHADOWSOCKS-25 | 182ms
+  - VLESS-14 | 74ms
+  - SHADOWSOCKS-32 | 197ms
+  - 🇩🇪 DE-5 | Filter
+  - 🇩🇪DE_8|2.5MB/s
+  - 🇩🇪 DE-12 | Filter
+  - 🇩🇪 DE-13 | Filter
+  - VLESS-87 | 402ms
+  - 🇭🇺HU_2|1.8MB/s
+  - 未知17 885.4KB/s
+  - SHADOWSOCKS-166 | 238ms
+  - 🇩🇪 DE-3 | Filter
+  - 🇺🇸US美国24
+  - 🇸🇬SG_1|1.7MB/s
+  - 🇩🇪DE德国4
+  - 🇺🇸US美国22
+  - 🇺🇸US美国7
+  - 🇫🇷 France, Paris 09 Opéra | [BL]_3
+  - 🇩🇪 DE-6 | Filter
+  - 🇩🇪 DE-7 | Filter
+- name: AUTO
+  type: url-test
+  proxies: &id001
+  - RO_de262_0015
+  - RO_de262_0006
+  - Shadowsocks
+  - SHADOWSOCKS-10 | 75ms
+  - RO_de262_0043
+  - RO_de262_0037
+  - RO_de262_0008
+  - 🇷🇴RO_7|1.1MB/s
+  - RO_de262_0025
+  - RO_de262_0028
+  - RO_de262_0007
+  - RO_de262_0044
+  - RO_de262_0018
+  - SHADOWSOCKS-5 | 56ms
+  - SHADOWSOCKS-136 | 289ms
+  - nl|0cb9|puddincat07@Telegram
+  - 德国/法兰克福/Germany/Frankfurt am Main
+  - VLESS-194 | 421ms
+  - VLESS-164 | 385ms
+  - SHADOWSOCKS-25 | 182ms
+  - VLESS-14 | 74ms
+  - SHADOWSOCKS-32 | 197ms
+  - 🇩🇪 DE-5 | Filter
+  - 🇩🇪DE_8|2.5MB/s
+  - 🇩🇪 DE-12 | Filter
+  - 🇩🇪 DE-13 | Filter
+  - VLESS-87 | 402ms
+  - 🇭🇺HU_2|1.8MB/s
+  - 未知17 885.4KB/s
+  - SHADOWSOCKS-166 | 238ms
+  - 🇩🇪 DE-3 | Filter
+  - 🇺🇸US美国24
+  - 🇸🇬SG_1|1.7MB/s
+  - 🇩🇪DE德国4
+  - 🇺🇸US美国22
+  - 🇺🇸US美国7
+  - 🇫🇷 France, Paris 09 Opéra | [BL]_3
+  - 🇩🇪 DE-6 | Filter
+  - 🇩🇪 DE-7 | Filter
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+- name: FALLBACK
+  type: fallback
+  proxies: *id001
+  url: http://www.gstatic.com/generate_204
+  interval: 300
 rules:
 - DOMAIN-SUFFIX,scholar.google.com,PROXY
 - DOMAIN-SUFFIX,google.com,PROXY

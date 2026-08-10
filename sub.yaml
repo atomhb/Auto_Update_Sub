@@ -20,69 +20,30 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: 罗马尼亚 - Bucharest - 3
-  server: 84.239.49.180
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 1191
-- name: 美国03aws
+- name: 🇫🇷 France, Paris | [BL]
   type: hysteria2
-  server: us03.459292.xyz
-  port: 20000
-  password: 3a2f9f47-dbd7-473d-98f9-4e918a7e1e54
-  sni: localhost
-  skip-cert-verify: true
-  udp: true
-- name: NL_speednode_0004
-  port: 9002
-  server: 84.17.47.147
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: 🇺🇸 美国 | USA 19
-  server: 157.254.223.44
-  port: 34567
-  type: mieru
-  password: dongtaiwang.com
-  username: dongtaiwang.com
-  multiplexing: MULTIPLEXING_LOW
-  transport: TCP
+  server: 94.183.188.132
+  port: 55443
+  password: d1a0857bc1eb833a9edf96be4c1f999e
+  sni: host-vds2-fr.kvncococ.org
   udp: true
   skip-cert-verify: false
-- name: 罗马尼亚 - Bucharest - 2
-  server: 84.239.49.49
-  port: 9002
-  type: http
-  tls: true
+- name: 新加坡11aws
+  type: hysteria2
+  server: sg11.459921.xyz
+  port: 8080
+  password: 10f02d23-1d74-4b6e-b830-815be053281d
+  sni: sg11.459921.xyz
   skip-cert-verify: true
   udp: true
-  delay: 1265
-- name: 罗马尼亚 - Bucharest - 1
-  server: 84.239.14.151
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
+- name: 🇩🇪 德国 | DEU 7
+  server: 64.118.158.150
+  port: 51061
+  type: anytls
+  password: d4436c04-d0fc-4761-8120-ad5d399ba6b0
   udp: true
-  delay: 2667
-- name: 🇩🇪 德国 | DEU 3
-  server: 5.83.129.143
-  port: 26691
-  type: hysteria
-  auth_str: dongtaiwang.com
-  auth-str: dongtaiwang.com
-  up: 11 Mbps
-  down: 55 Mbps
-  protocol: udp
-  sni: apple.com
+  sni: dl.hu-yunpan.top
   skip-cert-verify: true
-  alpn:
-  - h3
-  udp: true
 - type: socks
   name: 🇳🇱 NL-1 | Filter
   server: 5.255.117.127
@@ -90,20 +51,22 @@ proxies:
   username: Og
   udp: true
   skip-cert-verify: false
-- type: socks
-  name: 🇭🇰 HK-7 | Filter
-  server: 47.242.82.74
-  port: 1080
-  username: ODg4Ojg4OA
-  udp: true
-  skip-cert-verify: false
-- name: US_speednode_0023
+- name: NL_speednode_0007
   port: 9002
-  server: 138.199.35.199
+  server: 84.17.47.146
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
+- name: GB_speednode_0003
+  password: a18ef18e-293a-11ef-b76e-f23c91cfbbc9
+  port: 443
+  server: 07b7ddcf-tcxds0-tifnix-1ro8s.uk.oshuawei.com
+  tls: true
+  type: http
+  udp: true
+  username: a18ef18e-293a-11ef-b76e-f23c91cfbbc9
+  skip-cert-verify: false
 - name: RO_speednode_0011
   port: 9002
   server: 84.239.49.183
@@ -111,24 +74,82 @@ proxies:
   tls: true
   type: http
   udp: true
-- name: 荷兰 - Amsterdam - 3
+- name: US_speednode_0023
+  port: 9002
+  server: 138.199.35.199
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- type: socks
+  name: 🇭🇰 HK-4 | Filter
+  server: 8.210.31.250
+  port: 1080
+  username: ODg4ODo4ODg4
+  udp: true
+  skip-cert-verify: false
+- name: GB_speednode_0002
+  password: 51362ab6-b5e6-11ea-ad28-f23c913c8d2b
+  port: 443
+  server: b7342ec0-t9zts0-tnkuks-wujn.uk.oshuawei.com
+  tls: true
+  type: http
+  udp: true
+  username: 51362ab6-b5e6-11ea-ad28-f23c913c8d2b
+  skip-cert-verify: false
+- name: RO_speednode_0016
+  port: 9002
+  server: 84.239.49.180
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: RO_speednode_0019
+  port: 9002
+  server: 84.239.49.244
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- type: socks
+  name: 🇯🇵 JP-8 | Filter
+  server: 101.36.104.239
+  port: 10808
+  username: Og
+  udp: true
+  skip-cert-verify: false
+- type: socks
+  name: 🇺🇸 US-13 | Filter
+  server: 69.55.49.177
+  port: 38182
+  username: Og
+  udp: true
+  skip-cert-verify: false
+- name: 🇯🇵 Japan, Minato-ku | [BL]
+  type: hysteria2
+  server: 60.71.150.71
+  port: 8443
+  password: claire123
+  sni: tuimao.space
+  skip-cert-verify: true
+  udp: true
+- name: RO_speednode_0014
+  port: 9002
+  server: 84.239.49.49
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: NL_speednode_0008
+  port: 9002
   server: 84.17.47.150
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 2590
-- name: NL_speednode_0006
-  port: 9002
-  server: 84.17.47.149
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-- name: RO_speednode_0018
+- name: RO_speednode_0015
   port: 9002
-  server: 193.176.84.19
+  server: 84.239.49.154
   skip-cert-verify: true
   tls: true
   type: http
@@ -139,14 +160,20 @@ proxies:
   port: 1080
   udp: true
   skip-cert-verify: false
-- name: 荷兰 - Amsterdam - 1
-  server: 84.17.47.125
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
+- type: socks
+  name: 🇭🇰 HK-1 | Filter
+  server: 119.28.13.138
+  port: 1080
+  username: Og
   udp: true
-  delay: 1253
+  skip-cert-verify: false
+- name: NL_speednode_0005
+  port: 9002
+  server: 84.17.47.125
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
 - type: socks
   name: 🇭🇰 HK-6 | Filter
   server: 47.243.88.9
@@ -154,149 +181,18 @@ proxies:
   username: ODg4Ojg4OA
   udp: true
   skip-cert-verify: false
-- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 188.114.97.6
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: download.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 172.67.161.104
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fangbinxingnmsl.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-4 | 60ms
-  type: ss
-  server: 156.146.38.169
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: RO_speednode_0012
+- name: US_speednode_0022
   port: 9002
-  server: 84.239.49.38
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- type: socks
-  name: 🇭🇰 HK-5 | Filter
-  server: 47.239.116.165
-  port: 1080
-  username: YWRtaW46YWRtaW4
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_2
-  type: vless
-  server: 104.21.76.231
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: nmslfangbinxing.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-18 | 83ms
-  type: ss
-  server: 37.19.198.236
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: RO_speednode_0013
-  port: 9002
-  server: 84.239.49.41
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: 美国 - Los Angeles - 1
   server: 138.199.35.214
-  port: 9002
-  type: http
-  tls: true
   skip-cert-verify: true
+  tls: true
+  type: http
   udp: true
-  delay: 1567
-- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_3
-  type: vless
-  server: 172.64.144.82
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fangbinxingnmsl.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
 - type: socks
-  name: 🇩🇪 DE-1 | Filter
-  server: 91.239.211.83
-  port: 8443
-  username: Og
-  udp: true
-  skip-cert-verify: false
-- name: RO_speednode_0010
-  port: 9002
-  server: 84.239.49.168
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: 罗马尼亚 - Bucharest - 4
-  server: 193.176.84.35
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 1567
-- name: GB_speednode_0003
-  password: a18ef18e-293a-11ef-b76e-f23c91cfbbc9
-  port: 443
-  server: 07b7ddcf-tcxds0-tifnix-1ro8s.uk.oshuawei.com
-  tls: true
-  type: http
-  udp: true
-  username: a18ef18e-293a-11ef-b76e-f23c91cfbbc9
-  skip-cert-verify: false
-- name: SHADOWSOCKS-2 | 29ms
-  type: ss
-  server: 156.146.38.167
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 🇯🇵JP_2|1.9MB/s
-  password: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
-  port: 443
-  server: e9b9c37c-t9zts0-tcw58g-1p0be.jp.oshuawei.com
-  tls: true
-  type: http
-  username: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
+  name: 🇭🇰 HK-7 | Filter
+  server: 47.242.82.74
+  port: 1080
+  username: ODg4Ojg4OA
   udp: true
   skip-cert-verify: false
 - name: US_speednode_0025
@@ -308,140 +204,17 @@ proxies:
   type: http
   udp: true
   username: 'null'
-- type: socks
-  name: 🇭🇰 HK-4 | Filter
-  server: 8.210.31.250
-  port: 1080
-  username: ODg4ODo4ODg4
-  udp: true
-  skip-cert-verify: false
-- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
   type: vless
-  server: crimson-smoke-7818.397.workers.dev
+  server: deepl.com
   port: 8880
-  uuid: d6bdda67-168d-4501-a2c1-ef01070cb327
+  uuid: 6d73dc1e-1627-4b16-b471-53e63aa16c78
   network: ws
   tls: false
   ws-opts:
-    path: /pyip=ProxyIP.KR.CMLiussss.net
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 104.16.72.41
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
+    path: /pyip=ProxyIP.SG.CMLiussss.net
     headers:
-      Host: fuckfangbinxing.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: 罗马尼亚 - Bucharest - 5
-  server: 84.239.49.244
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 2115
-- type: socks
-  name: 🇭🇰 HK-2 | Filter
-  server: 8.218.165.212
-  port: 3060
-  username: MTIzOjEyMw
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-1 | 58ms
-  type: ss
-  server: 156.146.38.170
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
-  type: vless
-  server: nmslfangbinxing.pusytroller.gq
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
-  type: vless
-  server: 104.17.185.207
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fangbinxingnmsl.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_2
-  type: vless
-  server: cf.levikogjgfdd.ir
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: download.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-8 | 78ms
-  type: ss
-  server: 37.19.198.160
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_4
-  type: vless
-  server: 172.67.202.17
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fuckfangbinxing.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 104.17.21.32
-  port: 8880
-  uuid: 63a1d550-f8da-456e-813c-398dd819e405
-  network: ws
-  tls: false
-  ws-opts:
-    path: /pyip=ProxyIP.JP.CMLiussss.net
-    headers:
-      Host: noisy-cherry-b46b.206-866.workers.dev
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_5
-  type: vless
-  server: 104.18.38.47
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fangbinxingnmsl.pusytroller.gq
+      Host: sweet-truth-ccdb.134-7e9.workers.dev
   udp: true
   skip-cert-verify: false
 - name: SHADOWSOCKS-73 | 81ms
@@ -452,67 +225,290 @@ proxies:
   password: shadowsocks
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸 美国 | USA 3
-  server: 104.17.22.240
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+- name: RO_speednode_0010
+  port: 9002
+  server: 84.239.49.168
+  skip-cert-verify: true
   tls: true
-  servername: hhlfy.twiladaphne.ndjp.net
-  client-fingerprint: random
+  type: http
+  udp: true
+- name: 🇺🇸 美国 | USA 21
+  server: 157.254.223.44
+  port: 34567
+  type: mieru
+  password: dongtaiwang.com
+  username: dongtaiwang.com
+  multiplexing: MULTIPLEXING_LOW
+  transport: TCP
+  udp: true
+  skip-cert-verify: false
+- name: RO_speednode_0009
+  port: 9002
+  server: 84.239.14.151
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- type: socks
+  name: 🇭🇰 HK-5 | Filter
+  server: 47.239.116.165
+  port: 1080
+  username: YWRtaW46YWRtaW4
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥
+  type: vless
+  server: cf8.466688.xyz
+  port: 8880
+  uuid: 7111212b-6bc3-459a-85b4-3b13038a19f8
   network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net@https://t.me/QiangLieTuiJian
+    headers:
+      Host: shrill-fog-67af.235-e6a.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 185.158.133.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
   ws-opts:
     path: /
     headers:
-      Host: hhlfy.twiladaphne.ndjp.net
+      Host: vms.lifetime58.workers.dev
   udp: true
   skip-cert-verify: false
-- name: SHADOWSOCKS-41 | 78ms
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: 104.16.107.139
+  port: 8880
+  uuid: 9be3bb59-c281-4fee-ae3d-7cf6c4b47eb4
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: late-mountain-6801.355.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: NL_speednode_0004
+  port: 9002
+  server: 84.17.47.147
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- type: socks
+  name: 🇩🇪 DE-1 | Filter
+  server: 91.239.211.83
+  port: 8443
+  username: Og
+  udp: true
+  skip-cert-verify: false
+- name: 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 104.18.28.234
+  port: 8880
+  uuid: e74e8806-06b5-4fb0-a89e-cf79d88cfd02
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: wild-frog-54a9.170-dcc.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: RO_speednode_0017
+  port: 9002
+  server: 193.176.84.35
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: 172.67.133.44
+  port: 2086
+  uuid: af19ce98-b58b-43ef-9f0d-2ae6343e28fe
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiQTdKUTVZeVVoQWpjamhqIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMjYwMjpmYzU5OjExOjY0OjpdIl19?ed=2560
+    headers:
+      Host: blue-disk-1124.sawmansafi.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: US_speednode_0026
+  port: 9002
+  server: 138.199.35.207
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: SHADOWSOCKS-56 | 129ms
   type: ss
-  server: 173.244.56.9
+  server: 108.181.0.177
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: G5p6ww4o67HB
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-1 | 58ms
+  type: ss
+  server: 156.146.38.170
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: NL_speednode_0006
+  port: 9002
+  server: 84.17.47.149
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
+  type: vless
+  server: 104.21.12.116
+  port: 8880
+  uuid: 999c9769-28db-425a-84d8-ccd7a3321406
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: jolly-glitter-123c.196-2b3.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇯🇵JP_2|1.9MB/s
+  password: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
+  port: 443
+  server: e9b9c37c-t9zts0-tcw58g-1p0be.jp.oshuawei.com
+  tls: true
+  type: http
+  username: 55cce5a4-56b7-11ee-af82-f23c9164ca5d
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: www.baipiao.eu.org
+  port: 8880
+  uuid: 86d998bc-a5a2-45d5-8169-b906259110a6
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: muddy-art-8cda.197-0c6.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: RO_speednode_0012
+  port: 9002
+  server: 84.239.49.38
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: RO_speednode_0013
+  port: 9002
+  server: 84.239.49.41
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: 104.16.100.66
+  port: 8880
+  uuid: cfb74ef3-f868-43c5-b05a-56509e2c948f
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: flat-limit-5b5e.472-cf5.workers.dev
+  udp: true
+  skip-cert-verify: false
+- type: socks
+  name: 🇭🇰 HK-2 | Filter
+  server: 8.218.165.212
+  port: 3060
+  username: MTIzOjEyMw
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 38.246.226.240
+  port: 57878
+  uuid: 535f0e03-24d4-4268-ac40-5af829e8e59b
+  network: ws
+  tls: false
+  ws-opts:
+    path: /535f0e03
   udp: true
   skip-cert-verify: false
 - name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_5
   type: vless
-  server: 104.18.185.26
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  server: cf7.466688.xyz
+  port: 8880
+  uuid: 1a5e2e63-64e2-4737-95b6-c2ee60c979a1
   network: ws
   tls: false
   ws-opts:
-    path: /
+    path: /pyip=ProxyIP.JP.CMLiussss.net@https://t.me/QiangLieTuiJian
     headers:
-      Host: fangbinxingnmsl.pusytroller.gq
+      Host: wild-mode-4ca6.234-8f6.workers.dev
   udp: true
   skip-cert-verify: false
-- name: SHADOWSOCKS-7 | 87ms
-  type: ss
-  server: 37.19.198.244
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-45 | 92ms
-  type: ss
-  server: 149.22.95.183
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 🌐84Mb | OpenRay 🇺🇸 US-23922
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_6
   type: vless
-  server: 40.160.69.97
-  port: 8080
-  uuid: 11af1c47-865a-47c6-92ff-118013655d78
+  server: 104.16.106.213
+  port: 8880
+  uuid: 75323b6f-184f-4d00-839d-323b8fc70221
   network: ws
   tls: false
   ws-opts:
-    path: /?ed
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: dry-sunset-f3c4.282.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: RO_speednode_0018
+  port: 9002
+  server: 193.176.84.19
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_7
+  type: vless
+  server: 104.21.55.229
+  port: 8880
+  uuid: 31f345f3-b8eb-4ca6-8b14-bb555ae2c1f9
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: tiny-feather-4c41.227.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_8
+  type: vless
+  server: server10.sotowoy673.workers.dev
+  port: 8080
+  uuid: 45643c5f-ffc2-46f3-b82c-329aea9962d4
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiQkRZWDhCN01sIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19
+    headers:
+      Host: server10.sotowoy673.workers.dev
   udp: true
   skip-cert-verify: false
 - name: 🔴🇰🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_134ff658
@@ -530,187 +526,355 @@ proxies:
       Host: free-7f1.pages.dev
   udp: true
   skip-cert-verify: false
-- name: 未知8
-  type: vmess
-  server: 158.51.121.63
-  port: 443
-  cipher: auto
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: linkvws
-    headers:
-      host: seribus.org
-  udp: true
-- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_3
+- name: 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥
   type: vless
-  server: 38.246.226.240
-  port: 57878
-  uuid: 535f0e03-24d4-4268-ac40-5af829e8e59b
+  server: 104.20.28.233
+  port: 80
+  uuid: e081da45-9fae-4687-9376-f9a6a0dbbe83
   network: ws
   tls: false
   ws-opts:
-    path: /535f0e03
+    path: /id-amz
+    headers:
+      Host: e33xr.qzz.io
   udp: true
   skip-cert-verify: false
-- name: SHADOWSOCKS-56 | 129ms
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_9
+  type: vless
+  server: 104.18.46.69
+  port: 80
+  uuid: df301b32-1152-4526-9a63-beedd93d3156
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: vl.dalazhi.cloudns.biz
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 104.17.181.19
+  port: 8880
+  uuid: 984d10dd-4d51-45ac-a781-f0c1357644c2
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: lingering-sun-d7b5.49-56e.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_4
+  type: vless
+  server: 104.18.185.26
+  port: 8880
+  uuid: 7111212b-6bc3-459a-85b4-3b13038a19f8
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net@https://t.me/QiangLieTuiJian
+    headers:
+      Host: shrill-fog-67af.235-e6a.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_5
+  type: vless
+  server: 104.18.41.190
+  port: 8880
+  uuid: 7111212b-6bc3-459a-85b4-3b13038a19f8
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net@https://t.me/QiangLieTuiJian
+    headers:
+      Host: shrill-fog-67af.235-e6a.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_10
+  type: vless
+  server: 8.34.70.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: vms.lifetime09.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 美国 | USA 11
+  server: 155.46.213.30
+  port: 8880
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime51.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 美国 | USA 13
+  server: 172.67.152.71
+  port: 8880
+  type: vless
+  uuid: 84270e8b-567e-45c6-b2f2-56ec9a67ae1e
+  tls: false
+  servername: log.bpminecraft.com
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: young-leaf-a723.162-4da.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: icook.tw
+  port: 8880
+  uuid: 80cead8e-0d28-4b0a-bacd-8005471a5c39
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: flat-fire-40ed.96-042.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: cf5.466688.xyz
+  port: 8880
+  uuid: c6c5ad2f-b4d5-450f-862f-341cebb7f9b5
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net@https://t.me/QiangLieTuiJian
+    headers:
+      Host: empty-rain-1df4.332-633.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_4
+  type: vless
+  server: 104.18.32.47
+  port: 8880
+  uuid: 142d1453-9cfe-4045-8e54-f3fb33342185
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip
+    headers:
+      Host: lively-scene-744f.107-47a.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_11
+  type: vless
+  server: 104.25.122.72
+  port: 80
+  uuid: 6cd78ec7-b715-471c-92b4-0c3842caea4b
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiVXRIT2UwaDUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyNjAyOmZjNTk6YjA6NjQ6Ol0iXX0=
+    headers:
+      Host: billowing-cloud-d339.sospanel.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_12
+  type: vless
+  server: 104.21.89.181
+  port: 8880
+  uuid: 31f345f3-b8eb-4ca6-8b14-bb555ae2c1f9
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: tiny-feather-4c41.227.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇬 新加坡 | SGP
+  server: 104.18.34.245
+  port: 8880
+  type: vless
+  uuid: 78b73cc4-8c3c-40ce-bb74-d5dcd3277c67
+  tls: false
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: white-hill-f907.23-b68.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_5
+  type: vless
+  server: e33xr.qzz.io
+  port: 80
+  uuid: e081da45-9fae-4687-9376-f9a6a0dbbe83
+  network: ws
+  tls: false
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: e33xr.qzz.io
+  udp: true
+  skip-cert-verify: false
+- name: 🇬🇧 英国 | GBR
+  server: 91.193.58.13
+  port: 80
+  type: vless
+  uuid: f2d55510-fa3c-4e3b-adfc-2d96fa399c19
+  tls: false
+  network: ws
+  ws-opts:
+    path: /pyip=Telegram🇨🇳 @WangCai2
+    headers:
+      Host: plain-darkness-90ea.259.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_13
+  type: vless
+  server: 172.67.190.141
+  port: 8880
+  uuid: 3adac494-0eb1-4d89-a187-b2181691444d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: tiny-lake-bbf1.369-766.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_14
+  type: vless
+  server: 172.66.214.247
+  port: 8880
+  uuid: e7f6f783-6754-4228-a5d0-aeed84b9949a
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: sweet-sun-c70f.317-ba5.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_15
+  type: vless
+  server: 172.67.209.127
+  port: 8880
+  uuid: 48b1d8af-1720-4462-a0ec-de493331ceb3
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: square-mountain-1d69.356-977.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇨🚀 Сейшелы [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 45.130.125.50
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: vms.lifetime58.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: 31.185.108.50
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?https://t.me/youtube@ZYFXSfp=chrome
+    headers:
+      Host: vms.lifetime23.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-59 | 146ms
   type: ss
-  server: 108.181.0.177
+  server: 108.181.118.10
   port: 8388
   cipher: chacha20-ietf-poly1305
   password: G5p6ww4o67HB
   udp: true
   skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_16
+  type: vless
+  server: log.bpminecraft.com
+  port: 8880
+  uuid: 5bbf0601-8431-45f6-a4e9-a1e8b44c0055
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: misty-mouse-141d.177-f18.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_17
+  type: vless
+  server: www.ipget.net
+  port: 8880
+  uuid: 21b93e91-5bb1-4d6d-9093-1fd09ae06903
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: morning-silence-7b1b.222-46c.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: 104.21.88.129
+  port: 8880
+  uuid: 70c16ec7-13f7-473b-b97d-06399f1481e3
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: mute-surf-0003.209.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇳🇱🚀 Нидерланды [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 45.131.7.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime02.workers.dev
+  udp: true
+  skip-cert-verify: false
 - name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_6
   type: vless
-  server: 104.17.101.139
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  server: 172.67.187.219
+  port: 8880
+  uuid: 31f345f3-b8eb-4ca6-8b14-bb555ae2c1f9
   network: ws
   tls: false
   ws-opts:
-    path: /
+    path: /pyip=ProxyIP.KR.CMLiussss.net
     headers:
-      Host: fangbinxingnmsl.pusytroller.gq
+      Host: tiny-feather-4c41.227.workers.dev
   udp: true
   skip-cert-verify: false
-- type: socks
-  name: 🇯🇵 JP-8 | Filter
-  server: 101.36.104.239
-  port: 10808
-  username: Og
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-22 | 72ms
-  type: ss
-  server: 37.19.198.243
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 🇩🇪 德国 | DEU 5
-  server: 162.159.137.204
-  port: 443
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  udp: true
-  skip-cert-verify: false
-- name: '🌐91Mb | 5557  🇺🇸 USA  VLESS  📺 YT  TG:'
-  type: vless
-  server: 40.160.68.126
-  port: 8080
-  uuid: 11af1c47-865a-47c6-92ff-118013655d78
-  network: ws
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- type: socks
-  name: 🇭🇰 HK-1 | Filter
-  server: 119.28.13.138
-  port: 1080
-  username: Og
-  udp: true
-  skip-cert-verify: false
-- name: '🌐76Mb | 4696  🇺🇸 USA  VLESS  📺 YT  TG:'
-  type: vless
-  server: 40.160.69.53
-  port: 8080
-  uuid: 11af1c47-865a-47c6-92ff-118013655d78
-  network: ws
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: RO_speednode_0015
-  port: 9002
-  server: 84.239.49.154
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: 🇺🇸 美国 | USA 2
-  server: 104.16.65.1
-  port: 443
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_7
-  type: vless
-  server: 162.159.36.5
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fangbinxingnmsl.pusytroller.gq
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-10 | 66ms
-  type: ss
-  server: 156.146.38.168
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- type: socks
-  name: 🇺🇸 US-13 | Filter
-  server: 69.55.49.177
-  port: 38182
-  username: Og
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_4
-  type: vless
-  server: fuckfangbinxing.pusytroller.gq
-  port: 2095
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  network: ws
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 荷兰 - Amsterdam - 2
-  server: 84.17.47.146
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  delay: 1258
-- cipher: rc4-md5
-  name: us|c950|puddincat07@Telegram
-  obfs: plain
-  password: 14fFPrbezE3HDZzsMOr6
-  port: 8080
-  protocol: origin
-  server: 107.151.182.253
-  type: ssr
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸 美国 | USA 6
-  server: 172.64.53.215
+- name: 🇺🇸 美国 | USA 20
+  server: 172.64.146.211
   port: 2087
   type: vless
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
@@ -724,78 +888,742 @@ proxies:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   udp: true
   skip-cert-verify: false
-- name: SHADOWSOCKS-59 | 146ms
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_18
+  type: vless
+  server: 104.21.4.10
+  port: 2086
+  uuid: 9ef1d60d-9e38-49c5-9405-131e11be1f9c
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiVGtvRGR4TXdHSzdseGpZWCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzI2MDI6ZmM1OTpiMDo2NDo6XSJdfQ==
+    headers:
+      Host: muddy-shadow-8905.qara-atayi-1.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 91.193.58.10
+  port: 8880
+  uuid: bb5f4b63-0b91-4f2c-8a02-66c3f99c1aaa
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=Telegram🇨🇳 @WangCai2
+    headers:
+      Host: yellow-mouse-fcce.400-318.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_19
+  type: vless
+  server: 172.66.132.196
+  port: 8880
+  uuid: 31f345f3-b8eb-4ca6-8b14-bb555ae2c1f9
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: tiny-feather-4c41.227.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_20
+  type: vless
+  server: 172.64.94.251
+  port: 8880
+  uuid: 34cedc35-a520-4a8f-8cb6-d9afba04751b
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: ancient-tooth-af89.500-ba0.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_21
+  type: vless
+  server: 104.21.224.5
+  port: 8880
+  uuid: 5659b42c-636f-4563-ac41-87d565d0dd1e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.autumniussss.net
+    headers:
+      Host: autumn-base-0eb9.116-d25.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-2 | 29ms
   type: ss
-  server: 108.181.118.10
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: G5p6ww4o67HB
-  udp: true
-  skip-cert-verify: false
-- name: GB_speednode_0002
-  password: 51362ab6-b5e6-11ea-ad28-f23c913c8d2b
+  server: 156.146.38.167
   port: 443
-  server: b7342ec0-t9zts0-tnkuks-wujn.uk.oshuawei.com
-  tls: true
-  type: http
+  cipher: aes-128-gcm
+  password: shadowsocks
   udp: true
-  username: 51362ab6-b5e6-11ea-ad28-f23c913c8d2b
   skip-cert-verify: false
-- name: 美国 - Los Angeles - 2
-  server: 138.199.35.207
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_22
+  type: vless
+  server: 104.17.25.173
+  port: 8880
+  uuid: 5659b42c-636f-4563-ac41-87d565d0dd1e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.autumniussss.net
+    headers:
+      Host: autumn-base-0eb9.116-d25.workers.dev
   udp: true
-  delay: 1806
-- name: 🇺🇸 美国 | USA 8
-  server: 192.243.113.108
+  skip-cert-verify: false
+- name: 🇺🇸 美国 | USA 17
+  server: 104.16.72.70
   port: 443
   type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  tls: true
+  servername: hhlfy.twiladaphne.ndjp.net
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_7
+  type: vless
+  server: 172.64.88.168
+  port: 8880
+  uuid: 50c91104-c1fc-471e-914f-3ad252a0a34c
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: quiet-snowflake-e1dd.374-ac3.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_8
+  type: vless
+  server: 104.18.1.1
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: cnmfangbinxing.cnmfangbinxing-f.workers.dev.
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_6
+  type: vless
+  server: 104.17.21.32
+  port: 8880
+  uuid: 63a1d550-f8da-456e-813c-398dd819e405
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: noisy-cherry-b46b.206-866.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_23
+  type: vless
+  server: 104.21.19.226
+  port: 8880
+  uuid: abc2f94e-af29-4f59-a0a0-6e3299d51f64
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiQXZDMHBUakpZIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMjYwMjpmYzU5OjExOjY0OjpdIl19?ed=2560
+    headers:
+      Host: cold-bush-a762.lidrezvpn.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇬 新加坡 | SGP 3
+  server: codecanyon.net
+  port: 8880
+  type: vless
+  uuid: 2d309706-de61-4c33-a086-3888e595b8eb
+  tls: false
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: soft-scene-d370.55-7ff.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: 104.18.12.229
+  port: 8880
+  uuid: 96a32aaa-ebd9-4824-aa04-e9678011d9b0
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: old-tooth-d793.447-02e.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_7
+  type: vless
+  server: 104.16.100.215
+  port: 8880
+  uuid: 23187ddc-16a5-432d-bf4e-dd42a7ae39f7
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: steep-thunder-97fa.108-d10.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_9
+  type: vless
+  server: 104.16.38.185
+  port: 80
+  uuid: df301b32-1152-4526-9a63-beedd93d3156
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: vl.dalazhi.cloudns.biz
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: 172.66.170.172
+  port: 80
+  uuid: e081da45-9fae-4687-9376-f9a6a0dbbe83
+  network: ws
+  tls: false
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: e33xr.qzz.io
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 美国 | USA 12
+  server: 104.17.191.15
+  port: 8880
+  type: vless
+  uuid: 80cead8e-0d28-4b0a-bacd-8005471a5c39
+  tls: false
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: flat-fire-40ed.96-042.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_2fac3381
+  type: vless
+  server: 199.193.125.72
+  port: 443
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
   tls: true
   servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
   client-fingerprint: chrome
-  network: ws
   ws-opts:
     path: /
     headers:
       Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸 美国 | USA 14
-  server: api.connectix.uk
+- name: SHADOWSOCKS-10 | 66ms
+  type: ss
+  server: 156.146.38.168
   port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_10
   type: vless
-  uuid: f3a436a8-45c3-4c5d-bf97-b1ff6e9ced38
+  server: 173.245.49.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime36.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_11
+  type: vless
+  server: cf4.466688.xyz
+  port: 8880
+  uuid: 9c772ed7-2843-4554-9a96-4a88f827de58
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net@https://t.me/QiangLieTuiJian
+    headers:
+      Host: nameless-tree-08b8.352.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_4
+  type: vless
+  server: 104.21.56.202
+  port: 8880
+  uuid: 25322a43-4ef3-45cc-9e96-db44bcccd7be
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: purple-disk-f68d.14-360.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_24
+  type: vless
+  server: 172.67.176.31
+  port: 8080
+  uuid: b3a5f201-eeaf-40c8-909c-72f4860cefc8
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiUWtMSnFJZFM2S3JnIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6W119
+    headers:
+      Host: orange-bonus-abd9.dalvandimohammadmahdi.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-4 | 60ms
+  type: ss
+  server: 156.146.38.169
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇬 新加坡 | SGP 6
+  server: 188.164.248.219
+  port: 2053
+  type: vless
+  uuid: 5b06a1b1-8839-4969-874a-3b501528275b
   tls: true
-  alpn:
-  - h3
-  - h2
-  - http/1.1
-  servername: unitedstates.havray2025.ir
+  servername: jcxyzcdnsubs.911288.xyz
   client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: unitedstates.havray2025.ir
+      Host: jcxyzcdnsubs.911288.xyz
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_25
+  type: vless
+  server: 104.16.101.215
+  port: 8880
+  uuid: a8c23fe7-d2bb-46ba-a14e-8847f1944642
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: billowing-fire-a10b.301-d6c.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_12
+  type: vless
+  server: 23.227.39.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime17.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_5
+  type: vless
+  server: 172.67.174.37
+  port: 8880
+  uuid: d6c595c9-bff4-4510-893a-dfa3c87fa0cd
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: lucky-cell-d20c.78-107.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_26
+  type: vless
+  server: 104.16.8.66
+  port: 8880
+  uuid: b92380e2-e03f-4861-856e-7c2373b04728
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: dry-thunder-7f57.57-1a3.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_27
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: d702b5e4-412d-4859-a528-3fc0b91f6fc0
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: wild-math-3ef2.439.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_28
+  type: vless
+  server: 104.18.38.47
+  port: 8880
+  uuid: 5659b42c-636f-4563-ac41-87d565d0dd1e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.autumniussss.net
+    headers:
+      Host: autumn-base-0eb9.116-d25.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_fc9c23b9
+  type: vless
+  server: 192.243.113.108
+  port: 443
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  tls: true
+  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_622ff3f0
+  type: vless
+  server: 89.208.251.72
+  port: 443
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  network: ws
+  tls: true
+  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸 美国 | USA 7
+  server: 199.181.197.40
+  port: 8880
+  type: vless
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  tls: false
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: vms.lifetime19.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_29
+  type: vless
+  server: crimson-smoke-7818.397.workers.dev
+  port: 8880
+  uuid: d6bdda67-168d-4501-a2c1-ef01070cb327
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_30
+  type: vless
+  server: 188.114.96.3
+  port: 2086
+  uuid: bba14c1d-f08c-4c9a-ac87-cf85d38d8aff
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiSjZsY01ZdmlLM1ciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iXX0
+    headers:
+      Host: tight-thunder-ce8e.hamid-r-aliakbari1379-0f0.workers.dev
   udp: true
   skip-cert-verify: false
 - name: 🇺🇸 美国 | USA 4
-  server: 104.18.151.172
-  port: 443
+  server: 104.16.150.130
+  port: 2087
   type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_31
+  type: vless
+  server: cf6.466688.xyz
+  port: 8880
+  uuid: 5659b42c-636f-4563-ac41-87d565d0dd1e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.autumniussss.net
+    headers:
+      Host: autumn-base-0eb9.116-d25.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: 70.39.197.9
+  port: 59216
+  uuid: 0bcec952-a452-43ed-9468-4547b9f5dfc4
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: 104.18.13.229
+  port: 8880
+  uuid: 96a32aaa-ebd9-4824-aa04-e9678011d9b0
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: old-tooth-d793.447-02e.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_13
+  type: vless
+  server: 104.21.23.72
+  port: 8880
+  uuid: 8bcfe782-60c4-4c09-b46c-330f1aa3741c
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: snowy-lab-6cab.237-2da.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇸🇨🚀 Сейшелы [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: 45.192.224.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime17.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_14
+  type: vless
+  server: 172.66.140.62
+  port: 8880
+  uuid: 2efeba50-78fe-4729-9821-1fb9819ed9e8
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: dark-dew-c3ed.48-97c.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_32
+  type: vless
+  server: skk.moe
+  port: 8880
+  uuid: 8cde6cd0-7903-4aef-8ce8-528fa9677d7b
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: steep-glitter-7c3c.367-5c9.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_33
+  type: vless
+  server: muddy-shadow-8905.qara-atayi-1.workers.dev
+  port: 2086
+  uuid: 9ef1d60d-9e38-49c5-9405-131e11be1f9c
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiVGtvRGR4TXdHSzdseGpZWCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzI2MDI6ZmM1OTpiMDo2NDo6XSJdfQ==
+    headers:
+      Host: muddy-shadow-8905.qara-atayi-1.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_15
+  type: vless
+  server: 162.159.156.214
+  port: 8880
+  uuid: 8991a496-1baa-486f-9948-ffe44e68c072
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: soft-band-8da6.426.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_34
+  type: vless
+  server: vl.dalazhi.cloudns.biz
+  port: 80
+  uuid: df301b32-1152-4526-9a63-beedd93d3156
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_35
+  type: vless
+  server: 172.67.219.238
+  port: 8080
+  uuid: d98c1be3-7837-4d8a-a9fc-05e7a807ccb0
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiSWZqSHF3Q2RLIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19
+    headers:
+      Host: server1.poludiro.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇫🇮ConfigV2RayNG
+  obfs: salamander
+  obfs-password: pha76a5o7ormjepb
+  password: kjq3gpn1xom1ted9
+  port: 52056
+  server: assets.gateway-stream.com
+  skip-cert-verify: false
+  sni: assets.gateway-stream.com
+  tls: false
+  type: hysteria2
+  udp: true
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_36
+  type: vless
+  server: billowing-sunset-e340.qaraatayi.workers.dev
+  port: 8080
+  uuid: c6ba83a7-c4b5-481f-8f71-0f17deff0bf2
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiOUhPbnRlV0xaekI1cjciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyNjAyOmZjNTk6YjA6NjQ6Ol0iXX0=?ed=2560
+    headers:
+      Host: billowing-sunset-e340.qaraatayi.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_16
+  type: vless
+  server: 104.16.99.215
+  port: 8880
+  uuid: a8c23fe7-d2bb-46ba-a14e-8847f1944642
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: billowing-fire-a10b.301-d6c.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_17
+  type: vless
+  server: cf9.466688.xyz
+  port: 8880
+  uuid: 6b504c50-8535-44cf-8e4e-f8ee674a922e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net@https://t.me/QiangLieTuiJian
+    headers:
+      Host: old-moon-16d0.156-a25.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇾🚀 Кипр [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 195.85.59.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime58.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_18
+  type: vless
+  server: 172.67.215.44
+  port: 8080
+  uuid: 86442a2b-417d-426d-9b42-955573b5c6e4
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoib3pRN25jT0luN055OEV1QSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbIjg5LjE2OS4zNC45OSJdfQ==?ed=2560
+    headers:
+      Host: ez-bfa272.ezaccess1d90628.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 美国/阿什本/United States/Ashburn
+  type: ss
+  server: 108.181.57.93
+  port: 8388
+  cipher: chacha20-ietf-poly1305
+  password: RSo52SbxW40r
+  udp: true
+  skip-cert-verify: false
+- name: 🇱🇻🚀 Латвия [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 172.65.90.53
+  port: 8880
+  uuid: 812b1aeb-c6f7-43cb-8d8b-981711fea21a
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net
+    headers:
+      Host: dark-cake-4743.198-46c.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-海外 -超时更新-15
+  type: vless
+  server: 172.64.144.162
+  port: 2096
+  uuid: 20a25a96-61df-4a4f-8424-165fc9cfc84e
+  network: ws
+  tls: true
+  servername: empty-band-d17d.raana2710.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: empty-band-d17d.raana2710.workers.dev
   udp: true
   skip-cert-verify: false
 - name: 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_4a9d6a9e
@@ -828,100 +1656,82 @@ proxies:
       Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
   udp: true
   skip-cert-verify: false
-- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_2
-  type: vless
-  server: 104.16.100.215
-  port: 8880
-  uuid: 23187ddc-16a5-432d-bf4e-dd42a7ae39f7
-  network: ws
-  tls: false
-  ws-opts:
-    path: /pyip=ProxyIP.JP.CMLiussss.net
-    headers:
-      Host: steep-thunder-97fa.108-d10.workers.dev
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱🚀 Нидерланды [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 158.101.222.167
-  port: 62145
-  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸 美国 | USA 10
-  server: 199.193.125.72
-  port: 443
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇴 哥伦比亚 | COL
-  server: 157.137.224.100
-  port: 62145
-  type: vless
-  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_5
-  type: vless
-  server: 70.39.197.9
-  port: 59216
-  uuid: 0bcec952-a452-43ed-9468-4547b9f5dfc4
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱681Mb | Oracle Cloud
-  type: vless
-  server: 158.178.154.97
-  port: 62145
-  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸 美国 | USA 13
-  server: 89.208.251.72
-  port: 443
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-191 | 198ms
+- name: SHADOWSOCKS-22 | 72ms
   type: ss
-  server: 82.38.31.210
+  server: 37.19.198.243
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-18 | 83ms
+  type: ss
+  server: 37.19.198.236
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-45 | 92ms
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-7 | 87ms
+  type: ss
+  server: 37.19.198.244
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-8 | 78ms
+  type: ss
+  server: 37.19.198.160
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-41 | 78ms
+  type: ss
+  server: 173.244.56.9
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- type: anytls
+  name: 🇯🇵 JP-7 | Filter
+  server: jjz.jjznodenode.top
+  port: 17967
+  password: f93d0a97-c3a8-47af-b2be-ea4904c9918b
+  udp: true
+  sni: jjz.jjznodenode.top
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_19
+  type: vless
+  server: 104.21.45.137
   port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
+  uuid: 86442a2b-417d-426d-9b42-955573b5c6e4
+  network: ws
+  tls: false
+  ws-opts:
+    path: /eyJqdW5rIjoiUnp5aDlZMjFPaHgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyI4OS4xNjkuMzQuOTkiXX0=?ed=2560
+    headers:
+      Host: ez-bfa272.ezaccess1d90628.workers.dev
   udp: true
   skip-cert-verify: false
-- name: 🟠🇬🇧[🎬🤖📺🎭]_github.com/Ruk1ng001_ac78ea6f
-  type: ss
-  server: 144.24.226.184
-  port: 61312
-  cipher: chacha20-ietf-poly1305
-  password: MGU4ZjVkMGNhY2Y3YzM0NmIxMDgyNDQ5OGVjZjY2Y2Y=
+- type: vless
+  name: 🇯🇵 JP-4 | Sub3
+  server: 14.137.238.155
+  port: 10000
+  uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
   udp: true
+  network: tcp
   skip-cert-verify: false
 - type: vless
   name: 🇺🇸 US-3 | Sub3
@@ -931,117 +1741,160 @@ proxies:
   udp: true
   network: tcp
   skip-cert-verify: false
-- name: SHADOWSOCKS-114 | 194ms
-  type: ss
-  server: 141.98.101.181
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-162 | 233ms
-  type: ss
-  server: 82.38.31.191
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-197 | 1257ms
-  type: ss
-  server: 193.29.139.223
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: 德国 - Frankfurt am Main - 1
-  server: 130.61.86.101
-  type: ss
-  port: 59924
-  udp: true
-  password: OWVhYWM4OTFlNGFhNTFiNjY5NDNlODI3ZDE5Njc0ZmE=
-  cipher: chacha20-ietf-poly1305
-  delay: 480
-  skip-cert-verify: false
-- name: SHADOWSOCKS-176 | 215ms
-  type: ss
-  server: 82.38.31.34
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-199 | 204ms
-  type: ss
-  server: 82.38.31.199
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_20
   type: vless
-  server: 193.58.122.41
-  port: 2053
-  uuid: 695a935b-5d8b-4468-ba7c-5f2a02e3356e
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🟠🇩🇪[🎬🤖📺🎭]_github.com/Ruk1ng001_ab3f8896
-  type: vless
-  server: 18.197.80.223
-  port: 22222
-  uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 65.109.208.236
-  port: 36179
-  uuid: 4ae81411-9337-4cac-a612-f5b1650c7627
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇩🇪[🎬🤖🎪✨]_github.com/Ruk1ng001_842fb567
-  type: vless
-  server: ddc-akn.astralweb.tech
-  port: 443
-  uuid: 5dc56757-458e-4df2-9e71-2a14ce47e8af
-  network: tcp
-  tls: true
-  servername: ddc-akn.astralweb.tech
-  client-fingerprint: chrome
-  udp: true
-  skip-cert-verify: false
-- name: 🇸🇬 新加坡 | SGP 4
-  server: cmcc.cloudflare.seeck.cn
-  port: 443
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  client-fingerprint: chrome
+  server: 162.159.36.5
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
   network: ws
+  tls: false
   ws-opts:
     path: /
     headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+      Host: fangbinxingnmsl.pusytroller.gq
   udp: true
   skip-cert-verify: false
-- name: 🟠🇧🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_d751a903
-  type: ss
-  server: 137.131.180.148
-  port: 59319
-  cipher: chacha20-ietf-poly1305
-  password: YjliYmFlNzVmMmE4ZmJkYjAxNzQ2NWUyNzZlNjhkZGU=
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_21
+  type: vless
+  server: 172.67.202.17
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fuckfangbinxing.pusytroller.gq
   udp: true
   skip-cert-verify: false
-- name: 🇰🇿🚀 Казахстан [🏳️LTE] | 🥭🔥
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_37
+  type: vless
+  server: 104.18.185.26
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_22
+  type: vless
+  server: 104.21.76.231
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: nmslfangbinxing.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: fuckfangbinxing.pusytroller.gq
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_38
+  type: vless
+  server: 172.67.161.104
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_23
+  type: vless
+  server: 172.64.144.82
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 🇳🇱277Mb | Oracle Cloud
+  type: vless
+  server: 141.148.224.221
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_39
+  type: vless
+  server: 104.17.185.207
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 🇳🇱267Mb | Oracle Cloud
+  type: vless
+  server: 158.101.222.167
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_24
+  type: vless
+  server: 104.18.38.47
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_25
+  type: vless
+  server: 188.114.97.6
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: download.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 🇳🇱248Mb | Oracle Cloud
+  type: vless
+  server: 141.144.196.45
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 台湾/台北市/Taiwan/Taipei
   type: vless
   server: 103.227.225.198
   port: 32355
@@ -1058,106 +1911,281 @@ proxies:
   udp: true
   network: tcp
   skip-cert-verify: false
-- name: 🇹🇷🚀 Турция [🏳️LTE] | 🥭🔥
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_4
   type: vless
-  server: 135.125.184.182
-  port: 50559
-  uuid: 3fd3909b-238f-42c4-9170-38d10014b1d8
+  server: 104.16.72.41
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
   network: ws
   tls: false
   ws-opts:
     path: /
     headers:
-      Host: Play.googel.com
+      Host: fuckfangbinxing.pusytroller.gq
   udp: true
   skip-cert-verify: false
-- name: 🇨🇭 Switzerland, Schötz | [BL]
+- name: SHADOWSOCKS-152 | 228ms
+  type: ss
+  server: 193.29.139.151
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-114 | 194ms
+  type: ss
+  server: 141.98.101.181
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-194 | 212ms
+  type: ss
+  server: 82.38.31.15
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-191 | 198ms
+  type: ss
+  server: 82.38.31.210
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-174 | 505ms
+  type: ss
+  server: 82.38.31.36
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_26
+  type: vless
+  server: 104.17.101.139
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: fangbinxingnmsl.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-199 | 204ms
+  type: ss
+  server: 82.38.31.199
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  skip-cert-verify: false
+- cipher: chacha20-ietf-poly1305
+  name: gb|761a|puddincat07@Telegram
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.149
+  type: ss
+  udp: true
+  skip-cert-verify: false
+- name: 🟠🇩🇪[🎬🤖📺🎭]_github.com/Ruk1ng001_ab3f8896
+  type: vless
+  server: 18.197.80.223
+  port: 22222
+  uuid: e4514801-0d5a-42ba-869f-39bd605aef9e
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-162 | 233ms
+  type: ss
+  server: 82.38.31.191
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-海外 -超时更新-01
+  type: vless
+  server: nmslfangbinxing.pusytroller.gq
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: nmslfangbinxing.pusytroller.gq
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-芬兰 -超时更新-02
+  type: vless
+  server: 65.109.208.236
+  port: 36179
+  uuid: c896406b-ccc4-4c37-8b8c-15964f32a9a2
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-芬兰 -超时更新-03
+  type: vmess
+  server: 65.109.208.236
+  port: 40873
+  uuid: c896406b-ccc4-4c37-8b8c-15964f32a9a2
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+  client-fingerprint: chrome
+  udp: true
+  skip-cert-verify: false
+- name: 爱尔兰/都柏林/Ireland/Dublin
+  type: trojan
+  server: 54.216.124.178
+  port: 443
+  password: UO36402987
+  sni: warm-bass.rooster465.autos
+  udp: true
+  skip-cert-verify: false
+- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_40
+  type: vless
+  server: www.gov.ua
+  port: 8880
+  uuid: a62a4c64-2270-4d41-828b-2591906c48ba
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: sweet-disk-a026.253-54b.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_3
+  type: vless
+  server: freetg.strettenvpn.com
+  port: 9999
+  uuid: f83d8e60-f039-45c8-95d2-2a44c59025f6
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- cipher: chacha20-ietf-poly1305
+  name: gb|e901|puddincat07@Telegram
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  port: 8080
+  server: 82.38.31.10
+  type: ss
+  udp: true
+  skip-cert-verify: false
+- name: 🇮🇳🚀 Индия [🏳️LTE] | 🥭🔥
+  type: vless
+  server: cf3.466688.xyz
+  port: 8880
+  uuid: 1a5e2e63-64e2-4737-95b6-c2ee60c979a1
+  network: ws
+  tls: false
+  ws-opts:
+    path: /pyip=ProxyIP.JP.CMLiussss.net@https://t.me/QiangLieTuiJian
+    headers:
+      Host: wild-mode-4ca6.234-8f6.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪350Mb | Hetzner
+  type: vless
+  server: 91.107.148.158
+  port: 8080
+  uuid: 6bfcc22f-c80f-481b-b82b-bf28ed3e9f82
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺 俄罗斯 | RUS 14
+  server: 195.133.23.200
+  port: 20118
+  type: ss
+  cipher: aes-256-gcm
+  password: 81a20429165df87e
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-丹麦 -超时更新-01
+  type: vless
+  server: 87.58.201.109
+  port: 80
+  uuid: 970c1b71-70db-4788-9cbd-0abbabb60b69
+  network: ws
+  tls: false
+  ws-opts:
+    path: /Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN/Begoo_VPN
+    headers:
+      Host: 87.58.201.109
+  udp: true
+  skip-cert-verify: false
+- name: 🟠🇬🇧[🎬🤖📺🎭]_github.com/Ruk1ng001_ac78ea6f
+  type: ss
+  server: 144.24.226.184
+  port: 61312
+  cipher: chacha20-ietf-poly1305
+  password: MGU4ZjVkMGNhY2Y3YzM0NmIxMDgyNDQ5OGVjZjY2Y2Y=
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇯🇵[📺🎪✈️]_github.com/Ruk1ng001_0cdf4e6f
+  type: vless
+  server: 161.33.181.105
+  port: 443
+  uuid: 548df4ba-0b7f-4850-ac84-716bbb68a4ba
+  network: ws
+  tls: true
+  servername: fm3.pages.dev
+  client-fingerprint: random
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: fm3.pages.dev
+  udp: true
+  skip-cert-verify: false
+- name: .𖥔 ݁ ˖ִ🛸༄˖°. | [BL]
   type: trojan
   server: 86.106.84.195
   port: 53261
   password: y3b03zx3tznhyo538p4c
   sni: speedtest.tinkoff.ru
   skip-cert-verify: true
-  client-fingerprint: edge
-  udp: true
-- name: 🇸🇪 瑞典 | SWE 3
-  server: sw1-chr.astralweb.tech
-  port: 443
-  type: vless
-  uuid: 5dc56757-458e-4df2-9e71-2a14ce47e8af
-  tls: true
-  servername: sw1-chr.astralweb.tech
   client-fingerprint: chrome
-  network: tcp
   udp: true
-  skip-cert-verify: false
-- name: 美国/洛杉矶/United States/Los Angeles
-  type: ss
-  server: 38.244.132.14
-  port: 5499
-  cipher: aes-256-gcm
-  password: lGqs95QkFHo2NV
-  udp: true
-  skip-cert-verify: false
-- name: 未知83
-  type: vmess
-  server: 159.223.13.109
-  port: 1234
-  cipher: aes-128-gcm
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: tcp
-  udp: true
-- name: 🇩🇪 德国 | DEU 8
-  server: 199.232.78.159
-  port: 443
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_5
   type: vless
-  uuid: e1a5c7fd-d1c7-49a3-b772-9e2935d420db
-  tls: true
-  servername: ssl.fastly.com
-  client-fingerprint: chrome
+  server: cf.levikogjgfdd.ir
+  port: 2095
+  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
   network: ws
+  tls: false
   ws-opts:
     path: /
     headers:
-      Host: SvnTeamChannel.global.ssl.fastly.net
+      Host: download.pusytroller.gq
   udp: true
   skip-cert-verify: false
-- name: 西班牙/巴塞罗那/Spain/Barcelona
-  type: ss
-  server: 140.174.184.5
-  port: 8388
-  cipher: chacha20-ietf-poly1305
-  password: qItG8SueYQcP
-  udp: true
-  skip-cert-verify: false
-- name: 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_f71e479e
+- name: 🇫🇷390Mb | OVH
   type: vless
-  server: 104.171.137.176
-  port: 2200
-  uuid: 43874ef1-1f74-4b8b-bc84-1d13caabd71b
+  server: 45.130.125.209
+  port: 80
+  uuid: dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51
   network: ws
   tls: false
   ws-opts:
-    path: /v1
-  udp: true
-  skip-cert-verify: false
-- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_3
-  type: vless
-  server: 168.222.140.155
-  port: 2200
-  uuid: 2aa7f4b1-e859-46d0-b8ac-8587811ab7b1
-  network: ws
-  tls: false
-  ws-opts:
-    path: /v1
+    path: /http
+    headers:
+      Host: de.vpnbase.net
   udp: true
   skip-cert-verify: false
 - name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_6
   type: vless
-  server: 168.222.140.155
+  server: 193.233.217.22
   port: 4100
   uuid: 2aa7f4b1-e859-46d0-b8ac-8587811ab7b1
   network: ws
@@ -1166,24 +2194,115 @@ proxies:
     path: /v1
   udp: true
   skip-cert-verify: false
-- name: 🇷🇺 俄罗斯 | RUS 17
-  server: 5.129.241.247
-  port: 4100
+- name: 🔴🇯🇵[🎬🤖📺🎭]_github.com/Ruk1ng001_f4f5a024
   type: vless
-  uuid: 5d0fbb28-3be3-4044-bc5b-e4b7ca1916c7
-  tls: false
+  server: 212.135.215.5
+  port: 443
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   network: ws
+  tls: true
+  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  udp: true
+  skip-cert-verify: false
+- name: 🔴🇳🇱[🎬📺🎭🎪]_github.com/Ruk1ng001_fd617aaf
+  type: vless
+  server: 82.115.6.93
+  port: 443
+  uuid: 8c00ea88-31f7-445a-8f74-f6e7f03a1553
+  network: ws
+  tls: true
+  servername: kuraakavaa-5l7.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: kuraakavaa-5l7.pages.dev
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-德国 -超时更新-11
+  type: vless
+  server: 164.90.176.31
+  port: 2083
+  uuid: a747c516-34bd-41b8-8590-a9d1edb79e95
+  network: ws
+  tls: true
+  servername: summer-hall-8b23.asddsaasan.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: summer-hall-8b23.asddsaasan.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-新加坡 -超时更新-02
+  type: vless
+  server: 206.189.146.23
+  port: 17658
+  uuid: 7362c389-7f4b-4c41-9594-fdb847570243
+  network: ws
+  tls: false
+  ws-opts:
+    path: /Free By Tharuwa (0767597317)
+    headers:
+      Host: zoom.us
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺649Mb | Jsc timeweb
+  type: vless
+  server: 45.80.111.175
+  port: 8880
+  uuid: b1cf484e-651f-432b-b086-f148e010669e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /rutube
+    headers:
+      Host: rutube.ummapeople.online
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_8
+  type: vless
+  server: 147.45.253.97
+  port: 4100
+  uuid: 2aa7f4b1-e859-46d0-b8ac-8587811ab7b1
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪313Mb | Play2go International Limited
+  type: vless
+  server: deproxy.lckdwn.ru
+  port: 8443
+  uuid: c83ee688-8f37-4f4c-94a2-5d6384950b5d
+  network: ws
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_9
+  type: vless
+  server: 194.26.229.217
+  port: 4100
+  uuid: e58a0802-443e-4ba3-992b-73687bb5b9f0
+  network: ws
+  tls: false
   ws-opts:
     path: /v1
     headers:
       Host: live.ok.ru
   udp: true
   skip-cert-verify: false
-- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_4
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_10
   type: vless
-  server: 201.24.120.68
-  port: 4100
-  uuid: 59525c39-e731-4c27-bc9e-6d8cef67572c
+  server: 31.129.96.186
+  port: 2200
+  uuid: 112912a9-cedf-485d-b8ed-d8f8d4774437
   network: ws
   tls: false
   ws-opts:
@@ -1203,139 +2322,47 @@ proxies:
       Host: rzd.ru
   udp: true
   skip-cert-verify: false
-- name: 🔴🇯🇵[📺🎪✈️]_github.com/Ruk1ng001_0cdf4e6f
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_11
   type: vless
-  server: 161.33.181.105
-  port: 443
-  uuid: 548df4ba-0b7f-4850-ac84-716bbb68a4ba
+  server: 194.26.229.217
+  port: 2200
+  uuid: e58a0802-443e-4ba3-992b-73687bb5b9f0
   network: ws
-  tls: true
-  servername: fm3.pages.dev
-  client-fingerprint: random
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fm3.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥
-  type: vless
-  server: 169.197.113.179
-  port: 20190
-  uuid: ad4dd89a-2e4b-4f33-bb96-7e9c4eb85d0b
-  network: tcp
   tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇯🇵[🎬🤖📺🎭]_github.com/Ruk1ng001_f4f5a024
-  type: vless
-  server: 212.135.215.5
-  port: 443
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  network: ws
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  client-fingerprint: chrome
   ws-opts:
-    path: /
+    path: /v1
     headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+      Host: rzd.ru
   udp: true
   skip-cert-verify: false
-- name: 🔴🇯🇵_github.com/Ruk1ng001_5dd3c30d
+- name: 🇷🇺611Mb | Jsc timeweb
   type: vless
-  server: 35.75.183.41
-  port: 443
-  uuid: 548df4ba-0b7f-4850-ac84-716bbb68a4ba
+  server: 8.47.69.0
+  port: 8880
+  uuid: fd22ad82-2d89-4338-b72c-5092ae699c7d
   network: ws
-  tls: true
-  servername: fm3.pages.dev
-  client-fingerprint: random
+  tls: false
   ws-opts:
-    path: /?ed=2560
+    path: /rutube
     headers:
-      Host: fm3.pages.dev
+      Host: rutube.ummapeople.online
   udp: true
   skip-cert-verify: false
-- name: 🇯🇵 日本 | JPN 2
-  server: 64.176.44.23
-  port: 443
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_12
   type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
-  client-fingerprint: chrome
+  server: 155.212.142.50
+  port: 4100
+  uuid: 2aa7f4b1-e859-46d0-b8ac-8587811ab7b1
   network: ws
+  tls: false
   ws-opts:
-    path: /
-    headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+    path: /v1
   udp: true
   skip-cert-verify: false
-- name: HK9 24.8KB/s
+- name: 中文官网：[卷王.cc]-香港 -超时更新-02
   type: vmess
   server: 7timuei1uufoixbf.v.3dns.vip
   port: 443
-  cipher: auto
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      host: 7tImuei1uuFOiXbf.v.3dns.vip
-  udp: true
-- name: 🇭🇰HK香港 8.3KB/s
-  type: vmess
-  server: wwafj5lhl6bi8au9.v.3dns.vip
-  port: 443
-  cipher: auto
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      host: wwafj5LHl6bI8aU9.v.3dns.vip
-  udp: true
-- name: HK5 25.8KB/s
-  type: vmess
-  server: m01c7b2z26dtqgee.v.3dns.vip
-  port: 443
-  cipher: auto
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      host: m01c7b2z26dtqgee.v.3dns.vip
-  udp: true
-- name: HK3 29.5KB/s
-  type: vmess
-  server: vah4urdzl3jdx5r2.v.3dns.vip
-  port: 443
-  cipher: auto
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      host: vah4urdzl3jdx5r2.v.3dns.vip
-  udp: true
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]
-  type: vmess
-  server: qtkdr8jxe3wefxjm.v.3dns.vip
-  port: 443
   uuid: f23bb427c1f94373876c2f43e9f790f3
   alterId: 0
   cipher: auto
@@ -1344,7 +2371,8 @@ proxies:
   ws-opts:
     path: /ws-vmess
     headers:
-      Host: qTKDR8jXE3wEFxJM.v.3dns.vip
+      Host: 7tImuei1uuFOiXbf.v.3dns.vip
+  client-fingerprint: chrome
   udp: true
   skip-cert-verify: false
 - name: 🇰🇷 South Korea, Yongsan-dong | [BL]
@@ -1354,23 +2382,80 @@ proxies:
   password: p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B
   sni: 154.90.62.70
   skip-cert-verify: true
-  client-fingerprint: android
-  udp: true
-- name: 🇫🇷 法国 | FRA 8
-  server: cdn.devmixa.ir
-  port: 443
-  type: vless
-  uuid: f3a436a8-45c3-4c5d-bf97-b1ff6e9ced38
-  tls: true
-  alpn:
-  - http/1.1
-  servername: france2025.havray2025.ir
   client-fingerprint: chrome
+  udp: true
+- name: 黑山/Montenegro
+  type: vless
+  server: 92.42.96.240
+  port: 443
+  uuid: 4038f946-bd95-5505-a111-196c05d6d92f
   network: ws
+  tls: true
+  servername: mAhaNrEaliteAm.MaHkHan.iR
+  client-fingerprint: chrome
   ws-opts:
-    path: /?ed=2560
+    path: /
     headers:
-      Host: france2025.havray2025.ir
+      Host: mAhaNrEaliteAm.MaHkHan.iR
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-巴西 -超时更新-01
+  type: vless
+  server: 177.3.208.169
+  port: 443
+  uuid: 4f375fb4-3c95-425f-bc7b-8085487a6f3c
+  network: ws
+  tls: true
+  servername: titandarkness.mooo.com
+  client-fingerprint: chrome
+  ws-opts:
+    path: /21381/0kO2id8FMQ
+    headers:
+      Host: titandarkness.mooo.com
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺186Mb | Jsc timeweb
+  type: vless
+  server: 161.104.17.189
+  port: 8880
+  uuid: b1cf484e-651f-432b-b086-f148e010669e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /rutube
+    headers:
+      Host: rutube.ummapeople.online
+  udp: true
+  skip-cert-verify: false
+- name: 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥_2
+  type: vless
+  server: 169.197.113.179
+  port: 20190
+  uuid: ad4dd89a-2e4b-4f33-bb96-7e9c4eb85d0b
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸125Mb | FDCserversnet
+  type: vless
+  server: 104.20.37.53
+  port: 80
+  uuid: 50414e45-4c5f-5a45-5553-b52a90ada6ab
+  network: ws
+  tls: false
+  ws-opts:
+    path: /stream/TrexBridge/b52a90ada6ab
+    headers:
+      Host: trex-panel-ew6n46.zeus-e0oqfp.workers.dev
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_7
+  type: vless
+  server: 176.123.165.127
+  port: 57836
+  uuid: 22a0751d-4db7-4a51-ba80-d8ddf24e0b77
+  network: tcp
+  tls: false
   udp: true
   skip-cert-verify: false
 - name: 🔴🇸🇬[📺🎭✨📦]_github.com/Ruk1ng001_8b470613
@@ -1388,186 +2473,41 @@ proxies:
       Host: fm3.pages.dev
   udp: true
   skip-cert-verify: false
-- name: 🔴🇸🇬[🎬🎭🎪🎞️]_github.com/Ruk1ng001_458459a5
+- name: 中文官网：[卷王.cc]-海外 -超时更新-20
   type: vless
-  server: 157.230.39.201
+  server: 104.16.73.211
   port: 8443
-  uuid: 548df4ba-0b7f-4850-ac84-716bbb68a4ba
+  uuid: 3603bbef-fefe-40bf-9352-5ed6d6d28d42
   network: ws
   tls: true
-  servername: fm3.pages.dev
-  client-fingerprint: random
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: fm3.pages.dev
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-174 | 505ms
-  type: ss
-  server: 82.38.31.36
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-170 | 339ms
-  type: ss
-  server: 94.156.250.148
-  port: 7001
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  udp: true
-  skip-cert-verify: false
-- name: 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_6
-  type: vless
-  server: 104.16.72.41
-  port: 80
-  uuid: dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51
-  network: ws
-  tls: false
-  ws-opts:
-    path: /http
-    headers:
-      Host: de.vpnbase.net
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-193 | 911ms
-  type: ss
-  server: 193.29.139.235
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🔴🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_844557cf
-  type: vless
-  server: 18.239.134.69
-  port: 80
-  uuid: de27291c-15a9-4256-9ba7-ad517569877e
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-194 | 212ms
-  type: ss
-  server: 82.38.31.15
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸 美国 | USA 7
-  server: 185.23.35.175
-  port: 8450
-  type: vless
-  uuid: 48817310-fd5c-4877-b2ac-70fee6db6acc
-  tls: false
-  packet-encoding: xudp
-  network: ws
-  ws-opts:
-    path: /lk/profile
-    headers:
-      Host: x5club.ru
-  udp: true
-  skip-cert-verify: false
-- name: 英国/United Kingdom
-  type: ss
-  server: 194.164.92.198
-  port: 1234
-  cipher: chacha20-ietf-poly1305
-  password: zz0dHjDfoaSaZuRFLGH-hNfBALSEJUYD
-  udp: true
-  skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_2
-  type: vmess
-  server: 6jdvarazgu3qqr6q.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 6JDvArazgU3qQR6Q.v.3dns.vip
-  servername: 6JDvArazgU3qQR6Q.v.3dns.vip
-  udp: true
-  skip-cert-verify: false
-- name: 🇯🇵 日本 | JPN 3
-  server: 8.219.155.125
-  port: 443
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  tls: true
-  servername: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+  servername: ftp.skylinknet.ir
   client-fingerprint: chrome
-  network: ws
   ws-opts:
     path: /
     headers:
-      Host: 0h3qt.oqwt.pl0.hh.vavava.kdns.fr
+      Host: ftp.skylinknet.ir
   udp: true
   skip-cert-verify: false
-- name: 🇸🇬 新加坡 | SGP 3
-  server: 16.176.42.97
-  port: 443
+- name: 🇺🇸155Mb | FDCserversnet
   type: vless
-  uuid: 1bc380b1-cff7-446f-b13f-5c0ad29fc75a
-  tls: true
-  servername: zero.csmaster.ggff.net
-  client-fingerprint: chrome
+  server: 104.19.110.205
+  port: 80
+  uuid: 50414e45-4c5f-5a45-5553-b52a90ada6ab
   network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: zero.csmaster.ggff.net
-  udp: true
-  skip-cert-verify: false
-- name: 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_2
-  type: vless
-  server: freetg.strettenvpn.com
-  port: 9999
-  uuid: f83d8e60-f039-45c8-95d2-2a44c59025f6
-  network: tcp
   tls: false
+  ws-opts:
+    path: /stream/TrexBridge/b52a90ada6ab
+    headers:
+      Host: trex-panel-ew6n46.zeus-e0oqfp.workers.dev
   udp: true
   skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_3
-  type: vmess
-  server: 47.83.19.148
+- name: 法国/巴黎/France/Paris
+  type: trojan
+  server: great-krill.rooster465.autos
   port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 6JDvArazgU3qQR6Q.v.3dns.vip
-  servername: 6JDvArazgU3qQR6Q.v.3dns.vip
-  udp: true
-  skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_4
-  type: vmess
-  server: ce0gedpxwou6cqon.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: cE0gedPXwOU6cqoN.v.3dns.vip
-  servername: cE0gedPXwOU6cqoN.v.3dns.vip
+  password: QV31589740
+  sni: great-krill.rooster465.autos
+  client-fingerprint: chrome
   udp: true
   skip-cert-verify: false
 - name: 🇦🇪🚀 ОАЭ [🏳️LTE] | 🥭🔥
@@ -1583,9 +2523,39 @@ proxies:
       Host: uae.unixzone.us
   udp: true
   skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_5
+- name: 🇳🇱 荷兰 | NLD
+  server: 151.101.56.7
+  port: 443
+  type: vless
+  uuid: 255f9bd5-670f-4b34-9429-9e4388594160
+  tls: true
+  servername: ssl.fastly.com
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER?ed=2053
+    headers:
+      Host: pane3.global.ssl.fastly.net
+  udp: true
+  skip-cert-verify: false
+- name: 🇰🇿 Kazakhstan, Almaty | [BL]
   type: vmess
-  server: 20.235.220.189
+  server: 38.107.234.57
+  port: 80
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vmess/
+    headers:
+      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-香港 -超时更新-03
+  type: vmess
+  server: ce0gedpxwou6cqon.v.3dns.vip
   port: 443
   uuid: f23bb427c1f94373876c2f43e9f790f3
   alterId: 0
@@ -1595,8 +2565,21 @@ proxies:
   ws-opts:
     path: /ws-vmess
     headers:
-      Host: 6JDvArazgU3qQR6Q.v.3dns.vip
-  servername: 6JDvArazgU3qQR6Q.v.3dns.vip
+      Host: cE0gedPXwOU6cqoN.v.3dns.vip
+  client-fingerprint: chrome
+  udp: true
+  skip-cert-verify: false
+- name: 🇰🇿 Kazakhstan, Almaty | [BL]_2
+  type: vmess
+  server: 3h-kazakhstan1.09vpn.com
+  port: 80
+  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /vmess/
   udp: true
   skip-cert-verify: false
 - type: vless
@@ -1614,7 +2597,264 @@ proxies:
     path: /assets/dist/app-update-payload.dat
     headers:
       Host: tl.520783.xyz
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_6
+- name: 中文官网：[卷王.cc]-俄罗斯联邦 -超时更新-03
+  type: vless
+  server: 185.23.35.175
+  port: 8450
+  uuid: 48817310-fd5c-4877-b2ac-70fee6db6acc
+  network: ws
+  tls: false
+  ws-opts:
+    path: /lk/profile
+    headers:
+      Host: x5club.ru
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-176 | 215ms
+  type: ss
+  server: 82.38.31.34
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_8
+  type: vless
+  server: 104.171.134.235
+  port: 4100
+  uuid: bceda826-c83c-45d0-891e-15c4bfec76bc
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+    headers:
+      Host: live.ok.ru
+  udp: true
+  skip-cert-verify: false
+- name: HK13 39.0KB/s
+  type: vmess
+  server: nycqg19zkwacpm1b.v.3dns.vip
+  port: 443
+  cipher: auto
+  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
+  alterId: 0
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      host: NYcQg19zkwaCPM1B.v.3dns.vip
+  udp: true
+- name: 🔴🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_844557cf
+  type: vless
+  server: 18.239.134.69
+  port: 80
+  uuid: de27291c-15a9-4256-9ba7-ad517569877e
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_13
+  type: vless
+  server: tn.tmn141246.ru
+  port: 2200
+  uuid: d4aad26f-70b6-4411-8517-17f7b4281886
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+    headers:
+      Host: rzd.ru
+  udp: true
+  skip-cert-verify: false
+- name: VLESS-184 | 205ms
+  type: vless
+  server: 45.13.119.219
+  port: 8888
+  uuid: eb77be10-9d9e-527b-a78d-8caaf58992d6
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+- name: 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_f71e479e
+  type: vless
+  server: 104.171.137.176
+  port: 2200
+  uuid: 43874ef1-1f74-4b8b-bc84-1d13caabd71b
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+  udp: true
+  skip-cert-verify: false
+- name: 🟢🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_60ccee33
+  type: vless
+  server: www.true.th
+  port: 443
+  uuid: 7ce54bb3-d612-4aa7-be08-089d3c461d53
+  network: ws
+  tls: true
+  servername: d1yxsk0zprgivr.cloudfront.net
+  ws-opts:
+    path: /
+    headers:
+      Host: d1yxsk0zprgivr.cloudfront.net
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_14
+  type: vless
+  server: 45.90.32.132
+  port: 2200
+  uuid: aef0e934-09d7-4b8f-b3bc-de78d2eec928
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+    headers:
+      Host: rzd.ru
+  udp: true
+  skip-cert-verify: false
+- name: 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_4
+  type: vless
+  server: 193.58.122.41
+  port: 2053
+  uuid: 695a935b-5d8b-4468-ba7c-5f2a02e3356e
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇭🇰 Hong Kong, Hong Kong | [BL]
+  type: vmess
+  server: vah4urdzl3jdx5r2.v.3dns.vip
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: vah4urdzl3jdx5r2.v.3dns.vip
+  servername: vah4urdzl3jdx5r2.v.3dns.vip
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_15
+  type: vless
+  server: 201.24.120.68
+  port: 4100
+  uuid: 59525c39-e731-4c27-bc9e-6d8cef67572c
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-170 | 339ms
+  type: ss
+  server: 94.156.250.148
+  port: 7001
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_9
+  type: vless
+  server: 104.171.132.185
+  port: 4100
+  uuid: 112912a9-cedf-485d-b8ed-d8f8d4774437
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+    headers:
+      Host: live.ok.ru
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-香港 -超时更新-01
+  type: vmess
+  server: mh7r5ardl0z5jtgy.v.3dns.vip
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: mh7r5ardl0z5jtgy.v.3dns.vip
+  client-fingerprint: chrome
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-197 | 1257ms
+  type: ss
+  server: 193.29.139.223
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  skip-cert-verify: false
+- name: 🇯🇵114Mb | Oracle Cloud
+  type: vless
+  server: 152.69.195.67
+  port: 47878
+  uuid: eb8613e3-8393-4cff-a3ad-6501fd4adc63
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇫🇷🚀 Франция [🏳️LTE] | 🥭🔥
+  type: vless
+  server: 89.208.113.16
+  port: 443
+  uuid: adce7c2a-3191-49ae-b61c-9b8258ea1b0e
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_2
+  type: vmess
+  server: 2b9hwy8ocx7q74nm.v.3dns.vip
+  port: 443
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: 2b9hwY8oCx7Q74NM.v.3dns.vip
+  udp: true
+  skip-cert-verify: false
+- name: 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_1c3ff241
+  type: vless
+  server: 104.171.136.112
+  port: 2200
+  uuid: bee21918-0933-430c-904b-c941b92256ba
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+    headers:
+      Host: rzd.ru
+  udp: true
+  skip-cert-verify: false
+- name: HK
+  type: trojan
+  server: 119.246.1.143
+  port: 443
+  alterId: 0
+  tls: true
+  password: BxceQaOe
+  skip-cert-verify: true
+  udp: true
+- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_3
   type: vmess
   server: ex1ogt73nzpqkac2.v.3dns.vip
   port: 443
@@ -1625,56 +2865,105 @@ proxies:
   network: ws
   ws-opts:
     path: /ws-vmess
-  udp: true
-  skip-cert-verify: false
-- name: 🟠🇮🇪_github.com/Ruk1ng001_8a217df2
-  type: vmess
-  server: v4.hdacd.com
-  port: 30804
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_7
-  type: vmess
-  server: i2psm3knof5qjjix.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-  udp: true
-  skip-cert-verify: false
-- type: vless
-  name: 🇯🇵 JP-4 | Sub3
-  server: 14.137.238.155
-  port: 10000
-  uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
-  udp: true
-  network: tcp
-  skip-cert-verify: false
-- name: 🇰🇿 Kazakhstan, Almaty | [BL]
-  type: vmess
-  server: 38.107.234.57
-  port: 80
-  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
-  alterId: 0
-  cipher: auto
-  tls: false
-  network: ws
-  ws-opts:
-    path: /vmess/
     headers:
-      Host: 3h-kazakhstan1.09vpn.com
+      Host: EX1oGt73NzPQKAc2.v.3dns.vip
   udp: true
   skip-cert-verify: false
-- name: HK7 50.0KB/s
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_16
+  type: vless
+  server: 45.90.32.132
+  port: 4100
+  uuid: 31c2a8e8-0ab2-4f3f-8767-11f3a35d4228
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-193 | 911ms
+  type: ss
+  server: 193.29.139.235
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: SHADOWSOCKS-172 | 219ms
+  type: ss
+  server: 193.29.139.204
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  skip-cert-verify: false
+- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_10
+  type: vless
+  server: tn2.tmn141246.ru
+  port: 2200
+  uuid: 9b44bfb4-9d28-4870-9fc3-5154d6d462ff
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+    headers:
+      Host: rzd.ru
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_17
+  type: vless
+  server: 194.26.229.218
+  port: 2200
+  uuid: af325624-e28d-44fd-a8a7-058a439d128f
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+  udp: true
+  skip-cert-verify: false
+- name: 中文官网：[卷王.cc]-巴西 -超时更新-03
+  type: vless
+  server: titandarkness.mooo.com
+  port: 443
+  uuid: 4f375fb4-3c95-425f-bc7b-8085487a6f3c
+  network: ws
+  tls: true
+  servername: titandarkness.mooo.com
+  client-fingerprint: chrome
+  ws-opts:
+    path: /21381/0kO2id8FMQ
+    headers:
+      Host: titandarkness.mooo.com
+  udp: true
+  skip-cert-verify: false
+- name: 🇨🇴105Mb | Oracle Cloud
+  type: vless
+  server: 157.137.225.218
+  port: 62145
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+- name: 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_18
+  type: vless
+  server: 194.26.229.214
+  port: 2200
+  uuid: a9f07ec1-bd8a-4c95-a281-3de7f0b76853
+  network: ws
+  tls: false
+  ws-opts:
+    path: /v1
+  udp: true
+  skip-cert-verify: false
+- name: VLESS-163 | 246ms
+  type: vless
+  server: 85.17.145.65
+  port: 12068
+  uuid: 05caca6c-9e97-4c0f-8edf-7b88a6e572c5
+  network: ws
+  udp: true
+  skip-cert-verify: false
+- name: HK7 38.8KB/s
   type: vmess
   server: ejomsxptp19apygl.v.3dns.vip
   port: 443
@@ -1689,121 +2978,6 @@ proxies:
     headers:
       host: ejOMsxPtP19APyGL.v.3dns.vip
   udp: true
-- name: VLESS-184 | 205ms
-  type: vless
-  server: 45.13.119.219
-  port: 8888
-  uuid: eb77be10-9d9e-527b-a78d-8caaf58992d6
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_8
-  type: vmess
-  server: mh7r5ardl0z5jtgy.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-  servername: mh7r5ardl0z5jtgy.v.3dns.vip
-  udp: true
-  skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_9
-  type: vmess
-  server: drbkg16egf3fzlm3.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: DrBKg16eGf3FZlM3.v.3dns.vip
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-152 | 228ms
-  type: ss
-  server: 193.29.139.151
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-172 | 219ms
-  type: ss
-  server: 193.29.139.204
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🟠🇯🇵_github.com/Ruk1ng001_41228966
-  type: vmess
-  server: v6.hdacd.com
-  port: 30806
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-  alterId: 2
-  cipher: auto
-  tls: false
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_7
-  type: vless
-  server: 168.222.140.55
-  port: 2200
-  uuid: e1e26ef7-3291-45ac-b821-a11dcdbfdb4d
-  network: ws
-  tls: false
-  ws-opts:
-    path: /v1
-    headers:
-      Host: rzd.ru
-  udp: true
-  skip-cert-verify: false
-- name: 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_3
-  type: vless
-  server: 91.107.148.158
-  port: 8080
-  uuid: 6bfcc22f-c80f-481b-b82b-bf28ed3e9f82
-  network: tcp
-  tls: false
-  udp: true
-  skip-cert-verify: false
-- name: 🟢🇹🇭[🤖📺🎭🎪]_github.com/Ruk1ng001_10fa37cd
-  type: vless
-  server: www.true.th
-  port: 80
-  uuid: 63ae5b68-f6f8-432e-b440-d975053cfbc2
-  network: ws
-  tls: false
-  ws-opts:
-    path: /than
-    headers:
-      Host: d16l6nb4do0zu4.cloudfront.net
-  udp: true
-  skip-cert-verify: false
-- name: 🇭🇰 Hong Kong, Hong Kong | [BL]_10
-  type: vmess
-  server: u2frxj0g13vdi0wo.v.3dns.vip
-  port: 443
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: U2FRxj0G13vDI0Wo.v.3dns.vip
-  servername: U2FRxj0G13vDI0Wo.v.3dns.vip
-  udp: true
-  skip-cert-verify: false
 proxy-groups:
 - name: PROXY
   type: select
@@ -1811,341 +2985,533 @@ proxy-groups:
   - AUTO
   - FALLBACK
   - DIRECT
-  - 罗马尼亚 - Bucharest - 3
-  - 美国03aws
-  - NL_speednode_0004
-  - 🇺🇸 美国 | USA 19
-  - 罗马尼亚 - Bucharest - 2
-  - 罗马尼亚 - Bucharest - 1
-  - 🇩🇪 德国 | DEU 3
+  - 🇫🇷 France, Paris | [BL]
+  - 新加坡11aws
+  - 🇩🇪 德国 | DEU 7
   - 🇳🇱 NL-1 | Filter
-  - 🇭🇰 HK-7 | Filter
-  - US_speednode_0023
-  - RO_speednode_0011
-  - 荷兰 - Amsterdam - 3
-  - NL_speednode_0006
-  - RO_speednode_0018
-  - Shadowsocks
-  - 荷兰 - Amsterdam - 1
-  - 🇭🇰 HK-6 | Filter
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
-  - SHADOWSOCKS-4 | 60ms
-  - RO_speednode_0012
-  - 🇭🇰 HK-5 | Filter
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_2
-  - SHADOWSOCKS-18 | 83ms
-  - RO_speednode_0013
-  - 美国 - Los Angeles - 1
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_3
-  - 🇩🇪 DE-1 | Filter
-  - RO_speednode_0010
-  - 罗马尼亚 - Bucharest - 4
+  - NL_speednode_0007
   - GB_speednode_0003
-  - SHADOWSOCKS-2 | 29ms
-  - 🇯🇵JP_2|1.9MB/s
-  - US_speednode_0025
+  - RO_speednode_0011
+  - US_speednode_0023
   - 🇭🇰 HK-4 | Filter
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
-  - 罗马尼亚 - Bucharest - 5
-  - 🇭🇰 HK-2 | Filter
-  - SHADOWSOCKS-1 | 58ms
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_2
-  - SHADOWSOCKS-8 | 78ms
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_4
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_5
-  - SHADOWSOCKS-73 | 81ms
-  - 🇺🇸 美国 | USA 3
-  - SHADOWSOCKS-41 | 78ms
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_5
-  - SHADOWSOCKS-7 | 87ms
-  - SHADOWSOCKS-45 | 92ms
-  - 🌐84Mb | OpenRay 🇺🇸 US-23922
-  - 🔴🇰🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_134ff658
-  - 未知8
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_3
-  - SHADOWSOCKS-56 | 129ms
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_6
-  - 🇯🇵 JP-8 | Filter
-  - SHADOWSOCKS-22 | 72ms
-  - 🇩🇪 德国 | DEU 5
-  - '🌐91Mb | 5557  🇺🇸 USA  VLESS  📺 YT  TG:'
-  - 🇭🇰 HK-1 | Filter
-  - '🌐76Mb | 4696  🇺🇸 USA  VLESS  📺 YT  TG:'
-  - RO_speednode_0015
-  - 🇺🇸 美国 | USA 2
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_7
-  - SHADOWSOCKS-10 | 66ms
-  - 🇺🇸 US-13 | Filter
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_4
-  - 荷兰 - Amsterdam - 2
-  - us|c950|puddincat07@Telegram
-  - 🇺🇸 美国 | USA 6
-  - SHADOWSOCKS-59 | 146ms
   - GB_speednode_0002
-  - 美国 - Los Angeles - 2
-  - 🇺🇸 美国 | USA 8
-  - 🇺🇸 美国 | USA 14
+  - RO_speednode_0016
+  - RO_speednode_0019
+  - 🇯🇵 JP-8 | Filter
+  - 🇺🇸 US-13 | Filter
+  - 🇯🇵 Japan, Minato-ku | [BL]
+  - RO_speednode_0014
+  - NL_speednode_0008
+  - RO_speednode_0015
+  - Shadowsocks
+  - 🇭🇰 HK-1 | Filter
+  - NL_speednode_0005
+  - 🇭🇰 HK-6 | Filter
+  - US_speednode_0022
+  - 🇭🇰 HK-7 | Filter
+  - US_speednode_0025
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
+  - SHADOWSOCKS-73 | 81ms
+  - RO_speednode_0010
+  - 🇺🇸 美国 | USA 21
+  - RO_speednode_0009
+  - 🇭🇰 HK-5 | Filter
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥
+  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
+  - NL_speednode_0004
+  - 🇩🇪 DE-1 | Filter
+  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥
+  - RO_speednode_0017
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
+  - US_speednode_0026
+  - SHADOWSOCKS-56 | 129ms
+  - SHADOWSOCKS-1 | 58ms
+  - NL_speednode_0006
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
+  - 🇯🇵JP_2|1.9MB/s
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_2
+  - RO_speednode_0012
+  - RO_speednode_0013
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_3
+  - 🇭🇰 HK-2 | Filter
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_5
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_6
+  - RO_speednode_0018
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_7
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_8
+  - 🔴🇰🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_134ff658
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_9
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_4
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_5
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_10
+  - 🇺🇸 美国 | USA 11
+  - 🇺🇸 美国 | USA 13
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_2
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_3
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_4
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_11
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_12
+  - 🇸🇬 新加坡 | SGP
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_5
+  - 🇬🇧 英国 | GBR
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_13
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_14
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_15
+  - 🇸🇨🚀 Сейшелы [🏳️LTE] | 🥭🔥
+  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_2
+  - SHADOWSOCKS-59 | 146ms
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_16
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_17
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_2
+  - 🇳🇱🚀 Нидерланды [🏳️LTE] | 🥭🔥
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_6
+  - 🇺🇸 美国 | USA 20
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_18
+  - 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_19
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_20
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_21
+  - SHADOWSOCKS-2 | 29ms
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_22
+  - 🇺🇸 美国 | USA 17
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_7
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_8
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_6
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_23
+  - 🇸🇬 新加坡 | SGP 3
+  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥_2
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_7
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_9
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_3
+  - 🇺🇸 美国 | USA 12
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_2fac3381
+  - SHADOWSOCKS-10 | 66ms
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_10
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_11
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_4
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_24
+  - SHADOWSOCKS-4 | 60ms
+  - 🇸🇬 新加坡 | SGP 6
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_25
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_12
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_5
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_26
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_27
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_28
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_fc9c23b9
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_622ff3f0
+  - 🇺🇸 美国 | USA 7
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_29
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_30
   - 🇺🇸 美国 | USA 4
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_31
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_2
+  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥_3
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_13
+  - 🇸🇨🚀 Сейшелы [🏳️LTE] | 🥭🔥_2
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_14
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_32
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_33
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_15
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_34
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_35
+  - 🇫🇮ConfigV2RayNG
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_36
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_16
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_17
+  - 🇨🇾🚀 Кипр [🏳️LTE] | 🥭🔥
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_18
+  - 美国/阿什本/United States/Ashburn
+  - 🇱🇻🚀 Латвия [🏳️LTE] | 🥭🔥
+  - 中文官网：[卷王.cc]-海外 -超时更新-15
   - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_4a9d6a9e
   - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_7a69f11b
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_2
-  - 🇳🇱🚀 Нидерланды [🏳️LTE] | 🥭🔥
-  - 🇺🇸 美国 | USA 10
-  - 🇨🇴 哥伦比亚 | COL
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_5
-  - 🇳🇱681Mb | Oracle Cloud
-  - 🇺🇸 美国 | USA 13
-  - SHADOWSOCKS-191 | 198ms
-  - 🟠🇬🇧[🎬🤖📺🎭]_github.com/Ruk1ng001_ac78ea6f
-  - 🇺🇸 US-3 | Sub3
-  - SHADOWSOCKS-114 | 194ms
-  - SHADOWSOCKS-162 | 233ms
-  - SHADOWSOCKS-197 | 1257ms
-  - 德国 - Frankfurt am Main - 1
-  - SHADOWSOCKS-176 | 215ms
-  - SHADOWSOCKS-199 | 204ms
-  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥
-  - 🟠🇩🇪[🎬🤖📺🎭]_github.com/Ruk1ng001_ab3f8896
-  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥
-  - 🔴🇩🇪[🎬🤖🎪✨]_github.com/Ruk1ng001_842fb567
-  - 🇸🇬 新加坡 | SGP 4
-  - 🟠🇧🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_d751a903
-  - 🇰🇿🚀 Казахстан [🏳️LTE] | 🥭🔥
-  - 🇨🇳 CN-3 | Sub3
-  - 🇹🇷🚀 Турция [🏳️LTE] | 🥭🔥
-  - 🇨🇭 Switzerland, Schötz | [BL]
-  - 🇸🇪 瑞典 | SWE 3
-  - 美国/洛杉矶/United States/Los Angeles
-  - 未知83
-  - 🇩🇪 德国 | DEU 8
-  - 西班牙/巴塞罗那/Spain/Barcelona
-  - 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_f71e479e
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_3
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_6
-  - 🇷🇺 俄罗斯 | RUS 17
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_4
-  - 🟢🇷🇺[🤖📺🎪🎞️]_github.com/Ruk1ng001_9a69d5c5
-  - 🔴🇯🇵[📺🎪✈️]_github.com/Ruk1ng001_0cdf4e6f
-  - 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥
-  - 🔴🇯🇵[🎬🤖📺🎭]_github.com/Ruk1ng001_f4f5a024
-  - 🔴🇯🇵_github.com/Ruk1ng001_5dd3c30d
-  - 🇯🇵 日本 | JPN 2
-  - HK9 24.8KB/s
-  - 🇭🇰HK香港 8.3KB/s
-  - HK5 25.8KB/s
-  - HK3 29.5KB/s
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]
-  - 🇰🇷 South Korea, Yongsan-dong | [BL]
-  - 🇫🇷 法国 | FRA 8
-  - 🔴🇸🇬[📺🎭✨📦]_github.com/Ruk1ng001_8b470613
-  - 🔴🇸🇬[🎬🎭🎪🎞️]_github.com/Ruk1ng001_458459a5
-  - SHADOWSOCKS-174 | 505ms
-  - SHADOWSOCKS-170 | 339ms
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_6
-  - SHADOWSOCKS-193 | 911ms
-  - 🔴🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_844557cf
-  - SHADOWSOCKS-194 | 212ms
-  - 🇺🇸 美国 | USA 7
-  - 英国/United Kingdom
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_2
-  - 🇯🇵 日本 | JPN 3
-  - 🇸🇬 新加坡 | SGP 3
-  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_2
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_3
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_4
-  - 🇦🇪🚀 ОАЭ [🏳️LTE] | 🥭🔥
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_5
-  - 🇹🇭 TH-1 | Sub3
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_6
-  - 🟠🇮🇪_github.com/Ruk1ng001_8a217df2
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_7
+  - SHADOWSOCKS-22 | 72ms
+  - SHADOWSOCKS-18 | 83ms
+  - SHADOWSOCKS-45 | 92ms
+  - SHADOWSOCKS-7 | 87ms
+  - SHADOWSOCKS-8 | 78ms
+  - SHADOWSOCKS-41 | 78ms
+  - 🇯🇵 JP-7 | Filter
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_19
   - 🇯🇵 JP-4 | Sub3
-  - 🇰🇿 Kazakhstan, Almaty | [BL]
-  - HK7 50.0KB/s
-  - VLESS-184 | 205ms
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_8
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_9
+  - 🇺🇸 US-3 | Sub3
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_20
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_21
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_37
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_22
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_3
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_38
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_23
+  - 🇳🇱277Mb | Oracle Cloud
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_39
+  - 🇳🇱267Mb | Oracle Cloud
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_24
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_25
+  - 🇳🇱248Mb | Oracle Cloud
+  - 台湾/台北市/Taiwan/Taipei
+  - 🇨🇳 CN-3 | Sub3
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_4
   - SHADOWSOCKS-152 | 228ms
-  - SHADOWSOCKS-172 | 219ms
-  - 🟠🇯🇵_github.com/Ruk1ng001_41228966
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_7
+  - SHADOWSOCKS-114 | 194ms
+  - SHADOWSOCKS-194 | 212ms
+  - SHADOWSOCKS-191 | 198ms
+  - SHADOWSOCKS-174 | 505ms
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_26
+  - SHADOWSOCKS-199 | 204ms
+  - gb|761a|puddincat07@Telegram
+  - 🟠🇩🇪[🎬🤖📺🎭]_github.com/Ruk1ng001_ab3f8896
+  - SHADOWSOCKS-162 | 233ms
+  - 中文官网：[卷王.cc]-海外 -超时更新-01
+  - 中文官网：[卷王.cc]-芬兰 -超时更新-02
+  - 中文官网：[卷王.cc]-芬兰 -超时更新-03
+  - 爱尔兰/都柏林/Ireland/Dublin
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_40
   - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_3
-  - 🟢🇹🇭[🤖📺🎭🎪]_github.com/Ruk1ng001_10fa37cd
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_10
+  - gb|e901|puddincat07@Telegram
+  - 🇮🇳🚀 Индия [🏳️LTE] | 🥭🔥
+  - 🇩🇪350Mb | Hetzner
+  - 🇷🇺 俄罗斯 | RUS 14
+  - 中文官网：[卷王.cc]-丹麦 -超时更新-01
+  - 🟠🇬🇧[🎬🤖📺🎭]_github.com/Ruk1ng001_ac78ea6f
+  - 🔴🇯🇵[📺🎪✈️]_github.com/Ruk1ng001_0cdf4e6f
+  - .𖥔 ݁ ˖ִ🛸༄˖°. | [BL]
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_5
+  - 🇫🇷390Mb | OVH
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_6
+  - 🔴🇯🇵[🎬🤖📺🎭]_github.com/Ruk1ng001_f4f5a024
+  - 🔴🇳🇱[🎬📺🎭🎪]_github.com/Ruk1ng001_fd617aaf
+  - 中文官网：[卷王.cc]-德国 -超时更新-11
+  - 中文官网：[卷王.cc]-新加坡 -超时更新-02
+  - 🇷🇺649Mb | Jsc timeweb
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_8
+  - 🇩🇪313Mb | Play2go International Limited
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_9
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_10
+  - 🟢🇷🇺[🤖📺🎪🎞️]_github.com/Ruk1ng001_9a69d5c5
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_11
+  - 🇷🇺611Mb | Jsc timeweb
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_12
+  - 中文官网：[卷王.cc]-香港 -超时更新-02
+  - 🇰🇷 South Korea, Yongsan-dong | [BL]
+  - 黑山/Montenegro
+  - 中文官网：[卷王.cc]-巴西 -超时更新-01
+  - 🇷🇺186Mb | Jsc timeweb
+  - 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥_2
+  - 🇺🇸125Mb | FDCserversnet
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_7
+  - 🔴🇸🇬[📺🎭✨📦]_github.com/Ruk1ng001_8b470613
+  - 中文官网：[卷王.cc]-海外 -超时更新-20
+  - 🇺🇸155Mb | FDCserversnet
+  - 法国/巴黎/France/Paris
+  - 🇦🇪🚀 ОАЭ [🏳️LTE] | 🥭🔥
+  - 🇳🇱 荷兰 | NLD
+  - 🇰🇿 Kazakhstan, Almaty | [BL]
+  - 中文官网：[卷王.cc]-香港 -超时更新-03
+  - 🇰🇿 Kazakhstan, Almaty | [BL]_2
+  - 🇹🇭 TH-1 | Sub3
+  - 中文官网：[卷王.cc]-俄罗斯联邦 -超时更新-03
+  - SHADOWSOCKS-176 | 215ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_8
+  - HK13 39.0KB/s
+  - 🔴🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_844557cf
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_13
+  - VLESS-184 | 205ms
+  - 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_f71e479e
+  - 🟢🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_60ccee33
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_14
+  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_4
+  - 🇭🇰 Hong Kong, Hong Kong | [BL]
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_15
+  - SHADOWSOCKS-170 | 339ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_9
+  - 中文官网：[卷王.cc]-香港 -超时更新-01
+  - SHADOWSOCKS-197 | 1257ms
+  - 🇯🇵114Mb | Oracle Cloud
+  - 🇫🇷🚀 Франция [🏳️LTE] | 🥭🔥
+  - 🇭🇰 Hong Kong, Hong Kong | [BL]_2
+  - 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_1c3ff241
+  - HK
+  - 🇭🇰 Hong Kong, Hong Kong | [BL]_3
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_16
+  - SHADOWSOCKS-193 | 911ms
+  - SHADOWSOCKS-172 | 219ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_10
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_17
+  - 中文官网：[卷王.cc]-巴西 -超时更新-03
+  - 🇨🇴105Mb | Oracle Cloud
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_18
+  - VLESS-163 | 246ms
+  - HK7 38.8KB/s
 - name: AUTO
   type: url-test
   proxies: &id001
-  - 罗马尼亚 - Bucharest - 3
-  - 美国03aws
-  - NL_speednode_0004
-  - 🇺🇸 美国 | USA 19
-  - 罗马尼亚 - Bucharest - 2
-  - 罗马尼亚 - Bucharest - 1
-  - 🇩🇪 德国 | DEU 3
+  - 🇫🇷 France, Paris | [BL]
+  - 新加坡11aws
+  - 🇩🇪 德国 | DEU 7
   - 🇳🇱 NL-1 | Filter
-  - 🇭🇰 HK-7 | Filter
-  - US_speednode_0023
-  - RO_speednode_0011
-  - 荷兰 - Amsterdam - 3
-  - NL_speednode_0006
-  - RO_speednode_0018
-  - Shadowsocks
-  - 荷兰 - Amsterdam - 1
-  - 🇭🇰 HK-6 | Filter
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
-  - SHADOWSOCKS-4 | 60ms
-  - RO_speednode_0012
-  - 🇭🇰 HK-5 | Filter
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_2
-  - SHADOWSOCKS-18 | 83ms
-  - RO_speednode_0013
-  - 美国 - Los Angeles - 1
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_3
-  - 🇩🇪 DE-1 | Filter
-  - RO_speednode_0010
-  - 罗马尼亚 - Bucharest - 4
+  - NL_speednode_0007
   - GB_speednode_0003
-  - SHADOWSOCKS-2 | 29ms
-  - 🇯🇵JP_2|1.9MB/s
-  - US_speednode_0025
+  - RO_speednode_0011
+  - US_speednode_0023
   - 🇭🇰 HK-4 | Filter
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
-  - 罗马尼亚 - Bucharest - 5
-  - 🇭🇰 HK-2 | Filter
-  - SHADOWSOCKS-1 | 58ms
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_2
-  - SHADOWSOCKS-8 | 78ms
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_4
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_5
-  - SHADOWSOCKS-73 | 81ms
-  - 🇺🇸 美国 | USA 3
-  - SHADOWSOCKS-41 | 78ms
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_5
-  - SHADOWSOCKS-7 | 87ms
-  - SHADOWSOCKS-45 | 92ms
-  - 🌐84Mb | OpenRay 🇺🇸 US-23922
-  - 🔴🇰🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_134ff658
-  - 未知8
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_3
-  - SHADOWSOCKS-56 | 129ms
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_6
-  - 🇯🇵 JP-8 | Filter
-  - SHADOWSOCKS-22 | 72ms
-  - 🇩🇪 德国 | DEU 5
-  - '🌐91Mb | 5557  🇺🇸 USA  VLESS  📺 YT  TG:'
-  - 🇭🇰 HK-1 | Filter
-  - '🌐76Mb | 4696  🇺🇸 USA  VLESS  📺 YT  TG:'
-  - RO_speednode_0015
-  - 🇺🇸 美国 | USA 2
-  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_7
-  - SHADOWSOCKS-10 | 66ms
-  - 🇺🇸 US-13 | Filter
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_4
-  - 荷兰 - Amsterdam - 2
-  - us|c950|puddincat07@Telegram
-  - 🇺🇸 美国 | USA 6
-  - SHADOWSOCKS-59 | 146ms
   - GB_speednode_0002
-  - 美国 - Los Angeles - 2
-  - 🇺🇸 美国 | USA 8
-  - 🇺🇸 美国 | USA 14
+  - RO_speednode_0016
+  - RO_speednode_0019
+  - 🇯🇵 JP-8 | Filter
+  - 🇺🇸 US-13 | Filter
+  - 🇯🇵 Japan, Minato-ku | [BL]
+  - RO_speednode_0014
+  - NL_speednode_0008
+  - RO_speednode_0015
+  - Shadowsocks
+  - 🇭🇰 HK-1 | Filter
+  - NL_speednode_0005
+  - 🇭🇰 HK-6 | Filter
+  - US_speednode_0022
+  - 🇭🇰 HK-7 | Filter
+  - US_speednode_0025
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥
+  - SHADOWSOCKS-73 | 81ms
+  - RO_speednode_0010
+  - 🇺🇸 美国 | USA 21
+  - RO_speednode_0009
+  - 🇭🇰 HK-5 | Filter
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥
+  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_2
+  - NL_speednode_0004
+  - 🇩🇪 DE-1 | Filter
+  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥
+  - RO_speednode_0017
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_3
+  - US_speednode_0026
+  - SHADOWSOCKS-56 | 129ms
+  - SHADOWSOCKS-1 | 58ms
+  - NL_speednode_0006
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_4
+  - 🇯🇵JP_2|1.9MB/s
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_2
+  - RO_speednode_0012
+  - RO_speednode_0013
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_3
+  - 🇭🇰 HK-2 | Filter
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_5
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_6
+  - RO_speednode_0018
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_7
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_8
+  - 🔴🇰🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_134ff658
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_9
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_4
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_5
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_10
+  - 🇺🇸 美国 | USA 11
+  - 🇺🇸 美国 | USA 13
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_2
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_3
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_4
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_11
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_12
+  - 🇸🇬 新加坡 | SGP
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_5
+  - 🇬🇧 英国 | GBR
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_13
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_14
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_15
+  - 🇸🇨🚀 Сейшелы [🏳️LTE] | 🥭🔥
+  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_2
+  - SHADOWSOCKS-59 | 146ms
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_16
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_17
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_2
+  - 🇳🇱🚀 Нидерланды [🏳️LTE] | 🥭🔥
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_6
+  - 🇺🇸 美国 | USA 20
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_18
+  - 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_19
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_20
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_21
+  - SHADOWSOCKS-2 | 29ms
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_22
+  - 🇺🇸 美国 | USA 17
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_7
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_8
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_6
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_23
+  - 🇸🇬 新加坡 | SGP 3
+  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥_2
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_7
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_9
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_3
+  - 🇺🇸 美国 | USA 12
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_2fac3381
+  - SHADOWSOCKS-10 | 66ms
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_10
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_11
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_4
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_24
+  - SHADOWSOCKS-4 | 60ms
+  - 🇸🇬 新加坡 | SGP 6
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_25
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_12
+  - 🇸🇪🚀 Швеция [🏳️LTE] | 🥭🔥_5
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_26
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_27
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_28
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_fc9c23b9
+  - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_622ff3f0
+  - 🇺🇸 美国 | USA 7
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_29
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_30
   - 🇺🇸 美国 | USA 4
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_31
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_2
+  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥_3
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_13
+  - 🇸🇨🚀 Сейшелы [🏳️LTE] | 🥭🔥_2
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_14
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_32
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_33
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_15
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_34
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_35
+  - 🇫🇮ConfigV2RayNG
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_36
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_16
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_17
+  - 🇨🇾🚀 Кипр [🏳️LTE] | 🥭🔥
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_18
+  - 美国/阿什本/United States/Ashburn
+  - 🇱🇻🚀 Латвия [🏳️LTE] | 🥭🔥
+  - 中文官网：[卷王.cc]-海外 -超时更新-15
   - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_4a9d6a9e
   - 🔴🇺🇸[🎬🤖📺🎭]_github.com/Ruk1ng001_7a69f11b
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_2
-  - 🇳🇱🚀 Нидерланды [🏳️LTE] | 🥭🔥
-  - 🇺🇸 美国 | USA 10
-  - 🇨🇴 哥伦比亚 | COL
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_5
-  - 🇳🇱681Mb | Oracle Cloud
-  - 🇺🇸 美国 | USA 13
-  - SHADOWSOCKS-191 | 198ms
-  - 🟠🇬🇧[🎬🤖📺🎭]_github.com/Ruk1ng001_ac78ea6f
-  - 🇺🇸 US-3 | Sub3
-  - SHADOWSOCKS-114 | 194ms
-  - SHADOWSOCKS-162 | 233ms
-  - SHADOWSOCKS-197 | 1257ms
-  - 德国 - Frankfurt am Main - 1
-  - SHADOWSOCKS-176 | 215ms
-  - SHADOWSOCKS-199 | 204ms
-  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥
-  - 🟠🇩🇪[🎬🤖📺🎭]_github.com/Ruk1ng001_ab3f8896
-  - 🇫🇮🚀 Финляндия [🏳️LTE] | 🥭🔥
-  - 🔴🇩🇪[🎬🤖🎪✨]_github.com/Ruk1ng001_842fb567
-  - 🇸🇬 新加坡 | SGP 4
-  - 🟠🇧🇷[🎬🤖📺🎭]_github.com/Ruk1ng001_d751a903
-  - 🇰🇿🚀 Казахстан [🏳️LTE] | 🥭🔥
-  - 🇨🇳 CN-3 | Sub3
-  - 🇹🇷🚀 Турция [🏳️LTE] | 🥭🔥
-  - 🇨🇭 Switzerland, Schötz | [BL]
-  - 🇸🇪 瑞典 | SWE 3
-  - 美国/洛杉矶/United States/Los Angeles
-  - 未知83
-  - 🇩🇪 德国 | DEU 8
-  - 西班牙/巴塞罗那/Spain/Barcelona
-  - 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_f71e479e
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_3
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_6
-  - 🇷🇺 俄罗斯 | RUS 17
-  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_4
-  - 🟢🇷🇺[🤖📺🎪🎞️]_github.com/Ruk1ng001_9a69d5c5
-  - 🔴🇯🇵[📺🎪✈️]_github.com/Ruk1ng001_0cdf4e6f
-  - 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥
-  - 🔴🇯🇵[🎬🤖📺🎭]_github.com/Ruk1ng001_f4f5a024
-  - 🔴🇯🇵_github.com/Ruk1ng001_5dd3c30d
-  - 🇯🇵 日本 | JPN 2
-  - HK9 24.8KB/s
-  - 🇭🇰HK香港 8.3KB/s
-  - HK5 25.8KB/s
-  - HK3 29.5KB/s
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]
-  - 🇰🇷 South Korea, Yongsan-dong | [BL]
-  - 🇫🇷 法国 | FRA 8
-  - 🔴🇸🇬[📺🎭✨📦]_github.com/Ruk1ng001_8b470613
-  - 🔴🇸🇬[🎬🎭🎪🎞️]_github.com/Ruk1ng001_458459a5
-  - SHADOWSOCKS-174 | 505ms
-  - SHADOWSOCKS-170 | 339ms
-  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_6
-  - SHADOWSOCKS-193 | 911ms
-  - 🔴🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_844557cf
-  - SHADOWSOCKS-194 | 212ms
-  - 🇺🇸 美国 | USA 7
-  - 英国/United Kingdom
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_2
-  - 🇯🇵 日本 | JPN 3
-  - 🇸🇬 新加坡 | SGP 3
-  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_2
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_3
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_4
-  - 🇦🇪🚀 ОАЭ [🏳️LTE] | 🥭🔥
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_5
-  - 🇹🇭 TH-1 | Sub3
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_6
-  - 🟠🇮🇪_github.com/Ruk1ng001_8a217df2
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_7
+  - SHADOWSOCKS-22 | 72ms
+  - SHADOWSOCKS-18 | 83ms
+  - SHADOWSOCKS-45 | 92ms
+  - SHADOWSOCKS-7 | 87ms
+  - SHADOWSOCKS-8 | 78ms
+  - SHADOWSOCKS-41 | 78ms
+  - 🇯🇵 JP-7 | Filter
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_19
   - 🇯🇵 JP-4 | Sub3
-  - 🇰🇿 Kazakhstan, Almaty | [BL]
-  - HK7 50.0KB/s
-  - VLESS-184 | 205ms
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_8
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_9
+  - 🇺🇸 US-3 | Sub3
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_20
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_21
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_37
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_22
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_3
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_38
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_23
+  - 🇳🇱277Mb | Oracle Cloud
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_39
+  - 🇳🇱267Mb | Oracle Cloud
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_24
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_25
+  - 🇳🇱248Mb | Oracle Cloud
+  - 台湾/台北市/Taiwan/Taipei
+  - 🇨🇳 CN-3 | Sub3
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_4
   - SHADOWSOCKS-152 | 228ms
-  - SHADOWSOCKS-172 | 219ms
-  - 🟠🇯🇵_github.com/Ruk1ng001_41228966
-  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_7
+  - SHADOWSOCKS-114 | 194ms
+  - SHADOWSOCKS-194 | 212ms
+  - SHADOWSOCKS-191 | 198ms
+  - SHADOWSOCKS-174 | 505ms
+  - 🇨🇦🚀 Канада [🏳️LTE] | 🥭🔥_26
+  - SHADOWSOCKS-199 | 204ms
+  - gb|761a|puddincat07@Telegram
+  - 🟠🇩🇪[🎬🤖📺🎭]_github.com/Ruk1ng001_ab3f8896
+  - SHADOWSOCKS-162 | 233ms
+  - 中文官网：[卷王.cc]-海外 -超时更新-01
+  - 中文官网：[卷王.cc]-芬兰 -超时更新-02
+  - 中文官网：[卷王.cc]-芬兰 -超时更新-03
+  - 爱尔兰/都柏林/Ireland/Dublin
+  - 🇧🇸🚀 Эщкерия [🏳️LTE] | 🥭🔥_40
   - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_3
-  - 🟢🇹🇭[🤖📺🎭🎪]_github.com/Ruk1ng001_10fa37cd
-  - 🇭🇰 Hong Kong, Hong Kong | [BL]_10
+  - gb|e901|puddincat07@Telegram
+  - 🇮🇳🚀 Индия [🏳️LTE] | 🥭🔥
+  - 🇩🇪350Mb | Hetzner
+  - 🇷🇺 俄罗斯 | RUS 14
+  - 中文官网：[卷王.cc]-丹麦 -超时更新-01
+  - 🟠🇬🇧[🎬🤖📺🎭]_github.com/Ruk1ng001_ac78ea6f
+  - 🔴🇯🇵[📺🎪✈️]_github.com/Ruk1ng001_0cdf4e6f
+  - .𖥔 ݁ ˖ִ🛸༄˖°. | [BL]
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_5
+  - 🇫🇷390Mb | OVH
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_6
+  - 🔴🇯🇵[🎬🤖📺🎭]_github.com/Ruk1ng001_f4f5a024
+  - 🔴🇳🇱[🎬📺🎭🎪]_github.com/Ruk1ng001_fd617aaf
+  - 中文官网：[卷王.cc]-德国 -超时更新-11
+  - 中文官网：[卷王.cc]-新加坡 -超时更新-02
+  - 🇷🇺649Mb | Jsc timeweb
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_8
+  - 🇩🇪313Mb | Play2go International Limited
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_9
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_10
+  - 🟢🇷🇺[🤖📺🎪🎞️]_github.com/Ruk1ng001_9a69d5c5
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_11
+  - 🇷🇺611Mb | Jsc timeweb
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_12
+  - 中文官网：[卷王.cc]-香港 -超时更新-02
+  - 🇰🇷 South Korea, Yongsan-dong | [BL]
+  - 黑山/Montenegro
+  - 中文官网：[卷王.cc]-巴西 -超时更新-01
+  - 🇷🇺186Mb | Jsc timeweb
+  - 🇬🇧🚀 Великобритания [🏳️LTE] | 🥭🔥_2
+  - 🇺🇸125Mb | FDCserversnet
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_7
+  - 🔴🇸🇬[📺🎭✨📦]_github.com/Ruk1ng001_8b470613
+  - 中文官网：[卷王.cc]-海外 -超时更新-20
+  - 🇺🇸155Mb | FDCserversnet
+  - 法国/巴黎/France/Paris
+  - 🇦🇪🚀 ОАЭ [🏳️LTE] | 🥭🔥
+  - 🇳🇱 荷兰 | NLD
+  - 🇰🇿 Kazakhstan, Almaty | [BL]
+  - 中文官网：[卷王.cc]-香港 -超时更新-03
+  - 🇰🇿 Kazakhstan, Almaty | [BL]_2
+  - 🇹🇭 TH-1 | Sub3
+  - 中文官网：[卷王.cc]-俄罗斯联邦 -超时更新-03
+  - SHADOWSOCKS-176 | 215ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_8
+  - HK13 39.0KB/s
+  - 🔴🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_844557cf
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_13
+  - VLESS-184 | 205ms
+  - 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_f71e479e
+  - 🟢🇹🇭[🎬🤖📺🎭]_github.com/Ruk1ng001_60ccee33
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_14
+  - 🇩🇪🚀 Германия [🏳️LTE] | 🥭🔥_4
+  - 🇭🇰 Hong Kong, Hong Kong | [BL]
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_15
+  - SHADOWSOCKS-170 | 339ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_9
+  - 中文官网：[卷王.cc]-香港 -超时更新-01
+  - SHADOWSOCKS-197 | 1257ms
+  - 🇯🇵114Mb | Oracle Cloud
+  - 🇫🇷🚀 Франция [🏳️LTE] | 🥭🔥
+  - 🇭🇰 Hong Kong, Hong Kong | [BL]_2
+  - 🟠🇷🇺[🎬🤖📺🎪]_github.com/Ruk1ng001_1c3ff241
+  - HK
+  - 🇭🇰 Hong Kong, Hong Kong | [BL]_3
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_16
+  - SHADOWSOCKS-193 | 911ms
+  - SHADOWSOCKS-172 | 219ms
+  - 🇺🇸🚀 США [🏳️LTE] | 🥭🔥_10
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_17
+  - 中文官网：[卷王.cc]-巴西 -超时更新-03
+  - 🇨🇴105Mb | Oracle Cloud
+  - 🇷🇺🚀 Обход БС [🏳️LTE] | 🥭🔥_18
+  - VLESS-163 | 246ms
+  - HK7 38.8KB/s
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50

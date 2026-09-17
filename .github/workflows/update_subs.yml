@@ -3,16 +3,13 @@ name: Update Clash Subscription
 on:
   workflow_dispatch:
 
-  # 设置定时任务，使用 cron 语法
-  # '0 */6 * * *' 表示每隔 24 小时执行一次 (在 0 分, 每 6 小时)
-  # schedule:
-  #   - cron: '0 */6 * * *'
   schedule:
+    # 每天北京时间 00:00 和 12:00 (对应 UTC 16:00 和 04:00) 运行
     - cron: '0 16 * * *'
     - cron: '0 4 * * *'
 
 env:
-  TZ: 'Asia/Shanghai'  # 设置时区为北京时间
+  TZ: 'Asia/Shanghai'
 
 concurrency:
   group: update-subscription
@@ -35,80 +32,81 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          # cache: 'pip'
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pyyaml tqdm PySocks ping3 psutil
+          # PySocks 对 socks5 代理测试必不可少
+          pip install requests pyyaml tqdm PySocks psutil urllib3
 
-      - name: Cache V2ray core
-        id: cache-v2ray
+      # ==================== 内核准备 ====================
+      - name: Cache Xray core
+        id: cache-xray
         uses: actions/cache@v4
         with:
           path: v2ray
-          key: v2ray-core-v5.20.0-${{ runner.os }}
-          
-      - name: Download V2ray core
-        if: steps.cache-v2ray.outputs.cache-hit != 'true'
+          key: xray-core-${{ runner.os }}-v24.9.30
+
+      - name: Download Xray core (As v2ray)
+        if: steps.cache-xray.outputs.cache-hit != 'true'
         run: |
-          echo "📥 下载V2ray核心..."
-          V2RAY_VERSION="v5.20.0"
-          wget -q https://github.com/v2fly/v2ray-core/releases/download/${V2RAY_VERSION}/v2ray-linux-64.zip
-          unzip -q v2ray-linux-64.zip v2ray
+          echo "📥 下载 Xray 核心 (全面支持 VLESS Reality)..."
+          # 使用 Xray 替代原版 v2ray，保持命令行兼容
+          curl -sL -o xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
+          unzip -q xray.zip xray
+          mv xray v2ray
+          rm -f xray.zip
           chmod +x v2ray
-          ./v2ray version
 
       - name: 下载 mihomo (Clash.Meta) 核心
         run: |
-          # 1. 自动获取最新的版本号
-          LATEST_TAG=$(curl -sL "https://api.github.com/repos/MetaCubeX/mihomo/releases/latest" | jq -r ".tag_name")
-          
-          if [ -z "$LATEST_TAG" ]; then
-            echo "错误：无法获取最新的 mihomo 版本号！"
+          echo "📥 获取最新的 mihomo release 链接..."
+          # 加入 GITHUB_TOKEN 防止匿名调用 API 被限流 (403 rate limit exceeded)
+          MIHOMO_URL=$(curl -sL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/MetaCubeX/mihomo/releases/latest" \
+            | jq -r '.assets[] | select(.name | test("mihomo-linux-amd64-compatible-.*\\.gz$")) | .browser_download_url' | head -n 1)
+
+          # 如果找不到 compatible 版，回退到普通 amd64 版
+          if [ -z "$MIHOMO_URL" ] || [ "$MIHOMO_URL" = "null" ]; then
+            MIHOMO_URL=$(curl -sL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/MetaCubeX/mihomo/releases/latest" \
+              | jq -r '.assets[] | select(.name | test("mihomo-linux-amd64-v.*\\.gz$")) | .browser_download_url' | head -n 1)
+          fi
+
+          if [ -z "$MIHOMO_URL" ] || [ "$MIHOMO_URL" = "null" ]; then
+            echo "❌ 错误：无法通过 API 解析到 mihomo 下载链接！"
             exit 1
           fi
-          
-          echo "最新的 mihomo 版本是: $LATEST_TAG"
-          
-          # 2. 构建下载链接 (GitHub Actions 使用 linux-amd64 架构)
-          DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/${LATEST_TAG}/mihomo-linux-amd64-${LATEST_TAG}.gz"
-          
-          echo "正在从 ${DOWNLOAD_URL} 下载 mihomo 核心..."
-          wget -q -O mihomo.gz "${DOWNLOAD_URL}"
-          
-          # 3. 解压核心文件
-          echo "解压核心文件..."
-          gzip -d mihomo.gz
-          
-          # 4. 将解压出的核心文件重命名为 'clash'，并赋予执行权限
-          # Python 脚本将通过 './clash' 调用它
-          mv mihomo clash
-          chmod +x ./clash
-          
-          echo "mihomo 核心准备就绪:"
-          ./clash -v
 
+          echo "下载地址: $MIHOMO_URL"
+          wget -q -O mihomo.gz "$MIHOMO_URL"
+          gzip -d mihomo.gz
+          mv mihomo clash
+          chmod +x clash
+
+      - name: 验证测试核心
+        run: |
+          echo ">>> 检查内核就绪状态:"
+          chmod +x v2ray clash || true
+          ./clash -v
+          ./v2ray version
+
+      # ==================== 执行测试 ====================
       - name: Run subscription update script
         run: python update_subs.py
 
-      - name: Check generated files  # 调试文件生成
+      - name: Check generated files
         run: |
           echo "检查生成的文件..."
-          ls -la sub.yaml update_time.txt || echo "文件未生成或路径错误"
+          ls -la sub.yaml sub_scholar.yaml update_time.txt 2>/dev/null || true
           if [ -f sub.yaml ]; then
             echo "sub.yaml 内容预览:"
-            head -n 20 sub.yaml  # 只显示前20行，避免日志过长
+            head -n 20 sub.yaml
             echo "sub.yaml 大小: $(wc -c < sub.yaml) 字节"
-            if [ $(wc -l < sub.yaml) -gt 10 ]; then
-              echo "文件非空，生成成功"
-            else
-              echo "文件可能为空，检查代码日志"
-            fi
           else
-            echo "sub.yaml 未生成！可能原因: 订阅解析失败、测试无有效节点或代码异常"
+            echo "⚠️ sub.yaml 未生成！可能所有节点在真实连接测试中均未存活。"
           fi
-          cat update_time.txt || echo "update_time.txt 未生成"
 
       - name: Generate statistics
         run: |
@@ -124,8 +122,20 @@ jobs:
           EOF
 
           if [ -f sub.yaml ]; then
-            NODE_COUNT=$(grep -c 'name:' sub.yaml || echo 0)
-            echo "- 可用节点数: $NODE_COUNT" >> STATS.md
+            # 仅统计 proxies 块下的节点行（排除 PROXY/AUTO/FALLBACK 等策略组）
+            NODE_COUNT=$(grep -E '^\s+- \{name:' sub.yaml 2>/dev/null | wc -l)
+            if [ "$NODE_COUNT" -eq 0 ]; then
+              NODE_COUNT=$(grep -E '^\s+- name:' sub.yaml 2>/dev/null | grep -vE 'PROXY|AUTO|FALLBACK' | wc -l || echo 0)
+            fi
+            echo "- 通用可用节点数: $NODE_COUNT" >> STATS.md
+          fi
+
+          if [ -f sub_scholar.yaml ]; then
+            SCHOLAR_COUNT=$(grep -E '^\s+- \{name:' sub_scholar.yaml 2>/dev/null | wc -l)
+            if [ "$SCHOLAR_COUNT" -eq 0 ]; then
+              SCHOLAR_COUNT=$(grep -E '^\s+- name:' sub_scholar.yaml 2>/dev/null | grep -vE 'PROXY|AUTO|FALLBACK' | wc -l || echo 0)
+            fi
+            echo "- Scholar 纯净节点数: $SCHOLAR_COUNT" >> STATS.md
           fi
 
           if [ -f update_time.txt ]; then
@@ -138,22 +148,31 @@ jobs:
 
           cat STATS.md
 
-      # 提交并推送更改
+      # ==================== 提交推送 ====================
       - name: Commit and push changes
         run: |
+          # 🚨【关键防爆】：在执行 git add 前必须彻底清理掉二进制文件与解压残留，禁止提交到仓库！
+          rm -f clash v2ray mihomo.gz xray.zip *.zip *.gz /tmp/v2ray_* /tmp/clash_* 2>/dev/null || true
+
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if git diff-index --quiet HEAD; then
-            echo "无更改，跳过 commit"
+
+          # 只追踪添加配置文件与状态文档
+          git add sub.yaml sub_scholar.yaml sub_v2ray_base64*.txt update_time.txt STATS.md test.log 2>/dev/null || true
+
+          if git diff --staged --quiet; then
+            echo "无有效更改，跳过 commit"
           else
-            git commit -m "feat: 自动更新订阅文件" \
-                       -m "更新时间: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" \
-                       -m "[skip ci]"
+            BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+            echo "当前提交分支: $BRANCH_NAME"
+
+            git commit -m "feat: 自动更新订阅文件 [skip ci]" \
+                       -m "更新时间: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+
             for i in 1 2 3; do
-              git pull --rebase origin main && git push origin main && break
-              echo "⚠️ 第 $i 次重试..."
+              git pull --rebase origin "$BRANCH_NAME" && git push origin "$BRANCH_NAME" && break
+              echo "⚠️ 推送冲突，第 $i 次重试..."
               sleep $((i * 5))
             done
-            echo "✅ 已推送更新"
+            echo "✅ 订阅更新成功推送！"
           fi

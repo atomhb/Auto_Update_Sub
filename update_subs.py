@@ -40,7 +40,7 @@ OUTPUT_V2RAY_BASE64_FILE  = 'sub_v2ray_base64.txt'
 UPDATE_TIME_FILE          = 'update_time.txt'
 
 # 节点清洗与去重参数
-MAX_PRE_TEST_NODES        = 3000   # 前置清洗后，允许进入测速的最大节点上限 (防 Actions 超时)
+MAX_PRE_TEST_NODES        = 20000   # 前置清洗后，允许进入测速的最大节点上限 (防 Actions 超时)
 MAX_PER_CDN_BACKEND       = 2      # 同一个 CDN 后端 (相同 UUID+SNI/Host) 最多保留的优选 IP 数
 MAX_PER_SERVER_IP         = 2      # 同一个服务器 IP 最多保留的不同端口节点数
 

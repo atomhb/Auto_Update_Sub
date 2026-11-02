@@ -4,6 +4,8 @@ mixed-port: 7892
 allow-lan: false
 mode: rule
 log-level: info
+unified-delay: true
+tcp-concurrent: true
 dns:
   enable: true
   enhanced-mode: fake-ip
@@ -12,3182 +14,1391 @@ dns:
   - https://doh.pub/dns-query
   - 223.5.5.5
   fallback:
-  - 8.8.8.8
-  - 1.1.1.1
+  - https://1.1.1.1/dns-query
   - https://dns.google/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
 proxies:
-- name: 4FreeIran-f41c76c0dc
-  type: hysteria2
-  server: hys26.wba-pn.ru
-  port: 443
-  password: OD6gGbGU9a
-  sni: hys26.wba-pn.ru
-  udp: true
-  skip-cert-verify: false
-- name: 英国_110203330
-  type: vless
-  server: 178.107.60.251
-  port: 443
-  uuid: 2ed71363-5fd3-4859-9254-0003e395848c
-  network: tcp
-  tls: true
-  reality-opts:
-    public-key: U_E3xSI6QY_Mj-3zjkB4esvMj0aVvYH6W6oHOR50XBs
-    short-id: 10debbdf94767541
-  servername: filesconvert.org
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  udp: true
-  skip-cert-verify: false
-- name: 4Kian-3b2644a696
-  type: vless
-  server: 149.104.121.174
-  port: 8443
-  uuid: 1506f2e0-ae12-4718-b5ab-c5609161300e
-  network: tcp
-  tls: true
-  reality-opts:
-    public-key: EltWI8AOqkN8lMjRycweRRoFRah5hu6xiKtgBmQOdE8
-  servername: as10.cdn77.icu
-  client-fingerprint: firefox
-  udp: true
-  skip-cert-verify: false
-- name: 4FreeIran-b42be4d43c
-  type: vless
-  server: areal4.greewebservices.ir
-  port: 5455
-  uuid: 196ff55f-7f8f-4ab0-869f-72fc208cdcf6
-  network: tcp
-  tls: true
-  reality-opts:
-    public-key: xQnXh5EfPDhcEBB7rRiLca33GYrMEeUa35domLL_yA8
-    short-id: e3085d4fc679ba12
-  servername: amp-api-edge.apps.apple.com
-  client-fingerprint: edge
-  udp: true
-  skip-cert-verify: false
-- name: 4Kian-048baa8ac2
-  type: vless
-  server: a.r-o-o-t3.ir
-  port: 443
-  uuid: 09548571-364e-4876-8e92-98f423e73913
-  network: tcp
-  tls: true
-  reality-opts:
-    public-key: nA87ol2_2BADZHfXhH00wy3fNe4R8TiGG_IQbzWbPnA
-    short-id: 56c96c1d14
-  servername: www.linkedin.com
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  udp: true
-  skip-cert-verify: false
-- name: 4Nika-7f3d4373f5
-  type: hysteria2
-  server: 152.69.231.175
-  port: 50160
-  password: 1beb216e3f60aea9555dae60d219a5ca
-  skip-cert-verify: true
-  udp: true
-- name: 4FreeIran-c6ac9a944e
-  type: vless
-  server: 165.99.222.161
-  port: 443
-  uuid: 30572b57-f5ab-4eb8-82d4-a24d399b99f6
-  network: tcp
-  tls: true
-  reality-opts:
-    public-key: SC6AnZ_BlvDruiGFpDRno9b1V3wMmq9gjB-KEHHUlE4
-  servername: in1.vkusnews.com
-  client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-10 | 66ms
+- name: 4Kian-075ecf5c91
   type: ss
-  server: 156.146.38.168
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-2 | 29ms
-  type: ss
-  server: 156.146.38.167
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-1 | 58ms
-  type: ss
-  server: 156.146.38.170
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 4Mohsen-0075c8c36b
-  type: vless
-  server: am1.pc-nodalys.top
-  port: 443
-  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
-  network: tcp
-  tls: true
-  reality-opts:
-    public-key: v36yrZJ-5Zikx9eh_SXaoDS2GuobOA4_WLagBVO0vxk
-    short-id: a9c3f7e2
-  servername: am1.pc-nodalys.top
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸@FreakConfig
-  type: ss
-  server: 185.215.132.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_367|1.2MB/s|A004-260618 [959578925c29]
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 185.215.132.9
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-8 | 78ms
-  type: ss
-  server: 37.19.198.160
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-7 | 87ms
-  type: ss
-  server: 37.19.198.244
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-18 | 83ms
-  type: ss
-  server: 37.19.198.236
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 4Nika-fa5bc5bdb4
-  type: vless
-  server: Konglam.goodphilips.ir
-  port: 443
-  uuid: 0205a7e1-970d-468a-926c-7e3b4c9a8b9d
-  network: grpc
-  tls: true
-  reality-opts:
-    public-key: x1K53K_cLlg8QvxQhDnfRvMkQbtWkdzKdmaeYCIo4Hc
-    short-id: e85705ad62739603
-  servername: amp-api-edge.apps.apple.com
-  client-fingerprint: chrome
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_233|1.8MB/s|A004-260618 [efbcc8a70025]
-  cipher: aes-256-gcm
-  password: kDWvXYZoTBcGkC4
-  port: 8882
-  server: 15.204.233.41
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-22 | 72ms
-  type: ss
-  server: 37.19.198.243
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-4 | 60ms
-  type: ss
-  server: 156.146.38.169
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Canada_None_ss_1016
-  password: Y6R9pAtvxxzmGC
-  port: 5000
-  server: 51.222.200.165
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇫🇷FR_351|959KB/s|M003-260806 [b2b361a641c5]
-  client-fingerprint: chrome
-  network: ws
-  port: 443
-  server: 104.17.184.120
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
-        Chrome/39.0.2171.95 Safari/537.36
-    path: /fp=chromefp=chrome
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-- name: United States_None_trojan_10103
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 170.101.101.112
-  sni: resources.explorecreativejobsandenhanceyourcareerportfolio.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 防失效github+SubCrawler南非_110203023
-  type: hysteria2
-  server: 192.142.23.46
-  port: 443
-  password: a0052f4f-4c63-0002-a16f-ab2d5d718cd3
-  sni: diffoscope.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇫🇷FR_312|860KB/s|M003-260806 [d69326b56199]
-  client-fingerprint: chrome
-  network: ws
-  port: 443
-  server: 104.21.71.249
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/66.0.3359.117 Safari/537.36
-    path: /fp=chromefp=chrome
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-- name: United States_None_trojan_10102
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 170.101.101.131
-  sni: blog.explorecreativejobsandenhanceyourcareerportfolio.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 美国 318
-  type: vmess
-  network: tcp
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: false
-- name: 🇫🇷FR_350|622KB/s|M003-260806 [45e0e651cbe7]
-  client-fingerprint: chrome
-  network: ws
-  port: 443
-  server: 104.16.122.227
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 5A Build/N2G47H; wv)
-        AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/63.0.3239.111 Mobile
-        Safari/537.36
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-- client-fingerprint: unsafe
-  encryption: none
-  name: 🇸🇬[www.v2nodes.com] vless-SG
-  network: ws
-  port: 443
-  server: 104.18.45.38
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /fp
-  udp: true
-- name: 🇺🇸US_361|926KB/s|A004-260618 [9b10e8e6bf84]
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
   server: 95.215.201.18
-  sub_tag: A004-260618
-  type: ss
+  port: 19999
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸US_370|1.8MB/s|B007-260618 [719341a104ed]
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 193.151.163.18
-  sub_tag: B007-260618
-  type: ss
+- name: 4Sarina-f7b127fa01
+  type: hysteria2
+  server: 64.32.13.230
+  port: 443
   udp: true
   skip-cert-verify: false
-- name: 4Jadi-7f602ac5b2
-  type: ss
-  server: 138.197.89.234
-  port: 28960
-  cipher: chacha20-ietf-poly1305
-  password: DZRy4Q3QH0jUGfKFl2jDCZ
+  password: 0abd5d38-fdf1-11ed-bade-f23c91369f2d
+  sni: 6f9a8496-tmm5c0-txkkcl-1fli7.los.hyhuawei.com
+- name: 4Sarina-5a9c2e3439
+  type: trojan
+  server: 66.163.112.121
+  port: 443
   udp: true
   skip-cert-verify: false
-- name: 🇺🇸US_41|606KB/s|A004-260618 [b62cf4f7c9b4]
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 193.151.160.9
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: United States_None_trojan_10100
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 170.101.101.67
-  sni: courses.explorecreativejobsandenhanceyourcareerportfolio.com
+  sni: www.unlockyourfuturefindyourperfectcareer.com
+- name: 4Nika-30008a79b6
   type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 美国 011
-  type: vless
-  network: ws
-  server: 104.21.221.158
+  server: 66.163.112.13
   port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-  tls: true
-  client-fingerprint: unsafe
-  encryption: none
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /fp=chrome
-  udp: true
-- name: SHADOWSOCKS-73 | 81ms
-  type: ss
-  server: 173.244.56.6
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
   udp: true
   skip-cert-verify: false
-- name: 4Kian-8a43d30ef6
-  type: ss
-  server: 216.9.225.189
-  port: 443
-  cipher: 2022-blake3-aes-256-gcm
-  password: Q2YsIzc5YkchSFjsqUZWrQAFtsSpqf7XxYxkG4+Jbsk=:zT1SecPttPY/XPW6NwjK5Wql+/6zbcGSDJK21Jk8uLo=
-  udp: true
-  skip-cert-verify: false
-- name: YFZ 142 @Outline_Vpn
-  type: ss
-  server: 185.230.230.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  udp: true
-  skip-cert-verify: false
-- type: vless
-  name: US美国(mibei77.com 米贝节点分享) (56)
-  server: 104.17.154.123
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  servername: ccc.010304.xyz
-  sni: ccc.010304.xyz
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /?TELEGRAM--B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub--TELEGRAM
-- name: 🇫🇷FR_77|606KB/s|P001-260618 [52adbca3aca7]
-  client-fingerprint: chrome
-  encryption: none
-  network: ws
-  port: 443
-  server: ccc.010304.xyz
-  sub_tag: P001-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ''
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/32.0.1700.107 Safari/537.36
-    path: /
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-- name: 🇺🇸US_366|1.0MB/s|C001-260618 [c9148f5355de]
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 193.151.160.18
-  sub_tag: C001-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_362|1.6MB/s|A004-260618 [16f4c5e97fb4]
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 45.86.51.18
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-41 | 78ms
-  type: ss
-  server: 173.244.56.9
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 4FreeIran-8b0f9da0f8
-  type: vless
-  server: 104.27.74.207
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  network: ws
-  tls: true
-  servername: ccc.010304.xyz
-  client-fingerprint: unsafe
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed
-    headers:
-      Host: ccc.010304.xyz
-  udp: true
-  skip-cert-verify: false
-- type: vless
-  name: ❓未知丨yoyapai.com (54)
-  server: 172.64.152.241
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  udp: true
-  tls: true
-  servername: ccc.010304.xyz
-  sni: ccc.010304.xyz
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: ccc.010304.xyz
-- name: 4FreeIran-ab11a27c7c
-  type: trojan
-  server: 130.94.19.95
-  port: 57277
-  password: 5t6i121em5lkmsmk
-  sni: us001.zestapp778.com
-  udp: true
-  skip-cert-verify: false
-- name: United States_Turtle Creek_trojan_1065
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.147.152
-  sni: learn.connectingpeoplewithgreatjobs.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 🇫🇷FR_354|848KB/s|M003-260806 [2a4ac6c0b730]
-  client-fingerprint: chrome
-  network: ws
-  port: 443
-  server: 104.19.90.35
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (Unknown; Linux) AppleWebKit/538.1 (KHTML, like Gecko)
-        Chrome/v1.0.0 Safari/538.1
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-- name: 🇫🇷FR_206|556KB/s|S004-260618 [4a036656607b]
-  encryption: none
-  network: ws
-  port: 443
-  server: 104.19.226.84
-  sub_tag: S004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.17
-        (KHTML, like Gecko) Chrome/10.0.649.0 Safari/534.17
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-- name: 4Kian-aa6674ae66
-  type: trojan
-  server: 38.102.234.153
-  port: 18603
-  password: lk59gDrTm2
-  sni: www.777061.xyz
-  udp: true
-  skip-cert-verify: false
-- name: United States_None_trojan_10105
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 170.101.101.211
-  sni: api.explorecreativejobsandenhanceyourcareerportfolio.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: United States_None_trojan_1099
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 170.101.101.53
-  sni: www.explorecreativejobsandenhanceyourcareerportfolio.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 4FreeIran-347f3028e7
-  type: vless
-  server: 185.86.145.112
-  port: 10454
-  uuid: 1c1ee84d-3409-443c-9723-25dd61a10a89
-  network: raw
-  tls: true
-  reality-opts:
-    public-key: MAQju7q8wIeEznBQoDXP9l4SpuAkEs8CGDKaNNpKlHI
-    short-id: '4326'
-  servername: onf.ru
-  client-fingerprint: qq
-  flow: xtls-rprx-vision
-  udp: true
-  skip-cert-verify: false
-- name: 美国 271
-  type: vmess
-  network: tcp
-  server: 84.17.41.2
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: false
-- name: United States_None_trojan_10106
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 170.101.101.19
-  sni: learn.explorecreativejobsandenhanceyourcareerportfolio.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 🇫🇷FR_187|747KB/s|M003-260806 [961808f4ffc6]
-  client-fingerprint: chrome
-  encryption: none
-  network: ws
-  port: 443
-  server: 104.19.247.67
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: d342d11e-d224-4463-b982-532309285094
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-      User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko)
-        Chrome/49.0.2623.112 Safari/537.36
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560fp=chrome
-  xudp: true
-  packet-encoding: xudp
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
+  sni: blog.unlockyourfuturefindyourperfectcareer.com
 - name: 4Sarina-84c887c0ac
   type: vless
   server: 85.155.179.206
   port: 443
+  udp: true
+  skip-cert-verify: false
   uuid: 86a83d11-d751-4b60-aa4e-1dca5cff7028
-  network: tcp
   tls: true
+  network: tcp
   servername: us3.shtil.io
   client-fingerprint: firefox
-  udp: true
-  skip-cert-verify: false
-- name: 美国 315
-  type: vmess
-  network: tcp
-  server: 38.91.107.49
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  tls: false
-  alterId: 0
-  cipher: auto
-  udp: true
-  skip-cert-verify: false
-- name: 🇫🇷FR_168|570KB/s|S004-260618 [e1d7e48737a1]
-  client-fingerprint: chrome
-  encryption: none
-  network: ws
+  alpn:
+  - h2
+  - http/1.1
+- name: 4Sarina-0122c39cde
+  type: trojan
+  server: 66.163.112.76
   port: 443
-  server: help1.digikala-aparat-zula.com
-  sub_tag: S004-260618
-  tls: true
-  type: vless
   udp: true
-  uuid: af51de90-852d-4eb6-a0c3-9ecca170385e
-  ws-opts:
-    headers:
-      Host: wallweb-av6.pages.dev
-      User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/69.0.3497.100 Safari/537.36
-    path: /
-  xudp: true
-  packet-encoding: xudp
-  servername: wallweb-av6.pages.dev
   skip-cert-verify: false
-- name: 🇺🇸US_576|748KB/s|A004-260618 [fe4e365487a5]
-  client-fingerprint: chrome
-  network: tcp
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 169.197.140.224
-  skip-cert-verify: false
-  sni: resources.discoverfreshgraduatejobsstartyourprofessionaljourney.com
-  sub_tag: A004-260618
+  sni: api.unlockyourfuturefindyourperfectcareer.com
+- name: 4Mohsen-d4e37e3786
   type: trojan
-  udp: true
-- name: 🇺🇸US_591|957KB/s|A004-260618 [594337d2d6df]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 167.88.61.85
-  skip-cert-verify: false
-  sni: resources.browseseniorrolesandenhanceyourcareertoday.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- name: United States_Turtle Creek_trojan_1062
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.147.48
-  sni: courses.connectingpeoplewithgreatjobs.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 4FreeIran-ecf2fff836
-  type: vless
-  server: 104.16.34.14
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  network: ws
-  tls: true
-  servername: ccc.010304.xyz
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI
-    headers:
-      Host: ccc.010304.xyz
-  udp: true
-  skip-cert-verify: false
-- name: 4Jadi-931d3c613e
-  type: trojan
-  server: 167.88.61.52
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: courses.browseseniorrolesandenhanceyourcareertoday.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_523|878KB/s|M003-260806 [33d1af5ac7d0]
-  client-fingerprint: chrome
-  password: dba20dcb635e430fa4d3bfc303a149d2
-  port: 443
-  server: 216.106.186.32
-  skip-cert-verify: false
-  sni: blog.findlocaljobnetworkandbuildcommunityconnections.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-  network: tcp
-- name: SHADOWSOCKS-45 | 92ms
-  type: ss
-  server: 149.22.95.183
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_608|960KB/s|M003-260806 [3e2ce75413d7]
-  client-fingerprint: chrome
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 167.88.61.20
-  skip-cert-verify: false
-  sni: api.browseseniorrolesandenhanceyourcareertoday.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-  network: tcp
-- name: 🇺🇸US_445|919KB/s|A004-260618 [7292f50acabf]
-  client-fingerprint: chrome
-  network: tcp
-  password: f0eb8c92ce8946aaba856569cff1a16b
-  port: 443
-  server: 216.106.186.33
-  skip-cert-verify: false
-  sni: resources.findlocaljobnetworkandbuildcommunityconnections.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- name: 4FreeIran-d1b670b29e
-  type: trojan
-  server: 216.106.186.46
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: cdn.findlocaljobnetworkandbuildcommunityconnections.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_583|942KB/s|A004-260618 [739cadcc5128]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 167.88.61.198
-  skip-cert-verify: false
-  sni: cdn.browseseniorrolesandenhanceyourcareertoday.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- name: 🇫🇷FR_306|465KB/s|M003-260806 [6cf0955760dd]
-  client-fingerprint: chrome
-  network: ws
-  port: 2083
-  server: saas.sin.fan
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: 5d7b401c-78fa-4254-872e-6d42bf7e75ec
-  ws-opts:
-    headers:
-      Host: vp14.1145678.xyz
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
-        like Gecko) Chrome/67.0.3396.99 Safari/537.36
-    path: /community/redirect.html
-  xudp: true
-  packet-encoding: xudp
-  servername: vp14.1145678.xyz
-  skip-cert-verify: false
-- name: 4Sarina-449632ca05
-  type: trojan
-  server: 216.106.186.82
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: courses.findlocaljobnetworkandbuildcommunityconnections.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_489|968KB/s|A004-260618 [942617566953]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
   server: 66.163.112.31
-  skip-cert-verify: false
-  sni: unlockyourfuturefindyourperfectcareer.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- client-fingerprint: firefox
-  name: 🇺🇸US_20|4.2MB/s
-  network: tcp
   port: 443
-  server: us3.shtil.io
-  servername: us3.shtil.io
-  tls: true
-  type: vless
   udp: true
-  uuid: 86a83d11-d751-4b60-aa4e-1dca5cff7028
-  xudp: true
+  skip-cert-verify: true
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: unlockyourfuturefindyourperfectcareer.com
+- name: 4Nika-1b37ba15de
+  type: vless
+  server: 107.173.237.146
+  port: 8443
+  udp: true
   skip-cert-verify: false
-- name: 4Mohsen-609338f3bb
+  uuid: 1d39f715-2740-4d99-bc3b-197cc48dcee7
+  tls: true
+  network: tcp
+  reality-opts:
+    public-key: D3ojIs3AUKP_tV0E4TEjh90HBVJp24Nq3qMfdxD30kc
+    short-id: df8611c07d
+  client-fingerprint: firefox
+  servername: updates.cdn-apple.com
+- name: 4FreeIran-d6ac0c4c71
   type: trojan
-  server: www.777061.xyz
+  server: 66.163.112.171
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: learn.unlockyourfuturefindyourperfectcareer.com
+- name: 🇺🇸US_39|223KB/s|A004-260618 [d92318afee09]
+  type: ss
+  server: 79.110.54.250
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 🇺🇸US_21|263KB/s|A004-260618 [0e40b52615aa]
+  type: ss
+  server: 107.151.182.197
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 4Kian-aa6674ae66
+  type: trojan
+  server: 38.102.234.153
   port: 18603
+  udp: true
+  skip-cert-verify: false
   password: lk59gDrTm2
   sni: www.777061.xyz
+- name: 4Mohsen-6935c24914
+  type: hysteria2
+  server: 155.248.209.237
+  port: 33333
   udp: true
-  skip-cert-verify: false
-- name: 4Kian-71fe8d5a25
-  type: trojan
-  server: 149.104.87.33
-  port: 15083
-  password: 5t6i121em5lkmsmk
-  sni: mx001.zestapp778.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_538|672KB/s|M003-260806 [810517b2c765]
-  client-fingerprint: chrome
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 66.163.122.25
-  skip-cert-verify: false
-  sni: cdn.searchnationwidecareerchangehelperandguidancetoday.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-  network: tcp
-- name: 4FreeIran-d82f954a12
-  type: ss
-  server: 52.138.233.48
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: 4ivh6F6XFBD12gEg
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: '🏳[www.v2nodes.com] ss- #2'
-  password: PCnnH6SQSnfoS27
-  port: 8090
-  server: 149.104.107.41
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: United Kingdom_None_ss_1026
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 185.176.206.9
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-176 | 215ms
-  type: ss
-  server: 82.38.31.34
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: ❓Other_36|303KB/s|B007-260618 [4b42f3cf532f]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 193.29.139.202
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: YFZ 185 @Outline_Vpn
-  type: ss
-  server: 82.38.31.202
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_48|8.7MB/s|A004-260618 [5d74d658f7e7]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.218
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_13|299KB/s|A004-260618 [35fe4571369c]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.187
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_5|1.1MB/s [6abc29a78ba7]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.48
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_11|289KB/s|A004-260618 [646eca787816]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.157
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-152 | 228ms
-  type: ss
-  server: 193.29.139.151
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_6|328KB/s|A003-260618 [ea2be6ced3e6]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.46
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_121|3.3MB/s|A004-260618 [c624aee3660e]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.155
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_12|2.7MB/s|B007-260618 [756d6045550c]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.49
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_24|386KB/s|A004-260618 [edd9f948eae6]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.54
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_115|5.4MB/s|A004-260618 [be357174b739]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.26
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_46|9.3MB/s|A003-260618 [1dd9246942f0]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.207
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_7|231KB/s|M001-260618 [f241e5428cf7]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.61
-  sub_tag: M001-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_7|3.5MB/s|B007-260618 [0be7bd33865b]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 193.29.139.147
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_25|3.0MB/s [f2147f2d1e59]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.39
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_3|3.5MB/s|A003-260618 [14d994c4b1df]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.47
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_54|244KB/s|A004-260618 [e061c952eee0]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 178.83.185.156
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_15|554KB/s|B007-260618 [79f2feb3b096]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.66
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_42|231KB/s|M001-260618 [5022e227ef2f]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.62
-  sub_tag: M001-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4FreeIran-575c7708fc
-  type: ss
-  server: 82.38.31.204
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_9|290KB/s|A004-260618 [f7b305430c0b]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 193.29.139.179
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: YFZ 226 @Outline_Vpn
-  type: ss
-  server: 82.38.31.215
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Bulgaria_None_ss_1028
-  password: RexnBgU7EV5ADxG
-  port: 7001
-  server: 94.156.250.148
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_90|3.5MB/s|A004-260618 [643d83a46a8f]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 443
-  server: 82.38.31.159
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_13|4.8MB/s [4739be97375f]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.213
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-114 | 194ms
-  type: ss
-  server: 141.98.101.181
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-  udp: true
-  skip-cert-verify: false
-- name: ❓Other_29|189KB/s|C002-260622 [bd938769ebfd]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.156
-  sub_tag: C002-260622
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: '@v2rayng3'
-  type: ss
-  server: 193.29.139.168
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  udp: true
-  skip-cert-verify: false
-- name: YFZ 233 @Outline_Vpn
-  type: ss
-  server: 82.38.31.167
-  port: 8080
-  cipher: chacha20-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: ❓Other_28|276KB/s|A003-260618 [2b02c3d10d8d]
-  cipher: aes-128-gcm
-  password: shadowsocks
-  port: 443
-  server: 158.173.20.208
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_14|417KB/s|A003-260618 [fee053c08ec7]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.193
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_117|7.1MB/s|A004-260618 [ba81e0445a0d]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.149
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_20|299KB/s|A004-260618 [8d7fbaa25067]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.186
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: ❓Other_18|496KB/s [2fcb59fe7abc]
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
-  port: 8008
-  server: 185.226.172.8
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇩🇪DE_58|3.2MB/s|C001-260618 [ac8ffe36f9e0]
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 185.176.204.18
-  sub_tag: C001-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱@FreakConfig
-  type: ss
-  server: 82.38.31.10
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_68|1.0MB/s|A003-260618 [eb105df8a38d]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.203
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_42|7.2MB/s|B007-260618 [2fdffbe641e3]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 193.29.139.198
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_4|7.6MB/s|A003-260618 [cb6ae96da10d]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.217
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_46|512KB/s [0d550c3f31cc]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.2
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_19|3.3MB/s|A003-260618 [78703b0f3895]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.216
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: '@V2rayNGVPN > کانفیگ رایگان'
-  type: ss
-  server: 82.38.31.28
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱@FreakConfig_2
-  type: ss
-  server: 82.38.31.149
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_41|253KB/s|B007-260618 [ce79f61b5c4b]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.201
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_26|297KB/s|A003-260618 [2814144ac66c]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.3
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_50|630KB/s|A004-260618 [7ba8fd1d6b6f]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.220
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇯🇵JP_7|692KB/s|A004-260618 [52b960f92374]
-  cipher: aes-128-gcm
-  password: shadowsocks
-  port: 443
-  server: 149.22.87.241
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-128-gcm
-  name: United States_Washington_ss_1043
-  password: shadowsocks
-  port: 443
-  server: 149.22.87.204
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇯🇵JP_1|280KB/s|A004-260618 [460717d25156]
-  cipher: aes-128-gcm
-  password: shadowsocks
-  port: 443
-  server: 149.22.87.240
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_114|1.8MB/s|A004-260618 [7e64756eef68]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.195
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱@FreakConfig_3
-  type: ss
-  server: 82.38.31.162
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: 🇵🇱[www.v2nodes.com] ss-PL-1273...
-  password: 6heexyz
-  port: 443
-  server: 54.36.174.140
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: United Kingdom_None_ss_1013
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 82.110.60.9
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_36|252KB/s [067369cc7995]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.35
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_18|6.4MB/s|A003-260618 [9b74b6b41316]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.179
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_10|244KB/s|A004-260618 [7813c28b9637]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 193.29.139.225
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: France_None_ss_1050
-  password: itzvpn@321
-  port: 8388
-  server: 51.83.192.80
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: 🇯🇵[www.v2nodes.com] ss-JP-1544...
-  password: 3eOFeNssde7PYYMv
-  port: 443
-  server: 84.247.155.196
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: United States_Ashburn_ss_1039
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 185.164.175.81
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: '🇵🇱[www.v2nodes.com] ss-PL-1273... #1'
-  password: 6heexyz
-  port: 443
-  server: pl134.vpnbook.com
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: France_None_ss_1051
-  password: 6heexyz
-  port: 443
-  server: pl140.vpnbook.com
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_164|8.1MB/s [c3dbcf50fb16]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.194
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Japan_Tokyo_ss_1042
-  password: 3eOFeNssde7PYYMv
-  port: 80
-  server: 84.247.155.196
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_19|1.7MB/s|A003-260618 [3965caa1cb10]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.214
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇦CA_54|1.0MB/s|A004-260618 [dbb96aa2cb75]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.147.201
-  skip-cert-verify: false
-  sni: resources.connectingpeoplewithgreatjobs.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- name: United States_None_trojan_1073
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 66.163.118.62
-  sni: courses.discovergreatjobsandadvanceyourcareer.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: Germany_Frankfurt am Main_trojan_1070
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 193.108.119.96
-  sni: learn.iloverussia2026.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_22|4.2MB/s|A004-260618 [bf68da5d936d]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.185
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: 🇳🇱[www.v2nodes.com] ss-NL-1604...
-  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
-  port: 43385
-  server: 104.239.12.81
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1034
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.45
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1031
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.72
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_39|81KB/s|M003-260806 [8d28008e48bf]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 193.29.139.188
-  sub_tag: M003-260806
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_90|2.6MB/s [cc7a5983913f]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.208
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: Poland_Warsaw_trojan_1096
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 70.34.252.255
-  sni: browseexecutivejobopeningsandenhanceleadershipcareer.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 🇸🇪SE_10|3.4MB/s|M003-260806 [4330e0d71fac]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 70.34.207.14
-  skip-cert-verify: false
-  sni: searchhealthcarejobsandbuildmedicalcareerpathway.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-- name: ❓Other_5|215KB/s [a150b688ca1a]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.9
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_21|568KB/s [5e645d9908a8]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.11
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Egypt_Cairo_ss_1023
-  password: pKEW8JPByTVTLtM
-  port: 443
-  server: 38.54.59.102
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇯🇵JP_31|592KB/s|M003-260806 [aa552eb71397]
-  client-fingerprint: chrome
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 167.179.108.225
-  skip-cert-verify: false
-  sni: discoverparttimepositionsandsupplementyourincomeguide.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-  network: tcp
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1038
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.27
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 英国 001
-  type: vless
-  network: ws
-  server: 159.65.51.189
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-  tls: true
-  client-fingerprint: chrome
-  encryption: none
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /
-  udp: true
-- name: 🇺🇸US_610|1.1MB/s|M003-260806 [4ced23913920]
-  client-fingerprint: chrome
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 169.197.140.171
-  skip-cert-verify: false
-  sni: cdn.discoverfreshgraduatejobsstartyourprofessionaljourney.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-  network: tcp
-- name: 🇳🇱NL_117|7.2MB/s|A004-260618 [614d9554e68d]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.13
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4Jadi-03acfeb7fd
-  type: ss
-  server: 13.125.163.184
-  port: 8443
-  cipher: chacha20-ietf-poly1305
-  password: 7e68e32f-8015-4f37-9082-70e8b0b58043
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_24|7.4MB/s|A004-260618 [b05ae2b721b6]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.7
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱@FreakConfig_4
-  type: ss
-  server: 193.29.139.197
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_32|553KB/s [bb27b280f2a8]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 443
-  server: 82.38.31.174
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 以色列 002
-  type: vmess
-  network: tcp
-  server: 149.88.23.207
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: false
-- name: 以色列 001
-  type: vmess
-  network: tcp
-  server: 149.88.23.202
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: false
-- name: ❓Other_20|234KB/s|A003-260618 [998962da975a]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.174
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 荷兰 002
-  type: vless
-  network: ws
-  server: 198.211.123.90
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  servername: ccc.010304.xyz
-  tls: true
-  client-fingerprint: chrome
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /fp=unsafe
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_34|223KB/s|A004-260618 [dd10607890a5]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 443
-  server: 82.38.31.175
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4Jadi-0c875a335d
-  type: vless
-  server: 178.208.89.190
-  port: 443
-  uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
-  network: tcp
-  tls: true
-  servername: prod-eu-east-cz6.api-gateway.service-mesh.ingress-observability.speedtestinternet.link
-  client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  udp: true
-  skip-cert-verify: false
-- name: 马来西亚 002
-  type: vmess
-  network: tcp
-  server: 47.250.135.244
-  port: 10000
-  uuid: aedc66b8-99d7-4a21-8310-61870e7f870d
   skip-cert-verify: true
-  alterId: 0
-  cipher: auto
-  udp: true
-- name: 4Sarina-4ceff45265
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+- name: 4Kian-fa4ba8369c
   type: ss
-  server: 51.83.6.5
-  port: 20250
-  cipher: 2022-blake3-aes-256-gcm
-  password: iftdYouiXy4LSL4QiVYORW+B4WCxODqcpD8zPxqbO5I=:KCKmaSa3qTuPjSga8nWjVD6ov2x5+8+qhRvC46L5gB8=
+  server: 107.151.182.253
+  port: 8080
   udp: true
   skip-cert-verify: false
-- name: 🇩🇪DE_9|1.5MB/s|S004-260618 [10531519d08c]
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: CF中转_110207763
+  type: vless
+  server: 172.67.75.4
+  port: 2096
+  udp: true
+  skip-cert-verify: false
+  uuid: 9f534ac4-3c58-4a16-8b74-13dff09a0cf1
+  tls: true
+  network: ws
+  servername: d39333476.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /city
+    headers:
+      Host: d39333476.pages.dev
+- name: 4Sarina-e047c91696
+  type: vless
+  server: 104.19.47.188
+  port: 8443
+  udp: true
+  skip-cert-verify: false
+  uuid: 56e4896e-90a9-4fe0-8480-90d3d68b9928
+  tls: true
+  network: ws
+  servername: go.iranfree.de5.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: go.iranfree.de5.net
+- name: 4Mohsen-651e505b41
+  type: ss
+  server: 79.110.53.169
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 4FreeIran-f653bb4849
+  type: vless
+  server: 8.35.211.36
+  port: 2087
+  udp: true
+  skip-cert-verify: true
+  uuid: 56e4896e-90a9-4fe0-8480-90d3d68b9928
+  tls: true
+  network: ws
+  servername: go.iranfree.de5.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: go.iranfree.de5.net
+- name: 🇫🇷FR_25|95KB/s|T001-260618 [5dd78972cd2e]
+  type: vless
+  server: 104.21.70.21
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  uuid: fc60147e-76b8-4bc5-b691-90b2da79e3d2
+  tls: false
+  network: ws
+  servername: nautica-cff.kloningstrife002.workers.dev
+  ws-opts:
+    path: /138.2.74.219-28616
+    headers:
+      Host: nautica-cff.kloningstrife002.workers.dev
+- name: 4Jadi-a1184fabd1
+  type: vless
+  server: 104.17.125.171
+  port: 2096
+  udp: true
+  skip-cert-verify: false
+  uuid: 9f534ac4-3c58-4a16-8b74-13dff09a0cf1
+  tls: true
+  network: ws
+  servername: d39333476.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /trade
+    headers:
+      Host: d39333476.pages.dev
+- name: 4Nika-ac9ba71124
+  type: vless
+  server: 104.25.5.52
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 93fa8bdb-9cca-4a3e-8355-b7c12e4f595e
+  tls: true
+  network: ws
+  servername: FORnEwIRAn.ADE-1000.worKeRS.dev
+  client-fingerprint: chrome
+  alpn:
+  - http/1.1
+  ws-opts:
+    path: /vl/yLWNcuUuw1jlJpkDhGy?ed=2560
+    headers:
+      Host: fornewiran.ade-1000.workers.dev
+- name: 4Mohsen-e3f142477a
+  type: vless
+  server: 162.159.135.234
+  port: 8880
+  udp: true
+  skip-cert-verify: false
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime54.workers.dev
+- name: 4Kian-1145bf42bc
+  type: vless
+  server: 172.64.145.202
+  port: 2083
+  udp: true
+  skip-cert-verify: false
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  tls: true
+  network: ws
+  servername: newwk1.f1w.de5.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: newwk1.f1w.de5.net
+- name: CF中转_1102071012
+  type: vless
+  server: 104.17.104.80
+  port: 2096
+  udp: true
+  skip-cert-verify: false
+  uuid: 9f534ac4-3c58-4a16-8b74-13dff09a0cf1
+  tls: true
+  network: ws
+  servername: d39333476.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /movies/resource/film
+    headers:
+      Host: d39333476.pages.dev
+- name: 4Kian-af5346de16
+  type: vless
+  server: 104.21.46.14
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: ea50b1a3-3a98-4c5e-a150-48ada40d68d7
+  tls: true
+  network: ws
+  servername: cf-vless-4cf55824.aimall.fr
+  client-fingerprint: chrome
+  ws-opts:
+    path: /connect
+    headers:
+      Host: cf-vless-4cf55824.aimall.fr
+- name: 美国 1176
+  type: vless
+  server: 172.66.47.45
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: e56059f1-5a1a-4d0a-a2d0-58ecb4eb2f3f
+  tls: true
+  network: ws
+  servername: ezaccess-project-f62c30.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /eyJqdW5rIjoiZWlPODVjTnhnaSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0
+    headers:
+      Host: ezaccess-project-f62c30.pages.dev
+- name: 4Sarina-fe9401be2b
+  type: vless
+  server: japan.com
+  port: 2053
+  udp: true
+  skip-cert-verify: false
+  uuid: 767b6340-96dc-4aa0-8013-a8af7513d920
+  tls: true
+  network: ws
+  servername: c7dabe95.proxy-978.pages.dev
+  client-fingerprint: random
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: c7dabe95.proxy-978.pages.dev
+- name: 4Mohsen-63522b1b10
+  type: vless
+  server: 104.24.30.89
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  tls: true
+  network: ws
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+- name: 4Jadi-36e4711320
+  type: vless
+  server: 162.159.228.255
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: b135a1e0-ebdb-4d46-b3fa-bd1e78580244
+  tls: true
+  network: ws
+  servername: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: wjwkhoaftdgrt8qus.mp8pmwdgwf3sdapasouszjobjr57nrxxgtx9n.workers.dev
+- name: 4Nika-c9cf18cd11
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: dffb7646-1656-427a-8187-9c056a6a5fd5
+  tls: true
+  network: ws
+  servername: vff67.eu.cc
+  ws-opts:
+    path: /id-dnva
+    headers:
+      Host: vff67.eu.cc
+- name: 4Kian-4d8f1fe082
+  type: vless
+  server: 8.35.211.73
+  port: 2087
+  udp: true
+  skip-cert-verify: false
+  uuid: 9f534ac4-3c58-4a16-8b74-13dff09a0cf1
+  tls: true
+  network: ws
+  servername: d39333476.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /resource
+    headers:
+      Host: d39333476.pages.dev
+- name: 4Sarina-40537f105f
+  type: vless
+  server: 141.101.121.196
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+  tls: true
+  network: ws
+  servername: blackshadow.dpdns.org
+  client-fingerprint: chrome
+  ws-opts:
+    path: /44.209.52.7-443
+    headers:
+      Host: blackshadow.dpdns.org
+- name: 4Nika-540cbc1dc3
+  type: vless
+  server: 104.16.148.244
+  port: 2087
+  udp: true
+  skip-cert-verify: false
+  uuid: 767b6340-96dc-4aa0-8013-a8af7513d920
+  tls: true
+  network: ws
+  servername: c7dabe95.proxy-978.pages.dev
+  client-fingerprint: random
+  ws-opts:
+    path: /
+    headers:
+      Host: c7dabe95.proxy-978.pages.dev
+- name: 🇨🇦CA加拿大丨yoyapai.com (20)
+  type: vless
+  server: 172.67.79.160
+  port: 2087
+  udp: true
+  skip-cert-verify: false
+  uuid: a4a951b9-901d-4db8-8a7d-6df82c4b5c23
+  tls: true
+  network: ws
+  servername: cvhpyn.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: cvhpyn.pages.dev
+- name: 4Mohsen-18f67ca965
+  type: tuic
+  server: 103.170.72.41
+  port: 8443
+  udp: true
+  skip-cert-verify: true
+  uuid: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  password: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  congestion-controller: bbr
+  udp-relay-mode: native
+  reduce-rtt: true
+  sni: www.bing.com
+- name: 4Sarina-ca7125889f
+  type: vless
+  server: 162.159.153.217
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 1e922b22-d169-4461-89c1-07e09ff2617c
+  tls: true
+  network: ws
+  servername: vlesss.xttd.eu.org
+  client-fingerprint: random
   alpn:
   - h3
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  encryption: none
-  network: ws
-  port: 2083
-  server: sino.bestsellers1.site
-  sub_tag: S004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: 7858128a-6b5e-4f86-9bff-52c1f1e6439d
   ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io
     headers:
-      Host: ''
-      User-Agent: Mozilla/5.0 (Windows NT 5.1; WOW64) AppleWebKit/537.36 (KHTML, like
-        Gecko) Chrome/46.0.2490.80 Safari/537.36
-    path: /
-  xudp: true
-  packet-encoding: xudp
-  servername: sino.bestsellers1.site
-  skip-cert-verify: false
-- name: 德国 066
+      Host: vlesss.xttd.eu.org
+- name: 4Kian-060d9cea29
   type: vless
-  network: ws
-  server: hw14.roghanmo.com
-  port: 465
-  uuid: 98aa35fc-7d2f-4744-a91b-7e33b4fdd9c8
-  servername: hw14.roghanmo.com
-  skip-cert-verify: false
-  tls: true
-  udp: true
-  tfo: false
-  ws-opts:
-    headers:
-      Host: hw14.roghanmo.com
-    path: /fp=chrome
-- name: 🇳🇱@FreakConfig_5
-  type: ss
-  server: 82.38.31.175
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 日本 038
-  type: vmess
-  network: tcp
-  server: 146.56.112.110
-  port: 8888
-  uuid: e7c302f3-90d6-42dd-9d7d-94a3683a3707
-  udp: true
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1030
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.54
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4Sarina-ae46648abd
-  type: trojan
-  server: 66.163.122.26
+  server: 172.67.67.178
   port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: blog.searchnationwidecareerchangehelperandguidancetoday.com
   udp: true
   skip-cert-verify: false
-- name: 德国 067
-  type: vless
-  network: ws
-  server: hw5.roghanmo.com
-  port: 465
-  uuid: a356fa77-7199-417a-80dd-0c0925789161
-  servername: hw5.roghanmo.com
-  skip-cert-verify: false
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
   tls: true
-  udp: true
-  tfo: false
+  network: ws
+  servername: rayan-007.nastaran.dpdns.org
   ws-opts:
+    path: /
     headers:
-      Host: hw5.roghanmo.com
-    path: /fp=chrome
-- name: 4FreeIran-8dfbe00225
-  type: trojan
-  server: 158.247.255.150
-  port: 48851
-  password: 5t6i121em5lkmsmk
-  sni: kr002.zestapp778.com
+      Host: rayan-007.nastaran.dpdns.org
+- name: CF中转_1102077723
+  type: vless
+  server: 104.17.28.83
+  port: 2087
   udp: true
   skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: United Kingdom_None_ss_1046
-  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
-  port: 43385
-  server: sql.popmintxo.cc
-  type: ss
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  tls: true
+  network: ws
+  servername: whitecreeper.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /proxyip=ProxyIP.SG.CMLiussss.Net
+    headers:
+      Host: whitecreeper.pages.dev
+- name: 4Jadi-f041e21570
+  type: vless
+  server: 139.64.235.123
+  port: 443
   udp: true
   skip-cert-verify: false
-- name: 🇸🇬SG_8|211KB/s|A004-260618 [f4ea48c0ab38]
-  alterId: 0
-  cipher: auto
-  network: tcp
-  port: 18000
-  server: ww11.levikogjgfdd.ir
-  skip-cert-verify: false
-  sub_tag: A004-260618
-  tls: false
-  type: vmess
-  udp: true
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  xudp: true
-  packet-encoding: xudp
-  servername: telegram-i10vpn
-- cipher: aes-256-gcm
-  name: C🟠🇮🇹hos[🎬🤖📺🎭]_dokng.com_cdde7d80
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.18
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_8|479KB/s|G001-260618 [b9eb90496d5b]
-  cipher: chacha20-ietf-poly1305
-  country: 🇬🇧GB
-  delay: 493
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.69
-  sub_tag: G001-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4FreeIran-47ca299a5b
-  type: ss
-  server: 52.221.209.72
+  uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+  tls: true
+  network: ws
+  servername: notls.lukongtou.eu.org
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: notls.lukongtou.eu.org
+- name: CF中转_1102074479
+  type: vless
+  server: 172.67.75.194
   port: 2096
-  cipher: chacha20-ietf-poly1305
-  password: bf5129f1-31f5-4edf-a07a-27ec31b26c1d
   udp: true
   skip-cert-verify: false
-- name: 4Nika-ee1fa8e993
-  type: trojan
-  server: 66.163.127.9
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: resources.indyourperfectremotetechjobfromthecomfortofhome.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_95|7.8MB/s|A003-260618 [f1a3aba91519]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.212
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: Singapore_Singapore_trojan_1097
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 149.28.130.108
-  sni: searchcreativejobsandshowcaseyourartistictalents.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Canada_None_ss_1017
-  password: kDWvXYZoTBcGkC4
-  port: 8882
-  server: 51.222.136.236
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4Kian-6119ae206b
-  type: trojan
-  server: 15.235.184.127
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: exploredigitaljobplatformandfindonlinework.com
-  udp: true
-  skip-cert-verify: false
-- name: Australia_Sydney_trojan_1060
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 45.63.30.142
-  sni: connectwithemployerstohireyouridealteam.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_43|345KB/s|B007-260618 [3d866f4970a3]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 193.29.139.132
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: Germany_Frankfurt am Main_trojan_1069
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 193.108.119.15
-  sni: courses.iloverussia2026.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_44|7.5MB/s|B007-260618 [293bc8a3d324]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.42
-  sub_tag: B007-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-172 | 219ms
-  type: ss
-  server: 193.29.139.204
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: SHADOWSOCKS-193 | 911ms
-  type: ss
-  server: 193.29.139.235
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  name: '🇭🇰[www.v2nodes.com] vless-HK-1... #3'
-  port: 11907
-  server: 195.58.144.56
-  skip-cert-verify: false
+  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
   tls: true
-  type: vless
-  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: South Africa_Johannesburg_ss_1059
-  password: Xsy8Ox4yOV3xLlpxtjzs3X
-  port: 16233
-  server: 102.133.165.160
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: ❓Other_10|218KB/s [f792f247b209]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.219
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_186|3.5MB/s|A004-260618 [c5170cc69822]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.171
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: South Africa_Johannesburg_ss_1058
-  password: aduB9HGxQHjA2SBMRjkHX6
-  port: 443
-  server: 102.37.156.224
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_165|4.2MB/s|A004-260618 [1f63e37341ce]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 443
-  server: 193.29.139.235
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4Jadi-04934a6fb6
-  type: vless
-  server: s170.gogocs.xyz
-  port: 443
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  network: tcp
-  tls: true
-  servername: u695098u7dae9c0cs220.gogocs.xyz
+  network: ws
+  servername: whitecreeper.pages.dev
   client-fingerprint: chrome
-  flow: xtls-rprx-vision
+  ws-opts:
+    path: /proxyip=ProxyIP.SG.CMLiussss.Net
+    headers:
+      Host: whitecreeper.pages.dev
+- name: us|81c2|puddincat07@Telegram
+  type: hysteria2
+  server: 129.213.91.185
+  port: 35013
   udp: true
-  skip-cert-verify: false
-- name: 4Kian-906828049f
-  type: vless
-  server: in001.zestapp778.com
-  port: 57353
-  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
-  network: tcp
-  tls: true
-  servername: in001.zestapp778.com
-  client-fingerprint: chrome
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_59|379KB/s|A004-260618 [8b038f4cbe35]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 443
-  server: 82.38.31.169
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: France_None_ss_1052
-  password: 6heexyz
-  port: 443
-  server: 54.36.174.134
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1033
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.99
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Russia_Kazan'_ss_10140
-  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
-  port: 18443
-  server: 46.17.46.27
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: '@V2rayNGVPN > کانفیگ رایگان_2'
-  type: ss
-  server: 82.38.31.165
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: 澳大利亚 026
-  type: vmess
-  network: tcp
-  server: 43.130.35.53
-  port: 10087
-  uuid: 8e93b009-f1af-448a-b8ef-b110849a35f0
   skip-cert-verify: true
-  alterId: 0
-  cipher: auto
-  udp: true
-- name: India_None_trojan_1090
-  password: 5t6i121em5lkmsmk
-  port: 42733
-  server: in002.zestapp778.com
-  sni: in002.zestapp778.com
-  type: trojan
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_2|727KB/s [755ad3db773a]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.180
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_14|1.7MB/s|A004-260618 [8803b13fb9eb]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.198
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4Sarina-01c4a66881
-  type: trojan
-  server: 38.60.200.237
-  port: 33079
-  password: 5t6i121em5lkmsmk
-  sni: th001.zestapp778.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇭CH_41|949KB/s|M003-260806 [bdce9b997af3]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  password: 4291c983-c520-46ac-82cc-48f14bef573f
+  sni: 129.213.91.185
+- name: 4Kian-60b0c84e9b
+  type: vless
+  server: 172.67.74.90
   port: 443
-  server: 208.69.78.158
-  skip-cert-verify: false
-  sni: api.yourultimateprofessionalcareerhub.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-- name: 4Nika-a96dea9b71
-  type: trojan
-  server: 130.94.52.157
-  port: 46298
-  password: 5t6i121em5lkmsmk
-  sni: ph001.zestapp778.com
   udp: true
   skip-cert-verify: false
-- name: 4Kian-ce1f425811
-  type: trojan
-  server: 66.163.127.225
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: cdn.indyourperfectremotetechjobfromthecomfortofhome.com
-  udp: true
-  skip-cert-verify: false
-- name: 4Sarina-35f99ae02e
-  type: ss
-  server: 77.216.2.178
-  port: 30
-  cipher: chacha20-ietf-poly1305
-  password: BHxDn8Z67zuaoQsjHqSAMQQs8Dz1CGqJ
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_643|1.2MB/s|M003-260806 [b5892b2d26ef]
-  client-fingerprint: firefox
-  network: raw
-  port: 18580
-  server: 108.61.119.63
-  sub_tag: M003-260806
+  uuid: a4a951b9-901d-4db8-8a7d-6df82c4b5c23
   tls: true
-  type: vless
-  udp: true
-  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
-  xudp: true
-  packet-encoding: xudp
-  servername: us007.zestapp778.com
-  skip-cert-verify: false
-- name: 美国 1008
-  type: vless
   network: ws
-  server: 104.17.70.206
-  port: 8443
-  uuid: 5f704d93-7e7f-45b5-81f5-08db4a946220
-  servername: free.sahanwickramasinghe.com
-  skip-cert-verify: false
-  tls: true
-  udp: true
-  tfo: false
-  client-fingerprint: chrome
+  servername: cvhpyn.pages.dev
   ws-opts:
-    headers:
-      Host: free.sahanwickramasinghe.com
-    path: /
-- name: NL 🇳🇱 | @Raydikalx | AE2C85
-  type: trojan
-  server: 66.163.127.107
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: blog.indyourperfectremotetechjobfromthecomfortofhome.com
-  udp: true
-  skip-cert-verify: false
-- name: 4Kian-db271e1c8f
-  type: trojan
-  server: 208.69.78.222
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: yourultimateprofessionalcareerhub.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇬🇧GB_31|2.4MB/s|A004-260618 [1829620a37ac]
-  client-fingerprint: firefox
-  network: tcp
-  port: 8443
-  server: 51.38.71.147
-  sub_tag: A004-260618
-  tls: true
-  type: vless
-  udp: true
-  uuid: c08f0056-7a6d-4931-813b-aaa3cdd00aed
-  xudp: true
-  packet-encoding: xudp
-  servername: node-uk.connectsuite.org
-  skip-cert-verify: false
-- name: ❓Other_30|231KB/s|A004-260618 [55142f6dc811]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.206
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_29|302KB/s|A004-260618 [6210f5d8ebce]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 443
-  server: 82.38.31.170
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱@FreakConfig_6
-  type: ss
-  server: 82.38.31.171
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  udp: true
-  skip-cert-verify: false
-- name: '🇫🇷[www.v2nodes.com] vless-FR-1... #1'
-  port: 2053
-  server: w.geogame.ir
-  tls: true
-  type: vless
-  uuid: fbda2834-b1e7-4148-afb9-deda31036a30
-  udp: true
-  skip-cert-verify: false
-- name: 🇩🇪DE_143|4.4MB/s|A004-260618 [50da66b4f471]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 193.108.119.193
-  skip-cert-verify: false
-  sni: resources.iloverussia2026.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- name: MY 🇲🇾 | @Raydikalx | 75DBAB
-  type: ss
-  server: 130.94.69.15
-  port: 7001
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: United States_Export_ss_1012
-  password: lsu1v/3iNERwDDVwxCu5033KCUqQOoElYQul63kmqJ8=
-  port: 43558
-  server: 130.49.189.158
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_56|391KB/s|A003-260618 [911dbbbd2546]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.181
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 美国 859
-  type: vless
-  network: ws
-  server: 65.109.211.81
-  port: 465
-  uuid: 09f30c46-3964-41ce-882a-72aee83ddd42
-  servername: hw6.divarkhaghazi.com.
-  skip-cert-verify: false
-  tls: true
-  udp: true
-  tfo: false
-  client-fingerprint: chrome
-  ws-opts:
-    headers:
-      Host: hw6.divarkhaghazi.com.
-    path: /
-- name: 巴西 003
-  type: vless
-  network: tcp
-  server: 179.253.179.109
-  port: 63080
-  uuid: e3aa3d22-a95e-407b-aacc-d855b90a5d70
-  servername: de2.derevohom.xyz
-  tls: true
-  client-fingerprint: firefox
-  ws-opts:
-    path: /
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Canada_None_ss_1022
-  password: zDNVedRFPQexG9v
-  port: 445
-  server: 51.222.12.127
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇫🇷FR_323|307KB/s|M003-260806 [a1cb3611ca6e]
-  alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  network: tcp
-  port: 2053
-  server: 15.236.109.186
-  sub_tag: M003-260806
-  tls: true
-  type: vless
-  udp: true
-  uuid: fbda2834-b1e7-4148-afb9-deda31036a30
-  xudp: true
-  packet-encoding: xudp
-  servername: w.geogame.ir
-  skip-cert-verify: false
-- name: 4Mohsen-f8510c0395
-  type: trojan
-  server: 139.84.210.39
-  port: 42733
-  password: 5t6i121em5lkmsmk
-  sni: in002.zestapp778.com
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇭CH_53|3.5MB/s|A004-260618 [186dd21226a5]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 208.69.78.60
-  skip-cert-verify: false
-  sni: cdn.yourultimateprofessionalcareerhub.com
-  sub_tag: A004-260618
-  type: trojan
-  udp: true
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1029
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.63
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇺🇸US_317|1.5MB/s|A004-260618 [60a9d50d005d]
-  cipher: aes-256-gcm
-  password: FoOiGlkAA9yPEGP
-  port: 7307
-  server: 15.204.246.132
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 4Mohsen-33fe7f5fb7
-  type: ss
-  server: 47.129.229.144
-  port: 8443
-  cipher: chacha20-ietf-poly1305
-  password: 7e68e32f-8015-4f37-9082-70e8b0b58043
-  udp: true
-  skip-cert-verify: false
-- name: 美国 319
-  type: vmess
-  network: tcp
-  server: 38.110.1.246
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: false
-- name: 🇨🇭CH_55|3.3MB/s|M003-260806 [e3e1232d3655]
-  client-fingerprint: chrome
-  network: tcp
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 208.69.78.29
-  skip-cert-verify: false
-  sni: learn.yourultimateprofessionalcareerhub.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-- name: Netherlands Greenhost
-  type: ss
-  server: 82.38.31.205
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  skip-cert-verify: false
-- name: 澳大利亚 025
-  type: vmess
-  network: tcp
-  server: 129.154.61.196
-  port: 800
-  uuid: a915b1d6-cf28-4dc8-e4b4-e09c48c37ec0
-  skip-cert-verify: true
-  alterId: 0
-  cipher: auto
-  udp: true
-- name: 4Sarina-021fd0a60f
-  type: vless
-  server: 62.105.220.106
-  port: 443
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  network: tcp
-  tls: true
-  servername: u695098u7dae9c0cs220.gogocs.xyz
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  udp: true
-  skip-cert-verify: false
-- cipher: chacha20-ietf-poly1305
-  name: Norway_Oslo_ss_1047
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  port: 990
-  server: 185.213.23.63
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 巴西 004
-  type: vless
-  network: tcp
-  server: 179.253.179.109
-  port: 57043
-  uuid: da8fab8e-4a25-4eb0-b224-88ab96c753ce
-  servername: 87.121.86.24
-  tls: true
-  client-fingerprint: firefox
-  ws-opts:
-    path: /
-  udp: true
-  skip-cert-verify: false
-- name: 美国 017
-  type: vless
-  network: ws
-  server: 216.173.67.59
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  servername: ccc.010304.xyz
-  skip-cert-verify: false
-  tls: true
-  client-fingerprint: chrome
-  encryption: none
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
-    path: /
-  udp: true
-- name: 美国 309
-  type: vmess
-  network: tcp
-  server: 67.220.85.46
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: aes-128-gcm
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: United States_None_ss_1048
-  password: kDWvXYZoTBcGkC4
-  port: 8882
-  server: 149.104.109.252
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 美国 012
-  type: vless
-  network: ws
-  server: 155.103.71.142
-  port: 443
-  uuid: d342d11e-d224-4463-b982-532309285094
-  servername: ccc.010304.xyz
-  tls: true
-  client-fingerprint: chrome
-  ws-opts:
-    headers:
-      Host: ccc.010304.xyz
     path: /fp=chrome
-  udp: true
-  skip-cert-verify: false
-- name: 🇨🇭CH_42|310KB/s|M003-260806 [4539b41cc0e6]
-  client-fingerprint: chrome
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 208.69.78.33
-  skip-cert-verify: false
-  sni: courses.yourultimateprofessionalcareerhub.com
-  sub_tag: M003-260806
-  type: trojan
-  udp: true
-  network: tcp
-- name: 🇳🇱NL_12|210KB/s|A003-260618 [e90c711a96c6]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.16
-  sub_tag: A003-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_1|4.8MB/s|A004-260618 [f500f9f7def8]
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  port: 8080
-  server: 82.38.31.18
-  sub_tag: A004-260618
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1035
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.36
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: 🇳🇱NL_126|7.4MB/s [6495f691978f]
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  port: 8080
-  server: 82.38.31.190
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- cipher: aes-256-gcm
-  name: Italy_None_ss_1036
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 202.50.253.81
-  type: ss
-  udp: true
-  skip-cert-verify: false
-- name: ❓Other_1|69KB/s|C002-260622 [a26831edf597]
-  alterId: '0'
-  cipher: auto
-  network: tcp
-  port: 18000
-  server: 169.197.142.22
-  skip-cert-verify: false
-  sub_tag: C002-260622
-  tls: false
-  type: vmess
-  udp: true
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  xudp: true
-  packet-encoding: xudp
-- name: 4Mohsen-9399dddbbe
+    headers:
+      Host: cvhpyn.pages.dev
+- name: 4Jadi-5ebd542ffd
   type: vless
-  server: 185.72.11.43
-  port: 443
-  uuid: 689a62e4-37e7-41de-9e6a-f2a56368c9e2
-  network: tcp
+  server: 104.18.1.1
+  port: 2083
+  udp: true
+  skip-cert-verify: false
+  uuid: a1de0630-5786-48a0-84f6-dc6f2de10d6d
   tls: true
-  servername: rs8.speedtestinternet.link
-  client-fingerprint: firefox
-  flow: xtls-rprx-vision
+  network: ws
+  servername: vlsovip.1d.mom
+  client-fingerprint: ios
+  alpn:
+  - http/1.1
+  ws-opts:
+    path: /
+    headers:
+      Host: vlsovip.1d.mom
+- name: CF中转_110207559
+  type: vless
+  server: 172.64.147.85
+  port: 443
   udp: true
   skip-cert-verify: false
-- name: '@ConfigV2RayNG'
-  type: ss
-  server: 15.204.247.244
+  uuid: e53eacb6-cd30-4964-a57c-febcb5151b98
+  tls: true
+  network: ws
+  servername: wallweb-4r0.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: wallweb-4r0.pages.dev
+- name: 🇫🇷FR_325|1.1MB/s|M003-260806 [4c3ddca66888]
+  type: vless
+  server: 104.16.251.179
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: fceb3200-2516-47d2-8e28-d04ecde9427a
+  tls: true
+  network: ws
+  servername: edge-fef90023.pages.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: edge-fef90023.pages.dev
+- name: 4FreeIran-a8a89d80df
+  type: vless
+  server: 104.17.165.248
+  port: 2087
+  udp: true
+  skip-cert-verify: false
+  uuid: 7b102311-43fd-4e8f-877e-8090623c101d
+  tls: true
+  network: ws
+  servername: vp21.cc.cd
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: vp21.cc.cd
+- name: 美国 838
+  type: vmess
+  server: 172.64.229.21
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  cipher: auto
+  alterId: 0
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws?ed=2048
+    headers:
+      Host: vmess.lbw666.dpdns.org
+- name: 4Kian-0d6cadd6cf
+  type: vless
+  server: 104.20.22.159
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 2d4b819d-6fa6-4db2-8434-61e7db0fe93c
+  tls: true
+  network: ws
+  servername: cf.zhahui.de5.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: cf.zhahui.de5.net
+- name: 4Sarina-a1824d0068
+  type: vless
+  server: 104.16.149.244
+  port: 2087
+  udp: true
+  skip-cert-verify: false
+  uuid: 767b6340-96dc-4aa0-8013-a8af7513d920
+  tls: true
+  network: ws
+  servername: c7dabe95.proxy-978.pages.dev
+  client-fingerprint: random
+  ws-opts:
+    path: /
+    headers:
+      Host: c7dabe95.proxy-978.pages.dev
+- name: 日本_110207180
+  type: hysteria2
+  server: 8.209.247.109
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: usqmqUKJFIlCmvkCNSY64L3k
+  sni: 8.209.247.109
+- name: 4Mohsen-30302633ac
+  type: hysteria2
+  server: 5.129.235.85
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: gf1:gfhysteria2024
+- name: 4Kian-2ed3898adc
+  type: hysteria2
+  server: 51.15.16.68
+  port: 24048
+  udp: true
+  skip-cert-verify: true
+  password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
+- name: 4FreeIran-bc5a2a5882
+  type: hysteria2
+  server: 51.15.16.68
+  port: 24044
+  udp: true
+  skip-cert-verify: true
+  password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
+- name: 法国_110207202
+  type: hysteria2
+  server: 141.0.187.15
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 70043bfa-d6fb-4980-b27e-773e9e8b2004
+  sni: crt.onecloudstream.com
+- name: 4Kian-2f8fbeec8d
+  type: hysteria2
+  server: 13.36.234.11
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- name: 4Kian-2e7058c4db
+  type: hysteria2
+  server: 62.210.7.139
+  port: 60111
+  udp: true
+  skip-cert-verify: true
+  password: github.com/Alvin9999-newpac/fanqiang
+- name: 4FreeIran-7909020cc8
+  type: hysteria2
+  server: 62.210.147.2
+  port: 43115
+  udp: true
+  skip-cert-verify: true
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
+- name: 4Sarina-f162bba6eb
+  type: hysteria2
+  server: 144.124.245.52
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 6da2c981-8c77-4340-bda3-93399b7aea26
+  sni: store.blog-forme.ru
+- name: 4Sarina-a731fc3823
+  type: hysteria2
+  server: 151.243.169.164
+  port: 12824
+  udp: true
+  skip-cert-verify: false
+  password: d62s7ghfehm742us
+  sni: derfderf.ru
+- name: 4Nika-c5157adb91
+  type: hysteria2
+  server: 88.99.213.222
+  port: 14444
+  udp: true
+  skip-cert-verify: true
+  password: mhsl
+- name: 🎃96@oneclickvpnkeys
+  type: hysteria2
+  server: 3.76.221.4
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: 3.76.221.4
+- name: 🎃37@oneclickvpnkeys
+  type: hysteria2
+  server: 163.245.41.48
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 6da2c981-8c77-4340-bda3-93399b7aea26
+  sni: blogs.blog-forme.ru
+- name: ch|46cb|puddincat07@Telegram
+  type: hysteria2
+  server: 140.238.213.114
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 84a506ca5aca505696a454d828420b3f
+  sni: www.bing.com
+- name: 美国+Xerox
+  type: hysteria2
+  server: 13.143.188.143
   port: 4444
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
+  udp: true
+  skip-cert-verify: true
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: bl1.nexfile.net
+- name: 🎃94@oneclickvpnkeys
+  type: hysteria2
+  server: 13.143.189.106
+  port: 4444
   udp: true
   skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl2.nexfile.net
+- name: 4Jadi-048ab171bb
+  type: hysteria2
+  server: 13.143.189.142
+  port: 4444
+  udp: true
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl3.nexfile.net
+- name: 4Mohsen-13ed56c596
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21016
+  udp: true
+  skip-cert-verify: true
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+- name: 🎃34@oneclickvpnkeys
+  type: hysteria2
+  server: 13.143.189.96
+  port: 4444
+  udp: true
+  skip-cert-verify: true
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl3.nexfile.net
+- name: برای اتصال دائمی جوین شو🪭 Tele...
+  type: hysteria2
+  server: 13.143.188.142
+  port: 4444
+  udp: true
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: bl1.nexfile.net
+- name: 4Nika-7a541d515a
+  type: hysteria2
+  server: 50.7.38.243
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: d4ca9415f0eac7897472e1e5b86d2e96
+  sni: promo.betust.net
+- name: 4Kian-69e351ce49
+  type: hysteria2
+  server: 155.117.19.17
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 5fa748137b6d822308eea4611f474ad5
+  sni: www.bing.com
+  obfs: salamander
+  obfs-password: a39ca173b57ac7021b08bf3e3de9f1f6
+- name: 4Jadi-6591830da6
+  type: hysteria2
+  server: 5.45.100.100
+  port: 51511
+  udp: true
+  skip-cert-verify: true
+  password: miaoge110
+  sni: 5.45.100.100
+- name: kr|1325|puddincat07@Telegram
+  type: hysteria2
+  server: 152.70.237.123
+  port: 2053
+  udp: true
+  skip-cert-verify: true
+  password: maintell
+  sni: bing.com
+- name: 4Kian-b1f74ed8a9
+  type: hysteria2
+  server: 202.146.222.89
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- name: 4Jadi-1b9d646dfe
+  type: hysteria2
+  server: 152.32.254.68
+  port: 5010
+  udp: true
+  skip-cert-verify: true
+  password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+  sni: 127.0.0.1
+  obfs: salamander
+  obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
+- name: 4Mohsen-8bbb320d02
+  type: hysteria2
+  server: 31.57.248.176
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: b0917015b656b3dd2286b5633af0c5c1
+- name: 4Kian-eb043a049b
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: 202.146.222.29
+- name: 4FreeIran-cfdbde3678
+  type: hysteria2
+  server: 202.146.222.174
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: https://t.me/oneclickvpnkeys
+- name: 🇫🇮FI_1|3.3MB/s
+  type: hysteria2
+  server: 179.253.82.33
+  port: 4444
+  udp: true
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: fl3.nexfile.net
+- name: 4Nika-f7404b7dd2
+  type: hysteria2
+  server: 152.67.200.82
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+- name: 4Nika-7f3d4373f5
+  type: hysteria2
+  server: 152.69.231.175
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 1beb216e3f60aea9555dae60d219a5ca
+- name: 🎃71@oneclickvpnkeys
+  type: hysteria2
+  server: 18.193.79.104
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: 18.193.79.104
+- name: sg|0ed4|puddincat07@Telegram
+  type: hysteria2
+  server: 138.2.73.238
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: f87376e17da040ed04c9665ce8972930
+  sni: 138.2.73.238
+- name: 🇫🇷FR_305|1.2MB/s|M003-260806 [4977975a03ec]
+  type: vless
+  server: 92.53.190.167
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 50414e45-4c5f-5a45-5553-ccc0e8cd3a83
+  tls: true
+  network: ws
+  servername: fgzb39ezu86s.ycz7syeeu3is.workers.dev
+  ws-opts:
+    path: /stream/PANEL_ZEUS/ccc0e8cd3a83
+    headers:
+      Host: fgzb39ezu86s.ycz7syeeu3is.workers.dev
+- name: 4Jadi-a44369095d
+  type: hysteria2
+  server: 132.226.226.189
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 1671a252e2a97dc2bda4e515475931da
+- name: 4Nika-a4c213c51f
+  type: hysteria2
+  server: 3.76.203.180
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- name: 🇫🇷FR_302|449KB/s|M003-260806 [2935efceabb2]
+  type: vless
+  server: 104.239.72.227
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 50414e45-4c5f-5a45-5553-ccc0e8cd3a83
+  tls: true
+  network: ws
+  servername: fgzb39ezu86s.ycz7syeeu3is.workers.dev
+  ws-opts:
+    path: /stream/PANEL_ZEUS/ccc0e8cd3a83
+    headers:
+      Host: fgzb39ezu86s.ycz7syeeu3is.workers.dev
+- name: 阿联酋_110207095
+  type: hysteria2
+  server: 217.60.73.56
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 69e41e64-a832-471a-b740-94577ca85520
+  sni: forshynewh.duckdns.org
+- name: 4Nika-8611f62d25
+  type: hysteria2
+  server: 153.56.210.134
+  port: 38045
+  udp: true
+  skip-cert-verify: true
+  password: a81a7b45-dd70-42ef-822f-ef467f944382
+  sni: www.bing.com
+  obfs: salamander
+  obfs-password: 642516f2-f9bd-41ce-9904-dee699c39cf9
+- name: 4Jadi-2055a311d2
+  type: hysteria2
+  server: 103.88.243.142
+  port: 11592
+  udp: true
+  skip-cert-verify: true
+  password: 41edb44c8e
+  sni: 103.88.243.142
+- name: 4FreeIran-6e3bf07a46
+  type: hysteria2
+  server: 162.249.125.133
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: QCgqi_I4EkV8UR-OgQ_tG4EnVTEVvIyR2GgRBzrIn2s
+  sni: hy2-new.aspidnet.xyz
+  obfs: salamander
+  obfs-password: c1b4086fea89914496c7e10967a419216566
+- name: 4FreeIran-8f9df5dca4
+  type: vless
+  server: 88.216.67.54
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 50414e45-4c5f-5a45-5553-47be357e54da
+  tls: true
+  network: ws
+  servername: 52z4vtewuass.game4090taking.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /stream/PANEL_ZEUS/47be357e54da/loc-0
+    headers:
+      Host: 52z4vtewuass.game4090taking.workers.dev
+- name: 4Nika-08de16f1fb
+  type: hysteria2
+  server: 24.233.8.109
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 8294f130408299df8cab08c80bf6f819
+  sni: www.bing.com
+  obfs: salamander
+  obfs-password: c8827ab99e316c5bd414e21afa915ddf
+- name: 🇳🇱NL_23|393KB/s|M003-260806 [6757685ee804]
+  type: vless
+  server: 172.67.155.222
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 82b279c6-5cba-3a96-f8bd-780a00000035
+  tls: true
+  network: ws
+  servername: pi7ews-woj41w-7wx0gk.ho3ein13-3af.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /sync
+    headers:
+      Host: pi7ews-woj41w-7wx0gk.ho3ein13-3af.workers.dev
+- name: 4FreeIran-4c06e360a8
+  type: trojan
+  server: 104.234.239.139
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 70756c73-0000-4000-8000-650000000000
+  network: ws
+  sni: parsa-panel-u48we.wotic15356.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /pulse
+    headers:
+      Host: parsa-panel-u48we.wotic15356.workers.dev
+- name: 4Kian-33fdfc8425
+  type: vless
+  server: 104.21.29.202
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 326227e2-f2d1-4f43-8715-9da854f5f4c0
+  tls: true
+  network: ws
+  servername: px2.5ibtc.cn
+  client-fingerprint: chrome
+  ws-opts:
+    path: /326227e2-f2d1-4f43-8715-9da854f5f4c0
+    headers:
+      Host: px2.5ibtc.cn
+- name: 4FreeIran-d7305d0ab9
+  type: vless
+  server: 172.67.167.179
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: a8b1d666-d3ba-4b17-90c4-ba7514c74f78
+  tls: true
+  network: ws
+  servername: xstack.mahanfixe.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /xiron
+    headers:
+      Host: xstack.mahanfixe.workers.dev
+- name: 4Sarina-f35dd21a5b
+  type: vless
+  server: 195.137.226.133
+  port: 2083
+  udp: true
+  skip-cert-verify: true
+  uuid: 7f733b1a-6c00-48ac-ae3b-cbc178a9146e
+  tls: true
+  network: ws
+  servername: nexostore.xnetaro.ir
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  ws-opts:
+    path: /wss?TELEGRAM----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN
+    headers:
+      Host: nexostore.xnetaro.ir
+- name: '🇯🇵[www.v2nodes.com] vless-JP-1... #2'
+  type: vless
+  server: 172.67.156.147
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  tls: true
+  network: ws
+  servername: jp3.yohototo.top
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '🏳[www.v2nodes.com] vless- #6'
+  type: vless
+  server: support.zoom.us
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  uuid: 990bf436-f1b9-4e7f-857d-14378acc4ae5
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Free.nadun.store
+- name: 4Kian-6582ff7c79
+  type: vmess
+  server: 104.21.91.53
+  port: 8443
+  udp: true
+  skip-cert-verify: false
+  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+  cipher: auto
+  alterId: 0
+  tls: true
+  network: ws
+  servername: v2ray1.dozapp.xyz
+  ws-opts:
+    path: /lMnsZUN4/
+    headers:
+      Host: v2ray1.dozapp.xyz
+- name: 🇳🇱 Нидерланды [🏴BL] | 🥭🔧
+  type: hysteria2
+  server: 45.91.237.78
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: f4b80b26-b6d4-49a6-a460-f50efb7a457c
+  sni: node.aweom.su
+- name: 4Sarina-16aec8fed8
+  type: trojan
+  server: 104.25.239.113
+  port: 2053
+  udp: true
+  skip-cert-verify: true
+  password: gHQP0D7D15
+  network: ws
+  sni: marvdasht.phonecomparisonblog.org
+  ws-opts:
+    path: /
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - AUTO
   - FALLBACK
-  - DIRECT
-  - 4FreeIran-f41c76c0dc
-  - 英国_110203330
-  - 4Kian-3b2644a696
-  - 4FreeIran-b42be4d43c
-  - 4Kian-048baa8ac2
-  - 4Nika-7f3d4373f5
-  - 4FreeIran-c6ac9a944e
-  - SHADOWSOCKS-10 | 66ms
-  - SHADOWSOCKS-2 | 29ms
-  - SHADOWSOCKS-1 | 58ms
-  - 4Mohsen-0075c8c36b
-  - 🇺🇸@FreakConfig
-  - 🇺🇸US_367|1.2MB/s|A004-260618 [959578925c29]
-  - SHADOWSOCKS-8 | 78ms
-  - SHADOWSOCKS-7 | 87ms
-  - SHADOWSOCKS-18 | 83ms
-  - 4Nika-fa5bc5bdb4
-  - 🇺🇸US_233|1.8MB/s|A004-260618 [efbcc8a70025]
-  - SHADOWSOCKS-22 | 72ms
-  - SHADOWSOCKS-4 | 60ms
-  - Canada_None_ss_1016
-  - 🇫🇷FR_351|959KB/s|M003-260806 [b2b361a641c5]
-  - United States_None_trojan_10103
-  - 防失效github+SubCrawler南非_110203023
-  - 🇫🇷FR_312|860KB/s|M003-260806 [d69326b56199]
-  - United States_None_trojan_10102
-  - 美国 318
-  - 🇫🇷FR_350|622KB/s|M003-260806 [45e0e651cbe7]
-  - 🇸🇬[www.v2nodes.com] vless-SG
-  - 🇺🇸US_361|926KB/s|A004-260618 [9b10e8e6bf84]
-  - 🇺🇸US_370|1.8MB/s|B007-260618 [719341a104ed]
-  - 4Jadi-7f602ac5b2
-  - 🇺🇸US_41|606KB/s|A004-260618 [b62cf4f7c9b4]
-  - United States_None_trojan_10100
-  - 美国 011
-  - SHADOWSOCKS-73 | 81ms
-  - 4Kian-8a43d30ef6
-  - YFZ 142 @Outline_Vpn
-  - US美国(mibei77.com 米贝节点分享) (56)
-  - 🇫🇷FR_77|606KB/s|P001-260618 [52adbca3aca7]
-  - 🇺🇸US_366|1.0MB/s|C001-260618 [c9148f5355de]
-  - 🇺🇸US_362|1.6MB/s|A004-260618 [16f4c5e97fb4]
-  - SHADOWSOCKS-41 | 78ms
-  - 4FreeIran-8b0f9da0f8
-  - ❓未知丨yoyapai.com (54)
-  - 4FreeIran-ab11a27c7c
-  - United States_Turtle Creek_trojan_1065
-  - 🇫🇷FR_354|848KB/s|M003-260806 [2a4ac6c0b730]
-  - 🇫🇷FR_206|556KB/s|S004-260618 [4a036656607b]
-  - 4Kian-aa6674ae66
-  - United States_None_trojan_10105
-  - United States_None_trojan_1099
-  - 4FreeIran-347f3028e7
-  - 美国 271
-  - United States_None_trojan_10106
-  - 🇫🇷FR_187|747KB/s|M003-260806 [961808f4ffc6]
+  - 4Kian-075ecf5c91
+  - 4Sarina-f7b127fa01
+  - 4Sarina-5a9c2e3439
+  - 4Nika-30008a79b6
   - 4Sarina-84c887c0ac
-  - 美国 315
-  - 🇫🇷FR_168|570KB/s|S004-260618 [e1d7e48737a1]
-  - 🇺🇸US_576|748KB/s|A004-260618 [fe4e365487a5]
-  - 🇺🇸US_591|957KB/s|A004-260618 [594337d2d6df]
-  - United States_Turtle Creek_trojan_1062
-  - 4FreeIran-ecf2fff836
-  - 4Jadi-931d3c613e
-  - 🇺🇸US_523|878KB/s|M003-260806 [33d1af5ac7d0]
-  - SHADOWSOCKS-45 | 92ms
-  - 🇺🇸US_608|960KB/s|M003-260806 [3e2ce75413d7]
-  - 🇺🇸US_445|919KB/s|A004-260618 [7292f50acabf]
-  - 4FreeIran-d1b670b29e
-  - 🇺🇸US_583|942KB/s|A004-260618 [739cadcc5128]
-  - 🇫🇷FR_306|465KB/s|M003-260806 [6cf0955760dd]
-  - 4Sarina-449632ca05
-  - 🇺🇸US_489|968KB/s|A004-260618 [942617566953]
-  - 🇺🇸US_20|4.2MB/s
-  - 4Mohsen-609338f3bb
-  - 4Kian-71fe8d5a25
-  - 🇺🇸US_538|672KB/s|M003-260806 [810517b2c765]
-  - 4FreeIran-d82f954a12
-  - '🏳[www.v2nodes.com] ss- #2'
-  - United Kingdom_None_ss_1026
-  - SHADOWSOCKS-176 | 215ms
-  - ❓Other_36|303KB/s|B007-260618 [4b42f3cf532f]
-  - YFZ 185 @Outline_Vpn
-  - 🇳🇱NL_48|8.7MB/s|A004-260618 [5d74d658f7e7]
-  - 🇳🇱NL_13|299KB/s|A004-260618 [35fe4571369c]
-  - 🇳🇱NL_5|1.1MB/s [6abc29a78ba7]
-  - 🇳🇱NL_11|289KB/s|A004-260618 [646eca787816]
-  - SHADOWSOCKS-152 | 228ms
-  - 🇳🇱NL_6|328KB/s|A003-260618 [ea2be6ced3e6]
-  - 🇳🇱NL_121|3.3MB/s|A004-260618 [c624aee3660e]
-  - 🇳🇱NL_12|2.7MB/s|B007-260618 [756d6045550c]
-  - 🇳🇱NL_24|386KB/s|A004-260618 [edd9f948eae6]
-  - 🇳🇱NL_115|5.4MB/s|A004-260618 [be357174b739]
-  - 🇳🇱NL_46|9.3MB/s|A003-260618 [1dd9246942f0]
-  - 🇳🇱NL_7|231KB/s|M001-260618 [f241e5428cf7]
-  - 🇳🇱NL_7|3.5MB/s|B007-260618 [0be7bd33865b]
-  - 🇳🇱NL_25|3.0MB/s [f2147f2d1e59]
-  - 🇳🇱NL_3|3.5MB/s|A003-260618 [14d994c4b1df]
-  - 🇳🇱NL_54|244KB/s|A004-260618 [e061c952eee0]
-  - 🇳🇱NL_15|554KB/s|B007-260618 [79f2feb3b096]
-  - 🇳🇱NL_42|231KB/s|M001-260618 [5022e227ef2f]
-  - 4FreeIran-575c7708fc
-  - 🇳🇱NL_9|290KB/s|A004-260618 [f7b305430c0b]
-  - YFZ 226 @Outline_Vpn
-  - Bulgaria_None_ss_1028
-  - 🇳🇱NL_90|3.5MB/s|A004-260618 [643d83a46a8f]
-  - 🇳🇱NL_13|4.8MB/s [4739be97375f]
-  - SHADOWSOCKS-114 | 194ms
-  - ❓Other_29|189KB/s|C002-260622 [bd938769ebfd]
-  - '@v2rayng3'
-  - YFZ 233 @Outline_Vpn
-  - ❓Other_28|276KB/s|A003-260618 [2b02c3d10d8d]
-  - 🇳🇱NL_14|417KB/s|A003-260618 [fee053c08ec7]
-  - 🇳🇱NL_117|7.1MB/s|A004-260618 [ba81e0445a0d]
-  - 🇳🇱NL_20|299KB/s|A004-260618 [8d7fbaa25067]
-  - ❓Other_18|496KB/s [2fcb59fe7abc]
-  - 🇩🇪DE_58|3.2MB/s|C001-260618 [ac8ffe36f9e0]
-  - 🇳🇱@FreakConfig
-  - 🇳🇱NL_68|1.0MB/s|A003-260618 [eb105df8a38d]
-  - 🇳🇱NL_42|7.2MB/s|B007-260618 [2fdffbe641e3]
-  - 🇳🇱NL_4|7.6MB/s|A003-260618 [cb6ae96da10d]
-  - 🇳🇱NL_46|512KB/s [0d550c3f31cc]
-  - 🇳🇱NL_19|3.3MB/s|A003-260618 [78703b0f3895]
-  - '@V2rayNGVPN > کانفیگ رایگان'
-  - 🇳🇱@FreakConfig_2
-  - 🇳🇱NL_41|253KB/s|B007-260618 [ce79f61b5c4b]
-  - 🇳🇱NL_26|297KB/s|A003-260618 [2814144ac66c]
-  - 🇳🇱NL_50|630KB/s|A004-260618 [7ba8fd1d6b6f]
-  - 🇯🇵JP_7|692KB/s|A004-260618 [52b960f92374]
-  - United States_Washington_ss_1043
-  - 🇯🇵JP_1|280KB/s|A004-260618 [460717d25156]
-  - 🇳🇱NL_114|1.8MB/s|A004-260618 [7e64756eef68]
-  - 🇳🇱@FreakConfig_3
-  - 🇵🇱[www.v2nodes.com] ss-PL-1273...
-  - United Kingdom_None_ss_1013
-  - 🇳🇱NL_36|252KB/s [067369cc7995]
-  - 🇳🇱NL_18|6.4MB/s|A003-260618 [9b74b6b41316]
-  - 🇳🇱NL_10|244KB/s|A004-260618 [7813c28b9637]
-  - France_None_ss_1050
-  - 🇯🇵[www.v2nodes.com] ss-JP-1544...
-  - United States_Ashburn_ss_1039
-  - '🇵🇱[www.v2nodes.com] ss-PL-1273... #1'
-  - France_None_ss_1051
-  - 🇳🇱NL_164|8.1MB/s [c3dbcf50fb16]
-  - Japan_Tokyo_ss_1042
-  - 🇳🇱NL_19|1.7MB/s|A003-260618 [3965caa1cb10]
-  - 🇨🇦CA_54|1.0MB/s|A004-260618 [dbb96aa2cb75]
-  - United States_None_trojan_1073
-  - Germany_Frankfurt am Main_trojan_1070
-  - 🇳🇱NL_22|4.2MB/s|A004-260618 [bf68da5d936d]
-  - 🇳🇱[www.v2nodes.com] ss-NL-1604...
-  - Italy_None_ss_1034
-  - Italy_None_ss_1031
-  - 🇳🇱NL_39|81KB/s|M003-260806 [8d28008e48bf]
-  - 🇳🇱NL_90|2.6MB/s [cc7a5983913f]
-  - Poland_Warsaw_trojan_1096
-  - 🇸🇪SE_10|3.4MB/s|M003-260806 [4330e0d71fac]
-  - ❓Other_5|215KB/s [a150b688ca1a]
-  - 🇳🇱NL_21|568KB/s [5e645d9908a8]
-  - Egypt_Cairo_ss_1023
-  - 🇯🇵JP_31|592KB/s|M003-260806 [aa552eb71397]
-  - Italy_None_ss_1038
-  - 英国 001
-  - 🇺🇸US_610|1.1MB/s|M003-260806 [4ced23913920]
-  - 🇳🇱NL_117|7.2MB/s|A004-260618 [614d9554e68d]
-  - 4Jadi-03acfeb7fd
-  - 🇳🇱NL_24|7.4MB/s|A004-260618 [b05ae2b721b6]
-  - 🇳🇱@FreakConfig_4
-  - 🇳🇱NL_32|553KB/s [bb27b280f2a8]
-  - 以色列 002
-  - 以色列 001
-  - ❓Other_20|234KB/s|A003-260618 [998962da975a]
-  - 荷兰 002
-  - 🇳🇱NL_34|223KB/s|A004-260618 [dd10607890a5]
-  - 4Jadi-0c875a335d
-  - 马来西亚 002
-  - 4Sarina-4ceff45265
-  - 🇩🇪DE_9|1.5MB/s|S004-260618 [10531519d08c]
-  - 德国 066
-  - 🇳🇱@FreakConfig_5
-  - 日本 038
-  - Italy_None_ss_1030
-  - 4Sarina-ae46648abd
-  - 德国 067
-  - 4FreeIran-8dfbe00225
-  - United Kingdom_None_ss_1046
-  - 🇸🇬SG_8|211KB/s|A004-260618 [f4ea48c0ab38]
-  - C🟠🇮🇹hos[🎬🤖📺🎭]_dokng.com_cdde7d80
-  - 🇳🇱NL_8|479KB/s|G001-260618 [b9eb90496d5b]
-  - 4FreeIran-47ca299a5b
-  - 4Nika-ee1fa8e993
-  - 🇳🇱NL_95|7.8MB/s|A003-260618 [f1a3aba91519]
-  - Singapore_Singapore_trojan_1097
-  - Canada_None_ss_1017
-  - 4Kian-6119ae206b
-  - Australia_Sydney_trojan_1060
-  - 🇳🇱NL_43|345KB/s|B007-260618 [3d866f4970a3]
-  - Germany_Frankfurt am Main_trojan_1069
-  - 🇳🇱NL_44|7.5MB/s|B007-260618 [293bc8a3d324]
-  - SHADOWSOCKS-172 | 219ms
-  - SHADOWSOCKS-193 | 911ms
-  - '🇭🇰[www.v2nodes.com] vless-HK-1... #3'
-  - South Africa_Johannesburg_ss_1059
-  - ❓Other_10|218KB/s [f792f247b209]
-  - 🇳🇱NL_186|3.5MB/s|A004-260618 [c5170cc69822]
-  - South Africa_Johannesburg_ss_1058
-  - 🇳🇱NL_165|4.2MB/s|A004-260618 [1f63e37341ce]
-  - 4Jadi-04934a6fb6
-  - 4Kian-906828049f
-  - 🇳🇱NL_59|379KB/s|A004-260618 [8b038f4cbe35]
-  - France_None_ss_1052
-  - Italy_None_ss_1033
-  - Russia_Kazan'_ss_10140
-  - '@V2rayNGVPN > کانفیگ رایگان_2'
-  - 澳大利亚 026
-  - India_None_trojan_1090
-  - 🇳🇱NL_2|727KB/s [755ad3db773a]
-  - 🇳🇱NL_14|1.7MB/s|A004-260618 [8803b13fb9eb]
-  - 4Sarina-01c4a66881
-  - 🇨🇭CH_41|949KB/s|M003-260806 [bdce9b997af3]
-  - 4Nika-a96dea9b71
-  - 4Kian-ce1f425811
-  - 4Sarina-35f99ae02e
-  - 🇺🇸US_643|1.2MB/s|M003-260806 [b5892b2d26ef]
-  - 美国 1008
-  - NL 🇳🇱 | @Raydikalx | AE2C85
-  - 4Kian-db271e1c8f
-  - 🇬🇧GB_31|2.4MB/s|A004-260618 [1829620a37ac]
-  - ❓Other_30|231KB/s|A004-260618 [55142f6dc811]
-  - 🇳🇱NL_29|302KB/s|A004-260618 [6210f5d8ebce]
-  - 🇳🇱@FreakConfig_6
-  - '🇫🇷[www.v2nodes.com] vless-FR-1... #1'
-  - 🇩🇪DE_143|4.4MB/s|A004-260618 [50da66b4f471]
-  - MY 🇲🇾 | @Raydikalx | 75DBAB
-  - United States_Export_ss_1012
-  - 🇳🇱NL_56|391KB/s|A003-260618 [911dbbbd2546]
-  - 美国 859
-  - 巴西 003
-  - Canada_None_ss_1022
-  - 🇫🇷FR_323|307KB/s|M003-260806 [a1cb3611ca6e]
-  - 4Mohsen-f8510c0395
-  - 🇨🇭CH_53|3.5MB/s|A004-260618 [186dd21226a5]
-  - Italy_None_ss_1029
-  - 🇺🇸US_317|1.5MB/s|A004-260618 [60a9d50d005d]
-  - 4Mohsen-33fe7f5fb7
-  - 美国 319
-  - 🇨🇭CH_55|3.3MB/s|M003-260806 [e3e1232d3655]
-  - Netherlands Greenhost
-  - 澳大利亚 025
-  - 4Sarina-021fd0a60f
-  - Norway_Oslo_ss_1047
-  - 巴西 004
-  - 美国 017
-  - 美国 309
-  - United States_None_ss_1048
-  - 美国 012
-  - 🇨🇭CH_42|310KB/s|M003-260806 [4539b41cc0e6]
-  - 🇳🇱NL_12|210KB/s|A003-260618 [e90c711a96c6]
-  - 🇳🇱NL_1|4.8MB/s|A004-260618 [f500f9f7def8]
-  - Italy_None_ss_1035
-  - 🇳🇱NL_126|7.4MB/s [6495f691978f]
-  - Italy_None_ss_1036
-  - ❓Other_1|69KB/s|C002-260622 [a26831edf597]
-  - 4Mohsen-9399dddbbe
-  - '@ConfigV2RayNG'
+  - 4Sarina-0122c39cde
+  - 4Mohsen-d4e37e3786
+  - 4Nika-1b37ba15de
+  - 4FreeIran-d6ac0c4c71
+  - 🇺🇸US_39|223KB/s|A004-260618 [d92318afee09]
+  - 🇺🇸US_21|263KB/s|A004-260618 [0e40b52615aa]
+  - 4Kian-aa6674ae66
+  - 4Mohsen-6935c24914
+  - 4Kian-fa4ba8369c
+  - CF中转_110207763
+  - 4Sarina-e047c91696
+  - 4Mohsen-651e505b41
+  - 4FreeIran-f653bb4849
+  - 🇫🇷FR_25|95KB/s|T001-260618 [5dd78972cd2e]
+  - 4Jadi-a1184fabd1
+  - 4Nika-ac9ba71124
+  - 4Mohsen-e3f142477a
+  - 4Kian-1145bf42bc
+  - CF中转_1102071012
+  - 4Kian-af5346de16
+  - 美国 1176
+  - 4Sarina-fe9401be2b
+  - 4Mohsen-63522b1b10
+  - 4Jadi-36e4711320
+  - 4Nika-c9cf18cd11
+  - 4Kian-4d8f1fe082
+  - 4Sarina-40537f105f
+  - 4Nika-540cbc1dc3
+  - 🇨🇦CA加拿大丨yoyapai.com (20)
+  - 4Mohsen-18f67ca965
+  - 4Sarina-ca7125889f
+  - 4Kian-060d9cea29
+  - CF中转_1102077723
+  - 4Jadi-f041e21570
+  - CF中转_1102074479
+  - us|81c2|puddincat07@Telegram
+  - 4Kian-60b0c84e9b
+  - 4Jadi-5ebd542ffd
+  - CF中转_110207559
+  - 🇫🇷FR_325|1.1MB/s|M003-260806 [4c3ddca66888]
+  - 4FreeIran-a8a89d80df
+  - 美国 838
+  - 4Kian-0d6cadd6cf
+  - 4Sarina-a1824d0068
+  - 日本_110207180
+  - 4Mohsen-30302633ac
+  - 4Kian-2ed3898adc
+  - 4FreeIran-bc5a2a5882
+  - 法国_110207202
+  - 4Kian-2f8fbeec8d
+  - 4Kian-2e7058c4db
+  - 4FreeIran-7909020cc8
+  - 4Sarina-f162bba6eb
+  - 4Sarina-a731fc3823
+  - 4Nika-c5157adb91
+  - 🎃96@oneclickvpnkeys
+  - 🎃37@oneclickvpnkeys
+  - ch|46cb|puddincat07@Telegram
+  - 美国+Xerox
+  - 🎃94@oneclickvpnkeys
+  - 4Jadi-048ab171bb
+  - 4Mohsen-13ed56c596
+  - 🎃34@oneclickvpnkeys
+  - برای اتصال دائمی جوین شو🪭 Tele...
+  - 4Nika-7a541d515a
+  - 4Kian-69e351ce49
+  - 4Jadi-6591830da6
+  - kr|1325|puddincat07@Telegram
+  - 4Kian-b1f74ed8a9
+  - 4Jadi-1b9d646dfe
+  - 4Mohsen-8bbb320d02
+  - 4Kian-eb043a049b
+  - 4FreeIran-cfdbde3678
+  - 🇫🇮FI_1|3.3MB/s
+  - 4Nika-f7404b7dd2
+  - 4Nika-7f3d4373f5
+  - 🎃71@oneclickvpnkeys
+  - sg|0ed4|puddincat07@Telegram
+  - 🇫🇷FR_305|1.2MB/s|M003-260806 [4977975a03ec]
+  - 4Jadi-a44369095d
+  - 4Nika-a4c213c51f
+  - 🇫🇷FR_302|449KB/s|M003-260806 [2935efceabb2]
+  - 阿联酋_110207095
+  - 4Nika-8611f62d25
+  - 4Jadi-2055a311d2
+  - 4FreeIran-6e3bf07a46
+  - 4FreeIran-8f9df5dca4
+  - 4Nika-08de16f1fb
+  - 🇳🇱NL_23|393KB/s|M003-260806 [6757685ee804]
+  - 4FreeIran-4c06e360a8
+  - 4Kian-33fdfc8425
+  - 4FreeIran-d7305d0ab9
+  - 4Sarina-f35dd21a5b
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #2'
+  - '🏳[www.v2nodes.com] vless- #6'
+  - 4Kian-6582ff7c79
+  - 🇳🇱 Нидерланды [🏴BL] | 🥭🔧
+  - 4Sarina-16aec8fed8
+  - DIRECT
 - name: AUTO
   type: url-test
   proxies: &id001
-  - 4FreeIran-f41c76c0dc
-  - 英国_110203330
-  - 4Kian-3b2644a696
-  - 4FreeIran-b42be4d43c
-  - 4Kian-048baa8ac2
-  - 4Nika-7f3d4373f5
-  - 4FreeIran-c6ac9a944e
-  - SHADOWSOCKS-10 | 66ms
-  - SHADOWSOCKS-2 | 29ms
-  - SHADOWSOCKS-1 | 58ms
-  - 4Mohsen-0075c8c36b
-  - 🇺🇸@FreakConfig
-  - 🇺🇸US_367|1.2MB/s|A004-260618 [959578925c29]
-  - SHADOWSOCKS-8 | 78ms
-  - SHADOWSOCKS-7 | 87ms
-  - SHADOWSOCKS-18 | 83ms
-  - 4Nika-fa5bc5bdb4
-  - 🇺🇸US_233|1.8MB/s|A004-260618 [efbcc8a70025]
-  - SHADOWSOCKS-22 | 72ms
-  - SHADOWSOCKS-4 | 60ms
-  - Canada_None_ss_1016
-  - 🇫🇷FR_351|959KB/s|M003-260806 [b2b361a641c5]
-  - United States_None_trojan_10103
-  - 防失效github+SubCrawler南非_110203023
-  - 🇫🇷FR_312|860KB/s|M003-260806 [d69326b56199]
-  - United States_None_trojan_10102
-  - 美国 318
-  - 🇫🇷FR_350|622KB/s|M003-260806 [45e0e651cbe7]
-  - 🇸🇬[www.v2nodes.com] vless-SG
-  - 🇺🇸US_361|926KB/s|A004-260618 [9b10e8e6bf84]
-  - 🇺🇸US_370|1.8MB/s|B007-260618 [719341a104ed]
-  - 4Jadi-7f602ac5b2
-  - 🇺🇸US_41|606KB/s|A004-260618 [b62cf4f7c9b4]
-  - United States_None_trojan_10100
-  - 美国 011
-  - SHADOWSOCKS-73 | 81ms
-  - 4Kian-8a43d30ef6
-  - YFZ 142 @Outline_Vpn
-  - US美国(mibei77.com 米贝节点分享) (56)
-  - 🇫🇷FR_77|606KB/s|P001-260618 [52adbca3aca7]
-  - 🇺🇸US_366|1.0MB/s|C001-260618 [c9148f5355de]
-  - 🇺🇸US_362|1.6MB/s|A004-260618 [16f4c5e97fb4]
-  - SHADOWSOCKS-41 | 78ms
-  - 4FreeIran-8b0f9da0f8
-  - ❓未知丨yoyapai.com (54)
-  - 4FreeIran-ab11a27c7c
-  - United States_Turtle Creek_trojan_1065
-  - 🇫🇷FR_354|848KB/s|M003-260806 [2a4ac6c0b730]
-  - 🇫🇷FR_206|556KB/s|S004-260618 [4a036656607b]
-  - 4Kian-aa6674ae66
-  - United States_None_trojan_10105
-  - United States_None_trojan_1099
-  - 4FreeIran-347f3028e7
-  - 美国 271
-  - United States_None_trojan_10106
-  - 🇫🇷FR_187|747KB/s|M003-260806 [961808f4ffc6]
+  - 4Kian-075ecf5c91
+  - 4Sarina-f7b127fa01
+  - 4Sarina-5a9c2e3439
+  - 4Nika-30008a79b6
   - 4Sarina-84c887c0ac
-  - 美国 315
-  - 🇫🇷FR_168|570KB/s|S004-260618 [e1d7e48737a1]
-  - 🇺🇸US_576|748KB/s|A004-260618 [fe4e365487a5]
-  - 🇺🇸US_591|957KB/s|A004-260618 [594337d2d6df]
-  - United States_Turtle Creek_trojan_1062
-  - 4FreeIran-ecf2fff836
-  - 4Jadi-931d3c613e
-  - 🇺🇸US_523|878KB/s|M003-260806 [33d1af5ac7d0]
-  - SHADOWSOCKS-45 | 92ms
-  - 🇺🇸US_608|960KB/s|M003-260806 [3e2ce75413d7]
-  - 🇺🇸US_445|919KB/s|A004-260618 [7292f50acabf]
-  - 4FreeIran-d1b670b29e
-  - 🇺🇸US_583|942KB/s|A004-260618 [739cadcc5128]
-  - 🇫🇷FR_306|465KB/s|M003-260806 [6cf0955760dd]
-  - 4Sarina-449632ca05
-  - 🇺🇸US_489|968KB/s|A004-260618 [942617566953]
-  - 🇺🇸US_20|4.2MB/s
-  - 4Mohsen-609338f3bb
-  - 4Kian-71fe8d5a25
-  - 🇺🇸US_538|672KB/s|M003-260806 [810517b2c765]
-  - 4FreeIran-d82f954a12
-  - '🏳[www.v2nodes.com] ss- #2'
-  - United Kingdom_None_ss_1026
-  - SHADOWSOCKS-176 | 215ms
-  - ❓Other_36|303KB/s|B007-260618 [4b42f3cf532f]
-  - YFZ 185 @Outline_Vpn
-  - 🇳🇱NL_48|8.7MB/s|A004-260618 [5d74d658f7e7]
-  - 🇳🇱NL_13|299KB/s|A004-260618 [35fe4571369c]
-  - 🇳🇱NL_5|1.1MB/s [6abc29a78ba7]
-  - 🇳🇱NL_11|289KB/s|A004-260618 [646eca787816]
-  - SHADOWSOCKS-152 | 228ms
-  - 🇳🇱NL_6|328KB/s|A003-260618 [ea2be6ced3e6]
-  - 🇳🇱NL_121|3.3MB/s|A004-260618 [c624aee3660e]
-  - 🇳🇱NL_12|2.7MB/s|B007-260618 [756d6045550c]
-  - 🇳🇱NL_24|386KB/s|A004-260618 [edd9f948eae6]
-  - 🇳🇱NL_115|5.4MB/s|A004-260618 [be357174b739]
-  - 🇳🇱NL_46|9.3MB/s|A003-260618 [1dd9246942f0]
-  - 🇳🇱NL_7|231KB/s|M001-260618 [f241e5428cf7]
-  - 🇳🇱NL_7|3.5MB/s|B007-260618 [0be7bd33865b]
-  - 🇳🇱NL_25|3.0MB/s [f2147f2d1e59]
-  - 🇳🇱NL_3|3.5MB/s|A003-260618 [14d994c4b1df]
-  - 🇳🇱NL_54|244KB/s|A004-260618 [e061c952eee0]
-  - 🇳🇱NL_15|554KB/s|B007-260618 [79f2feb3b096]
-  - 🇳🇱NL_42|231KB/s|M001-260618 [5022e227ef2f]
-  - 4FreeIran-575c7708fc
-  - 🇳🇱NL_9|290KB/s|A004-260618 [f7b305430c0b]
-  - YFZ 226 @Outline_Vpn
-  - Bulgaria_None_ss_1028
-  - 🇳🇱NL_90|3.5MB/s|A004-260618 [643d83a46a8f]
-  - 🇳🇱NL_13|4.8MB/s [4739be97375f]
-  - SHADOWSOCKS-114 | 194ms
-  - ❓Other_29|189KB/s|C002-260622 [bd938769ebfd]
-  - '@v2rayng3'
-  - YFZ 233 @Outline_Vpn
-  - ❓Other_28|276KB/s|A003-260618 [2b02c3d10d8d]
-  - 🇳🇱NL_14|417KB/s|A003-260618 [fee053c08ec7]
-  - 🇳🇱NL_117|7.1MB/s|A004-260618 [ba81e0445a0d]
-  - 🇳🇱NL_20|299KB/s|A004-260618 [8d7fbaa25067]
-  - ❓Other_18|496KB/s [2fcb59fe7abc]
-  - 🇩🇪DE_58|3.2MB/s|C001-260618 [ac8ffe36f9e0]
-  - 🇳🇱@FreakConfig
-  - 🇳🇱NL_68|1.0MB/s|A003-260618 [eb105df8a38d]
-  - 🇳🇱NL_42|7.2MB/s|B007-260618 [2fdffbe641e3]
-  - 🇳🇱NL_4|7.6MB/s|A003-260618 [cb6ae96da10d]
-  - 🇳🇱NL_46|512KB/s [0d550c3f31cc]
-  - 🇳🇱NL_19|3.3MB/s|A003-260618 [78703b0f3895]
-  - '@V2rayNGVPN > کانفیگ رایگان'
-  - 🇳🇱@FreakConfig_2
-  - 🇳🇱NL_41|253KB/s|B007-260618 [ce79f61b5c4b]
-  - 🇳🇱NL_26|297KB/s|A003-260618 [2814144ac66c]
-  - 🇳🇱NL_50|630KB/s|A004-260618 [7ba8fd1d6b6f]
-  - 🇯🇵JP_7|692KB/s|A004-260618 [52b960f92374]
-  - United States_Washington_ss_1043
-  - 🇯🇵JP_1|280KB/s|A004-260618 [460717d25156]
-  - 🇳🇱NL_114|1.8MB/s|A004-260618 [7e64756eef68]
-  - 🇳🇱@FreakConfig_3
-  - 🇵🇱[www.v2nodes.com] ss-PL-1273...
-  - United Kingdom_None_ss_1013
-  - 🇳🇱NL_36|252KB/s [067369cc7995]
-  - 🇳🇱NL_18|6.4MB/s|A003-260618 [9b74b6b41316]
-  - 🇳🇱NL_10|244KB/s|A004-260618 [7813c28b9637]
-  - France_None_ss_1050
-  - 🇯🇵[www.v2nodes.com] ss-JP-1544...
-  - United States_Ashburn_ss_1039
-  - '🇵🇱[www.v2nodes.com] ss-PL-1273... #1'
-  - France_None_ss_1051
-  - 🇳🇱NL_164|8.1MB/s [c3dbcf50fb16]
-  - Japan_Tokyo_ss_1042
-  - 🇳🇱NL_19|1.7MB/s|A003-260618 [3965caa1cb10]
-  - 🇨🇦CA_54|1.0MB/s|A004-260618 [dbb96aa2cb75]
-  - United States_None_trojan_1073
-  - Germany_Frankfurt am Main_trojan_1070
-  - 🇳🇱NL_22|4.2MB/s|A004-260618 [bf68da5d936d]
-  - 🇳🇱[www.v2nodes.com] ss-NL-1604...
-  - Italy_None_ss_1034
-  - Italy_None_ss_1031
-  - 🇳🇱NL_39|81KB/s|M003-260806 [8d28008e48bf]
-  - 🇳🇱NL_90|2.6MB/s [cc7a5983913f]
-  - Poland_Warsaw_trojan_1096
-  - 🇸🇪SE_10|3.4MB/s|M003-260806 [4330e0d71fac]
-  - ❓Other_5|215KB/s [a150b688ca1a]
-  - 🇳🇱NL_21|568KB/s [5e645d9908a8]
-  - Egypt_Cairo_ss_1023
-  - 🇯🇵JP_31|592KB/s|M003-260806 [aa552eb71397]
-  - Italy_None_ss_1038
-  - 英国 001
-  - 🇺🇸US_610|1.1MB/s|M003-260806 [4ced23913920]
-  - 🇳🇱NL_117|7.2MB/s|A004-260618 [614d9554e68d]
-  - 4Jadi-03acfeb7fd
-  - 🇳🇱NL_24|7.4MB/s|A004-260618 [b05ae2b721b6]
-  - 🇳🇱@FreakConfig_4
-  - 🇳🇱NL_32|553KB/s [bb27b280f2a8]
-  - 以色列 002
-  - 以色列 001
-  - ❓Other_20|234KB/s|A003-260618 [998962da975a]
-  - 荷兰 002
-  - 🇳🇱NL_34|223KB/s|A004-260618 [dd10607890a5]
-  - 4Jadi-0c875a335d
-  - 马来西亚 002
-  - 4Sarina-4ceff45265
-  - 🇩🇪DE_9|1.5MB/s|S004-260618 [10531519d08c]
-  - 德国 066
-  - 🇳🇱@FreakConfig_5
-  - 日本 038
-  - Italy_None_ss_1030
-  - 4Sarina-ae46648abd
-  - 德国 067
-  - 4FreeIran-8dfbe00225
-  - United Kingdom_None_ss_1046
-  - 🇸🇬SG_8|211KB/s|A004-260618 [f4ea48c0ab38]
-  - C🟠🇮🇹hos[🎬🤖📺🎭]_dokng.com_cdde7d80
-  - 🇳🇱NL_8|479KB/s|G001-260618 [b9eb90496d5b]
-  - 4FreeIran-47ca299a5b
-  - 4Nika-ee1fa8e993
-  - 🇳🇱NL_95|7.8MB/s|A003-260618 [f1a3aba91519]
-  - Singapore_Singapore_trojan_1097
-  - Canada_None_ss_1017
-  - 4Kian-6119ae206b
-  - Australia_Sydney_trojan_1060
-  - 🇳🇱NL_43|345KB/s|B007-260618 [3d866f4970a3]
-  - Germany_Frankfurt am Main_trojan_1069
-  - 🇳🇱NL_44|7.5MB/s|B007-260618 [293bc8a3d324]
-  - SHADOWSOCKS-172 | 219ms
-  - SHADOWSOCKS-193 | 911ms
-  - '🇭🇰[www.v2nodes.com] vless-HK-1... #3'
-  - South Africa_Johannesburg_ss_1059
-  - ❓Other_10|218KB/s [f792f247b209]
-  - 🇳🇱NL_186|3.5MB/s|A004-260618 [c5170cc69822]
-  - South Africa_Johannesburg_ss_1058
-  - 🇳🇱NL_165|4.2MB/s|A004-260618 [1f63e37341ce]
-  - 4Jadi-04934a6fb6
-  - 4Kian-906828049f
-  - 🇳🇱NL_59|379KB/s|A004-260618 [8b038f4cbe35]
-  - France_None_ss_1052
-  - Italy_None_ss_1033
-  - Russia_Kazan'_ss_10140
-  - '@V2rayNGVPN > کانفیگ رایگان_2'
-  - 澳大利亚 026
-  - India_None_trojan_1090
-  - 🇳🇱NL_2|727KB/s [755ad3db773a]
-  - 🇳🇱NL_14|1.7MB/s|A004-260618 [8803b13fb9eb]
-  - 4Sarina-01c4a66881
-  - 🇨🇭CH_41|949KB/s|M003-260806 [bdce9b997af3]
-  - 4Nika-a96dea9b71
-  - 4Kian-ce1f425811
-  - 4Sarina-35f99ae02e
-  - 🇺🇸US_643|1.2MB/s|M003-260806 [b5892b2d26ef]
-  - 美国 1008
-  - NL 🇳🇱 | @Raydikalx | AE2C85
-  - 4Kian-db271e1c8f
-  - 🇬🇧GB_31|2.4MB/s|A004-260618 [1829620a37ac]
-  - ❓Other_30|231KB/s|A004-260618 [55142f6dc811]
-  - 🇳🇱NL_29|302KB/s|A004-260618 [6210f5d8ebce]
-  - 🇳🇱@FreakConfig_6
-  - '🇫🇷[www.v2nodes.com] vless-FR-1... #1'
-  - 🇩🇪DE_143|4.4MB/s|A004-260618 [50da66b4f471]
-  - MY 🇲🇾 | @Raydikalx | 75DBAB
-  - United States_Export_ss_1012
-  - 🇳🇱NL_56|391KB/s|A003-260618 [911dbbbd2546]
-  - 美国 859
-  - 巴西 003
-  - Canada_None_ss_1022
-  - 🇫🇷FR_323|307KB/s|M003-260806 [a1cb3611ca6e]
-  - 4Mohsen-f8510c0395
-  - 🇨🇭CH_53|3.5MB/s|A004-260618 [186dd21226a5]
-  - Italy_None_ss_1029
-  - 🇺🇸US_317|1.5MB/s|A004-260618 [60a9d50d005d]
-  - 4Mohsen-33fe7f5fb7
-  - 美国 319
-  - 🇨🇭CH_55|3.3MB/s|M003-260806 [e3e1232d3655]
-  - Netherlands Greenhost
-  - 澳大利亚 025
-  - 4Sarina-021fd0a60f
-  - Norway_Oslo_ss_1047
-  - 巴西 004
-  - 美国 017
-  - 美国 309
-  - United States_None_ss_1048
-  - 美国 012
-  - 🇨🇭CH_42|310KB/s|M003-260806 [4539b41cc0e6]
-  - 🇳🇱NL_12|210KB/s|A003-260618 [e90c711a96c6]
-  - 🇳🇱NL_1|4.8MB/s|A004-260618 [f500f9f7def8]
-  - Italy_None_ss_1035
-  - 🇳🇱NL_126|7.4MB/s [6495f691978f]
-  - Italy_None_ss_1036
-  - ❓Other_1|69KB/s|C002-260622 [a26831edf597]
-  - 4Mohsen-9399dddbbe
-  - '@ConfigV2RayNG'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
+  - 4Sarina-0122c39cde
+  - 4Mohsen-d4e37e3786
+  - 4Nika-1b37ba15de
+  - 4FreeIran-d6ac0c4c71
+  - 🇺🇸US_39|223KB/s|A004-260618 [d92318afee09]
+  - 🇺🇸US_21|263KB/s|A004-260618 [0e40b52615aa]
+  - 4Kian-aa6674ae66
+  - 4Mohsen-6935c24914
+  - 4Kian-fa4ba8369c
+  - CF中转_110207763
+  - 4Sarina-e047c91696
+  - 4Mohsen-651e505b41
+  - 4FreeIran-f653bb4849
+  - 🇫🇷FR_25|95KB/s|T001-260618 [5dd78972cd2e]
+  - 4Jadi-a1184fabd1
+  - 4Nika-ac9ba71124
+  - 4Mohsen-e3f142477a
+  - 4Kian-1145bf42bc
+  - CF中转_1102071012
+  - 4Kian-af5346de16
+  - 美国 1176
+  - 4Sarina-fe9401be2b
+  - 4Mohsen-63522b1b10
+  - 4Jadi-36e4711320
+  - 4Nika-c9cf18cd11
+  - 4Kian-4d8f1fe082
+  - 4Sarina-40537f105f
+  - 4Nika-540cbc1dc3
+  - 🇨🇦CA加拿大丨yoyapai.com (20)
+  - 4Mohsen-18f67ca965
+  - 4Sarina-ca7125889f
+  - 4Kian-060d9cea29
+  - CF中转_1102077723
+  - 4Jadi-f041e21570
+  - CF中转_1102074479
+  - us|81c2|puddincat07@Telegram
+  - 4Kian-60b0c84e9b
+  - 4Jadi-5ebd542ffd
+  - CF中转_110207559
+  - 🇫🇷FR_325|1.1MB/s|M003-260806 [4c3ddca66888]
+  - 4FreeIran-a8a89d80df
+  - 美国 838
+  - 4Kian-0d6cadd6cf
+  - 4Sarina-a1824d0068
+  - 日本_110207180
+  - 4Mohsen-30302633ac
+  - 4Kian-2ed3898adc
+  - 4FreeIran-bc5a2a5882
+  - 法国_110207202
+  - 4Kian-2f8fbeec8d
+  - 4Kian-2e7058c4db
+  - 4FreeIran-7909020cc8
+  - 4Sarina-f162bba6eb
+  - 4Sarina-a731fc3823
+  - 4Nika-c5157adb91
+  - 🎃96@oneclickvpnkeys
+  - 🎃37@oneclickvpnkeys
+  - ch|46cb|puddincat07@Telegram
+  - 美国+Xerox
+  - 🎃94@oneclickvpnkeys
+  - 4Jadi-048ab171bb
+  - 4Mohsen-13ed56c596
+  - 🎃34@oneclickvpnkeys
+  - برای اتصال دائمی جوین شو🪭 Tele...
+  - 4Nika-7a541d515a
+  - 4Kian-69e351ce49
+  - 4Jadi-6591830da6
+  - kr|1325|puddincat07@Telegram
+  - 4Kian-b1f74ed8a9
+  - 4Jadi-1b9d646dfe
+  - 4Mohsen-8bbb320d02
+  - 4Kian-eb043a049b
+  - 4FreeIran-cfdbde3678
+  - 🇫🇮FI_1|3.3MB/s
+  - 4Nika-f7404b7dd2
+  - 4Nika-7f3d4373f5
+  - 🎃71@oneclickvpnkeys
+  - sg|0ed4|puddincat07@Telegram
+  - 🇫🇷FR_305|1.2MB/s|M003-260806 [4977975a03ec]
+  - 4Jadi-a44369095d
+  - 4Nika-a4c213c51f
+  - 🇫🇷FR_302|449KB/s|M003-260806 [2935efceabb2]
+  - 阿联酋_110207095
+  - 4Nika-8611f62d25
+  - 4Jadi-2055a311d2
+  - 4FreeIran-6e3bf07a46
+  - 4FreeIran-8f9df5dca4
+  - 4Nika-08de16f1fb
+  - 🇳🇱NL_23|393KB/s|M003-260806 [6757685ee804]
+  - 4FreeIran-4c06e360a8
+  - 4Kian-33fdfc8425
+  - 4FreeIran-d7305d0ab9
+  - 4Sarina-f35dd21a5b
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #2'
+  - '🏳[www.v2nodes.com] vless- #6'
+  - 4Kian-6582ff7c79
+  - 🇳🇱 Нидерланды [🏴BL] | 🥭🔧
+  - 4Sarina-16aec8fed8
+  url: https://www.gstatic.com/generate_204
+  interval: 120
   tolerance: 50
+  timeout: 2000
+  lazy: false
 - name: FALLBACK
   type: fallback
   proxies: *id001
-  url: http://www.gstatic.com/generate_204
-  interval: 300
+  url: https://www.gstatic.com/generate_204
+  interval: 120
+  timeout: 2000
+  lazy: false
 rules:
 - DOMAIN-SUFFIX,scholar.google.com,PROXY
 - DOMAIN-SUFFIX,google.com,PROXY
 - DOMAIN-SUFFIX,googleapis.com,PROXY
+- DOMAIN-SUFFIX,gstatic.com,PROXY
 - DOMAIN-SUFFIX,github.com,PROXY
 - DOMAIN-SUFFIX,openai.com,PROXY
+- DOMAIN-SUFFIX,claude.ai,PROXY
 - GEOIP,CN,DIRECT
 - MATCH,PROXY

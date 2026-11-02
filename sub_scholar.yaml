@@ -4,6 +4,8 @@ mixed-port: 7892
 allow-lan: false
 mode: rule
 log-level: info
+unified-delay: true
+tcp-concurrent: true
 dns:
   enable: true
   enhanced-mode: fake-ip
@@ -12,23 +14,585 @@ dns:
   - https://doh.pub/dns-query
   - 223.5.5.5
   fallback:
-  - 8.8.8.8
-  - 1.1.1.1
+  - https://1.1.1.1/dns-query
   - https://dns.google/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
-proxies: []
+proxies:
+- name: 4Kian-075ecf5c91
+  type: ss
+  server: 95.215.201.18
+  port: 19999
+  udp: true
+  skip-cert-verify: false
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 4Sarina-f7b127fa01
+  type: hysteria2
+  server: 64.32.13.230
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 0abd5d38-fdf1-11ed-bade-f23c91369f2d
+  sni: 6f9a8496-tmm5c0-txkkcl-1fli7.los.hyhuawei.com
+- name: 4Sarina-5a9c2e3439
+  type: trojan
+  server: 66.163.112.121
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: www.unlockyourfuturefindyourperfectcareer.com
+- name: 4Nika-30008a79b6
+  type: trojan
+  server: 66.163.112.13
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: blog.unlockyourfuturefindyourperfectcareer.com
+- name: 4Sarina-84c887c0ac
+  type: vless
+  server: 85.155.179.206
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 86a83d11-d751-4b60-aa4e-1dca5cff7028
+  tls: true
+  network: tcp
+  servername: us3.shtil.io
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  - http/1.1
+- name: 4Sarina-0122c39cde
+  type: trojan
+  server: 66.163.112.76
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: api.unlockyourfuturefindyourperfectcareer.com
+- name: 4Mohsen-d4e37e3786
+  type: trojan
+  server: 66.163.112.31
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: unlockyourfuturefindyourperfectcareer.com
+- name: 4FreeIran-d6ac0c4c71
+  type: trojan
+  server: 66.163.112.171
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: learn.unlockyourfuturefindyourperfectcareer.com
+- name: 🇺🇸US_39|223KB/s|A004-260618 [d92318afee09]
+  type: ss
+  server: 79.110.54.250
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 4Kian-aa6674ae66
+  type: trojan
+  server: 38.102.234.153
+  port: 18603
+  udp: true
+  skip-cert-verify: false
+  password: lk59gDrTm2
+  sni: www.777061.xyz
+- name: 4Mohsen-6935c24914
+  type: hysteria2
+  server: 155.248.209.237
+  port: 33333
+  udp: true
+  skip-cert-verify: true
+  password: bce6c821-200d-421f-bf3d-7159e5246ea0
+- name: 4Kian-fa4ba8369c
+  type: ss
+  server: 107.151.182.253
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 4Mohsen-651e505b41
+  type: ss
+  server: 79.110.53.169
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+- name: 4Mohsen-18f67ca965
+  type: tuic
+  server: 103.170.72.41
+  port: 8443
+  udp: true
+  skip-cert-verify: true
+  uuid: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  password: 56d8a8fd-68b8-47f8-8c7f-98cc675902db
+  congestion-controller: bbr
+  udp-relay-mode: native
+  reduce-rtt: true
+  sni: www.bing.com
+- name: us|81c2|puddincat07@Telegram
+  type: hysteria2
+  server: 129.213.91.185
+  port: 35013
+  udp: true
+  skip-cert-verify: true
+  password: 4291c983-c520-46ac-82cc-48f14bef573f
+  sni: 129.213.91.185
+- name: 美国 838
+  type: vmess
+  server: 172.64.229.21
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  cipher: auto
+  alterId: 0
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ws?ed=2048
+    headers:
+      Host: vmess.lbw666.dpdns.org
+- name: 阿联酋_110207095
+  type: hysteria2
+  server: 217.60.73.56
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 69e41e64-a832-471a-b740-94577ca85520
+  sni: forshynewh.duckdns.org
+- name: 4Nika-8611f62d25
+  type: hysteria2
+  server: 153.56.210.134
+  port: 38045
+  udp: true
+  skip-cert-verify: true
+  password: a81a7b45-dd70-42ef-822f-ef467f944382
+  sni: www.bing.com
+  obfs: salamander
+  obfs-password: 642516f2-f9bd-41ce-9904-dee699c39cf9
+- name: 4Jadi-2055a311d2
+  type: hysteria2
+  server: 103.88.243.142
+  port: 11592
+  udp: true
+  skip-cert-verify: true
+  password: 41edb44c8e
+  sni: 103.88.243.142
+- name: 4Kian-6582ff7c79
+  type: vmess
+  server: 104.21.91.53
+  port: 8443
+  udp: true
+  skip-cert-verify: false
+  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+  cipher: auto
+  alterId: 0
+  tls: true
+  network: ws
+  servername: v2ray1.dozapp.xyz
+  ws-opts:
+    path: /lMnsZUN4/
+    headers:
+      Host: v2ray1.dozapp.xyz
+- name: 🇳🇱 Нидерланды [🏴BL] | 🥭🔧
+  type: hysteria2
+  server: 45.91.237.78
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: f4b80b26-b6d4-49a6-a460-f50efb7a457c
+  sni: node.aweom.su
+- name: 4Mohsen-30302633ac
+  type: hysteria2
+  server: 5.129.235.85
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: gf1:gfhysteria2024
+- name: 法国_110207202
+  type: hysteria2
+  server: 141.0.187.15
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 70043bfa-d6fb-4980-b27e-773e9e8b2004
+  sni: crt.onecloudstream.com
+- name: 4FreeIran-7909020cc8
+  type: hysteria2
+  server: 62.210.147.2
+  port: 43115
+  udp: true
+  skip-cert-verify: true
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
+- name: 4Sarina-f162bba6eb
+  type: hysteria2
+  server: 144.124.245.52
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 6da2c981-8c77-4340-bda3-93399b7aea26
+  sni: store.blog-forme.ru
+- name: 4Sarina-a731fc3823
+  type: hysteria2
+  server: 151.243.169.164
+  port: 12824
+  udp: true
+  skip-cert-verify: false
+  password: d62s7ghfehm742us
+  sni: derfderf.ru
+- name: 4Nika-c5157adb91
+  type: hysteria2
+  server: 88.99.213.222
+  port: 14444
+  udp: true
+  skip-cert-verify: true
+  password: mhsl
+- name: 4FreeIran-8f9df5dca4
+  type: vless
+  server: 88.216.67.54
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 50414e45-4c5f-5a45-5553-47be357e54da
+  tls: true
+  network: ws
+  servername: 52z4vtewuass.game4090taking.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: /stream/PANEL_ZEUS/47be357e54da/loc-0
+    headers:
+      Host: 52z4vtewuass.game4090taking.workers.dev
+- name: 4Nika-08de16f1fb
+  type: hysteria2
+  server: 24.233.8.109
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: 8294f130408299df8cab08c80bf6f819
+  sni: www.bing.com
+  obfs: salamander
+  obfs-password: c8827ab99e316c5bd414e21afa915ddf
+- name: 4Sarina-f35dd21a5b
+  type: vless
+  server: 195.137.226.133
+  port: 2083
+  udp: true
+  skip-cert-verify: true
+  uuid: 7f733b1a-6c00-48ac-ae3b-cbc178a9146e
+  tls: true
+  network: ws
+  servername: nexostore.xnetaro.ir
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  ws-opts:
+    path: /wss?TELEGRAM----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN----@GHOFLSHCAN
+    headers:
+      Host: nexostore.xnetaro.ir
+- name: '🇯🇵[www.v2nodes.com] vless-JP-1... #2'
+  type: vless
+  server: 172.67.156.147
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  tls: true
+  network: ws
+  servername: jp3.yohototo.top
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: '🏳[www.v2nodes.com] vless- #6'
+  type: vless
+  server: support.zoom.us
+  port: 8080
+  udp: true
+  skip-cert-verify: false
+  uuid: 990bf436-f1b9-4e7f-857d-14378acc4ae5
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Free.nadun.store
+- name: 4Jadi-6591830da6
+  type: hysteria2
+  server: 5.45.100.100
+  port: 51511
+  udp: true
+  skip-cert-verify: true
+  password: miaoge110
+  sni: 5.45.100.100
+- name: kr|1325|puddincat07@Telegram
+  type: hysteria2
+  server: 152.70.237.123
+  port: 2053
+  udp: true
+  skip-cert-verify: true
+  password: maintell
+  sni: bing.com
+- name: 4Kian-b1f74ed8a9
+  type: hysteria2
+  server: 202.146.222.89
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- name: 4Jadi-1b9d646dfe
+  type: hysteria2
+  server: 152.32.254.68
+  port: 5010
+  udp: true
+  skip-cert-verify: true
+  password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+  sni: 127.0.0.1
+  obfs: salamander
+  obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
+- name: 4Mohsen-8bbb320d02
+  type: hysteria2
+  server: 31.57.248.176
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: b0917015b656b3dd2286b5633af0c5c1
+- name: 4Kian-eb043a049b
+  type: hysteria2
+  server: 202.146.222.29
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: 202.146.222.29
+- name: 4FreeIran-cfdbde3678
+  type: hysteria2
+  server: 202.146.222.174
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: https://t.me/oneclickvpnkeys
+- name: 🇫🇮FI_1|3.3MB/s
+  type: hysteria2
+  server: 179.253.82.33
+  port: 4444
+  udp: true
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: fl3.nexfile.net
+- name: 4Nika-f7404b7dd2
+  type: hysteria2
+  server: 152.67.200.82
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
+- name: 🎃37@oneclickvpnkeys
+  type: hysteria2
+  server: 163.245.41.48
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 6da2c981-8c77-4340-bda3-93399b7aea26
+  sni: blogs.blog-forme.ru
+- name: ch|46cb|puddincat07@Telegram
+  type: hysteria2
+  server: 140.238.213.114
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 84a506ca5aca505696a454d828420b3f
+  sni: www.bing.com
+- name: 美国+Xerox
+  type: hysteria2
+  server: 13.143.188.143
+  port: 4444
+  udp: true
+  skip-cert-verify: true
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: bl1.nexfile.net
+- name: 🎃94@oneclickvpnkeys
+  type: hysteria2
+  server: 13.143.189.106
+  port: 4444
+  udp: true
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl2.nexfile.net
+- name: 4Jadi-048ab171bb
+  type: hysteria2
+  server: 13.143.189.142
+  port: 4444
+  udp: true
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl3.nexfile.net
+- name: 4Mohsen-13ed56c596
+  type: hysteria2
+  server: 208.69.78.217
+  port: 21016
+  udp: true
+  skip-cert-verify: true
+  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
+- name: 🎃34@oneclickvpnkeys
+  type: hysteria2
+  server: 13.143.189.96
+  port: 4444
+  udp: true
+  skip-cert-verify: true
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl3.nexfile.net
+- name: برای اتصال دائمی جوین شو🪭 Tele...
+  type: hysteria2
+  server: 13.143.188.142
+  port: 4444
+  udp: true
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: bl1.nexfile.net
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
+  - AUTO
+  - FALLBACK
+  - 4Kian-075ecf5c91
+  - 4Sarina-f7b127fa01
+  - 4Sarina-5a9c2e3439
+  - 4Nika-30008a79b6
+  - 4Sarina-84c887c0ac
+  - 4Sarina-0122c39cde
+  - 4Mohsen-d4e37e3786
+  - 4FreeIran-d6ac0c4c71
+  - 🇺🇸US_39|223KB/s|A004-260618 [d92318afee09]
+  - 4Kian-aa6674ae66
+  - 4Mohsen-6935c24914
+  - 4Kian-fa4ba8369c
+  - 4Mohsen-651e505b41
+  - 4Mohsen-18f67ca965
+  - us|81c2|puddincat07@Telegram
+  - 美国 838
+  - 阿联酋_110207095
+  - 4Nika-8611f62d25
+  - 4Jadi-2055a311d2
+  - 4Kian-6582ff7c79
+  - 🇳🇱 Нидерланды [🏴BL] | 🥭🔧
+  - 4Mohsen-30302633ac
+  - 法国_110207202
+  - 4FreeIran-7909020cc8
+  - 4Sarina-f162bba6eb
+  - 4Sarina-a731fc3823
+  - 4Nika-c5157adb91
+  - 4FreeIran-8f9df5dca4
+  - 4Nika-08de16f1fb
+  - 4Sarina-f35dd21a5b
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #2'
+  - '🏳[www.v2nodes.com] vless- #6'
+  - 4Jadi-6591830da6
+  - kr|1325|puddincat07@Telegram
+  - 4Kian-b1f74ed8a9
+  - 4Jadi-1b9d646dfe
+  - 4Mohsen-8bbb320d02
+  - 4Kian-eb043a049b
+  - 4FreeIran-cfdbde3678
+  - 🇫🇮FI_1|3.3MB/s
+  - 4Nika-f7404b7dd2
+  - 🎃37@oneclickvpnkeys
+  - ch|46cb|puddincat07@Telegram
+  - 美国+Xerox
+  - 🎃94@oneclickvpnkeys
+  - 4Jadi-048ab171bb
+  - 4Mohsen-13ed56c596
+  - 🎃34@oneclickvpnkeys
+  - برای اتصال دائمی جوین شو🪭 Tele...
   - DIRECT
+- name: AUTO
+  type: url-test
+  proxies: &id001
+  - 4Kian-075ecf5c91
+  - 4Sarina-f7b127fa01
+  - 4Sarina-5a9c2e3439
+  - 4Nika-30008a79b6
+  - 4Sarina-84c887c0ac
+  - 4Sarina-0122c39cde
+  - 4Mohsen-d4e37e3786
+  - 4FreeIran-d6ac0c4c71
+  - 🇺🇸US_39|223KB/s|A004-260618 [d92318afee09]
+  - 4Kian-aa6674ae66
+  - 4Mohsen-6935c24914
+  - 4Kian-fa4ba8369c
+  - 4Mohsen-651e505b41
+  - 4Mohsen-18f67ca965
+  - us|81c2|puddincat07@Telegram
+  - 美国 838
+  - 阿联酋_110207095
+  - 4Nika-8611f62d25
+  - 4Jadi-2055a311d2
+  - 4Kian-6582ff7c79
+  - 🇳🇱 Нидерланды [🏴BL] | 🥭🔧
+  - 4Mohsen-30302633ac
+  - 法国_110207202
+  - 4FreeIran-7909020cc8
+  - 4Sarina-f162bba6eb
+  - 4Sarina-a731fc3823
+  - 4Nika-c5157adb91
+  - 4FreeIran-8f9df5dca4
+  - 4Nika-08de16f1fb
+  - 4Sarina-f35dd21a5b
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #2'
+  - '🏳[www.v2nodes.com] vless- #6'
+  - 4Jadi-6591830da6
+  - kr|1325|puddincat07@Telegram
+  - 4Kian-b1f74ed8a9
+  - 4Jadi-1b9d646dfe
+  - 4Mohsen-8bbb320d02
+  - 4Kian-eb043a049b
+  - 4FreeIran-cfdbde3678
+  - 🇫🇮FI_1|3.3MB/s
+  - 4Nika-f7404b7dd2
+  - 🎃37@oneclickvpnkeys
+  - ch|46cb|puddincat07@Telegram
+  - 美国+Xerox
+  - 🎃94@oneclickvpnkeys
+  - 4Jadi-048ab171bb
+  - 4Mohsen-13ed56c596
+  - 🎃34@oneclickvpnkeys
+  - برای اتصال دائمی جوین شو🪭 Tele...
+  url: https://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+  timeout: 2000
+  lazy: false
+- name: FALLBACK
+  type: fallback
+  proxies: *id001
+  url: https://www.gstatic.com/generate_204
+  interval: 120
+  timeout: 2000
+  lazy: false
 rules:
 - DOMAIN-SUFFIX,scholar.google.com,PROXY
 - DOMAIN-SUFFIX,google.com,PROXY
 - DOMAIN-SUFFIX,googleapis.com,PROXY
+- DOMAIN-SUFFIX,gstatic.com,PROXY
 - DOMAIN-SUFFIX,github.com,PROXY
 - DOMAIN-SUFFIX,openai.com,PROXY
+- DOMAIN-SUFFIX,claude.ai,PROXY
 - GEOIP,CN,DIRECT
 - MATCH,PROXY

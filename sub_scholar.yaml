@@ -20,23 +20,25 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: SHADOWSOCKS-4 | 60ms
-  type: ss
-  server: 156.146.38.169
-  port: 443
-  udp: true
-  skip-cert-verify: false
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🇺🇸US_229|1.0MB/s|A001-260618 [1fae46468fbb]
-  type: trojan
-  server: 66.23.203.21
-  port: 59689
+- name: US17
+  type: vmess
+  server: 67.220.95.49
+  port: 1270
   udp: true
   skip-cert-verify: true
-  password: ae7eb4dwyaz25pxwgq59
-  sni: 66.23.203.21
-  client-fingerprint: chrome
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  cipher: auto
+  alterId: 0
+  tls: true
+  network: tcp
+- name: 🇺🇸US_262|1.7MB/s|A004-260618 [bd1e79add0e4]
+  type: ss
+  server: 185.230.230.18
+  port: 19999
+  udp: true
+  skip-cert-verify: false
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 4FreeIran-980fa79e9b
   type: hysteria2
   server: 34.24.25.1
@@ -45,28 +47,22 @@ proxies:
   skip-cert-verify: true
   password: 8dOHZ13sx33R1/PQbhTK/w==
   sni: bing.com
-- name: 4Mohsen-6935c24914
+- name: 4Sarina-88d3881430
   type: hysteria2
-  server: 155.248.209.237
-  port: 33333
-  udp: true
-  skip-cert-verify: true
-  password: bce6c821-200d-421f-bf3d-7159e5246ea0
-- name: 4Mohsen-a1c78a4de2
-  type: hysteria2
-  server: 66.94.121.46
+  server: 13.184.166.19
   port: 443
   udp: true
   skip-cert-verify: true
-  password: gf1:gfhysteria2024
-- name: 🪅6@oneclickvpnkeys
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vpn-us-001.fastervpn.world
+- name: 🇺🇸US-🚀@VPNine1
   type: hysteria2
-  server: 212.34.137.105
+  server: 192.255.152.147
   port: 443
   udp: true
   skip-cert-verify: true
-  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
-  sni: shorts.blog-forme.ru
+  password: yO8pug5XmwkBXBAjleYIaVt
+  sni: 192.255.152.147
 - name: 4Mohsen-30302633ac
   type: hysteria2
   server: 5.129.235.85
@@ -74,6 +70,24 @@ proxies:
   udp: true
   skip-cert-verify: true
   password: gf1:gfhysteria2024
+- name: 4FreeIran-7909020cc8
+  type: hysteria2
+  server: 62.210.147.2
+  port: 43115
+  udp: true
+  skip-cert-verify: true
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
+- name: 4FreeIran-d57fafb22f
+  type: hysteria2
+  server: 51.77.217.70
+  port: 21182
+  udp: true
+  skip-cert-verify: true
+  password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
+  sni: vpn.local
+  obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
 - name: 4Jadi-439fd40fb4
   type: hysteria2
   server: 89.105.218.106
@@ -82,25 +96,6 @@ proxies:
   skip-cert-verify: false
   password: ba3aeb91-2ed0-45d3-8dcf-81e5ed45168b
   sni: speedtestmark.com
-- name: 🇺🇸US_408|1.4MB/s|A004-260618 [ddaf7c31ea13]
-  type: trojan
-  server: 216.152.155.158
-  port: 443
-  udp: true
-  skip-cert-verify: false
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: resources.nextjobopportunityandclaimyouridealrole.com
-  client-fingerprint: chrome
-- name: '@vpnbaz'
-  type: hysteria2
-  server: 130.49.161.70
-  port: 443
-  udp: true
-  skip-cert-verify: false
-  password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  sni: hy2.aspidnet.xyz
-  obfs: salamander
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 4Mohsen-3e6925b3e2
   type: hysteria2
   server: 51.77.217.70
@@ -111,55 +106,7 @@ proxies:
   sni: vpn.local
   obfs: salamander
   obfs-password: ChY5QQQT3ZtUdNT8
-- name: 4FreeIran-7909020cc8
-  type: hysteria2
-  server: 62.210.147.2
-  port: 43115
-  udp: true
-  skip-cert-verify: true
-  password: github.com/Alvin9999-newpac/fanqiang
-  sni: www.microsoft.com
-- name: 43@oneclickvpnkeys
-  type: hysteria2
-  server: guide.blog-forme.ru
-  port: 443
-  udp: true
-  skip-cert-verify: false
-  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
-  sni: guide.blog-forme.ru
-- name: 4Jadi-183ab4e93a
-  type: hysteria2
-  server: 177.202.66.212
-  port: 443
-  udp: true
-  skip-cert-verify: true
-  password: 146d567c-6335-4e63-a8aa-7ec068642440
-  sni: de1.obxodvpn.us
-- name: 4Mohsen-29c4f08f0f
-  type: hysteria2
-  server: 168.110.45.41
-  port: 21443
-  udp: true
-  skip-cert-verify: true
-  password: pnKhsG5E1hH1VglAXmT9cq1
-  sni: www.bing.com
-- name: 🇩🇪 Германия [🏴BL] | 🥭🔧
-  type: hysteria2
-  server: 81.16.16.36
-  port: 443
-  udp: true
-  skip-cert-verify: false
-  password: 25fc285774894f08833f43c2840db418
-  sni: s4.libertyrunet.store
-- name: 🇵🇱PL_1|3.6MB/s
-  type: hysteria2
-  server: bl1.nexfile.net
-  port: 4444
-  udp: true
-  skip-cert-verify: false
-  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
-  sni: bl1.nexfile.net
-- name: 🇵🇱 Польша [🏴BL] | 🥭🔧
+- name: 4FreeIran-8dbb5d8613
   type: hysteria2
   server: 81.90.17.166
   port: 443
@@ -167,6 +114,14 @@ proxies:
   skip-cert-verify: false
   password: lCk4_xMXmmLQV45zGLuQ5BRmzKEHDU8Q
   sni: assets.stackbase-dev.com
+- name: 4Jadi-daae6df341
+  type: hysteria2
+  server: 177.202.75.56
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 146d567c-6335-4e63-a8aa-7ec068642440
+  sni: fi1.obxodvpn.us
 - name: 🪅32@oneclickvpnkeys
   type: hysteria2
   server: 201.58.190.235
@@ -177,29 +132,32 @@ proxies:
   sni: hy2-pl.snobvpn.online
   obfs: salamander
   obfs-password: sFQIE4F3SbaXCYoCQTY-4YvYiif8__By
-- name: 🇮🇷 12@exclavevpn
+- name: '@V2ray_confiig #3'
   type: hysteria2
-  server: 94.183.164.119
-  port: 24433
+  server: 31.76.62.148
+  port: 4444
   udp: true
-  skip-cert-verify: true
-  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
-- name: 4Jadi-daae6df341
+  skip-cert-verify: false
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: lv2.nexfile.net
+- name: 4FreeIran-6e3bf07a46
   type: hysteria2
-  server: 177.202.75.56
+  server: 162.249.125.133
   port: 443
   udp: true
   skip-cert-verify: false
-  password: 146d567c-6335-4e63-a8aa-7ec068642440
-  sni: fi1.obxodvpn.us
-- name: 4Mohsen-8fd98d35fa
+  password: QCgqi_I4EkV8UR-OgQ_tG4EnVTEVvIyR2GgRBzrIn2s
+  sni: hy2-new.aspidnet.xyz
+  obfs: salamander
+  obfs-password: c1b4086fea89914496c7e10967a419216566
+- name: 4FreeIran-83b4f55c42
   type: hysteria2
-  server: 103.115.109.49
+  server: 130.49.163.188
   port: 443
   udp: true
-  skip-cert-verify: true
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: https://t.me/oneclickvpnkeys
+  skip-cert-verify: false
+  password: 307ee0e53ea04dfd86a7f2f9fcd53844
+  sni: s5.libertyrunet.store
 - name: 4Kian-efbbb2cc05
   type: hysteria2
   server: 153.56.210.134
@@ -210,23 +168,66 @@ proxies:
   sni: www.bing.com
   obfs: salamander
   obfs-password: 9a33460c-b037-47aa-a606-d04211f4e0ec
-- name: 4Nika-8611f62d25
+- name: 🇮🇷 12@exclavevpn
   type: hysteria2
-  server: 153.56.210.134
-  port: 38045
+  server: 94.183.164.119
+  port: 24433
   udp: true
   skip-cert-verify: true
-  password: a81a7b45-dd70-42ef-822f-ef467f944382
-  sni: www.bing.com
-  obfs: salamander
-  obfs-password: 642516f2-f9bd-41ce-9904-dee699c39cf9
-- name: 4Kian-b1f74ed8a9
+  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+- name: 4Jadi-30032e2fc9
   type: hysteria2
-  server: 202.146.222.89
+  server: 138.3.208.26
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 184cdec28da5a09450803c8debcd2cc9
+- name: 4Jadi-eecd019ffc
+  type: vmess
+  server: 104.17.146.82
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  uuid: c08d2444-cc3c-43ad-9a41-f5ea60f99293
+  cipher: auto
+  alterId: 0
+  tls: true
+  network: ws
+  servername: wonbill.1565995.xyz
+  ws-opts:
+    path: /wonbill
+    headers:
+      Host: wonbill.1565995.xyz
+- name: 43@oneclickvpnkeys
+  type: hysteria2
+  server: guide.blog-forme.ru
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+  sni: guide.blog-forme.ru
+- name: 4Jadi-709157fdcd
+  type: hysteria2
+  server: 95.85.231.3
+  port: 443
+  udp: true
+  skip-cert-verify: false
+  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+  sni: guide.blog-forme.ru
+- name: 4Jadi-c66eb57b8a
+  type: hysteria2
+  server: 160.187.100.109
   port: 443
   udp: true
   skip-cert-verify: true
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+- name: 4Nika-7f3d4373f5
+  type: hysteria2
+  server: 152.69.231.175
+  port: 50160
+  udp: true
+  skip-cert-verify: true
+  password: 1beb216e3f60aea9555dae60d219a5ca
 - name: 4Kian-eb043a049b
   type: hysteria2
   server: 202.146.222.29
@@ -235,6 +236,16 @@ proxies:
   skip-cert-verify: true
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   sni: 202.146.222.29
+- name: 4Sarina-4b7048e856
+  type: hysteria2
+  server: 138.2.89.249
+  port: 443
+  udp: true
+  skip-cert-verify: true
+  password: d042d150716709bb778cc73889cddb02
+  sni: www.bing.com
+  obfs: salamander
+  obfs-password: 309502c4a8df10b46fb976d4a8c43f42
 - name: 4Jadi-a44369095d
   type: hysteria2
   server: 132.226.226.189
@@ -242,55 +253,13 @@ proxies:
   udp: true
   skip-cert-verify: true
   password: 1671a252e2a97dc2bda4e515475931da
-- name: 🇺🇸US-🚀@VPNine1
+- name: 4Jadi-891e2827d8
   type: hysteria2
-  server: 192.255.152.147
-  port: 443
+  server: 152.70.237.123
+  port: 2053
   udp: true
   skip-cert-verify: true
-  password: yO8pug5XmwkBXBAjleYIaVt
-  sni: 192.255.152.147
-- name: 4Nika-7f3d4373f5
-  type: hysteria2
-  server: 152.69.231.175
-  port: 50160
-  udp: true
-  skip-cert-verify: true
-  password: 1beb216e3f60aea9555dae60d219a5ca
-- name: 4Mohsen-13ed56c596
-  type: hysteria2
-  server: 208.69.78.217
-  port: 21016
-  udp: true
-  skip-cert-verify: true
-  password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  sni: vpn.local
-  obfs: salamander
-  obfs-password: mbQXP2ASuHbF6ZPq
-- name: 4Nika-08de16f1fb
-  type: hysteria2
-  server: 24.233.8.109
-  port: 443
-  udp: true
-  skip-cert-verify: true
-  password: 8294f130408299df8cab08c80bf6f819
-  sni: www.bing.com
-  obfs: salamander
-  obfs-password: c8827ab99e316c5bd414e21afa915ddf
-- name: 4Nika-f7404b7dd2
-  type: hysteria2
-  server: 152.67.200.82
-  port: 50160
-  udp: true
-  skip-cert-verify: true
-  password: 3d7634af8cb2c6cb4bac1c0efad8b43d
-- name: 4Jadi-30032e2fc9
-  type: hysteria2
-  server: 138.3.208.26
-  port: 50160
-  udp: true
-  skip-cert-verify: true
-  password: 184cdec28da5a09450803c8debcd2cc9
+  password: maintell
 - name: 4Sarina-0badb32601
   type: vless
   server: 104.18.20.212
@@ -311,96 +280,76 @@ proxies:
   udp: true
   skip-cert-verify: true
   password: b0917015b656b3dd2286b5633af0c5c1
-- name: 🇮🇹 意大利 | ITA
-  type: hysteria2
-  server: 13.229.214.4
-  port: 20000
-  udp: true
-  skip-cert-verify: true
-  password: Rgl5QNexXDgv0jClIuGNyzW5
-  sni: sg-transit-1.nebulacloud.win
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - AUTO
   - FALLBACK
-  - SHADOWSOCKS-4 | 60ms
-  - 🇺🇸US_229|1.0MB/s|A001-260618 [1fae46468fbb]
+  - US17
+  - 🇺🇸US_262|1.7MB/s|A004-260618 [bd1e79add0e4]
   - 4FreeIran-980fa79e9b
-  - 4Mohsen-6935c24914
-  - 4Mohsen-a1c78a4de2
-  - 🪅6@oneclickvpnkeys
-  - 4Mohsen-30302633ac
-  - 4Jadi-439fd40fb4
-  - 🇺🇸US_408|1.4MB/s|A004-260618 [ddaf7c31ea13]
-  - '@vpnbaz'
-  - 4Mohsen-3e6925b3e2
-  - 4FreeIran-7909020cc8
-  - 43@oneclickvpnkeys
-  - 4Jadi-183ab4e93a
-  - 4Mohsen-29c4f08f0f
-  - 🇩🇪 Германия [🏴BL] | 🥭🔧
-  - 🇵🇱PL_1|3.6MB/s
-  - 🇵🇱 Польша [🏴BL] | 🥭🔧
-  - 🪅32@oneclickvpnkeys
-  - 🇮🇷 12@exclavevpn
-  - 4Jadi-daae6df341
-  - 4Mohsen-8fd98d35fa
-  - 4Kian-efbbb2cc05
-  - 4Nika-8611f62d25
-  - 4Kian-b1f74ed8a9
-  - 4Kian-eb043a049b
-  - 4Jadi-a44369095d
+  - 4Sarina-88d3881430
   - 🇺🇸US-🚀@VPNine1
-  - 4Nika-7f3d4373f5
-  - 4Mohsen-13ed56c596
-  - 4Nika-08de16f1fb
-  - 4Nika-f7404b7dd2
+  - 4Mohsen-30302633ac
+  - 4FreeIran-7909020cc8
+  - 4FreeIran-d57fafb22f
+  - 4Jadi-439fd40fb4
+  - 4Mohsen-3e6925b3e2
+  - 4FreeIran-8dbb5d8613
+  - 4Jadi-daae6df341
+  - 🪅32@oneclickvpnkeys
+  - '@V2ray_confiig #3'
+  - 4FreeIran-6e3bf07a46
+  - 4FreeIran-83b4f55c42
+  - 4Kian-efbbb2cc05
+  - 🇮🇷 12@exclavevpn
   - 4Jadi-30032e2fc9
+  - 4Jadi-eecd019ffc
+  - 43@oneclickvpnkeys
+  - 4Jadi-709157fdcd
+  - 4Jadi-c66eb57b8a
+  - 4Nika-7f3d4373f5
+  - 4Kian-eb043a049b
+  - 4Sarina-4b7048e856
+  - 4Jadi-a44369095d
+  - 4Jadi-891e2827d8
   - 4Sarina-0badb32601
   - 4Mohsen-8bbb320d02
-  - 🇮🇹 意大利 | ITA
   - DIRECT
 - name: AUTO
   type: url-test
   proxies: &id001
-  - SHADOWSOCKS-4 | 60ms
-  - 🇺🇸US_229|1.0MB/s|A001-260618 [1fae46468fbb]
+  - US17
+  - 🇺🇸US_262|1.7MB/s|A004-260618 [bd1e79add0e4]
   - 4FreeIran-980fa79e9b
-  - 4Mohsen-6935c24914
-  - 4Mohsen-a1c78a4de2
-  - 🪅6@oneclickvpnkeys
-  - 4Mohsen-30302633ac
-  - 4Jadi-439fd40fb4
-  - 🇺🇸US_408|1.4MB/s|A004-260618 [ddaf7c31ea13]
-  - '@vpnbaz'
-  - 4Mohsen-3e6925b3e2
-  - 4FreeIran-7909020cc8
-  - 43@oneclickvpnkeys
-  - 4Jadi-183ab4e93a
-  - 4Mohsen-29c4f08f0f
-  - 🇩🇪 Германия [🏴BL] | 🥭🔧
-  - 🇵🇱PL_1|3.6MB/s
-  - 🇵🇱 Польша [🏴BL] | 🥭🔧
-  - 🪅32@oneclickvpnkeys
-  - 🇮🇷 12@exclavevpn
-  - 4Jadi-daae6df341
-  - 4Mohsen-8fd98d35fa
-  - 4Kian-efbbb2cc05
-  - 4Nika-8611f62d25
-  - 4Kian-b1f74ed8a9
-  - 4Kian-eb043a049b
-  - 4Jadi-a44369095d
+  - 4Sarina-88d3881430
   - 🇺🇸US-🚀@VPNine1
-  - 4Nika-7f3d4373f5
-  - 4Mohsen-13ed56c596
-  - 4Nika-08de16f1fb
-  - 4Nika-f7404b7dd2
+  - 4Mohsen-30302633ac
+  - 4FreeIran-7909020cc8
+  - 4FreeIran-d57fafb22f
+  - 4Jadi-439fd40fb4
+  - 4Mohsen-3e6925b3e2
+  - 4FreeIran-8dbb5d8613
+  - 4Jadi-daae6df341
+  - 🪅32@oneclickvpnkeys
+  - '@V2ray_confiig #3'
+  - 4FreeIran-6e3bf07a46
+  - 4FreeIran-83b4f55c42
+  - 4Kian-efbbb2cc05
+  - 🇮🇷 12@exclavevpn
   - 4Jadi-30032e2fc9
+  - 4Jadi-eecd019ffc
+  - 43@oneclickvpnkeys
+  - 4Jadi-709157fdcd
+  - 4Jadi-c66eb57b8a
+  - 4Nika-7f3d4373f5
+  - 4Kian-eb043a049b
+  - 4Sarina-4b7048e856
+  - 4Jadi-a44369095d
+  - 4Jadi-891e2827d8
   - 4Sarina-0badb32601
   - 4Mohsen-8bbb320d02
-  - 🇮🇹 意大利 | ITA
   url: https://www.gstatic.com/generate_204
   interval: 120
   tolerance: 50

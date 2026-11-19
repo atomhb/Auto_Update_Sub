@@ -1,164 +1,161 @@
-2026-11-19 06:53:30,953 - INFO - ============================================================
-2026-11-19 06:53:30,953 - INFO - Clash/V2Ray 节点深度清洗聚合测速工具 v3.5 (极速漏斗版)
-2026-11-19 06:53:30,953 - INFO - 流程: 深度清洗 → 300并发Socket探活 → Mihomo全协议初筛 → 真连接两轮深测 → Scholar验证
-2026-11-19 06:53:30,953 - INFO - ============================================================
-2026-11-19 06:53:30,953 - INFO - 正在检测本机公网 IP 与网络环境...
-2026-11-19 06:53:30,982 - INFO - ✓ 已记录本机公网 IP: 57.154.233.6 (测速时将强制比对出口 IP，严防直连穿透)
-2026-11-19 06:53:31,003 - WARNING - 提示：当前运行环境在海外 (如 GitHub Actions)，已开启防直连泄漏与真实载荷验证。
-2026-11-19 06:53:31,004 - INFO - 读取到 103 个订阅源，正在并发抓取...
-2026-11-19 06:53:31,095 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MrMohebi/xr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
-2026-11-19 06:53:31,098 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/snakem982/p]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
-2026-11-19 06:53:31,107 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/aiboboxx/cl]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/aiboboxx/clashfree/main/clash.yml
-2026-11-19 06:53:31,109 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/vveg26/chro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/vveg26/chromego_merge/main/sub/merged_proxies.yaml
-2026-11-19 06:53:31,113 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodefree.yaml
-2026-11-19 06:53:31,118 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/yudou66.yaml
-2026-11-19 06:53:31,124 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/rxsweet/pro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/rxsweet/proxies/main/sub/free.yaml
-2026-11-19 06:53:31,143 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/rxsweet/pro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/rxsweet/proxies/main/sub/rx.yaml
-2026-11-19 06:53:31,144 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/rxsweet/pro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/rxsweet/proxies/main/sub/sources/dynamicAll.yaml
-2026-11-19 06:53:31,145 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/v2rayshare.yaml
-2026-11-19 06:53:31,161 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/ndnode.yaml
-2026-11-19 06:53:31,165 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/wenode.yaml
-2026-11-19 06:53:31,219 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Leon406/Sub]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/all4
-2026-11-19 06:53:31,231 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/reality
-2026-11-19 06:53:31,233 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/All_Configs_Sub.txt
-2026-11-19 06:53:31,234 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/ss.txt
-2026-11-19 06:53:31,238 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/vmess.txt
-2026-11-19 06:53:31,239 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/vmess
-2026-11-19 06:53:31,239 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/vless.txt
-2026-11-19 06:53:31,240 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/vless
-2026-11-19 06:53:31,244 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/trojan.txt
-2026-11-19 06:53:31,245 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/hysteria2
-2026-11-19 06:53:31,278 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/tuic
-2026-11-19 06:53:31,248 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/hysteria2.txt
-2026-11-19 06:53:31,277 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/donated
-2026-11-19 06:53:31,333 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MatinGhanba]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/filtered/subs/hy2.txt
-2026-11-19 06:53:31,360 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MrMohebi/xr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/all.txt
-2026-11-19 06:53:31,376 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/snakem982/p]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/v2ray.txt
-2026-11-19 06:53:31,393 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MrMohebi/xr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/actives.txt
-2026-11-19 06:53:31,411 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/aiboboxx/v2]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2
-2026-11-19 06:53:31,439 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/snakem982/p]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/snakem982/proxypool/main/nodelist.txt
-2026-11-19 06:53:31,516 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/vless.txt
-2026-11-19 06:53:31,532 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/vmess.txt
-2026-11-19 06:53:31,535 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/ss.txt
-2026-11-19 06:53:31,555 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/trojan.txt
-2026-11-19 06:53:31,600 - ERROR - 获取订阅失败 [https://sub.pmsub.me/base64]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-2026-11-19 06:53:31,601 - ERROR - 获取订阅失败 [https://sub.pmsub.me/clash.yaml]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-2026-11-19 06:53:32,320 - INFO -   └─ 解析到 235 个有效节点 (https://raw.githubusercontent.com/chengaopan/AutoM...)
-2026-11-19 06:53:32,346 - INFO -   └─ 解析到 94 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
-2026-11-19 06:53:32,411 - INFO -   └─ 解析到 250 个有效节点 (https://raw.githubusercontent.com/Leon406/SubCrawl...)
-2026-11-19 06:53:32,413 - INFO -   └─ 解析到 6 个有效节点 (https://raw.githubusercontent.com/Pawdroid/Free-se...)
-2026-11-19 06:53:32,414 - INFO -   └─ 解析到 4 个有效节点 (https://raw.githubusercontent.com/Leon406/SubCrawl...)
-2026-11-19 06:53:32,544 - INFO -   └─ 解析到 6 个有效节点 (https://raw.githubusercontent.com/Misaka-blog/chro...)
-2026-11-19 06:53:33,136 - INFO -   └─ 解析到 1 个有效节点 (https://raw.githubusercontent.com/PuddinCat/BestCl...)
-2026-11-19 06:53:33,220 - INFO -   └─ 解析到 481 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
-2026-11-19 06:53:34,121 - INFO -   └─ 解析到 80 个有效节点 (https://raw.githubusercontent.com/ermaozi/get_subs...)
-2026-11-19 06:53:34,181 - INFO -   └─ 解析到 9 个有效节点 (https://raw.githubusercontent.com/shaoyouvip/free/...)
-2026-11-19 06:53:34,522 - INFO -   └─ 解析到 195 个有效节点 (https://raw.githubusercontent.com/ts-sf/fly/main/c...)
-2026-11-19 06:53:34,693 - INFO -   └─ 解析到 5 个有效节点 (https://raw.githubusercontent.com/ripaojiedian/fre...)
-2026-11-19 06:53:34,780 - INFO -   └─ 解析到 11 个有效节点 (https://raw.githubusercontent.com/Ruk1ng001/freeSu...)
-2026-11-19 06:53:36,802 - INFO -   └─ 解析到 967 个有效节点 (https://raw.githubusercontent.com/Barabama/FreeNod...)
-2026-11-19 06:53:37,277 - INFO -   └─ 解析到 5 个有效节点 (https://raw.githubusercontent.com/snakem982/proxyp...)
-2026-11-19 06:53:37,381 - INFO -   └─ 解析到 95 个有效节点 (https://raw.githubusercontent.com/Shayanthn/V2ray-...)
-2026-11-19 06:53:39,230 - INFO -   └─ 解析到 1870 个有效节点 (https://raw.githubusercontent.com/anaer/Sub/main/c...)
-2026-11-19 06:53:39,695 - INFO -   └─ 解析到 18 个有效节点 (https://raw.githubusercontent.com/zhlx2835/freefq/...)
-2026-11-19 06:53:39,737 - INFO -   └─ 解析到 123 个有效节点 (https://raw.githubusercontent.com/MatinGhanbari/v2...)
-2026-11-19 06:53:39,765 - INFO -   └─ 解析到 161 个有效节点 (https://raw.githubusercontent.com/MatinGhanbari/v2...)
-2026-11-19 06:53:39,789 - INFO -   └─ 解析到 69 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
-2026-11-19 06:53:39,792 - INFO -   └─ 解析到 9 个有效节点 (https://raw.githubusercontent.com/freefq/free/mast...)
-2026-11-19 06:53:39,868 - INFO -   └─ 解析到 58 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
-2026-11-19 06:53:39,875 - INFO -   └─ 解析到 1 个有效节点 (https://raw.githubusercontent.com/snakem982/proxyp...)
-2026-11-19 06:53:42,064 - INFO -   └─ 解析到 505 个有效节点 (https://raw.githubusercontent.com/Barabama/FreeNod...)
-2026-11-19 06:53:42,121 - INFO -   └─ 解析到 105 个有效节点 (https://raw.githubusercontent.com/resasanian/Mirza...)
-2026-11-19 06:53:42,214 - INFO -   └─ 解析到 121 个有效节点 (https://raw.githubusercontent.com/peasoft/NoMoreWa...)
-2026-11-19 06:53:42,318 - INFO -   └─ 解析到 81 个有效节点 (https://raw.githubusercontent.com/free18/v2ray/mai...)
-2026-11-19 06:53:42,356 - INFO -   └─ 解析到 75 个有效节点 (https://raw.githubusercontent.com/ts-sf/fly/main/v...)
-2026-11-19 06:53:42,360 - INFO -   └─ 解析到 14 个有效节点 (https://raw.githubusercontent.com/zhlx2835/freefq/...)
-2026-11-19 06:53:42,376 - INFO -   └─ 解析到 9 个有效节点 (https://raw.githubusercontent.com/roosterkid/openp...)
-2026-11-19 06:53:42,377 - INFO -   └─ 解析到 2 个有效节点 (https://raw.githubusercontent.com/dream4network/te...)
-2026-11-19 06:53:42,381 - INFO -   └─ 解析到 3 个有效节点 (https://raw.githubusercontent.com/Surfboardv2ray/T...)
-2026-11-19 06:53:42,393 - INFO -   └─ 解析到 17 个有效节点 (https://raw.githubusercontent.com/Maskkost93/kizya...)
-2026-11-19 06:53:43,104 - INFO -   └─ 解析到 2001 个有效节点 (https://raw.githubusercontent.com/MatinGhanbari/v2...)
-2026-11-19 06:53:43,125 - INFO -   └─ 解析到 10 个有效节点 (https://raw.githubusercontent.com/mahdibland/V2Ray...)
-2026-11-19 06:53:43,668 - INFO -   └─ 解析到 2653 个有效节点 (https://raw.githubusercontent.com/mahdibland/V2Ray...)
-2026-11-19 06:53:44,338 - INFO -   └─ 解析到 789 个有效节点 (https://raw.githubusercontent.com/mheidari98/.prox...)
-2026-11-19 06:53:46,731 - INFO -   └─ 解析到 6133 个有效节点 (https://raw.githubusercontent.com/mheidari98/.prox...)
-2026-11-19 06:53:51,572 - INFO -   └─ 解析到 15828 个有效节点 (https://raw.githubusercontent.com/Leon406/SubCrawl...)
-2026-11-19 06:53:53,200 - INFO -   └─ 解析到 3092 个有效节点 (https://raw.githubusercontent.com/0xRadikal/Free-v...)
-2026-11-19 06:53:53,283 - INFO -   └─ 解析到 3 个有效节点 (https://github.com/Delta-Kronecker/V2ray-Config/ra...)
-2026-11-19 06:53:53,283 - INFO - 订阅抓取合并完成: 共提取到 36194 个标准化节点
-2026-11-19 06:53:53,285 - INFO - 
+2026-11-19 20:37:09,775 - INFO - ============================================================
+2026-11-19 20:37:09,775 - INFO - Clash/V2Ray 节点深度清洗聚合测速工具 v3.5 (极速漏斗版)
+2026-11-19 20:37:09,775 - INFO - 流程: 深度清洗 → 300并发Socket探活 → Mihomo全协议初筛 → 真连接两轮深测 → Scholar验证
+2026-11-19 20:37:09,775 - INFO - ============================================================
+2026-11-19 20:37:09,775 - INFO - 正在检测本机公网 IP 与网络环境...
+2026-11-19 20:37:09,836 - INFO - ✓ 已记录本机公网 IP: 172.182.225.163 (测速时将强制比对出口 IP，严防直连穿透)
+2026-11-19 20:37:09,858 - WARNING - 提示：当前运行环境在海外 (如 GitHub Actions)，已开启防直连泄漏与真实载荷验证。
+2026-11-19 20:37:09,859 - INFO - 读取到 103 个订阅源，正在并发抓取...
+2026-11-19 20:37:09,947 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/aiboboxx/cl]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/aiboboxx/clashfree/main/clash.yml
+2026-11-19 20:37:10,017 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/vveg26/chro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/vveg26/chromego_merge/main/sub/merged_proxies.yaml
+2026-11-19 20:37:10,031 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MrMohebi/xr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/clash-meta/all.yaml
+2026-11-19 20:37:10,038 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/ndnode.yaml
+2026-11-19 20:37:10,041 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/rxsweet/pro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/rxsweet/proxies/main/sub/rx.yaml
+2026-11-19 20:37:10,050 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/rxsweet/pro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/rxsweet/proxies/main/sub/sources/dynamicAll.yaml
+2026-11-19 20:37:10,073 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/yudou66.yaml
+2026-11-19 20:37:10,077 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/wenode.yaml
+2026-11-19 20:37:10,097 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/trojan.txt
+2026-11-19 20:37:10,151 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/vmess.txt
+2026-11-19 20:37:10,154 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Leon406/Sub]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/all4
+2026-11-19 20:37:10,158 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/reality
+2026-11-19 20:37:10,165 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/ss.txt
+2026-11-19 20:37:10,169 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/vmess
+2026-11-19 20:37:10,176 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/snakem982/p]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/clash-meta.yaml
+2026-11-19 20:37:10,183 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/tuic
+2026-11-19 20:37:10,184 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/donated
+2026-11-19 20:37:10,189 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/vless
+2026-11-19 20:37:10,192 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/yebekhe/Tel]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/hysteria2
+2026-11-19 20:37:10,263 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/rxsweet/pro]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/rxsweet/proxies/main/sub/free.yaml
+2026-11-19 20:37:10,265 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/nodefree.yaml
+2026-11-19 20:37:10,276 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/Barabama/Fr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Barabama/FreeNodes/main/nodes/v2rayshare.yaml
+2026-11-19 20:37:10,301 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MrMohebi/xr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/actives.txt
+2026-11-19 20:37:10,302 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MrMohebi/xr]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MrMohebi/xray-proxy-grabber-telegram/master/collected-proxies/row-url/all.txt
+2026-11-19 20:37:10,319 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/MatinGhanba]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/filtered/subs/hy2.txt
+2026-11-19 20:37:10,332 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/All_Configs_Sub.txt
+2026-11-19 20:37:10,342 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/vless.txt
+2026-11-19 20:37:10,361 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/aiboboxx/v2]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2
+2026-11-19 20:37:10,385 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/barry-far/V]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/hysteria2.txt
+2026-11-19 20:37:10,433 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/snakem982/p]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/snakem982/proxypool/main/nodelist.txt
+2026-11-19 20:37:10,495 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/vmess.txt
+2026-11-19 20:37:10,499 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/vless.txt
+2026-11-19 20:37:10,528 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/trojan.txt
+2026-11-19 20:37:10,534 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/gfpcom/free]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/gfpcom/free-proxy-list/main/list/ss.txt
+2026-11-19 20:37:10,615 - ERROR - 获取订阅失败 [https://raw.githubusercontent.com/snakem982/p]: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/snakem982/proxypool/main/source/v2ray.txt
+2026-11-19 20:37:11,167 - ERROR - 获取订阅失败 [https://sub.pmsub.me/clash.yaml]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-11-19 20:37:11,261 - ERROR - 获取订阅失败 [https://sub.pmsub.me/base64]: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2026-11-19 20:37:12,050 - INFO -   └─ 解析到 254 个有效节点 (https://raw.githubusercontent.com/chengaopan/AutoM...)
+2026-11-19 20:37:13,849 - INFO -   └─ 解析到 1980 个有效节点 (https://raw.githubusercontent.com/anaer/Sub/main/c...)
+2026-11-19 20:37:14,175 - INFO -   └─ 解析到 184 个有效节点 (https://raw.githubusercontent.com/ts-sf/fly/main/c...)
+2026-11-19 20:37:14,759 - INFO -   └─ 解析到 1 个有效节点 (https://raw.githubusercontent.com/PuddinCat/BestCl...)
+2026-11-19 20:37:16,523 - INFO -   └─ 解析到 688 个有效节点 (https://raw.githubusercontent.com/Barabama/FreeNod...)
+2026-11-19 20:37:16,530 - INFO -   └─ 解析到 3 个有效节点 (https://raw.githubusercontent.com/shaoyouvip/free/...)
+2026-11-19 20:37:17,023 - INFO -   └─ 解析到 8 个有效节点 (https://raw.githubusercontent.com/snakem982/proxyp...)
+2026-11-19 20:37:17,111 - INFO -   └─ 解析到 11 个有效节点 (https://raw.githubusercontent.com/Ruk1ng001/freeSu...)
+2026-11-19 20:37:17,235 - INFO -   └─ 解析到 6 个有效节点 (https://raw.githubusercontent.com/Misaka-blog/chro...)
+2026-11-19 20:37:17,789 - INFO -   └─ 解析到 104 个有效节点 (https://raw.githubusercontent.com/Shayanthn/V2ray-...)
+2026-11-19 20:37:17,856 - INFO -   └─ 解析到 240 个有效节点 (https://raw.githubusercontent.com/Leon406/SubCrawl...)
+2026-11-19 20:37:18,027 - INFO -   └─ 解析到 6 个有效节点 (https://raw.githubusercontent.com/ripaojiedian/fre...)
+2026-11-19 20:37:18,493 - INFO -   └─ 解析到 18 个有效节点 (https://raw.githubusercontent.com/zhlx2835/freefq/...)
+2026-11-19 20:37:18,494 - INFO -   └─ 解析到 2 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
+2026-11-19 20:37:18,495 - INFO -   └─ 解析到 4 个有效节点 (https://raw.githubusercontent.com/Leon406/SubCrawl...)
+2026-11-19 20:37:19,748 - INFO -   └─ 解析到 135 个有效节点 (https://raw.githubusercontent.com/Barabama/FreeNod...)
+2026-11-19 20:37:19,776 - INFO -   └─ 解析到 70 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
+2026-11-19 20:37:19,816 - INFO -   └─ 解析到 73 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
+2026-11-19 20:37:19,845 - INFO -   └─ 解析到 167 个有效节点 (https://raw.githubusercontent.com/MatinGhanbari/v2...)
+2026-11-19 20:37:20,172 - INFO -   └─ 解析到 23 个有效节点 (https://raw.githubusercontent.com/ermaozi/get_subs...)
+2026-11-19 20:37:20,228 - INFO -   └─ 解析到 9 个有效节点 (https://raw.githubusercontent.com/freefq/free/mast...)
+2026-11-19 20:37:20,250 - INFO -   └─ 解析到 106 个有效节点 (https://raw.githubusercontent.com/resasanian/Mirza...)
+2026-11-19 20:37:20,298 - INFO -   └─ 解析到 119 个有效节点 (https://raw.githubusercontent.com/chengaopan/AutoM...)
+2026-11-19 20:37:20,412 - INFO -   └─ 解析到 14 个有效节点 (https://raw.githubusercontent.com/zhlx2835/freefq/...)
+2026-11-19 20:37:20,998 - INFO -   └─ 解析到 2017 个有效节点 (https://raw.githubusercontent.com/MatinGhanbari/v2...)
+2026-11-19 20:37:21,007 - INFO -   └─ 解析到 3 个有效节点 (https://raw.githubusercontent.com/roosterkid/openp...)
+2026-11-19 20:37:21,046 - INFO -   └─ 解析到 450 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
+2026-11-19 20:37:21,046 - INFO -   └─ 解析到 2 个有效节点 (https://raw.githubusercontent.com/dream4network/te...)
+2026-11-19 20:37:22,486 - INFO -   └─ 解析到 4893 个有效节点 (https://raw.githubusercontent.com/mheidari98/.prox...)
+2026-11-19 20:37:22,553 - INFO -   └─ 解析到 49 个有效节点 (https://raw.githubusercontent.com/MhdiTaheri/V2ray...)
+2026-11-19 20:37:22,593 - INFO -   └─ 解析到 50 个有效节点 (https://raw.githubusercontent.com/MatinGhanbari/v2...)
+2026-11-19 20:37:23,157 - INFO -   └─ 解析到 2664 个有效节点 (https://raw.githubusercontent.com/mahdibland/V2Ray...)
+2026-11-19 20:37:23,896 - INFO -   └─ 解析到 854 个有效节点 (https://raw.githubusercontent.com/mheidari98/.prox...)
+2026-11-19 20:37:27,384 - INFO -   └─ 解析到 15968 个有效节点 (https://raw.githubusercontent.com/Leon406/SubCrawl...)
+2026-11-19 20:37:29,994 - INFO -   └─ 解析到 1592 个有效节点 (https://raw.githubusercontent.com/mheidari98/.prox...)
+2026-11-19 20:37:30,008 - INFO -   └─ 解析到 1 个有效节点 (https://raw.githubusercontent.com/Maskkost93/kizya...)
+2026-11-19 20:37:30,069 - INFO -   └─ 解析到 29 个有效节点 (https://raw.githubusercontent.com/free18/v2ray/mai...)
+2026-11-19 20:37:30,109 - INFO -   └─ 解析到 11 个有效节点 (https://raw.githubusercontent.com/ts-sf/fly/main/v...)
+2026-11-19 20:37:30,261 - INFO -   └─ 解析到 895 个有效节点 (https://github.com/Delta-Kronecker/V2ray-Config/ra...)
+2026-11-19 20:37:31,911 - INFO -   └─ 解析到 2228 个有效节点 (https://raw.githubusercontent.com/0xRadikal/Free-v...)
+2026-11-19 20:37:31,911 - INFO - 订阅抓取合并完成: 共提取到 35931 个标准化节点
+2026-11-19 20:37:31,913 - INFO - 
 ============================================================
-2026-11-19 06:53:53,285 - INFO - [前置过滤] 开始深度清洗去重 (原始抓取节点总数: 36194)
-2026-11-19 06:53:53,286 - INFO - ============================================================
-2026-11-19 06:53:53,642 - INFO - 1. 广告与非法参数过滤: 剔除 187 个，保留有效节点 36007
-2026-11-19 06:53:53,661 - INFO - 2. 唯一 IP:Port 端点去重: 剔除同端口壳节点 10569 个，剩余 25438
-2026-11-19 06:53:53,697 - INFO - 3. CDN 优选 IP 收敛: 压缩同质化节点 6176 个，保留代表 13077
-2026-11-19 06:53:53,706 - INFO - 4. 单 IP 端口轰炸收敛: 剩余 17338 个节点
-2026-11-19 06:53:53,711 - WARNING - ⚠️ 节点数仍有 17338 个，随机截取 12000 个送入 Socket 极速预筛
-2026-11-19 06:53:53,712 - INFO - ✓ 预处理完成！候选节点数: 12000
-2026-11-19 06:53:53,715 - INFO - 
+2026-11-19 20:37:31,913 - INFO - [前置过滤] 开始深度清洗去重 (原始抓取节点总数: 35931)
+2026-11-19 20:37:31,913 - INFO - ============================================================
+2026-11-19 20:37:32,250 - INFO - 1. 广告与非法参数过滤: 剔除 181 个，保留有效节点 35750
+2026-11-19 20:37:32,269 - INFO - 2. 唯一 IP:Port 端点去重: 剔除同端口壳节点 10485 个，剩余 25265
+2026-11-19 20:37:32,302 - INFO - 3. CDN 优选 IP 收敛: 压缩同质化节点 6138 个，保留代表 13009
+2026-11-19 20:37:32,310 - INFO - 4. 单 IP 端口轰炸收敛: 剩余 17196 个节点
+2026-11-19 20:37:32,315 - WARNING - ⚠️ 节点数仍有 17196 个，随机截取 12000 个送入 Socket 极速预筛
+2026-11-19 20:37:32,315 - INFO - ✓ 预处理完成！候选节点数: 12000
+2026-11-19 20:37:32,317 - INFO - 
 ============================================================
-2026-11-19 06:53:53,715 - INFO - [阶段0.5/3] 极速 Socket 端口连通性预筛 (12000 个节点, 300 并发)
-2026-11-19 06:53:53,715 - INFO - ============================================================
-2026-11-19 06:54:13,422 - INFO - ✓ Socket 预筛完成: 瞬间剔除死节点 3180 个！存活 8820 个，取前 2500 个送入全协议握手
-2026-11-19 06:54:13,434 - INFO - 
+2026-11-19 20:37:32,317 - INFO - [阶段0.5/3] 极速 Socket 端口连通性预筛 (12000 个节点, 300 并发)
+2026-11-19 20:37:32,317 - INFO - ============================================================
+2026-11-19 20:37:55,725 - INFO - ✓ Socket 预筛完成: 瞬间剔除死节点 3228 个！存活 8772 个，取前 2500 个送入全协议握手
+2026-11-19 20:37:55,737 - INFO - 
 ============================================================
-2026-11-19 06:54:13,434 - INFO - [阶段1/3] Mihomo 全协议多进程并发初筛 (2500 个存活端口节点)
-2026-11-19 06:54:13,434 - INFO - ============================================================
-2026-11-19 06:54:27,144 - INFO - ✓ 阶段1完成: 50/2500 节点握手通过，优选前 50 个进入真连接深测
-2026-11-19 06:54:27,144 - INFO - 
+2026-11-19 20:37:55,737 - INFO - [阶段1/3] Mihomo 全协议多进程并发初筛 (2500 个存活端口节点)
+2026-11-19 20:37:55,737 - INFO - ============================================================
+2026-11-19 20:38:08,978 - INFO - ✓ 阶段1完成: 51/2500 节点握手通过，优选前 51 个进入真连接深测
+2026-11-19 20:38:08,979 - INFO - 
 ============================================================
-2026-11-19 06:54:27,144 - INFO - [阶段1.5/3] 真连接严苛测试 第1轮 (50 个节点)
-2026-11-19 06:54:27,144 - INFO -   校验项目: CF出口IP检验 + Google真实正文下载 (强制代理路由，严禁直连与重定向)
-2026-11-19 06:54:27,144 - INFO - ============================================================
-2026-11-19 06:54:46,596 - INFO - ✓ 第1轮完成: 46/50 个节点真实可用
-2026-11-19 06:54:46,596 - INFO - 
+2026-11-19 20:38:08,979 - INFO - [阶段1.5/3] 真连接严苛测试 第1轮 (51 个节点)
+2026-11-19 20:38:08,979 - INFO -   校验项目: CF出口IP检验 + Google真实正文下载 (强制代理路由，严禁直连与重定向)
+2026-11-19 20:38:08,979 - INFO - ============================================================
+2026-11-19 20:38:32,325 - INFO - ✓ 第1轮完成: 48/51 个节点真实可用
+2026-11-19 20:38:32,325 - INFO - 
 ============================================================
-2026-11-19 06:54:46,596 - INFO - [阶段1.7/3] 真连接严苛测试 第2轮 (46 个节点)
-2026-11-19 06:54:46,596 - INFO -   校验项目: Google双源204稳定性复核 (强制代理路由，严禁直连与重定向)
-2026-11-19 06:54:46,596 - INFO - ============================================================
-2026-11-19 06:55:07,905 - INFO - ✓ 第2轮完成: 43/46 个节点真实可用
-2026-11-19 06:55:07,906 - INFO - 生成 Clash 配置: 43 节点 → sub.yaml
-2026-11-19 06:55:07,923 - INFO - ✓ 已写入: sub.yaml
-2026-11-19 06:55:07,924 - INFO - 生成 V2Ray Base64 订阅: 43 节点 → sub_v2ray_base64.txt
-2026-11-19 06:55:07,924 - INFO - ✓ 写入完成: sub_v2ray_base64.txt | 明文: sub_v2ray_base64_plain.txt (43 个节点)
-2026-11-19 06:55:07,925 - INFO - 
+2026-11-19 20:38:32,325 - INFO - [阶段1.7/3] 真连接严苛测试 第2轮 (48 个节点)
+2026-11-19 20:38:32,325 - INFO -   校验项目: Google双源204稳定性复核 (强制代理路由，严禁直连与重定向)
+2026-11-19 20:38:32,325 - INFO - ============================================================
+2026-11-19 20:38:50,956 - INFO - ✓ 第2轮完成: 47/48 个节点真实可用
+2026-11-19 20:38:50,956 - INFO - 生成 Clash 配置: 47 节点 → sub.yaml
+2026-11-19 20:38:50,974 - INFO - ✓ 已写入: sub.yaml
+2026-11-19 20:38:50,974 - INFO - 生成 V2Ray Base64 订阅: 47 节点 → sub_v2ray_base64.txt
+2026-11-19 20:38:50,975 - INFO - ✓ 写入完成: sub_v2ray_base64.txt | 明文: sub_v2ray_base64_plain.txt (47 个节点)
+2026-11-19 20:38:50,975 - INFO - 
 ============================================================
-2026-11-19 06:55:07,925 - INFO - [阶段2/3] Google Scholar 学术访问验证 (43 个节点)
-2026-11-19 06:55:07,925 - INFO - ============================================================
-2026-11-19 06:55:08,311 - INFO - ✓ Scholar免验证通过: 🇺🇸US_345|1.6MB/s|M003-260806 [863747e5c90a]
-2026-11-19 06:55:08,591 - INFO - ✓ Scholar免验证通过: 🇺🇸US_539|1.4MB/s|M003-260806 [2adc3fb15d35]
-2026-11-19 06:55:09,082 - INFO - ✓ Scholar免验证通过: 🇺🇸US_358|1.5MB/s|M003-260806 [d60ee2c3d529]
-2026-11-19 06:55:09,366 - INFO - ✓ Scholar免验证通过: 4FreeIran-980fa79e9b
-2026-11-19 06:55:10,183 - INFO - ✓ Scholar免验证通过: 4Mohsen-8e766bdfca
-2026-11-19 06:55:10,327 - INFO - ✓ Scholar免验证通过: 4Mohsen-30302633ac
-2026-11-19 06:55:10,541 - INFO - ✓ Scholar免验证通过: 4Mohsen-a1c78a4de2
-2026-11-19 06:55:11,170 - INFO - ✓ Scholar免验证通过: 4Kian-69e351ce49
-2026-11-19 06:55:11,648 - INFO - ✓ Scholar免验证通过: 4FreeIran-7909020cc8
-2026-11-19 06:55:11,840 - INFO - ✓ Scholar免验证通过: 4Mohsen-8cddd1dd1d
-2026-11-19 06:55:11,873 - INFO - ✓ Scholar免验证通过: 4Kian-eb043a049b
-2026-11-19 06:55:12,649 - INFO - ✓ Scholar免验证通过: @OutlineReleasedKey #4
-2026-11-19 06:55:13,146 - INFO - ✓ Scholar免验证通过: @OutlineReleasedKey #3
-2026-11-19 06:55:14,692 - INFO - ✓ Scholar免验证通过: 4FreeIran-cfdbde3678
-2026-11-19 06:55:15,393 - INFO - ✓ Scholar免验证通过: 4Nika-8611f62d25
-2026-11-19 06:55:15,692 - INFO - ✓ Scholar免验证通过: 4FreeIran-c655ee7681
-2026-11-19 06:55:17,082 - INFO - ✓ Scholar免验证通过: 4Jadi-a44369095d
-2026-11-19 06:55:17,540 - INFO - ✓ Scholar免验证通过: 4Jadi-30032e2fc9
-2026-11-19 06:55:17,991 - INFO - ✓ Scholar免验证通过: 🔹44@oneclickvpnkeys
-2026-11-19 06:55:19,729 - INFO - ✓ Scholar免验证通过: 🇯🇵218802 | ⚡️Telegram = t.me/L...
-2026-11-19 06:55:19,771 - INFO - ✓ Scholar免验证通过: 🔹13@oneclickvpnkeys
-2026-11-19 06:55:19,946 - INFO - ✓ Scholar免验证通过: 4FreeIran-07b1c518f7
-2026-11-19 06:55:21,624 - INFO - ✓ Scholar免验证通过: 4Kian-efbbb2cc05
-2026-11-19 06:55:22,182 - INFO - ✓ Scholar免验证通过: 🇩🇪DE_8|2.7MB/s
-2026-11-19 06:55:24,464 - INFO - ✓ Scholar免验证通过: 4Nika-08de16f1fb
-2026-11-19 06:55:27,435 - INFO - ✓ Scholar免验证通过: AU澳大利亚(mibei77.com 米贝节点分享)
-2026-11-19 06:55:28,164 - INFO - ✓ Scholar免验证通过: 4Jadi-8989e795e4
-2026-11-19 06:55:28,537 - INFO - ✓ 阶段2完成: 27 个节点通过学术验证
-2026-11-19 06:55:28,538 - INFO - 生成 Clash 配置: 27 节点 → sub_scholar.yaml
-2026-11-19 06:55:28,551 - INFO - ✓ 已写入: sub_scholar.yaml
-2026-11-19 06:55:28,551 - INFO - 生成 V2Ray Base64 订阅: 27 节点 → sub_v2ray_base64_scholar.txt
-2026-11-19 06:55:28,551 - INFO - ✓ 写入完成: sub_v2ray_base64_scholar.txt | 明文: sub_v2ray_base64_scholar_plain.txt (27 个节点)
-2026-11-19 06:55:28,552 - INFO - 
-全部流程完成！Scholar纯净节点数量: 27
-2026-11-19 06:55:28,552 - INFO -   Clash配置: sub_scholar.yaml
-2026-11-19 06:55:28,552 - INFO -   V2Ray Base64: sub_v2ray_base64_scholar.txt
+2026-11-19 20:38:50,976 - INFO - [阶段2/3] Google Scholar 学术访问验证 (47 个节点)
+2026-11-19 20:38:50,976 - INFO - ============================================================
+2026-11-19 20:38:52,272 - INFO - ✓ Scholar免验证通过: 4Mohsen-8cddd1dd1d
+2026-11-19 20:38:52,722 - INFO - ✓ Scholar免验证通过: 🇺🇸US_248|971KB/s|A004-260618 [9b10e8e6bf84]
+2026-11-19 20:38:53,259 - INFO - ✓ Scholar免验证通过: 4Mohsen-a1c78a4de2
+2026-11-19 20:38:53,754 - INFO - ✓ Scholar免验证通过: 4Mohsen-8e766bdfca
+2026-11-19 20:38:53,767 - INFO - ✓ Scholar免验证通过: 4Nika-c138ed6776
+2026-11-19 20:38:54,262 - INFO - ✓ Scholar免验证通过: 4Mohsen-8fd98d35fa
+2026-11-19 20:38:54,799 - INFO - ✓ Scholar免验证通过: 4FreeIran-b7885af2a6
+2026-11-19 20:38:55,694 - INFO - ✓ Scholar免验证通过: 🔹66@oneclickvpnkeys
+2026-11-19 20:38:55,868 - INFO - ✓ Scholar免验证通过: 4Jadi-12f0bd0399
+2026-11-19 20:38:56,877 - INFO - ✓ Scholar免验证通过: 4Jadi-891e2827d8
+2026-11-19 20:38:58,357 - INFO - ✓ Scholar免验证通过: 🔹13@oneclickvpnkeys
+2026-11-19 20:38:58,406 - INFO - ✓ Scholar免验证通过: 4Nika-08de16f1fb
+2026-11-19 20:38:58,654 - INFO - ✓ Scholar免验证通过: @OutlineReleasedKey #8
+2026-11-19 20:39:00,211 - INFO - ✓ Scholar免验证通过: 4FreeIran-7909020cc8
+2026-11-19 20:39:00,528 - INFO - ✓ Scholar免验证通过: 4FreeIran-c655ee7681
+2026-11-19 20:39:01,257 - INFO - ✓ Scholar免验证通过: 🇺🇸US_291|1016KB/s|M003-260806 [e39a40c7a978]
+2026-11-19 20:39:01,703 - INFO - ✓ Scholar免验证通过: 🇺🇸US_346|959KB/s|A004-260618 [3751265da33b]
+2026-11-19 20:39:02,899 - INFO - ✓ Scholar免验证通过: 🇺🇸US_201|930KB/s|A004-260618 [0e40b52615aa]
+2026-11-19 20:39:03,907 - INFO - ✓ Scholar免验证通过: AU澳大利亚(mibei77.com 米贝节点分享)
+2026-11-19 20:39:04,467 - INFO - ✓ Scholar免验证通过: 4Mohsen-30302633ac
+2026-11-19 20:39:06,315 - INFO - ✓ Scholar免验证通过: 🔹44@oneclickvpnkeys
+2026-11-19 20:39:09,953 - INFO - ✓ Scholar免验证通过: @Nexus_Panell چنل تلگرام #1
+2026-11-19 20:39:10,380 - INFO - ✓ Scholar免验证通过: 🇺🇸US_344|1002KB/s|M003-260806 [3625b9578cdd]
+2026-11-19 20:39:10,857 - INFO - ✓ Scholar免验证通过: 4FreeIran-4c2ce4906b
+2026-11-19 20:39:21,792 - INFO - ✓ Scholar免验证通过: 4Mohsen-8bbb320d02
+2026-11-19 20:39:29,663 - INFO - ✓ Scholar免验证通过: 🇩🇪DE_153|2.0MB/s|S004-260618 [170c74846aa7]
+2026-11-19 20:39:29,670 - INFO - ✓ 阶段2完成: 26 个节点通过学术验证
+2026-11-19 20:39:29,670 - INFO - 生成 Clash 配置: 26 节点 → sub_scholar.yaml
+2026-11-19 20:39:29,681 - INFO - ✓ 已写入: sub_scholar.yaml
+2026-11-19 20:39:29,681 - INFO - 生成 V2Ray Base64 订阅: 26 节点 → sub_v2ray_base64_scholar.txt
+2026-11-19 20:39:29,682 - INFO - ✓ 写入完成: sub_v2ray_base64_scholar.txt | 明文: sub_v2ray_base64_scholar_plain.txt (26 个节点)
+2026-11-19 20:39:29,682 - INFO - 
+全部流程完成！Scholar纯净节点数量: 26
+2026-11-19 20:39:29,682 - INFO -   Clash配置: sub_scholar.yaml
+2026-11-19 20:39:29,682 - INFO -   V2Ray Base64: sub_v2ray_base64_scholar.txt
